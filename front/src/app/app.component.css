@@ -6,3 +6,26 @@
   border-bottom: 5px solid #fff;
   opacity: 1;
 }
+
+mat-toolbar {
+  background: #141414;
+  border-bottom: 1px solid #000;
+  color: #fff;
+}
+
+.site-title {
+  height: 40px;
+}
+
+.menu-link {
+  padding-left: 20px;
+  font-weight: 100;
+  text-decoration: none;
+  color: #b5b5b5;
+  font-size: 14px;
+}
+
+.menu-link.active {
+  font-weight: 400;
+  color: #fff;
+}

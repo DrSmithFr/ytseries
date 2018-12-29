@@ -21,22 +21,36 @@
 
     <mat-divider></mat-divider>
 
-    <div class="result-row" *ngFor="let row of result">
-      <img src="https://via.placeholder.com/150">
-      <div class="result-detail">
-        <h1 [innerHtml]="row.name"></h1>
-        <p [innerHtml]="row.description"></p>
+    <div class="gridViewContainer">
+
+      <div class="gridView-listItem" *ngFor="let row of result">
+        <div class="gridView-tile">
+          <div class="gridView-imageSection thumbnailWrap">
+            <div class="gridView-imageSectionMaskTop"></div>
+            <div class="gridView-searchHitSelect searchHitSelect">
+              <i class="material-icons">
+                play_arrow
+              </i>
+            </div>
+            <div class="gridView-menu">
+              <i class="material-icons">
+                playlist_add
+              </i>
+            </div>
+            <div class="gridView-image" style="background-image:url('https://images.pexels.com/photos/8806/food-breakfast-egg-milk.jpg?w=940&h=650&auto=compress&cs=tinysrgb');"></div>
+            <div class="gridView-duration">2 saisons</div>
+          </div>
+          <div class="gridView-detailsSection">
+            <div class="gridView-detailsTop">
+              <a class="gridView-title u-link" [innerHtml]="row.name"></a>
+            </div>
+            <div class="gridView-detailsBottom">
+              <div class="gridView-date" [innerHtml]="row.description"></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="result-action">
-        <button mat-stroked-button>
-          <i class="material-icons">play_arrow</i>
-          Play
-        </button>
-        <button mat-stroked-button>
-          <i class="material-icons">playlist_add</i>
-          My List
-        </button>
-      </div>
+
     </div>
 
   </div>

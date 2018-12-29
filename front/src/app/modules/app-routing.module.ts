@@ -7,9 +7,11 @@ import { PasswordResetComponent } from '../pages/password-reset/password-reset.c
 import { PasswordForgotComponent } from '../pages/password-forgot/password-forgot.component';
 import { Page404Component } from '../pages/page404/page404.component';
 import {SearchComponent} from '../pages/search/search.component';
+import {WatchComponent} from "../pages/watch/watch.component";
 
 const ROUTES: Routes = [
   { path: 'search', component: SearchComponent },
+  { path: 'watch', component: WatchComponent },
   { path: 'login', component: LoginComponent },
   { path: 'password_forgot', component: PasswordForgotComponent },
   { path: 'password_reset', component: PasswordResetComponent },
