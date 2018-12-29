@@ -1,0 +1,72 @@
+easy_admin:
+    site_name: 'YT <em style="font-size: 80%;">series</em>'
+    design:
+        brand_color: '#232222'
+        menu:
+          - label: 'Dashboard'
+            route: 'admin_dashboard'
+            icon: 'tachometer'
+            default: true
+          - label: 'Security'
+            icon: 'shield'
+            children:
+              - User
+              - Group
+    entities:
+        User:
+            class: App\Entity\User
+            list:
+                fields:
+                  - 'username'
+                  - 'email'
+                  - 'lastLogin'
+                  - { property: 'enabled', label: 'Active' }
+            edit:
+                fields:
+                    - username
+                    - email
+                    - enabled
+                    - property: 'roles'
+                      type: 'choice'
+                      type_options:
+                          multiple: true
+                          choices:
+                              'ROLE_API': 'ROLE_API'
+                              'ROLE_USER': 'ROLE_USER'
+                              'ROLE_ADMIN': 'ROLE_ADMIN'
+                              'ROLE_SUPER_ADMIN': 'ROLE_SUPER_ADMIN'
+                    - groups
+                form_options: { validation_groups: ['Profile'] }
+            new:
+                fields:
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Basic information', icon: 'info' }
+                    - username
+                    - email
+
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Password', icon: 'key' }
+                    - { property: 'plainPassword', type: 'repeated', type_options: { required: true} }
+
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Security', icon: 'lock' }
+                    - enabled
+                    - property: 'roles'
+                      type: 'choice'
+                      type_options:
+                          multiple: true
+                          choices:
+                              'ROLE_API': 'ROLE_API'
+                              'ROLE_USER': 'ROLE_USER'
+                              'ROLE_ADMIN': 'ROLE_ADMIN'
+                              'ROLE_SUPER_ADMIN': 'ROLE_SUPER_ADMIN'
+                    - groups
+                form_options: { validation_groups: ['Registration'] }
+        Group:
+            class: App\Entity\Group
+            disabled_actions: ['new', 'delete']
+            list:
+                fields:
+                  - name
+                  - roles
+            form:
+                fields:
+                  - name
+                  - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }

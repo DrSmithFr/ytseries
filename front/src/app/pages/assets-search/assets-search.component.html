@@ -1,0 +1,34 @@
+<section class="page page_divided">
+
+  <div class="sidebar" *ngIf="displayFilterMenu">
+    <div class="sidebar_item back-button">
+      <button mat-raised-button class="centered-btn" (click)="toogleFilterMenu()">Close Menu</button>
+    </div>
+
+    <h1>Filters</h1>
+    <mat-divider></mat-divider>
+
+  </div>
+
+  <div class="page_body">
+    <div class="search-bar">
+      <button class="search-filter" mat-flat-button (click)="toogleFilterMenu()">
+        <i class="material-icons">filter_list</i>
+      </button>
+      <input class="search-input" type="text" (keyup)="onSearchChange($event)">
+      <button class="search-button" mat-flat-button color="primary">Search</button>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="result-row" *ngFor="let row of result">
+      <img src="https://via.placeholder.com/150">
+      <div class="result-detail">
+        <h1 [innerHtml]="row.code"></h1>
+        <h2 [innerHtml]="row.name"></h2>
+      </div>
+    </div>
+
+  </div>
+
+</section>

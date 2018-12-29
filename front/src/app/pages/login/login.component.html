@@ -1,0 +1,50 @@
+<mat-grid-list cols="1" rowHeight="2:1">
+  <mat-grid-tile>
+
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="connect()">
+      <mat-card class="card">
+
+        <mat-card-header>
+          <mat-card-title>Ams</mat-card-title>
+          <mat-card-subtitle>Assets management solutions</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content *ngIf="!displayLoadingPanel">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              placeholder="Login"
+              type="email"
+              autocomplete="username"
+              formControlName="login"
+              autofocus
+              required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              placeholder="Password"
+              type="password"
+              autocomplete="current-password"
+              formControlName="password"
+              required>
+          </mat-form-field>
+
+            <mat-checkbox matInput formControlName="rememberMe">Remember me</mat-checkbox>
+        </mat-card-content>
+
+        <mat-card-content *ngIf="displayLoadingPanel">
+          <mat-spinner style="margin:0 auto;"></mat-spinner>
+        </mat-card-content>
+
+        <mat-card-actions class="button-spacer" *ngIf="!displayLoadingPanel">
+          <button mat-button routerLink="/password_forgot">Forgot password?</button>
+          <button [disabled]="!loginForm.valid" mat-raised-button type="submit" color="primary">Connect</button>
+        </mat-card-actions>
+
+      </mat-card>
+    </form>
+
+  </mat-grid-tile>
+</mat-grid-list>

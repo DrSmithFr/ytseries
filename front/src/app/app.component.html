@@ -1,0 +1,24 @@
+<mat-toolbar *ngIf="isConnected()">
+  <span>AmsLite</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>person</mat-icon>
+  </button>
+</mat-toolbar>
+
+<nav mat-tab-nav-bar backgroundColor="primary" *ngIf="isConnected()">
+  <a mat-tab-link routerLink="/search" routerLinkActive="active"> Search </a>
+</nav>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>settings</mat-icon>
+    <span>My account</span>
+  </button>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>settings_power</mat-icon>
+    <span>Log out</span>
+  </button>
+</mat-menu>
+
+<router-outlet></router-outlet>

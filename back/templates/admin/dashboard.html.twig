@@ -1,0 +1,64 @@
+{% extends '@EasyAdmin/default/layout.html.twig' %}
+{% set _content_title = 'Admin dashboard' %}
+{% block page_title -%}
+    {{ _content_title }}
+{%- endblock %}
+{% block content_header %}
+    <h1 class="title">{{ _content_title }}</h1>
+{% endblock %}
+{% block main %}
+    <section class="content">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-aqua"><i class="fa fa-tachometer"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Server Load</span>
+                        <span class="info-box-number" style="line-height: 18px">
+                            <small>1min : {{ load[0] }}</small><br>
+                            <small>5min : {{ load[1] }}</small><br>
+                            <small>15min : {{ load[2] }}</small>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fa fa-microchip"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Memory Usage</span>
+                        <span class="info-box-number">{{ memory_usage }}%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix visible-sm-block"></div>
+
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fa fa-address-card-o"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Users</span>
+                        <span class="info-box-number">{{ user_count }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-yellow"><i class="fa fa-users"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Administrators</span>
+                        <span class="info-box-number">{{ admin_count }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends '@EasyAdmin/default/layout.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+    <body class="hold-transition login-page">
+
+    <div class="login-box">
+        <div class="login-logo">
+            <b>AMS</b>
+            <small>i18n</small>
+        </div>
+
+        <div class="login-box-body">
+            {% if app.request.hasPreviousSession %}
+                {% for type, messages in app.session.flashbag.all() %}
+                    {% for message in messages %}
+                        <div class="flash-{{ type }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            {% endif %}
+
+            {% if error %}
+                <p class="login-box-msg"
+                   style="color:#770003">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+            {% endif %}
+
+            <form action="{{ path("fos_user_security_check") }}" method="post">
+                {% if csrf_token %}
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+                {% endif %}
+
+                <div class="form-group has-feedback">
+                    <input
+                        type="text"
+                        id="username"
+                        name="_username"
+                        value="{{ last_username }}"
+                        class="form-control"
+                        placeholder="{{ 'security.login.username'|trans }}">
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+
+                <div class="form-group has-feedback">
+                    <input
+                        type="password"
+                        id="password"
+                        name="_password"
+                        required="required"
+                        autocomplete="current-password"
+                        class="form-control"
+                        placeholder="{{ 'security.login.password'|trans }}">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox" style="text-align: center">
+                        <label>
+                            <input
+                                type="checkbox"
+                                id="remember_me"
+                                name="_remember_me"
+                                value="on">
+                            {{ 'security.login.remember_me'|trans }}
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                        <button
+                            type="submit"
+                            id="_submit"
+                            name="_submit"
+                            class="btn btn-primary btn-block btn-flat">
+                            {{ 'security.login.submit'|trans }}
+                        </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    </body>
+{% endblock body %}
+
+
+
+
+

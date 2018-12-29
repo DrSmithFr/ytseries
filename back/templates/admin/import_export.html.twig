@@ -1,0 +1,92 @@
+{# @var pagination \Knp\Component\Pager\Pagination\PaginationInterface #}
+
+{% extends '@EasyAdmin/default/layout.html.twig' %}
+{% set _content_title = 'Imports / Exports' %}
+{% block page_title -%}
+    {{ _content_title }}
+{%- endblock %}
+{% block content_header %}
+{% endblock %}
+{% block main %}
+
+    <div class="row docs-premium-template">
+        {% if error|default %}
+            <div class="col-lg-12">
+                <div class="alert alert-danger alert-dismissible">
+                    <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                    {{ error }}
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="col-sm-12 col-md-6">
+
+            <div class="box box-default">
+                {{ form_start(form) }}
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Imports</h3>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="form-group">
+                            {{ form_row(form.file) }}
+                        </div>
+                    </div>
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                {{ form_end(form) }}
+            </div>
+
+        </div>
+        <div class="col-sm-12 col-md-6">
+
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Exports</h3>
+                </div>
+
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <table class="table no-margin">
+                            <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Name</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for locale in locales %}
+                                <tr>
+                                    <td>{{ locale.code }}</td>
+                                    <td>{{ locale.name }}</td>
+                                    <td>
+                                        <a href="{{ url('admin_export', {locale_code: locale}) }}" class="btn btn-block btn-default btn-xs" download="message.{{ locale.code|lower }}.xlf" target="_blank">Xliff</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+
+                <div class="box-footer">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block body_javascript %}
+    <script>
+
+    </script>
+{% endblock body_javascript %}

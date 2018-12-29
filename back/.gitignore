@@ -1,0 +1,22 @@
+
+###> symfony/framework-bundle ###
+/.env
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> squizlabs/php_codesniffer ###
+/.phpcs-cache
+/phpcs.xml
+###< squizlabs/php_codesniffer ###
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+/config/jwt/private.pem-back
+###< lexik/jwt-authentication-bundle ###

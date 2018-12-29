@@ -1,0 +1,8 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-tab-link.active {
+  border-bottom: 5px solid #fff;
+  opacity: 1;
+}
