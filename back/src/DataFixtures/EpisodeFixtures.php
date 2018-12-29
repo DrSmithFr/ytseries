@@ -16,16 +16,38 @@ class EpisodeFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-        $ep1 = new Episode();
-
-        $ep1
+        $previewEp1 = (new Episode())
             ->setSeason($this->getReference(SeasonFixtures::SEASON_PREVIEW_1))
             ->setRank(1)
             ->setCode('5bMOgK4SXH4')
             ->setName('#React')
             ->setDescription("L'episode 1!");
 
-        $manager->persist($ep1);
+        $jdgEp1 = (new Episode())
+            ->setSeason($this->getReference(SeasonFixtures::SEASON_JDG_1))
+            ->setRank(1)
+            ->setCode('00vLSHLXr1U')
+            ->setName('Episode 1 - Belle île en mer')
+            ->setDescription("L'episode 1!");
+
+        $jdgEp2 = (new Episode())
+            ->setSeason($this->getReference(SeasonFixtures::SEASON_JDG_1))
+            ->setRank(2)
+            ->setCode('lsXqsYOJmDo')
+            ->setName('Episode 2 - Le mystère des caisses en bois')
+            ->setDescription("L'episode 2!");
+
+        $jdgEp3 = (new Episode())
+            ->setSeason($this->getReference(SeasonFixtures::SEASON_JDG_1))
+            ->setRank(3)
+            ->setCode('3njPN68JP1E')
+            ->setName('Episode 3 - Cargo de nuit')
+            ->setDescription("L'episode 3!");
+
+        $manager->persist($previewEp1);
+        $manager->persist($jdgEp1);
+        $manager->persist($jdgEp2);
+        $manager->persist($jdgEp3);
 
         $manager->flush();
     }

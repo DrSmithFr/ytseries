@@ -14,12 +14,11 @@ use Doctrine\Common\Persistence\ObjectManager;
 class SeriesFixtures extends Fixture
 {
     const SERIES_PREVIEW = 'series-preview';
+    const SERIES_JDG = 'series-jdg';
 
-    public function load(ObjectManager $manager): void
+    public function load(ObjectManager $manager) : void
     {
-        $preview = new Series();
-
-        $preview
+        $preview = (new Series())
             ->setName('Preview')
             ->setLocale('fr')
             ->setDescription(
@@ -27,10 +26,17 @@ class SeriesFixtures extends Fixture
                 'Preview, une étrange fonctionnalité de la plateforme de vidéo, se propose de le relancer.'
             );
 
+        $jdg = (new Series())
+            ->setLocale('fr')
+            ->setName("Let's play Narratif de Stranded Deep par Joueur Du Genier")
+            ->setDescription('La plage le soleil et les crustacés ! ');
+
         $manager->persist($preview);
+        $manager->persist($jdg);
 
         $manager->flush();
 
         $this->addReference(self::SERIES_PREVIEW, $preview);
+        $this->addReference(self::SERIES_JDG, $jdg);
     }
 }

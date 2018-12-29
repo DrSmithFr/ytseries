@@ -15,12 +15,11 @@ use Doctrine\Common\Persistence\ObjectManager;
 class SeasonFixtures extends Fixture implements DependentFixtureInterface
 {
     const SEASON_PREVIEW_1 = 'series-preview-s1';
+    const SEASON_JDG_1 = 'series-jdg-s1';
 
     public function load(ObjectManager $manager): void
     {
-        $preview = new Season();
-
-        $preview
+        $preview = (new Season())
             ->setSeries($this->getReference(SeriesFixtures::SERIES_PREVIEW))
             ->setName('Saison 1')
             ->setRank(1)
@@ -29,11 +28,19 @@ class SeasonFixtures extends Fixture implements DependentFixtureInterface
                 'Preview, une étrange fonctionnalité de la plateforme de vidéo, se propose de le relancer.'
             );
 
+        $jdg = (new Season())
+            ->setSeries($this->getReference(SeriesFixtures::SERIES_JDG))
+            ->setName('Saison 1')
+            ->setRank(1)
+            ->setDescription('Ce narratif sera probablement assez court ! Bon visionnage !');
+
         $manager->persist($preview);
+        $manager->persist($jdg);
 
         $manager->flush();
 
         $this->addReference(self::SEASON_PREVIEW_1, $preview);
+        $this->addReference(self::SEASON_JDG_1, $jdg);
     }
 
     public function getDependencies(): array
