@@ -29,3 +29,17 @@ mat-toolbar {
   font-weight: 400;
   color: #fff;
 }
+
+.menu-container-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .menu-container {
+    display: none;
+  }
+
+  .menu-container-mobile {
+    display: block;
+  }
+}

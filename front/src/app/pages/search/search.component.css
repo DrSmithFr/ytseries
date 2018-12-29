@@ -1,6 +1,6 @@
 .page_divided {
   position: relative;
-  height: calc(100vh - 112px);
+  height: calc(100vh - 64px);
   display: flex;
 }
 
@@ -163,7 +163,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #f5f5f5;
+  background-color: #141414;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

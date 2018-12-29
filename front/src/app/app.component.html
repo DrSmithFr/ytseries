@@ -2,24 +2,37 @@
   <a routerLink="/">
     <img class="site-title" src="/assets/logo.png">
   </a>
-  <a class="menu-link" routerLink="/search" routerLinkActive="active">Search</a>
-  <a class="menu-link" routerLink="/watch" routerLinkActive="active">watch</a>
+  <div class="menu-container">
+    <a class="menu-link" routerLink="/search" routerLinkActive="active">Explore</a>
+  </div>
+  <div class="menu-container-mobile">
+    <a class="menu-link" [matMenuTriggerFor]="mobilemenu" href="javascript:void(0)">
+      Menu
+    </a>
+  </div>
+
   <span class="example-spacer"></span>
-  <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="isConnected()">
+  <button mat-icon-button [matMenuTriggerFor]="usermenu" *ngIf="isConnected()">
     <mat-icon>person</mat-icon>
   </button>
   <div *ngIf="!isConnected()">
     <button mat-flat-button routerLink="/login">Login</button>
-    <button mat-flat-button routerLink="/register">Register</button>
   </div>
 </mat-toolbar>
 
-<!--<nav mat-tab-nav-bar backgroundColor="primary" *ngIf="enableToolbar()">-->
-  <!--<a mat-tab-link routerLink="/search" routerLinkActive="active"> Search </a>-->
-  <!--<a mat-tab-link routerLink="/watch" routerLinkActive="active"> Watch </a>-->
-<!--</nav>-->
 
-<mat-menu #menu="matMenu">
+<mat-menu #mobilemenu="matMenu">
+  <button mat-menu-item routerLink="/search">
+    <mat-icon>search</mat-icon>
+    <span>Explore</span>
+  </button>
+  <button mat-menu-item routerLink="/watch">
+    <mat-icon>play_circle_filled</mat-icon>
+    <span>Watch</span>
+  </button>
+</mat-menu>
+
+<mat-menu #usermenu="matMenu">
   <button mat-menu-item (click)="logout()">
     <mat-icon>settings_power</mat-icon>
     <span>Log out</span>

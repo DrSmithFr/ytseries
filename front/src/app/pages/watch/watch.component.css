@@ -1,6 +1,6 @@
 .page_divided {
     position: relative;
-    height: calc(100vh - 112px);
+    height: calc(100vh - 64px);
     display: flex;
 }
 
@@ -18,10 +18,10 @@
 
 .page_divided .sidebar {
     display: block;
-    width: 450px;
+    width: 500px;
     background-color: #000;
     position: relative;
-    border-left: 1px solid #000;
+    overflow-y: scroll;
 }
 
 .page_divided .sidebar .sidebar_item {
@@ -39,17 +39,13 @@
     z-index: 2;
 }
 
-@media only screen and (min-width: 600px) {
-    .sidebar .sidebar_item.back-button {
-        display: none !important;
-    }
-}
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
     .sidebar {
         width: 100% !important;
-        height: 100% !important;
-        position: absolute !important;
+        min-height: 200px;
+    }
+    .page_divided {
+        display: block;
     }
 }
 
@@ -84,3 +80,112 @@
     padding: 5px 15px;
     font-size: 1em;
 }
+
+/* player related */
+
+div.stretchy-wrapper {
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 */
+    position: relative;
+    background: #000;
+}
+
+div.stretchy-wrapper > div {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+}
+
+/* video info related */
+.video-info {
+    padding: 15px;
+    border-bottom: 1px solid #000;
+}
+
+.video-info h1 {
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 0;
+}
+
+.video-info h2 {
+    margin-top: 0;
+    font-size: 15px;
+    color: #dddddd;
+}
+
+.video-info p {
+    color: #777777;
+}
+
+.video-info-large-screen {
+    display: none;
+    padding: 15px;
+    background: #171717;
+}
+
+.video-info-large-screen h1 {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin-block-start: 0.83em;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 0;
+}
+
+.video-info-large-screen h2 {
+    margin-top: 0;
+    font-size: 15px;
+    color: #dddddd;
+}
+
+.video-info-large-screen p {
+    color: #777777;
+}
+
+@media only screen and (min-width: 1650px) {
+    .video-info-large-screen {
+        display: block;
+    }
+
+    .video-info {
+        display: none;
+    }
+}
+
+/* playlist related */
+.playlist-container {
+    padding: 5px;
+}
+
+.playlist-item {
+    height: 80px;
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.playlist-item p {
+    align-self: center;
+    color: #fff;
+    padding: 5px 20px;
+    flex: 2;
+}
+
+.playlist-item img {
+    height: 80px;
+}
+
+.playlist-item button {
+    color: #fff;
+    align-self: center;
+    margin-right: 10px;
+}
+
+.playlist-item.active button {
+    display: none;
+}
+
+.playlist-item.active {
+    background: #171717;
+}
+

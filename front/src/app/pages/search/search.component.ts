@@ -34,8 +34,6 @@ export class SearchComponent implements OnInit {
       query = null;
     }
 
-    console.log(query);
-
     this.assetService.search(query).subscribe(data => {
       this.result = data;
     });

@@ -11,7 +11,7 @@ import {WatchComponent} from "../pages/watch/watch.component";
 
 const ROUTES: Routes = [
   { path: 'search', component: SearchComponent },
-  { path: 'watch', component: WatchComponent },
+  { path: 'watch/:id', component: WatchComponent },
   { path: 'login', component: LoginComponent },
   { path: 'password_forgot', component: PasswordForgotComponent },
   { path: 'password_reset', component: PasswordResetComponent },

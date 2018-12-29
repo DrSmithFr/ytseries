@@ -1,16 +1,51 @@
 <section class="page page_divided">
 
   <div class="page_body">
+    <div class="stretchy-wrapper">
+      <div>
+        <div id="yt-video-player"></div>
+      </div>
+    </div>
 
-    player
+    <div class="video-info">
+      <h1>Video title</h1>
+      <h2>Saison 2 - Episode 1</h2>
+      <p>Description</p>
+    </div>
+
   </div>
 
   <div class="sidebar">
-    <div class="sidebar_item back-button">
-      <button mat-raised-button class="centered-btn" (click)="toogleFilterMenu()">Close Menu</button>
+    <div class="video-info-large-screen">
+      <h1>Video title</h1>
+      <h2>Saison 2 - Episode 1</h2>
+      <p>Description</p>
     </div>
 
     <h1>Playlist</h1>
+    <div class="playlist-container">
+
+      <div class="season-separator">
+        Season 1
+      </div>
+
+      <div class="playlist-item active">
+        <img src="https://img.youtube.com/vi/S6pcmAGMsok/mqdefault.jpg">
+        <p>The title of the episode</p>
+        <button mat-icon-button>
+          <i class="material-icons">play_arrow</i>
+        </button>
+      </div>
+
+      <div class="playlist-item" *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11]">
+        <img src="https://img.youtube.com/vi/S6pcmAGMsok/mqdefault.jpg">
+        <p>The title of the episode</p>
+        <button mat-icon-button>
+          <i class="material-icons">play_arrow</i>
+        </button>
+      </div>
+
+    </div>
     <mat-divider></mat-divider>
   </div>
 
