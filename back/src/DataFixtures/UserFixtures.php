@@ -27,8 +27,8 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager): void
     {
-        $devUser    = $this->makeUser('dev', 'dev', ['group-dev']);
-        $commonUser = $this->makeUser('user', 'user', ['group-user']);
+        $devUser    = $this->makeUser('dev', 'dev', [GroupFixtures::GROUP_DEV]);
+        $commonUser = $this->makeUser('user', 'user', [GroupFixtures::GROUP_USER]);
 
         $devUser->setSuperAdmin(true);
 

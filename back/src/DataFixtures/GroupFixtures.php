@@ -14,6 +14,9 @@ use Doctrine\Common\Persistence\ObjectManager;
  */
 class GroupFixtures extends Fixture
 {
+    const GROUP_DEV = 'group-dev';
+    const GROUP_USER = 'group-user';
+
     public function load(ObjectManager $manager): void
     {
         $devGroup    = new Group('dev', [SecurityRoleEnum::SUPER_ADMIN]);
@@ -24,7 +27,7 @@ class GroupFixtures extends Fixture
 
         $manager->flush();
 
-        $this->addReference('group-dev', $devGroup);
-        $this->addReference('group-user', $commonGroup);
+        $this->addReference(self::GROUP_DEV, $devGroup);
+        $this->addReference(self::GROUP_USER, $commonGroup);
     }
 }
