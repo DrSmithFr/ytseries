@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\MapBackgroundRepository;
-use App\Service\AssetSearchService;
+use App\Service\SearchService;
 use JMS\Serializer\SerializerBuilder;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,17 +17,17 @@ use Elastica\Query\MultiMatch;
 /**
  * @Route("/api/asset")
  */
-class AssetsController extends BaseAdminController
+class SearchController extends BaseAdminController
 {
     /**
      * @Route("/search", name="api_asset_search")
-     * @param Request            $request
-     * @param AssetSearchService $searchService
+     * @param Request       $request
+     * @param SearchService $searchService
      * @return JsonResponse
      */
     public function getBackgroundLayersAction(
         Request $request,
-        AssetSearchService $searchService
+        SearchService $searchService
     ) {
         $query = new Query();
 
@@ -35,7 +35,7 @@ class AssetsController extends BaseAdminController
             // add exact match query
             $match = new MultiMatch();
             $match->setQuery($q);
-            $match->setFields(["name^2", "code"]);
+            $match->setFields(["name^2", "description"]);
             $match->setAnalyzer('standard');
 
             // add miss spell query
@@ -51,9 +51,11 @@ class AssetsController extends BaseAdminController
 
             $query->setHighlight(
                 [
+                    'number_of_fragments' => 3,
+                    'fragment_size' => 255,
                     'fields' => [
-                        'code' => new \stdClass(),
-                        'name' => new \stdClass()
+                        'name' => new \stdClass(),
+                        'description' => new \stdClass()
                     ]
                 ]
             );
@@ -73,6 +75,10 @@ class AssetsController extends BaseAdminController
 
             if (isset($highlights['name'])) {
                 $assetData['name'] = $highlights['name'][0];
+            }
+
+            if (isset($highlights['description'])) {
+                $assetData['description'] = $highlights['description'][0];
             }
 
             $results[] = $assetData;

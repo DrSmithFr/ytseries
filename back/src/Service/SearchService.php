@@ -7,7 +7,7 @@ use Elastica\Index;
 use Elastica\Request;
 use Elastica\Response;
 
-class AssetSearchService
+class SearchService
 {
     private $client;
     private $indexName;
@@ -110,12 +110,12 @@ class AssetSearchService
     {
         $properties = [];
 
-        $properties['code'] = [
+        $properties['name'] = [
             'type'     => 'text',
-            'analyzer' => 'french'
+            'analyzer' => 'autocomplete'
         ];
 
-        $properties['name'] = [
+        $properties['description'] = [
             'type'     => 'text',
             'analyzer' => 'autocomplete'
         ];

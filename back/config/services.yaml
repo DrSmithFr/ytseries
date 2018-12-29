@@ -33,6 +33,6 @@ services:
     FOS\UserBundle\Mailer\MailerInterface:
         alias: fos_user.mailer.default
 
-    App\Service\AssetSearchService:
+    App\Service\SearchService:
         arguments:
             $elasticSearchIndexName: '%env(ELASTIC_SEARCH_INDEX)%'

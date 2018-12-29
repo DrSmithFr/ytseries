@@ -167,4 +167,9 @@ class Episode
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return sprintf('[%d] - %s', $this->rank, $this->name);
+    }
 }

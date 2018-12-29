@@ -24,8 +24,8 @@
     <div class="result-row" *ngFor="let row of result">
       <img src="https://via.placeholder.com/150">
       <div class="result-detail">
-        <h1 [innerHtml]="row.code"></h1>
-        <h2 [innerHtml]="row.name"></h2>
+        <h1 [innerHtml]="row.name"></h1>
+        <p [innerHtml]="row.description"></p>
       </div>
     </div>
 

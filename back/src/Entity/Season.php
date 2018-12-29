@@ -51,9 +51,14 @@ class Season
 
     /**
      * @var ArrayCollection|Episode[]
-     * @ORM\OneToMany(targetEntity="App\Entity\Episode", mappedBy="saison", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Episode", mappedBy="season", cascade={"persist", "remove"})
      */
     protected $episodes;
+
+    public function __construct()
+    {
+        $this->episodes = new ArrayCollection();
+    }
 
     /**
      * @return int|null
@@ -193,4 +198,8 @@ class Season
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

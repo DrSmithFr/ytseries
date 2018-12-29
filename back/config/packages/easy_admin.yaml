@@ -7,6 +7,12 @@ easy_admin:
             route: 'admin_dashboard'
             icon: 'tachometer'
             default: true
+          - label: 'Series'
+            icon: 'shield'
+            children:
+              - Series
+              - Season
+              - Episode
           - label: 'Security'
             icon: 'shield'
             children:
@@ -70,3 +76,46 @@ easy_admin:
                 fields:
                   - name
                   - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+        Series:
+            class: App\Entity\Series
+            list:
+                fields:
+                  - locale
+                  - name
+                  - seasons
+            form:
+                fields:
+                  - locale
+                  - name
+                  - description
+                  - seasons
+        Season:
+            class: App\Entity\Season
+            list:
+                fields:
+                  - series
+                  - rank
+                  - name
+                  - episodes
+            form:
+                fields:
+                  - series
+                  - rank
+                  - name
+                  - description
+                  - episodes
+        Episode:
+            class: App\Entity\Episode
+            list:
+                fields:
+                  - season
+                  - rank
+                  - code
+                  - name
+            form:
+                fields:
+                  - season
+                  - rank
+                  - code
+                  - name
+                  - description

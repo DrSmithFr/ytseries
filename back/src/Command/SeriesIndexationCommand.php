@@ -2,28 +2,28 @@
 
 namespace App\Command;
 
-use App\Repository\AssetRepository;
-use App\Service\AssetIndexerService;
-use App\Service\AssetSearchService;
+use App\Repository\SeriesRepository;
+use App\Service\IndexerService;
+use App\Service\SearchService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
-class AssetsIndexationCommand extends Command
+class SeriesIndexationCommand extends Command
 {
     private $elasticSearchService;
     private $indexer;
     private $repository;
 
     public function __construct(
-        AssetSearchService $elasticSearchService,
-        AssetIndexerService $indexer
-//        AssetRepository $repository
+        SearchService $elasticSearchService,
+        IndexerService $indexer,
+        SeriesRepository $repository
     ) {
         $this->elasticSearchService = $elasticSearchService;
         $this->indexer = $indexer;
-//        $this->repository = $repository;
+        $this->repository = $repository;
 
         parent::__construct();
     }
@@ -31,7 +31,7 @@ class AssetsIndexationCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('app:assets:indexation')
+            ->setName('app:indexation:series')
             ->setDescription('Rebuild the Index and populate it.')
         ;
     }
@@ -54,7 +54,7 @@ class AssetsIndexationCommand extends Command
 
         $documents = [];
         foreach ($assets as $asset) {
-            $documents[] = $this->indexer->buildDocument($asset);
+            $documents[] = $this->indexer->buildSeriesDocument($asset);
             $io->progressAdvance();
         }
         $io->progressFinish();
