@@ -33,7 +33,7 @@ import {HttpInterceptor} from './interceptors/http.interceptor';
 import {PasswordResetComponent} from './pages/password-reset/password-reset.component';
 import {PasswordForgotComponent} from './pages/password-forgot/password-forgot.component';
 import {Page404Component} from './pages/page404/page404.component';
-import { AssetsSearchComponent } from './pages/assets-search/assets-search.component';
+import { SearchComponent } from './pages/search/search.component';
 
 @NgModule(
   {
@@ -70,7 +70,7 @@ import { AssetsSearchComponent } from './pages/assets-search/assets-search.compo
       PasswordResetComponent,
       PasswordForgotComponent,
       Page404Component,
-      AssetsSearchComponent,
+      SearchComponent,
     ],
     providers:    [
       UserService,

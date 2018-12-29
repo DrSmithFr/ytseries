@@ -4,10 +4,10 @@ import {AssetService} from "../../services/asset.service";
 
 @Component({
   selector: 'app-assets-search',
-  templateUrl: './assets-search.component.html',
-  styleUrls: ['./assets-search.component.css']
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
 })
-export class AssetsSearchComponent implements OnInit {
+export class SearchComponent implements OnInit {
 
   displayFilterMenu: boolean = false;
 

@@ -6,10 +6,10 @@ import { LoginComponent } from '../pages/login/login.component';
 import { PasswordResetComponent } from '../pages/password-reset/password-reset.component';
 import { PasswordForgotComponent } from '../pages/password-forgot/password-forgot.component';
 import { Page404Component } from '../pages/page404/page404.component';
-import {AssetsSearchComponent} from '../pages/assets-search/assets-search.component';
+import {SearchComponent} from '../pages/search/search.component';
 
 const ROUTES: Routes = [
-  { path: 'search', component: AssetsSearchComponent, canActivate: [AuthGuard] },
+  { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'password_forgot', component: PasswordForgotComponent },
   { path: 'password_reset', component: PasswordResetComponent },
