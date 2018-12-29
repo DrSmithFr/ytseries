@@ -94,6 +94,7 @@
 
 .result-detail {
   padding: 10px;
+  flex: 2;
 }
 
 .result-detail h1 {
@@ -102,4 +103,9 @@
 
 .result-detail h2 {
   margin: 0;
+}
+
+.result-action {
+  align-self: center;
+  text-align: center;
 }

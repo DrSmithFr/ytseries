@@ -16,7 +16,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminContr
 /**
  * @Route("/api")
  */
-class ApiController extends BaseAdminController
+class AccountController extends BaseAdminController
 {
     /**
      * @Route("/password_reset_request", name="api_password_reset_request")
@@ -152,25 +152,6 @@ class ApiController extends BaseAdminController
         return new JsonResponse(
             [
                 'info' => 'token valid.',
-            ],
-            JsonResponse::HTTP_OK
-        );
-    }
-
-    /**
-     * @Route("/user_info", name="api_user_info")
-     * @return JsonResponse
-     */
-    public function userInformationAction()
-    {
-        /** @var User $user */
-        $user = $this->getUser();
-
-        return new JsonResponse(
-            [
-                'email'    => $user->getEmail(),
-                'username' => $user->getUsername(),
-                'roles'    => $user->getRoles(),
             ],
             JsonResponse::HTTP_OK
         );

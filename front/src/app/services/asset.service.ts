@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../../environments/environment';
-import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
 
 const API_URL = environment.apiUrl;
@@ -23,8 +22,6 @@ export class AssetService {
       params = params.set('query', query);
     }
 
-    const request = this.http.get<any[]>(API_URL + '/api/asset/search', {params: params});
-
-    return request;
+    return this.http.get<any[]>(API_URL + '/open/search', {params: params});;
   }
 }

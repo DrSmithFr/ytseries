@@ -38,4 +38,22 @@ class SeriesRepository extends ServiceEntityRepository
 
         return (int)$count;
     }
+
+    /**
+     * @param int $id
+     * @return Series|null
+     */
+    public function getFullyLoadedSeriesById(int $id):? Series
+    {
+        return $this
+            ->createQueryBuilder()
+            ->select('series')
+            ->from(Series::class, 'series')
+            ->leftJoin('series.seasons', 'season')
+            ->leftJoin('season.episodes', 'episode')
+            ->where('series.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }

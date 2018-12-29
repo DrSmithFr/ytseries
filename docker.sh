@@ -49,6 +49,8 @@ function install() {
     composer install
     console doctrine:migration:migrate -n
     console doctrine:fixtures:load -n
+    console doctrine:fixtures:load -n
+    console app:indexation:series
 
     #
     # angular init
@@ -62,6 +64,8 @@ function reload() {
     docker-compose rm -f && \
     docker-compose build && \
     docker-compose up --remove-orphans -d && \
+    sleep 10
+    console app:indexation:series
     cd front && ng serve
 }
 

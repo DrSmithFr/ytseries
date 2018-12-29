@@ -1,20 +1,20 @@
-<mat-toolbar *ngIf="isConnected()">
+<mat-toolbar *ngIf="enableToolbar()">
   <span>Yt Series</span>
   <span class="example-spacer"></span>
-  <button mat-icon-button [matMenuTriggerFor]="menu">
+  <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="isConnected()">
     <mat-icon>person</mat-icon>
   </button>
+  <div *ngIf="!isConnected()">
+    <button mat-flat-button routerLink="/login">Login</button>
+    <button mat-flat-button routerLink="/register">Register</button>
+  </div>
 </mat-toolbar>
 
-<nav mat-tab-nav-bar backgroundColor="primary" *ngIf="isConnected()">
+<nav mat-tab-nav-bar backgroundColor="primary" *ngIf="enableToolbar()">
   <a mat-tab-link routerLink="/search" routerLinkActive="active"> Search </a>
 </nav>
 
 <mat-menu #menu="matMenu">
-  <button mat-menu-item>
-    <mat-icon>settings</mat-icon>
-    <span>My account</span>
-  </button>
   <button mat-menu-item (click)="logout()">
     <mat-icon>settings_power</mat-icon>
     <span>Log out</span>

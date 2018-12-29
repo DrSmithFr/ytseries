@@ -9,7 +9,7 @@ import { MatSnackBar } from '@angular/material';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   displayLoadingPanel = false;
 
@@ -26,26 +26,6 @@ export class LoginComponent implements OnInit {
     private snackBar: MatSnackBar,
     private loginService: UserService
   ) {
-  }
-
-  ngOnInit(): void {
-    if (this.loginService.canReconnect()) {
-      this.displayLoadingPanel = true;
-
-      this
-        .loginService
-        .reconnect()
-        .subscribe(
-          () => {
-            this.router.navigate([this.getRefererUrl()]);
-          },
-          () => {
-            this.displayLoadingPanel = false;
-            this.snackBar.open('Cannot reconnect', null, { duration: 1500 });
-          }
-        );
-    }
-
   }
 
   connect() {
@@ -71,6 +51,6 @@ export class LoginComponent implements OnInit {
   }
 
   getRefererUrl() {
-    return this.route.snapshot.queryParams['referer'] || '/home';
+    return this.route.snapshot.queryParams['referer'] || '/';
   }
 }

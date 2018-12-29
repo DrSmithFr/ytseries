@@ -1,7 +1,8 @@
-import {Component, Inject} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {UserService} from './services/user.service';
 import {Router} from '@angular/router';
 import {StorageService, LOCAL_STORAGE} from 'angular-webstorage-service';
+import {MatSnackBar} from "@angular/material";
 
 @Component(
   {
@@ -10,12 +11,30 @@ import {StorageService, LOCAL_STORAGE} from 'angular-webstorage-service';
     styleUrls:   ['./app.component.css']
   }
 )
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(
     private router: Router,
+    private snackBar: MatSnackBar,
     private loginService: UserService,
     @Inject(LOCAL_STORAGE) private localStorage: StorageService
   ) {
+  }
+
+  ngOnInit(): void {
+      if (this.loginService.canReconnect()) {
+
+          this
+              .loginService
+              .reconnect()
+              .subscribe(
+                  (user) => {
+                      this.snackBar.open('Welcome back ' + user.username, null, { duration: 1500 });
+                  },
+                  () => {
+                      this.snackBar.open('Cannot reconnect', null, { duration: 1500 });
+                  }
+              );
+      }
   }
 
   isConnected() {
@@ -24,6 +43,11 @@ export class AppComponent {
 
   logout() {
     this.loginService.disconnect();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
+  }
+
+  enableToolbar() {
+      const disableOn = ['/password_forgot', 'password_reset'];
+      return -1 === disableOn.indexOf(this.router.url);
   }
 }

@@ -9,14 +9,13 @@ import { Page404Component } from '../pages/page404/page404.component';
 import {SearchComponent} from '../pages/search/search.component';
 
 const ROUTES: Routes = [
-  { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
+  { path: 'search', component: SearchComponent },
   { path: 'login', component: LoginComponent },
   { path: 'password_forgot', component: PasswordForgotComponent },
   { path: 'password_reset', component: PasswordResetComponent },
-  { path: '404', component: Page404Component, canActivate: [AuthGuard] },
+  { path: '404', component: Page404Component },
 
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'home', redirectTo: 'search', pathMatch: 'full' },
+  { path: '', redirectTo: 'search', pathMatch: 'full' },
   { path: '**', redirectTo: '404' }
 ];
 

@@ -15,7 +15,7 @@ use Elastica\Query\BoolQuery;
 use Elastica\Query\MultiMatch;
 
 /**
- * @Route("/api/asset")
+ * @Route("/open")
  */
 class SearchController extends BaseAdminController
 {
