@@ -27,11 +27,6 @@
         <div class="gridView-tile">
           <div class="gridView-imageSection thumbnailWrap">
             <div class="gridView-imageSectionMaskTop"></div>
-            <div class="gridView-searchHitSelect searchHitSelect">
-              <i class="material-icons" routerLink="/watch/{{row.id}}">
-                play_arrow
-              </i>
-            </div>
             <div class="gridView-menu">
               <i class="material-icons">
                 playlist_add
@@ -42,7 +37,7 @@
             </div>
             <div class="gridView-duration">{{row.season}} saisons</div>
           </div>
-          <div class="gridView-detailsSection">
+          <div class="gridView-detailsSection" routerLink="/watch/{{row.id}}">
             <div class="gridView-detailsTop">
               <a class="gridView-title u-link" [innerHtml]="row.name"></a>
             </div>

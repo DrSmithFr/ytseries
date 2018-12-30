@@ -129,6 +129,9 @@
   flex-direction: column;
   width: 100%;
 }
+.gridView-listItem:hover {
+  margin: -5px;
+}
 .gridView-tile {
   display: flex;
   flex-direction: column;
@@ -190,6 +193,10 @@
   flex-direction: column;
   flex-grow: 1;
   word-break: break-word;
+  cursor: pointer;
+}
+.gridView-detailsSection:hover {
+  background: #232323;
 }
 .gridView-detailsBottom {
   display: flex;
