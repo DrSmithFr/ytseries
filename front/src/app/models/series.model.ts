@@ -4,5 +4,5 @@ export class SeriesModel {
   name: string;
   locale: string;
   description: string;
-  season: SeasonModel[];
+  seasons: SeasonModel[];
 }

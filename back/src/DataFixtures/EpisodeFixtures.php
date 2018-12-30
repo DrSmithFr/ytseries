@@ -27,21 +27,21 @@ class EpisodeFixtures extends Fixture implements DependentFixtureInterface
             ->setSeason($this->getReference(SeasonFixtures::SEASON_JDG_1))
             ->setRank(1)
             ->setCode('00vLSHLXr1U')
-            ->setName('Episode 1 - Belle île en mer')
+            ->setName('Belle île en mer')
             ->setDescription("L'episode 1!");
 
         $jdgEp2 = (new Episode())
             ->setSeason($this->getReference(SeasonFixtures::SEASON_JDG_1))
             ->setRank(2)
             ->setCode('lsXqsYOJmDo')
-            ->setName('Episode 2 - Le mystère des caisses en bois')
+            ->setName('Le mystère des caisses en bois')
             ->setDescription("L'episode 2!");
 
         $jdgEp3 = (new Episode())
             ->setSeason($this->getReference(SeasonFixtures::SEASON_JDG_1))
             ->setRank(3)
             ->setCode('3njPN68JP1E')
-            ->setName('Episode 3 - Cargo de nuit')
+            ->setName('Cargo de nuit')
             ->setDescription("L'episode 3!");
 
         $manager->persist($previewEp1);

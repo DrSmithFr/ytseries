@@ -58,6 +58,8 @@ class SeriesRepository extends ServiceEntityRepository
             ->leftJoin('season.episodes', 'episode')
             ->where('series.id = :id')
             ->setParameter('id', $id)
+            ->orderBy('season.rank', 'ASC')
+            ->orderBy('episode.rank', 'ASC')
             ->getQuery()
             ->getOneOrNullResult();
     }

@@ -7,40 +7,40 @@
       </div>
     </div>
 
-    <div class="video-info">
-      <h1>Video title</h1>
-      <h2>Saison 2 - Episode 1</h2>
-      <p>Description</p>
+    <div class="video-info" *ngIf="currentEpisode">
+      <h1>{{currentEpisode.name}}</h1>
+      <h2>Saison 2 - Episode {{currentEpisode.rank}}</h2>
     </div>
 
   </div>
 
   <div class="sidebar">
-    <div class="video-info-large-screen">
+    <div class="video-info-large-screen" *ngIf="currentEpisode">
       <h1>Video title</h1>
-      <h2>Saison 2 - Episode 1</h2>
-      <p>Description</p>
+      <h1>{{currentEpisode.name}}</h1>
+      <h2>Saison 2 - Episode {{currentEpisode.rank}}</h2>
+    </div>
+
+    <div *ngIf="video.duration && video.currentTime && canShowNextEpisodeButton()">
+      <button mat-flat-button class="new-episode-btn" (click)="loadNextEpisode()">Next Episode</button>
     </div>
 
     <h1>Playlist</h1>
-    <div class="playlist-container">
+    <div class="playlist-container" *ngIf="series">
 
-      <div *ngFor="let season of data.season">
+      <div *ngFor="let season of series.seasons">
         <div class="season-separator">
           {{ season.name }}
         </div>
 
-        <div class="playlist-item active" *ngFor="let episode of season.episodes">
+        <div class="playlist-item" *ngFor="let episode of season.episodes" [class.active]="episode.code === video.code">
           <img src="https://img.youtube.com/vi/{{ episode.code }}/mqdefault.jpg">
           <p>{{ episode.name }}</p>
-          <button mat-icon-button>
+          <button mat-icon-button (click)="loadEpisode(episode)">
             <i class="material-icons">play_arrow</i>
           </button>
         </div>
-
       </div>
-
-
 
     </div>
     <mat-divider></mat-divider>
