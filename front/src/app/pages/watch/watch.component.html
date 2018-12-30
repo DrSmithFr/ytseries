@@ -22,7 +22,10 @@
     </div>
 
     <div *ngIf="video.duration && video.currentTime && canShowNextEpisodeButton()">
-      <button mat-flat-button class="new-episode-btn" (click)="loadNextEpisode()">Next Episode</button>
+      <button mat-flat-button class="new-episode-btn" (click)="loadNextEpisode()">
+        Next Episode
+        <span *ngIf="countDownActive">({{countDown}}s)</span>
+      </button>
     </div>
 
     <h1>Playlist</h1>

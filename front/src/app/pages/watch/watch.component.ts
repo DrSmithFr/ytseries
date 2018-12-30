@@ -18,6 +18,10 @@ export class WatchComponent implements OnInit {
   currentEpisode: EpisodeModel = null;
   currentTimeCheckInterval = null;
 
+  countDownActive: boolean = false;
+  countDown:number = 5;
+  countDownInterval = null;
+
   video = {
     code: null,
     currentTime: null,
@@ -51,12 +55,14 @@ export class WatchComponent implements OnInit {
 
   onPlayerStateChange(e) {
     const state = e.data;
+
     switch (state) {
       case 1: // playing
           this.startDuractionChecker();
         break;
       case -1: // not started
       case 0: // ended
+            this.videoAutoSwitch();
       case 2: // pause
       case 3: // buffering
           this.stopTimeChecker();
@@ -132,5 +138,29 @@ export class WatchComponent implements OnInit {
 
     const index = playlist.indexOf(episode);
     return playlist[index + 1] || null;
+  }
+
+  videoAutoSwitch(): void {
+    const next = this.getNextEpisode(this.currentEpisode);
+
+    if (null === next) {
+      return;
+    }
+
+    if (this.video.currentTime === 0) {
+      return;
+    }
+
+    this.countDown = 5;
+    this.countDownActive = true;
+    this.countDownInterval = setInterval(() => {
+      this.countDown--;
+
+      if (this.countDown === 0) {
+        this.loadEpisode(next, true);
+        this.countDownActive = false;
+        clearInterval(this.countDownInterval);
+      }
+    }, 1000)
   }
 }
