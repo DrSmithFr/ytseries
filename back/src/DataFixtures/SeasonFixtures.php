@@ -22,17 +22,12 @@ class SeasonFixtures extends Fixture implements DependentFixtureInterface
         $preview = (new Season())
             ->setSeries($this->getReference(SeriesFixtures::SERIES_PREVIEW))
             ->setName('Saison 1')
-            ->setRank(1)
-            ->setDescription(
-                'Arthur est un Youtubeur célèbre sous pression qui n\'arrive plus à sortir de vidéo. ' .
-                'Preview, une étrange fonctionnalité de la plateforme de vidéo, se propose de le relancer.'
-            );
+            ->setRank(1);
 
         $jdg = (new Season())
             ->setSeries($this->getReference(SeriesFixtures::SERIES_JDG))
             ->setName('Saison 1')
-            ->setRank(1)
-            ->setDescription('Ce narratif sera probablement assez court ! Bon visionnage !');
+            ->setRank(1);
 
         $manager->persist($preview);
         $manager->persist($jdg);

@@ -41,13 +41,6 @@ class Season
     protected $name;
 
     /**
-     * @var string|null
-     * @ORM\Column(type="string")
-     * @JMS\Type("string")
-     */
-    protected $description;
-
-    /**
      * @JMS\Exclude()
      * @ORM\ManyToOne(targetEntity="App\Entity\Series", inversedBy="saisons", cascade={"persist"})
      * @ORM\JoinColumn(name="series_id", referencedColumnName="id")
@@ -99,25 +92,6 @@ class Season
     public function setName($name)
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * @param null|string $description
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
 
         return $this;
     }

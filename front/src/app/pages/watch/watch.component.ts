@@ -108,7 +108,7 @@ export class WatchComponent implements OnInit {
     this.loadEpisode(next, true);
   }
 
-  canShowNextEpisodeButton(): bool {
+  canShowNextEpisodeButton(): boolean {
     if (this.video.currentTime > (this.video.duration - 30)) {
       if (null !== this.getNextEpisode(this.currentEpisode)) {
         return true;
@@ -118,7 +118,7 @@ export class WatchComponent implements OnInit {
     return false;
   }
 
-  getNextEpisode(episode: EpisodeModel): Episode|null {
+  getNextEpisode(episode: EpisodeModel): EpisodeModel|null {
     if (null === this.series) {
       return null;
     }

@@ -55,15 +55,6 @@ class Episode
     protected $name;
 
     /**
-     * @var string|null
-     * @ORM\Column(type="string")
-     *
-     * @JMS\Expose()
-     * @JMS\Type("string")
-     */
-    protected $description;
-
-    /**
      * @JMS\Exclude()
      * @ORM\ManyToOne(targetEntity="App\Entity\Season", inversedBy="episodes", cascade={"persist"})
      * @ORM\JoinColumn(name="season_id", referencedColumnName="id")
@@ -122,25 +113,6 @@ class Episode
     public function setCode($code)
     {
         $this->code = $code;
-
-        return $this;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * @param null|string $description
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
 
         return $this;
     }
