@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\MapBackgroundRepository;
+use App\Repository\SeriesRepository;
 use App\Service\SearchService;
 use JMS\Serializer\SerializerBuilder;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -85,5 +86,32 @@ class SearchController extends BaseAdminController
         }
 
         return new JsonResponse($results);
+    }
+
+    /**
+     * @Route("/series/{id}", name="api_series_info")
+     * @param Request          $request
+     * @param SeriesRepository $repository
+     * @return JsonResponse
+     */
+    public function seriesInformationAction(
+        Request $request,
+        SeriesRepository $repository
+    )
+    {
+        $series = $repository->getFullyLoadedSeriesById($request->get('id', null));
+
+        if (null === $series) {
+            return new JsonResponse(
+                ['error' => 'Series not found'],
+                JsonResponse::HTTP_BAD_REQUEST
+            );
+        }
+
+        $serializer = SerializerBuilder::create()->build();
+        $jsonContent = $serializer->serialize($series, 'json');
+
+        return (new JsonResponse())
+            ->setContent($jsonContent);
     }
 }

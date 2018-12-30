@@ -43,11 +43,16 @@ class SeriesRepository extends ServiceEntityRepository
      * @param int $id
      * @return Series|null
      */
-    public function getFullyLoadedSeriesById(int $id):? Series
+    public function getFullyLoadedSeriesById(?int $id):? Series
     {
+        if (null === $id) {
+            return null;
+        }
+
         return $this
+            ->getEntityManager()
             ->createQueryBuilder()
-            ->select('series')
+            ->select('series, season, episode')
             ->from(Series::class, 'series')
             ->leftJoin('series.seasons', 'season')
             ->leftJoin('season.episodes', 'episode')

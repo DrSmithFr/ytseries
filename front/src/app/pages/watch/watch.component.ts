@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import YouTubePlayer from 'youtube-player';
+import {WatchService} from "../../services/watch.service";
+import {ActivatedRoute} from "@angular/router";
+import {SeriesModel} from "../../models/series.model";
 
 @Component({
   selector: 'app-watch',
@@ -10,16 +13,26 @@ export class WatchComponent implements OnInit {
 
   player: YouTubePlayer = null;
 
-  curentTimeInterval: NodeJS.Timer;
+  currentTimeCheckInterval;
+
+  data: SeriesModel = new SeriesModel();
 
   video = {
     code: null,
     currentTime: null
   };
 
-  constructor() { }
+  constructor(
+      private route: ActivatedRoute,
+      private watchService: WatchService
+  ) { }
 
   ngOnInit() {
+    const id = this.route.snapshot.params.id;
+    this.watchService.seriesInformation(id).subscribe((data) => {
+      this.data = data;
+    });
+
     this.player = YouTubePlayer(
         'yt-video-player'
     );
@@ -56,11 +69,11 @@ export class WatchComponent implements OnInit {
   }
 
   startDuractionChecker() {
-    this.curentTimeInterval = setInterval(() => {this.checkTime()}, 1000);
+    this.currentTimeCheckInterval = setInterval(() => {this.checkTime()}, 1000);
   }
 
   stopTimeChecker() {
-    clearInterval(this.curentTimeInterval);
+    clearInterval(this.currentTimeCheckInterval);
   }
 
   loadVideo(code: string) {

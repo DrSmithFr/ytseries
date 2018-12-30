@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\UserBundle\Model\User as BaseUser;
+use JMS\Serializer\Annotation as JMS;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
@@ -22,30 +22,35 @@ class Series
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @JMS\Type("integer")
      */
     protected $id;
 
     /**
      * @var string|null
      * @ORM\Column(type="string")
+     * @JMS\Type("string")
      */
     protected $name;
 
     /**
      * @var string|null
      * @ORM\Column(type="string")
+     * @JMS\Type("string")
      */
     protected $locale;
 
     /**
      * @var string|null
      * @ORM\Column(type="string")
+     * @JMS\Type("string")
      */
     protected $description;
 
     /**
      * @var ArrayCollection|Season[]
      * @ORM\OneToMany(targetEntity="App\Entity\Season", mappedBy="series", cascade={"persist", "remove"})
+     * @JMS\Type("ArrayCollection<App\Entity\Season>")
      */
     protected $seasons;
 

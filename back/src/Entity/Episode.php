@@ -3,9 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\UserBundle\Model\User as BaseUser;
+use JMS\Serializer\Annotation as JMS;
 use Gedmo\Blameable\Traits\BlameableEntity;
-use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
@@ -22,34 +21,50 @@ class Episode
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     * @JMS\Expose()
+     * @JMS\Type("integer")
      */
     protected $id;
 
     /**
      * @var string|null
      * @ORM\Column(type="string")
+     *
+     * @JMS\Expose()
+     * @JMS\Type("string")
      */
     protected $code;
 
     /**
      * @var int|null
      * @ORM\Column(type="integer")
+     *
+     * @JMS\Expose()
+     * @JMS\Type("integer")
      */
     protected $rank;
 
     /**
      * @var string|null
      * @ORM\Column(type="string")
+     *
+     * @JMS\Expose()
+     * @JMS\Type("string")
      */
     protected $name;
 
     /**
      * @var string|null
      * @ORM\Column(type="string")
+     *
+     * @JMS\Expose()
+     * @JMS\Type("string")
      */
     protected $description;
 
     /**
+     * @JMS\Exclude()
      * @ORM\ManyToOne(targetEntity="App\Entity\Season", inversedBy="episodes", cascade={"persist"})
      * @ORM\JoinColumn(name="season_id", referencedColumnName="id")
      */
