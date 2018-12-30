@@ -87,6 +87,7 @@ easy_admin:
                 fields:
                   - locale
                   - name
+                  - image
                   - description
                   - seasons
         Season:

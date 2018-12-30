@@ -168,6 +168,11 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.gridView-image img {
+  height: 100%;
+}
+
 .gridView-duration {
   position: absolute;
   bottom: 0.5rem;

@@ -21,6 +21,7 @@ class SeriesFixtures extends Fixture
         $preview = (new Series())
             ->setName('Preview')
             ->setLocale('fr')
+            ->setImage('https://img.youtube.com/vi/5bMOgK4SXH4/maxresdefault.jpg')
             ->setDescription(
                 'Arthur est un Youtubeur célèbre sous pression qui n\'arrive plus à sortir de vidéo. ' .
                 'Preview, une étrange fonctionnalité de la plateforme de vidéo, se propose de le relancer.'
@@ -28,6 +29,7 @@ class SeriesFixtures extends Fixture
 
         $jdg = (new Series())
             ->setLocale('fr')
+            ->setImage('https://img.youtube.com/vi/00vLSHLXr1U/maxresdefault.jpg')
             ->setName("Let's play Narratif de Stranded Deep par Joueur Du Genier")
             ->setDescription('La plage le soleil et les crustacés ! ');
 

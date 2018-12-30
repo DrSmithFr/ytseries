@@ -28,6 +28,7 @@ class IndexerService
             [
                 'id'   => $series->getId(),
                 'name' => $series->getName(),
+                'image' => $series->getImage() ?? '',
                 'description' => $series->getDescription(),
                 'season' => $series->getSeasons()->count()
             ],

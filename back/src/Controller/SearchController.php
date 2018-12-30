@@ -36,7 +36,7 @@ class SearchController extends BaseAdminController
             // add exact match query
             $match = new MultiMatch();
             $match->setQuery($q);
-            $match->setFields(["name^2", "description"]);
+            $match->setFields(["name"]);
             $match->setAnalyzer('standard');
 
             // add miss spell query
@@ -55,8 +55,7 @@ class SearchController extends BaseAdminController
                     'number_of_fragments' => 3,
                     'fragment_size' => 255,
                     'fields' => [
-                        'name' => new \stdClass(),
-                        'description' => new \stdClass()
+                        'name' => new \stdClass()
                     ]
                 ]
             );
@@ -76,10 +75,6 @@ class SearchController extends BaseAdminController
 
             if (isset($highlights['name'])) {
                 $assetData['name'] = $highlights['name'][0];
-            }
-
-            if (isset($highlights['description'])) {
-                $assetData['description'] = $highlights['description'][0];
             }
 
             $results[] = $assetData;

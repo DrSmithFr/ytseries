@@ -42,6 +42,13 @@ class Series
 
     /**
      * @var string|null
+     * @ORM\Column(type="string", nullable=true)
+     * @JMS\Type("string")
+     */
+    protected $image;
+
+    /**
+     * @var string|null
      * @ORM\Column(type="string")
      * @JMS\Type("string")
      */
@@ -112,6 +119,24 @@ class Series
     {
         $this->locale = $locale;
 
+        return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getImage():? string
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param null|string $image
+     * @return self
+     */
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
         return $this;
     }
 
