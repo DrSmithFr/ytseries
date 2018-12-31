@@ -31,6 +31,10 @@ export class UserService {
     return this.user;
   }
 
+  isConnected(): boolean {
+      return null !== this.getCurrentUser();
+  }
+
   connect(login: string, password: string, rememberMe: boolean): Observable<User> {
     return Observable.create((observer) => {
       const request = this.http.post<TokenModel>(

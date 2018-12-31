@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Episode;
+use App\Entity\Series;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -37,5 +38,23 @@ class EpisodeRepository extends ServiceEntityRepository
             ->getSingleScalarResult();
 
         return (int)$count;
+    }
+
+    public function findOneBySeriesAndId(Series $series, int $id):? Episode
+    {
+        return $this
+            ->createQueryBuilder('episode')
+            ->join('episode.season', 'season')
+            ->join('season.series', 'series')
+            ->where('series = :series')
+            ->andWhere('episode.id = :id')
+            ->setParameters(
+                [
+                    'series' => $series,
+                    'id' => $id
+                ]
+            )
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 }
