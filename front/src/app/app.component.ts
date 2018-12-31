@@ -45,9 +45,4 @@ export class AppComponent implements OnInit {
     this.loginService.disconnect();
     this.router.navigate(['/']);
   }
-
-  enableToolbar() {
-      const disableOn = ['/password_forgot', 'password_reset'];
-      return -1 === disableOn.indexOf(this.router.url);
-  }
 }
