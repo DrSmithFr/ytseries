@@ -44,31 +44,12 @@ export class WatchComponent implements OnInit {
             this.series = data;
             this.loadEpisode(data.seasons[0].episodes[0]);
 
-            console.log(this.userService.isConnected());
-
             if (this.userService.isConnected()) {
-                this
-                    .watchService
-                    .getHistoric(data.id)
-                    .subscribe(historic => {
-                        const playlist = [];
-                        for (const season of data.seasons) {
-                            for (const e of season.episodes) {
-                                playlist.push(e);
-                            }
-                        }
-
-                        const episode = playlist.filter(ep => {
-                            return ep.id === historic.episode_id;
-                        });
-
-                        if (episode.length) {
-                            console.log(historic);
-                            console.log(this.player);
-                            this.loadEpisode(episode[0]);
-                            this.historic = historic;
-                        }
-                    });
+                this.loadHistoric();
+            } else {
+                this.userService.userConnected.subscribe(user => {
+                    this.loadHistoric();
+                });
             }
         });
 
@@ -107,6 +88,29 @@ export class WatchComponent implements OnInit {
             case 5: // video cued
                 break;
         }
+    }
+
+    loadHistoric() {
+        this
+            .watchService
+            .getHistoric(this.series.id)
+            .subscribe(historic => {
+                const playlist = [];
+                for (const season of this.series.seasons) {
+                    for (const e of season.episodes) {
+                        playlist.push(e);
+                    }
+                }
+
+                const episode = playlist.filter(ep => {
+                    return ep.id === historic.episode_id;
+                });
+
+                if (episode.length) {
+                    this.loadEpisode(episode[0]);
+                    this.historic = historic;
+                }
+            });
     }
 
     saveHistoric(): void {
