@@ -1,5 +1,5 @@
 <mat-toolbar *ngIf="enableToolbar()">
-  <a routerLink="/">
+  <a routerLink="/" class="site-title-container">
     <img class="site-title" src="/assets/logo.png">
   </a>
   <div class="menu-container">
@@ -27,7 +27,7 @@
     <mat-icon>search</mat-icon>
     <span>Explore</span>
   </button>
-  <button mat-menu-item routerLink="/historic">
+  <button mat-menu-item routerLink="/historic" *ngIf="isConnected()">
     <mat-icon>history</mat-icon>
     <span>Historic</span>
   </button>

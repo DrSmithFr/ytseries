@@ -17,6 +17,10 @@ mat-toolbar {
   height: 40px;
 }
 
+.site-title-container {
+  font: 500 20px/0 Roboto,"Helvetica Neue",sans-serif;
+}
+
 .menu-link {
   padding-left: 20px;
   font-weight: 100;
