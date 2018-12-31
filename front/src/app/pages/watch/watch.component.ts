@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import YouTubePlayer from 'youtube-player';
 import {WatchService} from "../../services/watch.service";
 import {ActivatedRoute} from "@angular/router";
@@ -12,7 +12,7 @@ import {HistoricModel} from "../../models/historic.model";
     templateUrl: './watch.component.html',
     styleUrls: ['./watch.component.css']
 })
-export class WatchComponent implements OnInit {
+export class WatchComponent implements OnInit, OnDestroy {
 
     series: SeriesModel = null;
     player: YouTubePlayer = null;
@@ -59,6 +59,16 @@ export class WatchComponent implements OnInit {
 
         this.player.on('ready', () => this.onPlayerReady());
         this.player.on('stateChange', (e) => this.onPlayerStateChange(e));
+    }
+
+    ngOnDestroy() : void {
+        if (this.currentTimeCheckInterval) {
+            clearInterval(this.currentTimeCheckInterval);
+        }
+
+        if (this.countDownInterval) {
+            clearInterval(this.countDownInterval);
+        }
     }
 
     onPlayerReady() {
