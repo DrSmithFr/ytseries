@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {AssetService} from "../../services/asset.service";
+import {SearchService} from "../../services/search.service";
 
 @Component({
   selector: 'app-assets-search',
@@ -14,11 +15,11 @@ export class SearchComponent implements OnInit {
   result: any[] = [];
 
   constructor(
-    private assetService: AssetService
+    private searchService: SearchService
   ) { }
 
   ngOnInit() {
-    this.assetService.search().subscribe(data => {
+    this.searchService.search().subscribe(data => {
       this.result = data;
     });
   }
@@ -34,7 +35,7 @@ export class SearchComponent implements OnInit {
       query = null;
     }
 
-    this.assetService.search(query).subscribe(data => {
+    this.searchService.search(query).subscribe(data => {
       this.result = data;
     });
   }

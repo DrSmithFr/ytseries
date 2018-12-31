@@ -9,7 +9,7 @@ import { MatSnackBar } from '@angular/material';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   displayLoadingPanel = false;
 
@@ -26,6 +26,12 @@ export class LoginComponent {
     private snackBar: MatSnackBar,
     private loginService: UserService
   ) {
+  }
+
+  ngOnInit(): void {
+    this.loginService.userConnected.subscribe(() => {
+      this.router.navigate([this.getRefererUrl()]);
+    });
   }
 
   connect() {

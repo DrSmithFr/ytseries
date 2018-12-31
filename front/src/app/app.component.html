@@ -4,6 +4,7 @@
   </a>
   <div class="menu-container">
     <a class="menu-link" routerLink="/search" routerLinkActive="active">Explore</a>
+    <a class="menu-link" routerLink="/historic" routerLinkActive="active" *ngIf="isConnected()">Historic</a>
   </div>
   <div class="menu-container-mobile">
     <a class="menu-link" [matMenuTriggerFor]="mobilemenu" href="javascript:void(0)">
@@ -25,6 +26,10 @@
   <button mat-menu-item routerLink="/search">
     <mat-icon>search</mat-icon>
     <span>Explore</span>
+  </button>
+  <button mat-menu-item routerLink="/historic">
+    <mat-icon>history</mat-icon>
+    <span>Historic</span>
   </button>
 </mat-menu>
 

@@ -138,4 +138,33 @@ class ApiSecureController extends BaseAdminController
             JsonResponse::HTTP_OK
         );
     }
+
+    /**
+     * @Route("/historic", name="api_historic", methods={"GET"})
+     * @param HistoricRepository $repository
+     * @return JsonResponse
+     */
+    public function getHistoricListAction(
+        HistoricRepository $repository
+    )
+    {
+        $user = $this->getUser();
+        $historicList = $repository->findAllByUser($user);
+
+        $result = [];
+
+        /** @var Historic $historic */
+        foreach ($historicList as $historic) {
+            $series = $historic->getSeries();
+
+            $result[] = [
+                'id' => $series->getId(),
+                'name' => $series->getName(),
+                'image' => $series->getImage(),
+                'description' => $series->getDescription()
+            ];
+        }
+
+        return new JsonResponse($result);
+    }
 }

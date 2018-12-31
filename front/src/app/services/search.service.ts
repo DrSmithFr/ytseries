@@ -8,7 +8,7 @@ const API_URL = environment.apiUrl;
 @Injectable({
   providedIn: 'root'
 })
-export class AssetService {
+export class SearchService {
 
   constructor(
     private http: HttpClient
@@ -22,6 +22,10 @@ export class AssetService {
       params = params.set('query', query);
     }
 
-    return this.http.get<any[]>(API_URL + '/open/search', {params: params});;
+    return this.http.get<any[]>(API_URL + '/open/search', {params: params});
+  }
+
+  historic(): Observable<any[]> {
+    return this.http.get<any[]>(API_URL + '/api/historic');
   }
 }

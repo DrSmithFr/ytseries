@@ -39,4 +39,20 @@ class HistoricRepository extends ServiceEntityRepository
             ->getQuery()
             ->getOneOrNullResult();
     }
+
+    public function findAllByUser(User $user): array
+    {
+        return $this
+            ->getEntityManager()
+            ->createQueryBuilder()
+            ->select('historic')
+            ->addSelect('series')
+            ->from(Historic::class, 'historic')
+            ->join('historic.series', 'series')
+            ->where('historic.user = :user')
+            ->setParameter('user', $user)
+            ->orderBy('historic.updatedAt', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
 }

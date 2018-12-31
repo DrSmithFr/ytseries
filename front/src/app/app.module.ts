@@ -35,6 +35,7 @@ import {PasswordForgotComponent} from './pages/password-forgot/password-forgot.c
 import {Page404Component} from './pages/page404/page404.component';
 import { SearchComponent } from './pages/search/search.component';
 import { WatchComponent } from './pages/watch/watch.component';
+import { HistoricComponent } from './pages/historic/historic.component';
 
 @NgModule(
   {
@@ -73,6 +74,7 @@ import { WatchComponent } from './pages/watch/watch.component';
       Page404Component,
       SearchComponent,
       WatchComponent,
+      HistoricComponent,
     ],
     providers:    [
       UserService,
