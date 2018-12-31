@@ -6,6 +6,7 @@ import {SeriesModel} from "../../models/series.model";
 import {EpisodeModel} from "../../models/episode.model";
 import {UserService} from "../../services/user.service";
 import {HistoricModel} from "../../models/historic.model";
+import {Subscription} from "rxjs/index";
 
 @Component({
     selector: 'app-watch',
@@ -18,6 +19,8 @@ export class WatchComponent implements OnInit, OnDestroy {
     player: YouTubePlayer = null;
 
     historic: HistoricModel = null;
+
+    userConnectionSubscription: Subscription = null;
 
     currentEpisode: EpisodeModel = null;
     currentTimeCheckInterval = null;
@@ -40,14 +43,17 @@ export class WatchComponent implements OnInit, OnDestroy {
     ngOnInit() {
         const id = this.route.snapshot.params.id;
 
-        this.watchService.seriesInformation(id).subscribe((data: SeriesModel) => {
+        this
+            .watchService
+            .seriesInformation(id)
+            .subscribe((data: SeriesModel) => {
             this.series = data;
             this.loadEpisode(data.seasons[0].episodes[0]);
 
             if (this.userService.isConnected()) {
                 this.loadHistoric();
             } else {
-                this.userService.userConnected.subscribe(user => {
+                this.userConnectionSubscription = this.userService.userConnected.subscribe(user => {
                     this.loadHistoric();
                 });
             }
@@ -68,6 +74,10 @@ export class WatchComponent implements OnInit, OnDestroy {
 
         if (this.countDownInterval) {
             clearInterval(this.countDownInterval);
+        }
+
+        if (this.userConnectionSubscription) {
+            this.userConnectionSubscription.unsubscribe();
         }
     }
 
