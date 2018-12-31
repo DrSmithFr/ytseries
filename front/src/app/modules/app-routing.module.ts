@@ -9,12 +9,14 @@ import { Page404Component } from '../pages/page404/page404.component';
 import {SearchComponent} from '../pages/search/search.component';
 import {WatchComponent} from "../pages/watch/watch.component";
 import {HistoricComponent} from "../pages/historic/historic.component";
+import {RegisterComponent} from "../pages/register/register.component";
 
 const ROUTES: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'watch/:id', component: WatchComponent },
   { path: 'historic', component: HistoricComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'password_forgot', component: PasswordForgotComponent },
   { path: 'password_reset', component: PasswordResetComponent },
   { path: '404', component: Page404Component },

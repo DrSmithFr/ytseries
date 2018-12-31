@@ -36,6 +36,7 @@ import {Page404Component} from './pages/page404/page404.component';
 import { SearchComponent } from './pages/search/search.component';
 import { WatchComponent } from './pages/watch/watch.component';
 import { HistoricComponent } from './pages/historic/historic.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule(
   {
@@ -75,6 +76,7 @@ import { HistoricComponent } from './pages/historic/historic.component';
       SearchComponent,
       WatchComponent,
       HistoricComponent,
+      RegisterComponent,
     ],
     providers:    [
       UserService,
