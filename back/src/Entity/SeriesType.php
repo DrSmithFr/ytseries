@@ -34,6 +34,13 @@ class SeriesType
     protected $name;
 
     /**
+     * @var string|null
+     * @ORM\Column(type="string", nullable=true)
+     * @JMS\Type("string")
+     */
+    protected $importCode;
+
+    /**
      * @var ArrayCollection|Series[]
      * @ORM\OneToMany(targetEntity="App\Entity\Series", mappedBy="type")
      * @JMS\Exclude()
@@ -78,6 +85,25 @@ class SeriesType
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getImportCode()
+    {
+        return $this->importCode;
+    }
+
+    /**
+     * @param null|string $importCode
+     * @return $this
+     */
+    public function setImportCode($importCode)
+    {
+        $this->importCode = $importCode;
 
         return $this;
     }

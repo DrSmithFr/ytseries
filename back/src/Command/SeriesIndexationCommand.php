@@ -31,7 +31,7 @@ class SeriesIndexationCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('app:indexation:series')
+            ->setName('app:series:indexation')
             ->setDescription('Rebuild the Index and populate it.')
         ;
     }

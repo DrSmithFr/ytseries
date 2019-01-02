@@ -55,6 +55,13 @@ class Episode
     protected $name;
 
     /**
+     * @var string|null
+     * @ORM\Column(type="string", nullable=true)
+     * @JMS\Type("string")
+     */
+    protected $importCode;
+
+    /**
      * @JMS\Exclude()
      * @ORM\ManyToOne(targetEntity="App\Entity\Season", inversedBy="episodes", cascade={"persist"})
      * @ORM\JoinColumn(name="season_id", referencedColumnName="id")
@@ -132,6 +139,25 @@ class Episode
     public function setRank($rank)
     {
         $this->rank = $rank;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImportCode()
+    {
+        return $this->importCode;
+    }
+
+    /**
+     * @param mixed $importCode
+     * @return $this
+     */
+    public function setImportCode($importCode)
+    {
+        $this->importCode = $importCode;
 
         return $this;
     }

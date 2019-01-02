@@ -1,4 +1,4 @@
-type:
+types:
   movie: 'Movie'
   series: 'Series'
   documentary: 'Documentary'
@@ -98,10 +98,10 @@ series:
     name: J'ai jamais su dire non
     locale: fr
     type: series
-    images: https://img.youtube.com/vi/aPmY05b_YYg/maxresdefault.jpg
-      description:
-        Dans la vie, ne pas savoir dire non peut entrainer beaucoup d'emmerdes.
-        Mais heureusement pour lui, Tom va tester méthode expérimentale pour lui donner un peu de charisme.
+    image: https://img.youtube.com/vi/aPmY05b_YYg/maxresdefault.jpg
+    description:
+      Dans la vie, ne pas savoir dire non peut entrainer beaucoup d'emmerdes.
+      Mais heureusement pour lui, Tom va tester une méthode expérimentale pour lui donner un peu de charisme.
     seasons:
       - name: Saison 1
         episodes:
@@ -147,10 +147,10 @@ series:
     name: La théorie des Balls
     locale: fr
     type: series
-    images: https://img.youtube.com/vi/7qvdWI3d10E/maxresdefault.jpg
-      description:
-        Dans la vie, ne pas savoir dire non peut entrainer beaucoup d'emmerdes.
-        Mais heureusement pour lui, Tom va tester méthode expérimentale pour lui donner un peu de charisme.
+    image: https://img.youtube.com/vi/7qvdWI3d10E/maxresdefault.jpg
+    description:
+      Dans la vie, ne pas savoir dire non peut entrainer beaucoup d'emmerdes.
+      Mais heureusement pour lui, Tom va tester méthode expérimentale pour lui donner un peu de charisme.
     seasons:
     - name: La théorie des Balls
       episodes:

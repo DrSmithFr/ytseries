@@ -55,6 +55,13 @@ class Series
     protected $description;
 
     /**
+     * @var string|null
+     * @ORM\Column(type="string", nullable=true)
+     * @JMS\Type("string")
+     */
+    protected $importCode;
+
+    /**
      * @var SeriesType|null
      * @ORM\ManyToOne(targetEntity="App\Entity\SeriesType", inversedBy="series", cascade={"persist"})
      * @ORM\JoinColumn(name="series_type_id", referencedColumnName="id", nullable=true)
@@ -163,6 +170,25 @@ class Series
     public function setDescription($description)
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getImportCode()
+    {
+        return $this->importCode;
+    }
+
+    /**
+     * @param null|string $importCode
+     * @return $this
+     */
+    public function setImportCode($importCode)
+    {
+        $this->importCode = $importCode;
 
         return $this;
     }
