@@ -17,7 +17,7 @@ services:
     - ./back:/www/
     networks:
       dev:
-        ipv4_address: 10.12.0.6 # add this to your host trad.local
+        ipv4_address: 10.12.0.6 # add this to your host ytseries
       default:
 
   phpfpm:
@@ -46,7 +46,7 @@ services:
     image: tophfr/mailcatcher
     networks:
       dev:
-        ipv4_address: 10.12.0.8 # add this to your host amslitemail
+        ipv4_address: 10.12.0.8 # add this to your host ytseriesmail
       default:
 
   elasticsearch:

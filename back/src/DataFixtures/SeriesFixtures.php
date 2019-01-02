@@ -23,7 +23,8 @@ class SeriesFixtures extends Fixture
             ->setLocale('fr')
             ->setImage('https://img.youtube.com/vi/5bMOgK4SXH4/maxresdefault.jpg')
             ->setDescription(
-
+                'Arthur est un Youtubeur célèbre sous pression qui n\'arrive plus à sortir de vidéo. ' .
+                'Preview, une étrange fonctionnalité de la plateforme de vidéo, se propose de le relancer.'
             );
 
         $jdg = (new Series())

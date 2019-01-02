@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {AssetService} from "../../services/asset.service";
 import {SearchService} from "../../services/search.service";
 
 @Component({
