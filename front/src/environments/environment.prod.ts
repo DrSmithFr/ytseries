@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://ytseries'
+  apiUrl: 'http://backend.heystudent.fr'
 };
