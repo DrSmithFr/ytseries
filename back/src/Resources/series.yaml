@@ -201,7 +201,8 @@ series:
     locale: fr
     type: movie
     image: https://img.youtube.com/vi/9qvNtzr0nqU/maxresdefault.jpg
-    description: ''
+    description:
+      Un homme braque la mauvaise famille...
     seasons:
     - name: Le Film
       episodes:
@@ -244,3 +245,27 @@ series:
       episodes:
       - name: La science de l'amour
         code: pmqvuh87WTo
+  destiny:
+    name: Les Minions - La Compétition
+    locale: fr
+    type: movie
+    image: https://img.youtube.com/vi/E-znxPIeTOE/maxresdefault.jpg
+    description:
+      Un match de boxe au sommet, une compétition ENRAGÉE ! Les Minions vont, encore, trop loin !
+    seasons:
+    - name: Le Film
+      episodes:
+      - name: La Compétition
+        code: E-znxPIeTOE
+  sweet_cocoon:
+    name: Sweet Cocoon
+    locale: fr
+    type: movie
+    image: https://img.youtube.com/vi/VMyQkfHr9a0/maxresdefault.jpg
+    description:
+      Deux insectes aident une chenille dans sa métamorphose...
+    seasons:
+    - name: Le Film
+      episodes:
+      - name: Sweet Cocoon
+        code: VMyQkfHr9a0

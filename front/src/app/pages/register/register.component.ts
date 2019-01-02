@@ -14,6 +14,8 @@ export class RegisterComponent implements OnInit {
     rememberMe: [false],
   });
 
+  displayLoadingPanel = true;
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
