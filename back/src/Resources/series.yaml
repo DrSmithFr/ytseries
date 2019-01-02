@@ -430,3 +430,70 @@ series:
         episodes:
           - name: Episode 1
             code: rWhaQBglm4k
+  la_web_series:
+    name: LA Web Series
+    locale: en
+    type: series
+    image: https://img.youtube.com/vi/SQzK9-39tWY/maxresdefault.jpg
+    description:
+      LA Web Series is a love story between two young women who start as strangers and
+      forge a lasting bond filled with past stories and future questions.
+    seasons:
+      - name: Season 1
+        episodes:
+          - name: What if?
+            code: Miaq_E5gmlk
+          - name: Where Are You Now?
+            code: eMoN-0C9AwE
+          - name: Who Are You?
+            code: p1sz6NjRSXU
+          - name: What's Your Name?
+            code: bLpyFnR3Xwk
+          - name: Why Not?
+            code: qsbhsAIx_RI
+          - name: Where Did You Come From?
+            code: pdEsW53WtFg
+          - name: Why Are You Here?
+            code: k_lmecGqnGM
+          - name: Why Don't We Stop?
+            code: _zopuTTjIZA
+          - name: Why'd You Tell Me?
+            code: uq_Rp9UnzLM
+          - name: Where's It Going?
+            code: Ym6MhaN5mUo
+          - name: Avery?
+            code: 7GuF3WxLCwU
+          - name: Landon?
+            code: 7d-6s1RHEbE
+          - name: Can I Listen?
+            code: TNUYwOcAgjk
+          - name: What'd You Say?
+            code: gq0H3CS6D78
+          - name: Where Are We Going Now?
+            code: XHot7AmmgAM
+          - name: How Did We Get Here?
+            code: X43zQPyZP5o
+          - name: What? Where? Who? When? Why?
+            code: hsUO3zCxyKc
+          - name: ?
+            code: jm7zPgX7KXk
+      - name: Season 1
+        episodes:
+          - name: Hello?
+            code: iMUY2Q7NlAU
+          - name: Who is This?
+            code: ex_hDwlxemA
+          - name: Megan?
+            code: 1M7ybXpjyPg
+          - name: Which Way?
+            code: pI2tThZwc7Y
+          - name: Isn't it Crazy?
+            code: 0G9pkKNHaIk
+          - name: Nervous?
+            code: 1RCsa3LfvNM
+          - name: How Come?
+            code: _U7meI2lHUA
+          - name: Stay?
+            code: RmEH2NW2tD8
+          - name: ?
+            code: W01P8G45iWk
