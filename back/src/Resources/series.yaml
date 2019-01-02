@@ -269,3 +269,78 @@ series:
       episodes:
       - name: Sweet Cocoon
         code: VMyQkfHr9a0
+  nightwing:
+    name: Nightwing
+    locale: en
+    type: series
+    image: https://img.youtube.com/vi/o297A1wmys0/maxresdefault.jpg
+    description:
+      Nightwing follows the story of Batman's former sidekick, Dick Grayson aka Robin.
+      After a falling out with his mentor, Dick abandons Gotham and everyone in it.
+    seasons:
+      - name: Season 1
+        episodes:
+          - name: Deathstroke
+            code: o297A1wmys0
+          - name: Origins
+            code: Adv8OASsZu0
+          - name: Descent
+            code: kfYoS0YkAtY
+          - name: Oracle
+            code: 43GNeN8qHwQ
+          - name: Legacy
+            code: DMUJTWrf8
+  realer:
+    name: RealEr
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/dxg87ECe9qw/maxresdefault.jpg
+    description:
+      Un mystérieux personnage prend contact avec Koss...
+    seasons:
+      - name: Season 1
+        episodes:
+          - name: REveil
+            code: dxg87ECe9qw
+          - name: REférences
+            code: ek4kuLE1S0Q
+          - name: REalités
+            code: 2QIElnMDFPg
+          - name: QuatRE
+            code: 5xi40clbksQ
+          - name: REtard
+            code: GF8rbW97si8
+          - name: REtard
+            code: GF8rbW97si8
+          - name: Les autREs
+            code: P_UiPyTX16U
+          - name: REgles
+            code: nz8s02r1LZ0
+          - name: Nouvelle ER
+            code: 4chHv3sWUi0
+  en_passant_pecho:
+    name: En Passant Pécho
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/YBcwG9G6oHU/maxresdefault.jpg
+    description:
+
+    seasons:
+      - name: Saison 1
+        episodes:
+          - name: Le film de boule est-il une drogue?
+            code: YBcwG9G6oHU
+          - name: A propos de Mojo
+            code: oBTVou0P2D4
+          - name: Carotte cellule
+            code: wGHJ5bwa_Bo
+          - name: Bande de Bollos
+            code: ZH9Y3tr6d08
+          - name: Y'a les Keufs
+            code: jL81u734sWo
+          - name: Tape de Ouf
+            code: xwy4a9Stqzw
+          - name: Un Bête de Plan
+            code: JjkE91UHY1Q
+          - name: Qui veut épouser Cokeman ?
+            code: Ko_YL9jnRSc
