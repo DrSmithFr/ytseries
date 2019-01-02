@@ -196,3 +196,51 @@ series:
         code: U4jeahI4Ltk
       - name: Le Mariage
         code: kNessniQHcw
+  lunar:
+    name: Lunar
+    locale: fr
+    type: movie
+    image: https://img.youtube.com/vi/9qvNtzr0nqU/maxresdefault.jpg
+    description: ''
+    seasons:
+    - name: Le Film
+      episodes:
+      - name: Lunar
+        code: 9qvNtzr0nqU
+  respire:
+    name: Respire
+    locale: fr
+    type: movie
+    image: https://img.youtube.com/vi/Rwvmimo2z-s/maxresdefault.jpg
+    description:
+      Antoine aime courir, mais il souffre de fibrose kystique. À l'hôpital,
+      il fait la connaissance de Juliette, une vieille dame cinglée.
+    seasons:
+    - name: Le Film
+      episodes:
+      - name: Respire
+        code: Rwvmimo2z-s
+  dessine_moi_un_alien:
+    name: Dessine-moi un Alien
+    locale: fr
+    type: movie
+    image: https://img.youtube.com/vi/SU_2bRmIswc/maxresdefault.jpg
+    description:
+      Un court métrage sur le dessin et les extraterrestres.
+    seasons:
+    - name: Le Film
+      episodes:
+      - name: Dessine-moi un Alien
+        code: SU_2bRmIswc
+  la_science_de_lamour:
+    name: La science de l'amour
+    locale: fr
+    type: movie
+    image: https://img.youtube.com/vi/pmqvuh87WTo/maxresdefault.jpg
+    description:
+      Du jour au lendemain, l’amour devient quantifiable grâce à une révolution scientifique appelée Lovecount.
+    seasons:
+    - name: Le Film
+      episodes:
+      - name: La science de l'amour
+        code: pmqvuh87WTo
