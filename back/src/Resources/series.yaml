@@ -324,7 +324,7 @@ series:
     type: series
     image: https://img.youtube.com/vi/YBcwG9G6oHU/maxresdefault.jpg
     description:
-
+      Une serie déjenté sur la vie de cité
     seasons:
       - name: Saison 1
         episodes:
@@ -344,3 +344,56 @@ series:
             code: JjkE91UHY1Q
           - name: Qui veut épouser Cokeman ?
             code: Ko_YL9jnRSc
+  ulysse:
+    name: Ulysse
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/_aNuQaWdRCo/maxresdefault.jpg
+    description:
+      2038. 14 ans après la fin d'une guerre mondiale aussi dévastatrice que mystérieuse,
+      une jeune orpheline - Elena - reçoit un carnet qui pourrait bien tout expliquer.
+    seasons:
+      - name: Saison 1
+        episodes:
+          - name: Un nouveau départ 1/3
+            code: yQBKEwvsdtE
+          - name: Un nouveau départ 2/3
+            code: Oi6TzHusYII
+          - name: Un nouveau départ 3/3
+            code: X6tAUbwbG5c
+          - name: La tarte au citron 1/2
+            code: NY6-GmBcGM0
+          - name: La tarte au citron 2/2
+            code: dJUzIfYDTzU
+          - name: Cette fille 1/3
+            code: TCfQnPRolwY
+          - name: Cette fille 2/3
+            code: LjmpRAy_OKc
+          - name: Cette fille 3/3
+            code: yCyp5ed_PAo
+          - name: L'envers du décor 1/2
+            code: puOY1kf8h7c
+          - name: L'envers du décor 2/2
+            code: 9Kpyp4Ljhqw
+      - name: Saison 2
+        episodes:
+          - name: MM's sacrifice 1/2
+            code: _aNuQaWdRCo
+          - name: MM's sacrifice 2/2
+            code: UpxnGa74KVM
+          - name: Retrouvailles 1/2
+            code: 6FS8jQUInRM
+          - name: Retrouvailles 2/2
+            code: ZaFK845GxMU
+          - name: Il y a 5 ans
+            code: OgCIYumWi6k
+          - name: Les âmes soeurs 1/3
+            code: eJ6I575Uw1Q
+          - name: Les âmes soeurs 2/3
+            code: hoq2fU-bh-g
+          - name: Les âmes soeurs 3/3
+            code: Di2w-0eI7sc
+          - name: Son choix 1/2
+            code: vx9L3Mvpxf0
+          - name: Son choix 2/2
+            code: s3kOlBPxivE
