@@ -9,7 +9,7 @@
 
     <div class="video-info" *ngIf="currentEpisode">
       <h1>{{currentEpisode.name}}</h1>
-      <h2>Saison 2 - Episode {{currentEpisode.rank}}</h2>
+      <h2>Season 2 - Episode {{currentEpisode.rank + 1}}</h2>
     </div>
 
   </div>
@@ -18,7 +18,7 @@
     <div class="video-info-large-screen" *ngIf="currentEpisode">
       <h1>Video title</h1>
       <h1>{{currentEpisode.name}}</h1>
-      <h2>Saison 2 - Episode {{currentEpisode.rank}}</h2>
+      <h2>Season 2 - Episode {{currentEpisode.rank + 1}</h2>
     </div>
 
     <div *ngIf="video.duration && video.currentTime && canShowNextEpisodeButton()">
