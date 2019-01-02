@@ -19,9 +19,13 @@ class IndexerService
         $this->repository = $repository;
     }
 
-    public function buildSeriesDocument(Series $series)
+    public function buildSeriesDocument(Series $series):? Document
     {
         $series = $this->repository->getFullyLoadedSeriesById($series->getId());
+
+        if (null === $series->getType()) {
+            return null;
+        }
 
         $episodes = [];
         foreach ($series->getSeasons() as $season) {
@@ -30,12 +34,17 @@ class IndexerService
             }
         }
 
+        if (count($episodes) === 0) {
+            return null;
+        }
+
         return new Document(
             $series->getId(), // Manually defined ID
             [
                 'id'          => $series->getId(),
                 'name'        => $series->getName(),
                 'image'       => $series->getImage() ?? '',
+                'type'        => $series->getType()->getName(),
                 'description' => $series->getDescription(),
                 'seasons'     => $series->getSeasons()->count(),
                 'episodes'    => count($episodes),

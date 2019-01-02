@@ -40,8 +40,9 @@ class SeriesRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param int $id
+     * @param int|null $id
      * @return Series|null
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function getFullyLoadedSeriesById(?int $id):? Series
     {
@@ -52,8 +53,9 @@ class SeriesRepository extends ServiceEntityRepository
         return $this
             ->getEntityManager()
             ->createQueryBuilder()
-            ->select('series, season, episode')
+            ->select('series, type, season, episode')
             ->from(Series::class, 'series')
+            ->leftJoin('series.type', 'type')
             ->leftJoin('series.seasons', 'season')
             ->leftJoin('season.episodes', 'episode')
             ->where('series.id = :id')

@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Series;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
 /**
@@ -11,7 +12,7 @@ use Doctrine\Common\Persistence\ObjectManager;
  * @package App\DataFixtures
  * @codeCoverageIgnore
  */
-class SeriesFixtures extends Fixture
+class SeriesFixtures extends Fixture implements DependentFixtureInterface
 {
     const SERIES_PREVIEW = 'series-preview';
     const SERIES_JDG = 'series-jdg';
@@ -21,6 +22,7 @@ class SeriesFixtures extends Fixture
         $preview = (new Series())
             ->setName('Preview')
             ->setLocale('fr')
+            ->setType($this->getReference(SeriesTypeFixtures::TYPE_SERIES))
             ->setImage('https://img.youtube.com/vi/5bMOgK4SXH4/maxresdefault.jpg')
             ->setDescription(
                 'Arthur est un Youtubeur célèbre sous pression qui n\'arrive plus à sortir de vidéo. ' .
@@ -28,9 +30,10 @@ class SeriesFixtures extends Fixture
             );
 
         $jdg = (new Series())
-            ->setLocale('fr')
-            ->setImage('https://img.youtube.com/vi/00vLSHLXr1U/maxresdefault.jpg')
             ->setName("Let's play Narratif de Stranded Deep par Joueur Du Genier")
+            ->setLocale('fr')
+            ->setType($this->getReference(SeriesTypeFixtures::TYPE_SERIES))
+            ->setImage('https://img.youtube.com/vi/00vLSHLXr1U/maxresdefault.jpg')
             ->setDescription('La plage le soleil et les crustacés ! ');
 
         $manager->persist($preview);
@@ -40,5 +43,18 @@ class SeriesFixtures extends Fixture
 
         $this->addReference(self::SERIES_PREVIEW, $preview);
         $this->addReference(self::SERIES_JDG, $jdg);
+    }
+
+    /**
+     * This method must return an array of fixtures classes
+     * on which the implementing class depends on
+     *
+     * @return array
+     */
+    public function getDependencies()
+    {
+        return [
+            SeriesTypeFixtures::class
+        ];
     }
 }

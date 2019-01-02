@@ -54,7 +54,10 @@ class SeriesIndexationCommand extends Command
 
         $documents = [];
         foreach ($assets as $asset) {
-            $documents[] = $this->indexer->buildSeriesDocument($asset);
+            if ($document = $this->indexer->buildSeriesDocument($asset)) {
+                $documents[] = $document;
+            }
+
             $io->progressAdvance();
         }
         $io->progressFinish();

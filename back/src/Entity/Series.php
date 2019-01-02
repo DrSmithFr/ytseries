@@ -55,6 +55,14 @@ class Series
     protected $description;
 
     /**
+     * @var SeriesType|null
+     * @ORM\ManyToOne(targetEntity="App\Entity\SeriesType", inversedBy="series", cascade={"persist"})
+     * @ORM\JoinColumn(name="series_type_id", referencedColumnName="id", nullable=true)
+     * @JMS\Type("App\Entity\SeriesType"
+     */
+    protected $type;
+
+    /**
      * @var ArrayCollection|Season[]
      * @ORM\OneToMany(targetEntity="App\Entity\Season", mappedBy="series", cascade={"persist", "remove"})
      * @JMS\Type("ArrayCollection<App\Entity\Season>")
@@ -201,6 +209,24 @@ class Series
         $this->seasons->removeElement($season);
         $season->setSeries(null);
 
+        return $this;
+    }
+
+    /**
+     * @return SeriesType|null
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param SeriesType $type
+     * @return self
+     */
+    public function setType($type): self
+    {
+        $this->type = $type;
         return $this;
     }
 

@@ -42,7 +42,7 @@ class Season
 
     /**
      * @JMS\Exclude()
-     * @ORM\ManyToOne(targetEntity="App\Entity\Series", inversedBy="saisons", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Series", inversedBy="seasons", cascade={"persist"})
      * @ORM\JoinColumn(name="series_id", referencedColumnName="id")
      */
     protected $series;
