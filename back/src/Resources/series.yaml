@@ -76,21 +76,70 @@ series:
     seasons:
     - name: Saison 1
       episodes:
-      - name: Feat Hakim Jemili
+      - name: '#1 feat Hakim Jemili'
         code: iYF7hj6YYxw
-      - name: Feat Charles Nouveau
+      - name: '#2 feat Charles Nouveau'
         code: bO735GP3_R8
-      - name: Feat Jhon Rachid
+      - name: '#3 feat Jhon Rachid'
         code: eoeRpEUWI
-      - name: Feat Lucien Maine
+      - name: '#4 feat Lucien Maine'
         code: l1A2iasInKY
-      - name: Feat Sebastian Marx
+      - name: '#5 feat Sebastian Marx'
         code: Qe3Fk8CtJy8
-      - name: Feat Hugo Tout Seul
+      - name: '#6 feat Hugo Tout Seul'
         code: ggQGBR5MD0o
-      - name: Feat Tania Dutel
+      - name: '#7 feat Tania Dutel'
         code: PnVmB4l4ETk
-      - name: Feat Hugo Gertner
+      - name: '#8 feat Hugo Gertner'
         code: Hkb5PFuzeLo
-      - name: Feat Kyan et Navo
+      - name: '#9 feat Kyan et Navo'
         code: 60M-0waG_5w
+  jai_jamais_su_dire_non:
+    name: J'ai jamais su dire non
+    locale: fr
+    type: series
+    images: https://img.youtube.com/vi/aPmY05b_YYg/maxresdefault.jpg
+      description:
+        Dans la vie, ne pas savoir dire non peut entrainer beaucoup d'emmerdes.
+        Mais heureusement pour lui, Tom va tester méthode expérimentale pour lui donner un peu de charisme.
+    seasons:
+      - name: Saison 1
+        episodes:
+          - name: Non aux conséquences !
+            code: aPmY05b_YYg
+          - name: Non à l'incruste !
+            code: DrfvGa6a748
+          - name: Non aux sextoys !
+            code: Nd_zCJNx9A0
+          - name: Editor's cut 1
+            code: LmtFtZ4sP6Y
+          - name: Non à la générosité !
+            code: siF2nOWDOzE
+          - name: Non à la l'honnêteté !
+            code: 6mMtNwPPHU
+          - name: Non au couple !
+            code: N6Kcc13Fi9c
+          - name: Editor's cut 2
+            code: 2b2TqQmdGYY
+          - name: Oh yeah !
+            code: 9KHQU9jR3Y8
+          - name: Non à Einstein !
+            code: P-qHsMf3Gic
+          - name: Editor's cut 3
+            code: wNkdmulnqAQ
+          - name: Non à la rébellion !
+            code: lL0H74ZVt3k
+          - name: Non aux histoires !
+            code: Fq53v3PbDRM
+          - name: Editor's cut 4
+            code: 1gO3K2VH4gY
+          - name: Non aux chips !
+            code: x-aoHD7eMXY
+          - name: Non aux mesures !
+            code: wfPDKDWXpgY
+          - name: Editor's cut 5
+            code: E1SAG9ZYfV4
+          - name: Non aux révélations !
+            code: 8V-q7HFcNUA
+          - name: Non à la PBT !
+            code: S5sgQHJiRH0
