@@ -1,5 +1,6 @@
 types:
   movie: 'Movie'
+  short: 'Short Film'
   series: 'Series'
   documentary: 'Documentary'
 series:
@@ -199,7 +200,7 @@ series:
   lunar:
     name: Lunar
     locale: fr
-    type: movie
+    type: short
     image: https://img.youtube.com/vi/9qvNtzr0nqU/maxresdefault.jpg
     description:
       Un homme braque la mauvaise famille...
@@ -211,7 +212,7 @@ series:
   respire:
     name: Respire
     locale: fr
-    type: movie
+    type: short
     image: https://img.youtube.com/vi/Rwvmimo2z-s/maxresdefault.jpg
     description:
       Antoine aime courir, mais il souffre de fibrose kystique. À l'hôpital,
@@ -224,7 +225,7 @@ series:
   dessine_moi_un_alien:
     name: Dessine-moi un Alien
     locale: fr
-    type: movie
+    type: short
     image: https://img.youtube.com/vi/SU_2bRmIswc/maxresdefault.jpg
     description:
       Un court métrage sur le dessin et les extraterrestres.
@@ -236,7 +237,7 @@ series:
   la_science_de_lamour:
     name: La science de l'amour
     locale: fr
-    type: movie
+    type: short
     image: https://img.youtube.com/vi/pmqvuh87WTo/maxresdefault.jpg
     description:
       Du jour au lendemain, l’amour devient quantifiable grâce à une révolution scientifique appelée Lovecount.
@@ -248,7 +249,7 @@ series:
   destiny:
     name: Les Minions - La Compétition
     locale: fr
-    type: movie
+    type: short
     image: https://img.youtube.com/vi/E-znxPIeTOE/maxresdefault.jpg
     description:
       Un match de boxe au sommet, une compétition ENRAGÉE ! Les Minions vont, encore, trop loin !
@@ -260,7 +261,7 @@ series:
   sweet_cocoon:
     name: Sweet Cocoon
     locale: fr
-    type: movie
+    type: short
     image: https://img.youtube.com/vi/VMyQkfHr9a0/maxresdefault.jpg
     description:
       Deux insectes aident une chenille dans sa métamorphose...

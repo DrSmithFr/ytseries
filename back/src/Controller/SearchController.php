@@ -63,7 +63,14 @@ class SearchController extends BaseAdminController
             $query->setQuery(new Query\MatchAll());
         }
 
-        $query->setSize(10);
+        $query->setSize(18);
+        $query->setSort(
+            [
+                'id' => [
+                    'order' => 'desc'
+                ]
+            ]
+        );
 
         $result = $searchService->getIndex()->search($query);
 

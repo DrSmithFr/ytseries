@@ -38,7 +38,8 @@
               <img src="{{row.image}}">
             </div>
             <div class="gridView-duration" *ngIf="row.seasons > 1">{{row.seasons}} saisons</div>
-            <div class="gridView-duration" *ngIf="row.seasons <= 1">{{row.episodes}} episodes</div>
+            <div class="gridView-duration" *ngIf="row.seasons <= 1 && row.episodes > 1">{{row.episodes}} episodes</div>
+            <div class="gridView-duration" *ngIf="row.seasons <= 1 && row.episodes <= 1">{{row.type}}</div>
           </div>
           <div class="gridView-detailsSection" routerLink="/watch/{{row.id}}">
             <div class="gridView-detailsTop">
