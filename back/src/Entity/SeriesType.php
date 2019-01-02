@@ -36,7 +36,7 @@ class SeriesType
     /**
      * @var ArrayCollection|Series[]
      * @ORM\OneToMany(targetEntity="App\Entity\Series", mappedBy="type")
-     * @JMS\exclude()
+     * @JMS\Exclude()
      */
     protected $series;
 
