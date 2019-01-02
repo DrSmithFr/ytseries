@@ -349,7 +349,7 @@ series:
     name: Ulysse
     locale: fr
     type: series
-    image: https://img.youtube.com/vi/_aNuQaWdRCo/maxresdefault.jpg
+    image: https://img.youtube.com/vi/yQBKEwvsdtE/maxresdefault.jpg
     description:
       2038. 14 ans après la fin d'une guerre mondiale aussi dévastatrice que mystérieuse,
       une jeune orpheline - Elena - reçoit un carnet qui pourrait bien tout expliquer.
@@ -398,3 +398,35 @@ series:
             code: vx9L3Mvpxf0
           - name: Son choix 2/2
             code: s3kOlBPxivE
+  donjon_legacy:
+    name: Donjon Legacy
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/Miaq_E5gmlk/maxresdefault.jpg
+    description:
+      Jon s'en vient découvrir dans des ruines l'héritage d'un père qu'il n'a pas connu.
+    seasons:
+      - name: Saison 1
+        episodes:
+          - name: Episode 1
+            code: Miaq_E5gmlk
+          - name: Episode 2
+            code: wDuI-ayW3Cw
+          - name: Episode 3
+            code: n-9XF0bcgFw
+          - name: Episode 4
+            code: lvJym9dpBTg
+          - name: Episode 5
+            code: IWlq_RzzDhQ
+          - name: Episode 6
+            code: Mf2x2zzj-vg
+          - name: Episode 7
+            code: LyI6Pe6r0JI
+          - name: Episode 8
+            code: 1wJKAFemCVo
+          - name: Episode 9
+            code: Ez6b0CSeBa0
+      - name: Saison 2
+        episodes:
+          - name: Episode 1
+            code: rWhaQBglm4k
