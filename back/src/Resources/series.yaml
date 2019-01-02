@@ -143,3 +143,56 @@ series:
             code: 8V-q7HFcNUA
           - name: Non à la PBT !
             code: S5sgQHJiRH0
+  le_theorie_des_balls:
+    name: La théorie des Balls
+    locale: fr
+    type: series
+    images: https://img.youtube.com/vi/7qvdWI3d10E/maxresdefault.jpg
+      description:
+        Dans la vie, ne pas savoir dire non peut entrainer beaucoup d'emmerdes.
+        Mais heureusement pour lui, Tom va tester méthode expérimentale pour lui donner un peu de charisme.
+    seasons:
+    - name: La théorie des Balls
+      episodes:
+      - name: Atomes Crochus
+        code: 7qvdWI3d10E
+      - name: Vibrations de Balls
+        code: rWvDghRru3k
+      - name: Téléportation de Balls
+        code: 6DQAU2Ez4I4
+      - name: Bombe de Balls
+        code: df9OLxqIFng
+      - name: Résonance de Balls
+        code: yVey-VNnoNE
+      - name: Transfert de Balls
+        code: 3iBz2-sX9Dk
+      - name: Le sous-texte
+        code: 1kkyPc7spyo
+      - name: Contraction de Balls
+        code: wv0WaBFiKzg
+      - name: Faute de Ball
+        code: nGzdv6R4X1M
+      - name: Superballs
+        code: 0xdMya4HSKI
+    - name: Le secret des Balls
+      episodes:
+      - name: Le mystère
+        code: 4ltLp57P0uk
+      - name: La Mariée Sans Culotte
+        code: -FvvAwwlxTQ
+      - name: L’Agent du Gouvernement
+        code: oqxZuqZ54tU
+      - name: Grosse Teub
+        code: F5HHvduCyHo
+      - name: La Parano
+        code: IpnWIxZQhFk
+      - name: Les Raologues
+        code: O8DP2c-nfUQ
+      - name: L'Enlèvement
+        code: H1O258-V27k
+      - name: Géa
+        code: uhuHkihd1eo
+      - name: Mitch
+        code: U4jeahI4Ltk
+      - name: Le Mariage
+        code: kNessniQHcw
