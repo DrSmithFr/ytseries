@@ -10,6 +10,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Yaml\Yaml;
 
 class SeriesImportCommand extends Command
 {
@@ -35,6 +36,13 @@ class SeriesImportCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $series = $this->getYamlSeriesData();
+        dump($series);
+    }
 
+    private function getYamlSeriesData()
+    {
+        $fileString = file_get_contents(__DIR__.'/../Resources/series.yaml');
+        return Yaml::parse($fileString);
     }
 }

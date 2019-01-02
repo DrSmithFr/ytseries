@@ -58,7 +58,7 @@ class Series
      * @var SeriesType|null
      * @ORM\ManyToOne(targetEntity="App\Entity\SeriesType", inversedBy="series", cascade={"persist"})
      * @ORM\JoinColumn(name="series_type_id", referencedColumnName="id", nullable=true)
-     * @JMS\Type("App\Entity\SeriesType"
+     * @JMS\Type("App\Entity\SeriesType")
      */
     protected $type;
 

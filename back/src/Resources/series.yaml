@@ -1,38 +1,96 @@
-preview:
-  name: Preview
-  locale: fr
-  image: https://img.youtube.com/vi/5bMOgK4SXH4/maxresdefault.jpg
-  description:
-    Arthur est un Youtubeur célèbre sous pression qui n'arrive plus à sortir de vidéo.
-    Preview, une étrange fonctionnalité de la plateforme de vidéo, se propose de le relancer.
-  seasons:
+type:
+  movie: 'Movie'
+  series: 'Series'
+  documentary: 'Documentary'
+series:
+  preview:
+    name: Preview
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/5bMOgK4SXH4/maxresdefault.jpg
+    description:
+      Arthur est un Youtubeur célèbre sous pression qui n'arrive plus à sortir de vidéo.
+      Preview, une étrange fonctionnalité de la plateforme de vidéo, se propose de le relancer.
+    seasons:
+      - name: Saison 1
+        episodes:
+          - name: '#React'
+            code: 5bMOgK4SXH4
+          - name: '#CopyCat'
+            code: qxsDbnB4k2Q
+          - name: '#DoItYourself'
+            code: BBxgMWHWYec
+          - name: '#LetsPlay'
+            code: EVtfD854SuY
+          - name: '#Challenge'
+            code: _PTOjCxN88w
+          - name: '#Prank'
+            code: XcnZr8_vLoU
+  stranded_deep:
+    name: Stranded Deep - Joueur Du Grenier
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/00vLSHLXr1U/maxresdefault.jpg
+    description:
+      Let's play Narratif de Stranded Deep par Joueur Du Genier.
+      La plage le soleil et les crustacés !
+    seasons:
+      - name: Saison 1
+        episodes:
+          - name: Belle île en mer
+            code: 00vLSHLXr1U
+          - name: Le mystère des caisses en bois
+            code: lsXqsYOJmDo
+          - name: Cargo de nuit
+            code: 3njPN68JP1E
+          - name: Les dents de la mer
+            code: 4jwStaniUes
+          - name: Seul au monde ?
+            code: V6viogmw39w
+          - name: Force de la nature
+            code: wiVSKB8Orzk
+          - name: Marin d'eau douce
+            code: EBuOSHQnRI4
+          - name: Le grand saut
+            code: nylHZLfH4jY
+  les_dissocies:
+    name: Les Dissociés
+    locale: fr
+    type: movie
+    image: https://img.youtube.com/vi/5lUBlW72qBQ/maxresdefault.jpg
+    description:
+      Après s’être fait voler leur corps, Lily et Ben vont explorer un monde
+      où le corps ne compte plus et dans lequel leur âme sera mise à l’épreuve.
+    seasons:
+      - name: Le Film
+        episodes:
+          - name: Les Dissociés
+            code: 5lUBlW72qBQ
+  les_breves_de_petard:
+    name: Brèves de Pétard
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/iYF7hj6YYxw/maxresdefault.jpg
+    description:
+      L'herbe ça fait réfléchir, mais tu choisis pas la réflexion.
+    seasons:
     - name: Saison 1
       episodes:
-        - name: '#React'
-          code: 5bMOgK4SXH4
-        - name: '#CopyCat'
-          code: qxsDbnB4k2Q
-        - name: '#DoItYourself'
-          code: BBxgMWHWYec
-        - name: '#LetsPlay'
-          code: EVtfD854SuY
-        - name: '#Challenge'
-          code: _PTOjCxN88w
-        - name: '#Prank'
-          code: XcnZr8_vLoU
-stranded_deep:
-  name: Stranded Deep - Joueur Du Grenier
-  locale: fr
-  image:
-  description:
-    Let's play Narratif de Stranded Deep par Joueur Du Genier.
-    La plage le soleil et les crustacés !
-  seasons:
-    - name: Saison 1
-      episodes:
-        - name: Belle île en mer
-          code: 00vLSHLXr1U
-        - name: Le mystère des caisses en bois
-          code: lsXqsYOJmDo
-        - name: Cargo de nuit
-          code: 3njPN68JP1E
+      - name: Feat Hakim Jemili
+        code: iYF7hj6YYxw
+      - name: Feat Charles Nouveau
+        code: bO735GP3_R8
+      - name: Feat Jhon Rachid
+        code: eoeRpEUWI
+      - name: Feat Lucien Maine
+        code: l1A2iasInKY
+      - name: Feat Sebastian Marx
+        code: Qe3Fk8CtJy8
+      - name: Feat Hugo Tout Seul
+        code: ggQGBR5MD0o
+      - name: Feat Tania Dutel
+        code: PnVmB4l4ETk
+      - name: Feat Hugo Gertner
+        code: Hkb5PFuzeLo
+      - name: Feat Kyan et Navo
+        code: 60M-0waG_5w
