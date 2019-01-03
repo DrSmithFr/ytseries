@@ -539,7 +539,7 @@ series:
     name: Eden
     locale: fr
     type: series
-    image: https://img.youtube.com/vi/SQzK9-39tWY/maxresdefault.jpg
+    image: https://img.youtube.com/vi/oED3bdk8vRw/maxresdefault.jpg
     description:
       Le conseil d'Eden condamne Nora à l'effacement de sa mémoire suit à la mort du jeune Data.
     seasons:
@@ -565,7 +565,7 @@ series:
     name: IO
     locale: fr
     type: series
-    image: https://img.youtube.com/vi/SQzK9-39tWY/maxresdefault.jpg
+    image: https://img.youtube.com/vi/Gf4r8dTwEj8/maxresdefault.jpg
     description:
       MOI, un étudiant comme les autres, se réveille brutalement d'un cauchemar.
       Il décide de tout avouer à sa copine SOPHIA...
@@ -597,7 +597,7 @@ series:
       - name: De part et d'autre
         code: ErNTdK-RgM0
   random:
-    name: IO
+    name: Random
     locale: fr
     type: series
     image: https://img.youtube.com/vi/d5R-Wn2UHQs/maxresdefault.jpg
