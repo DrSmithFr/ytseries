@@ -300,7 +300,7 @@ series:
     name: Somnambule
     locale: fr
     type: short
-    image: https://img.youtube.com/vi/aSy03qaL99U/maxresdefault.jpg
+    image: https://img.youtube.com/vi/aSy03qaL99U/mqdefault.jpg
     description:
       Quand vous dormez, vous ne contrôlez plus rien ... Découvrez "Somnambule", le nouveau court-métrage de Studio Movie. Inspiré de faits réels
     seasons:
@@ -535,3 +535,29 @@ series:
             code: RmEH2NW2tD8
           - name: ?
             code: W01P8G45iWk
+  eden:
+    name: Eden
+    locale: en
+    type: series
+    image: https://img.youtube.com/vi/SQzK9-39tWY/maxresdefault.jpg
+    description:
+      Le conseil d'Eden condamne Nora à l'effacement de sa mémoire suit à la mort du jeune Data.
+    seasons:
+    - name: Season 1
+      episodes:
+      - name: Eden
+        code: oED3bdk8vRw
+      - name: Artemis, Gaya
+        code: Vh00eINo0Fs
+      - name: Anna, Alice
+        code: PmNGxXEwAVY
+      - name: Lucie, Nora
+        code: -lyMhW-KHTU
+      - name: Data
+        code: EbQk0lENfW4
+      - name: Caron
+        code: uhEowle1Q48
+      - name: Max
+        code: r-ttq9wOrxc
+      - name: Mateo, Pandora
+        code: qq7TzfMNjy8
