@@ -182,6 +182,9 @@
             "ref": "509b1542f3180a1cfe248ade8b7bf5092c2d4127"
         }
     },
+    "madcoda/php-youtube-api": {
+        "version": "v1.2.4"
+    },
     "namshi/jose": {
         "version": "7.2.3"
     },

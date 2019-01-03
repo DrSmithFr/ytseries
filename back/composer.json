@@ -15,6 +15,7 @@
         "jsor/doctrine-postgis": "^1.7",
         "knplabs/knp-paginator-bundle": "^2.8",
         "lexik/jwt-authentication-bundle": "^2.5",
+        "madcoda/php-youtube-api": "^1.2",
         "phpmd/phpmd": "^2.6",
         "ramsey/uuid": "^3.8",
         "ruflin/elastica": "^6.1",

@@ -36,3 +36,7 @@ services:
     App\Service\SearchService:
         arguments:
             $elasticSearchIndexName: '%env(ELASTIC_SEARCH_INDEX)%'
+
+    App\Service\YoutubeService:
+        arguments:
+            $apiKey: '%env(YOUTUBE_API)%'

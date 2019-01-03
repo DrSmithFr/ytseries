@@ -752,3 +752,74 @@ series:
         code: TcH_6tvpsS8
       - name: Le début
         code: p8Z-AyQrUyk
+  hello_geekette:
+    name: Hello Geekette
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/WQM6bwyuq-s/maxresdefault.jpg
+    description:
+      Valérie est une geekette qui vit dans son univers imaginaire. Alors que Greg est un garçon pas du tout geek et
+      plutôt dragueur. Colocataires, c’est dans leur appartement que vont s’affronter leurs amis respectifs
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: Fantasmes
+        code: WQM6bwyuq-s
+      - name: Le gentil Robert De Niro
+        code: VhG4F-4O92M
+      - name: World of Warcraft vs Second Life
+        code: prKiM2_4uC8
+      - name: Drague Fatale
+        code: UCYuyF_gaNU
+      - name: Geeks vs Bobos
+        code: B19TV75Kk7Y
+      - name: Joyeux geek-anniversaire !
+        code: yGrGbRRqNRM
+      - name: Duel Manga
+        code: Dp0ESs9fiIs
+      - name: Deux créatures de rêve
+        code: hLeCprXAXuo
+      - name: Faites la guerre, pas l'amour !
+        code: XuvhoH9NgKQ
+      - name: Le fan film 1/3 : Le Casting
+        code: Dpc-5TXhjwc
+      - name: Le fan film 2/3 : Making of !
+        code: S-vbEuce2yg
+      - name: Le fan film 3/3 : Far-Trek
+        code: mZWRP1A07Og
+      - name: Un Noël Star Wars
+        code: ntqrBhLx7TY
+    - name: Saison 2
+      episodes:
+      - name: Jeux de rôles
+        code: OPNHVzg9Mow
+      - name: Beau Papa
+        code: niBOgpJSLmA
+      - name: Spider-Man est-il gay ?
+        code: PGWARMVWx7Y
+      - name: Catfight !
+        code: 0SyrTmF1u5M
+      - name: Et si ?
+        code: UT6jg0XVRYg
+      - name: Révélations
+        code: LY7uwfIkJ58
+      - name: Cedric in Love 1/4
+        code: 9VYbtG0LvI0
+      - name: Cedric in Love 2/4
+        code: WgF5ZtAWo70
+      - name: Cedric in Love 3/4
+        code: N0A8GSvztew
+      - name: Cedric in Love 4/4
+        code: FcvOKG5ufgM
+      - name: Super Mario Greg
+        code: CY4DXUUTmug
+      - name: Emmenagement
+        code: DjjbZnvTVlg
+      - name: Derrick à Twin Peaks
+        code: xyzBGlJzBbE
+      - name: Echangisme
+        code: TfHT6zaHfwA
+      - name: Marc Hunter
+        code: DDoJ5HgPmWo
+      - name: Valérie
+        code: os67i0NFVeo
