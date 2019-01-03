@@ -9,7 +9,8 @@
 
     <div class="video-info" *ngIf="currentEpisode">
       <h1>{{currentEpisode.name}}</h1>
-      <h2>{{getSeasonName(currentEpisode)}} - Episode {{currentEpisode.rank + 1}}</h2>
+      <h2 *ngIf="isMovie()">{{getSeasonName(currentEpisode)}}</h2>
+      <h2 *ngIf="!isMovie()">{{getSeasonName(currentEpisode)}} - Episode {{currentEpisode.rank + 1}}</h2>
     </div>
 
   </div>
@@ -17,7 +18,8 @@
   <div class="sidebar">
     <div class="video-info-large-screen" *ngIf="currentEpisode">
       <h1>{{currentEpisode.name}}</h1>
-      <h2>{{getSeasonName(currentEpisode)}} - Episode {{currentEpisode.rank + 1}}</h2>
+      <h2 *ngIf="isMovie()">{{getSeasonName(currentEpisode)}}</h2>
+      <h2 *ngIf="!isMovie()">{{getSeasonName(currentEpisode)}} - Episode {{currentEpisode.rank + 1}}</h2>
     </div>
 
     <div *ngIf="video.duration && video.currentTime && canShowNextEpisodeButton()">

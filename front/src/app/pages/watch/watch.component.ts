@@ -253,4 +253,19 @@ export class WatchComponent implements OnInit, OnDestroy {
 
         return '';
     }
+
+    isMovie(): boolean {
+        if (null === this.series) {
+            return false;
+        }
+
+        const playlist = [];
+        for (const season of this.series.seasons) {
+            for (const e of season.episodes) {
+                playlist.push(e);
+            }
+        }
+
+        return 1 === playlist.length;
+    }
 }
