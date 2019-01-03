@@ -1886,3 +1886,25 @@ series:
         code: A2XrDuvOleI
       - name: 'Fin du game'
         code: dTbHOXT6xhE
+  crash_zoom:
+    name: CRASH ZOOM
+    locale: en
+    type: series
+    image: https://img.youtube.com/vi/Ii4Rbbk8zAs/maxresdefault.jpg
+    description:
+      "CONTENT WARNINGS: Demons, explosions, violence... Honestly it's got everything but swearing and blasphemy."
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Firing squad'
+        code: Ii4Rbbk8zAs
+      - name: 'Sky scam'
+        code: 8imiDETu2uw
+      - name: 'Grave mistake'
+        code: TDBeXJXYS4U
+      - name: 'Orcs & dorks'
+        code: ulcidTB4P1U
+      - name: 'Fingered'
+        code: t7t8fales4w
+      - name: 'Movie massacre'
+        code: TnyBXvB3_ho

@@ -50,7 +50,7 @@ class YoutubeService
 
         foreach ($infos['results'] as $info) {
             $data[] = [
-                'name' => ucfirst(strtolower($info->snippet->title)),
+                'name' => $info->snippet->title,
                 'code' => $info->snippet->resourceId->videoId
             ];
         }
