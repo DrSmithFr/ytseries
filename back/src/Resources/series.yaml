@@ -1908,3 +1908,35 @@ series:
         code: t7t8fales4w
       - name: 'Movie massacre'
         code: TnyBXvB3_ho
+  asdf:
+    name: ASDF Movie
+    locale: en
+    type: series
+    image: https://img.youtube.com/vi/IYnsfV5N2n8/maxresdefault.jpg
+    description:
+      "nothing more than internet."
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: asdfmovie1
+        code: IYnsfV5N2n8
+      - name: asdfmovie2
+        code: tKB4h9gvmm0
+      - name: asdfmovie3
+        code: oY6tCnu-1Do
+      - name: asdfmovie4
+        code: cYNdUM2gRsg
+      - name: asdfmovie5
+        code: tCnj-uiRCn8
+      - name: asdfmovie6
+        code: hrzIykdka4s
+      - name: asdfmovie7
+        code: 5xniR1GN69U
+      - name: asdfmovie8
+        code: olit-B5Yldc
+      - name: asdfmovie9
+        code: 8l6T3fwxAyw
+      - name: asdfmovie10
+        code: foFKXS6Nyho
+      - name: asdfmovie11
+        code: LJnpwL-2Drc
