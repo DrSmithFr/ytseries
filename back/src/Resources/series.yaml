@@ -2620,3 +2620,59 @@ series:
         code: o0Jhsdnv4Kk
       - name: 'Le grand bain'
         code: CT26CPyxrYo
+  hashtag_32:
+    name: '#32'
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/OwocNb-UftA/maxresdefault.jpg
+    description:
+      Dans le Gers, cinq amis inséparables découvrent les résultats du bac. Si certains l’ont, et vont partir poursuivre
+      leurs études hors du département, d’autres ont échoué, et vont devoir rester une année de plus au lycée.
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Chloé'
+        code: wprEYHlTbMs
+      - name: 'Camille'
+        code: S8wQVpeF4Ho
+      - name: 'Sonia'
+        code: 89qAKo1iCKI
+      - name: 'Anthony'
+        code: ftPk8m3Tr0I
+      - name: 'Samuel'
+        code: 5zTusSpT4BE
+      - name: 'Final'
+        code: QHU8nxVerPo
+  la_theorie_du_y:
+    name: La théorie du Y
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/GBWfB_lgZT4/mqdefault.jpg
+    description:
+      Anna s’ennuie dans son couple. Sur un coup de tête, elle plante Matteo, son copain qui l’emmène tous les dimanches
+      chez ses parents pour manger du gratin. Elle se retrouve dans un bar où elle fait la connaissance de Malik et de Claire...
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Gratin à la Matteo'
+        code: GBWfB_lgZT4
+      - name: 'Claire'
+        code: 09uGcEobHXM
+      - name: 'Petite conversation entre adultes'
+        code: bqhsevpUoH0
+      - name: 'Le problème'
+        code: d9vY33Xir9o
+      - name: 'Une vraie lesbienne'
+        code: I76ing9MUDU
+      - name: 'Papa, Maman, les amis'
+        code: 73ZDAInINTo
+      - name: 'Un peu de folie'
+        code: f8lePuK1EW8
+      - name: 'Malik'
+        code: jGwfWn8msaM
+      - name: 'Cent pour cent'
+        code: Up23HemIsJQ
+      - name: 'Une question de sexe'
+        code: 18fh-5Sty8k
+      - name: 'La bonne personne'
+        code: GB1YO8uqUg4
