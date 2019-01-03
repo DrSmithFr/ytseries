@@ -1248,3 +1248,71 @@ series:
         code: z5tHQfjXtwc
       - name: '82 - Dernier épisode.'
         code: 1cZ_H0rgwCU
+  serge_le_mytho:
+    name: Serge Le Mytho
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/lIkYYGwp1y4/maxresdefault.jpg
+    description:
+      L'histoire d'un mec qui raconte des histoires.
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: '#01 - Pourquoi Serge a arrêté l''école ?'
+        code: lIkYYGwp1y4
+      - name: '#02 - Serge, bientôt sur Playstation ?'
+        code: Akr43ItM-lo
+      - name: '#03 - Comment Serge a rencontré JoeyStarr ?'
+        code: yYYzqjc6Ua4
+      - name: '#04 - Serge et l''instrument sublime de Mariah Carey'
+        code: Fi-qfC59Tbs
+      - name: '#05 - Ingrid est revenue'
+        code: Oq40L30uXCs
+      - name: '#06 - Serge balance ses lyrics'
+        code: V4BZ_MRnywg
+      - name: '#07 - Ce que Serge a vu dans le futur'
+        code: WsRrCCjsDew
+      - name: '#08 - Serge dit la vérité sur Jay-Z'
+        code: 4Gs7i7T1m-0
+      - name: '#09 - Ingrid et la pakenka à crête'
+        code: ju2UsEl2XhE
+      - name: '#10 - Serge vient en aide à un ami'
+        code: Rh5Yo7MF_J0
+      - name: '#11 - Serge, descendant de Louis XVI'
+        code: pAkOQf14bo4
+      - name: '#12 - Comment Serge a fait atterrir un avion'
+        code: zETAZ4Iv-Lw
+      - name: '#13 - Serge raconte sa plus belle enquête'
+        code: XSTK1qYQEk4
+      - name: '#14 - Serge a une nouvelle recrue'
+        code: AOCQSrXhW24
+      - name: '#15 - Prehistoric Park'
+        code: wsJufI_5W1k
+      - name: '#15 – Prehistoric Park'
+        code: Kd2uG5AuNnw
+      - name: '#16 - La malédiction des 1500 meufs'
+        code: v8D_SB2UC7Q
+      - name: '#17 - La vie secrète d’Huguette'
+        code: tr7_AZZFkts
+      - name: '#20 - Serge se lance dans le cinéma avec Luc Besson'
+        code: GnVKi9jvXcI
+      - name: '#21 - Serge va-t-il pécho Ingrid ?'
+        code: 8XOVANd71qk
+      - name: '#22 - La mémoire sexuelle de Serge'
+        code: cq3RjwfF2LY
+      - name: '#23 - Comment Serge gagnait de l''oseille à l''école'
+        code: 09BnuW07FOY
+      - name: '#24 - Nina VS Catherine Deneuve'
+        code: MPnALcg-XpU
+      - name: '#25 - Serge, avocat commis d''office, Jenifer, Garou et tonton Mardou'
+        code: HoktmAZlimQ
+      - name: '#26 - Le Jour où Serge a inventé une drogue'
+        code: kNWNIX2u2j0
+      - name: '#27 - Serge cherche un investisseur'
+        code: nxIE5yIzvUs
+      - name: '#28 - Les amis de Serge'
+        code: zgS8reVwN9Q
+      - name: '#29 - Vous m''appelez Serge le mytho ?'
+        code: MhU_V7Ql-XM
+      - name: '#30 FIN - Le dernier mensonge de Serge'
+        code: oicbi8iVaVo
