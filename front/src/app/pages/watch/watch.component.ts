@@ -239,4 +239,18 @@ export class WatchComponent implements OnInit, OnDestroy {
             }
         }, 1000)
     }
+
+    getSeasonName(episode: EpisodeModel): string {
+        if (null === this.series) {
+            return '';
+        }
+
+        for(const season of this.series.seasons) {
+            if (-1 !== season.episodes.indexOf(episode)) {
+                return season.name;
+            }
+        }
+
+        return '';
+    }
 }
