@@ -2173,4 +2173,81 @@ series:
         code: sAE4myjrgAw
       - name: 'Alien vs Aspirator'
         code: 44ZVZblsDZ8
-
+  monsieur_carton:
+    name: Monsieur Carton
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/PGazJej-QK8/maxresdefault.jpg
+    description:
+      La candeur et la douce folie de Mr. Carton, son inconscience aussi parfois,
+      fédèrent le spectateur à sa cause, aussi futile soit-elle.
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Direction'
+        code: PGazJej-QK8
+      - name: 'Collision'
+        code: AnXXGz3LBm4
+      - name: 'Décision'
+        code: lkqdXTOPtP0
+      - name: 'Inattention'
+        code: 8C7iAlEYkTE
+      - name: 'Distraction'
+        code: fwvcKQoBdao
+      - name: 'Vibration'
+        code: CT1lcDCat6Q
+      - name: 'Destination'
+        code: CQSbogqNXxU
+      - name: 'Apparition'
+        code: 6szEKihRbPg
+      - name: 'Complication'
+        code: dUWMGhTCJoc
+      - name: 'Distanciation'
+        code: Fx_a-DDJb5k
+      - name: 'Élévation'
+        code: 2YxI-GFZXoY
+      - name: 'Aspiration'
+        code: ZJKMqS1XRFM
+      - name: 'Illusion'
+        code: cKzD9nZ42H0
+  reboot:
+    name: Reboot
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/kouJTXPp5U4/maxresdefault.jpg
+    description:
+      'Oscar a tout pour être heureux : une femme enceinte, une maison en banlieue et un Kangoo.
+      Tout est parfait… sauf lorsqu’il se rend compte que tous ses collègues de travail sont des robots.'
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Oscar'
+        code: kouJTXPp5U4
+      - name: 'Le Majordome'
+        code: UMoLmMuiRJs
+      - name: 'Agatha'
+        code: bK-LsTZDQDw
+      - name: 'Virginia'
+        code: Qj4UNwhoa58
+      - name: 'Virgile'
+        code: K2B_KWULYXY
+      - name: 'Patrick'
+        code: Gefpi2evtD4
+    - name: Saison 2
+      episodes:
+      - name: 'Francine'
+        code: DW9jNJBi14w
+      - name: 'Victor Hugo'
+        code: 2ALn0bgiVrs
+      - name: 'Johanna'
+        code: anlCRfxjpDE
+      - name: 'Rimbaud'
+        code: dcD0gHbAs88
+      - name: 'Gerard'
+        code: feFe_SgBg5I
+      - name: 'Quoi'
+        code: XRaBZ47wxjw
+      - name: 'Yannick'
+        code: RjpNXIY8INY
+      - name: 'Mix Chel'
+        code: qryFVk3uPUU
