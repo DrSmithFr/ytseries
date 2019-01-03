@@ -1499,3 +1499,288 @@ series:
         code: WDOsoarED6I
       - name: 'Kung Fou'
         code: hSKpxrNEjx4
+  noob:
+    name: NOOB
+    locale: fr
+    type: series
+    image: https://yt3.ggpht.com/a-/AAuE7mBv2apQIfPxuv4WsGDUInRI1AVaMv4TLxEPYg=s900-mo-c-c0xffffffff-rj-k-no
+    description:
+      NOOB est la première web-série sur le thème des mmorpg ! Elle est numéro 1 au box office français depuis 2009
+      et présente les aventures déjantées de la pire guilde de tous les temps !
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Gaea l''invocatrice'
+        code: mXab7PegMCM
+      - name: 'La guilde noob'
+        code: oWVOPqAsL-g
+      - name: 'Fausse route'
+        code: 6zb48QQ5FWc
+      - name: 'Dark avenger le pk'
+        code: l9qaSvjRx4w
+      - name: 'La coalition'
+        code: mOp3XzS8XHs
+      - name: 'Jack Ceparou'
+        code: 99ylKO1S3F8
+      - name: 'La pierre de substitution'
+        code: ZmkXER_4SF0
+      - name: 'Une lueur d''espoir'
+        code: dUP2iozPL2s
+      - name: 'La tour Galamadriabuyak'
+        code: X2QvKp30G64
+      - name: 'L''etrange noËl de dark avenger'
+        code: nxeK4iPV8Vo
+      - name: 'La boutique'
+        code: 8juSAQY1r7Y
+      - name: 'Donjon de Mortegarde part 1/2'
+        code: yO7AIkEyO18
+      - name: 'Donjon de Mortegarde part 2/2'
+        code: G8Z2Eq6HeE8
+      - name: 'Tenshirock le hacker part 1/2'
+        code: MprZ8WcAMbs
+      - name: 'Tenshirock le hacker part 2/2'
+        code: 233Z1VKIgWU
+      - name: 'La guilde Justice'
+        code: okNoZPif9YM
+      - name: 'Joueur contre Joueur'
+        code: c6u86fpexzI
+      - name: 'Capture d''ecran'
+        code: ZeiGzHwMIk4
+      - name: 'La taverne'
+        code: 0iVHuixUNyY
+      - name: 'Faux depart'
+        code: 2rtklRY6wSQ
+      - name: 'Le premier étage'
+        code: nJnSwPNn_bc
+    - name: Saison 2
+      episodes:
+      - name: 'Mise a jour'
+        code: GmhBULeLZaA
+      - name: 'La communaute du bâton'
+        code: d9NciMcybgI
+      - name: 'SOS soigneur'
+        code: tEr4wpD1ACo
+      - name: 'Pick up'
+        code: 2BNyo3RCN3Q
+      - name: 'Restons zen'
+        code: c373CCr_wKE
+      - name: 'Retrouvailles'
+        code: IylPK1xBbnw
+      - name: 'Redemption '
+        code: ISC9oQEdOMI
+      - name: 'Impression de deja vu '
+        code: R5-5Gjw709A
+      - name: 'Curriculum Vitae '
+        code: 7KnBSn5tB1c
+      - name: 'Complots (partie 1/2) '
+        code: kRAZh2om0W4
+      - name: 'Complots (partie 2/2) '
+        code: 3bOXjwkxtKQ
+      - name: 'Le maitre des competences '
+        code: 3Tb-ye1EJtM
+      - name: 'Retour dans la tour '
+        code: H88fOM7qPDI
+      - name: 'Le PK contre-attaque'
+        code: Rzb3KoKIiRk
+      - name: 'La grande bataille'
+        code: KbDbnSRJqwQ
+      - name: 'Le choc des extremes'
+        code: e26f00GM5Zo
+    - name: Saison 3
+      episodes:
+      - name: 'Horizon 2.0'
+        code: KgBX0R4fk68
+      - name: 'Reroll'
+        code: hHWLjQNgChU
+      - name: 'Hacker'
+        code: hlDKjL6GljY
+      - name: 'Recrutement'
+        code: aNX5mG7IApU
+      - name: 'Reportage'
+        code: ImbQK6wDuqE
+      - name: 'Conspiration'
+        code: w5YGav7BpbE
+      - name: 'Trahison'
+        code: 1lL6EsV4qcY
+      - name: 'De pire en pire'
+        code: PvzsuisJLac
+      - name: 'Centralis'
+        code: bIOyZ3TMfhY
+      - name: 'Rencontre irl'
+        code: Q2lluhPdD38
+      - name: 'Niveau 1 (partie 1/2)'
+        code: R5t3G8AHL4I
+      - name: 'Niveau 1 (partie 2/2)'
+        code: Zpu9wlgQHbc
+      - name: 'Persona non grata'
+        code: EtCBupeEhnw
+      - name: 'Orgueil et prejuges'
+        code: oqmYzsEO0aI
+      - name: 'Buyabuyak (partie 1/2)'
+        code: Q_ELwkWwg1g
+      - name: 'Buyabuyak (partie 2/2)'
+        code: _WfS5g5WOG0
+      - name: 'Furie'
+        code: rVCX5Kl9uS0
+      - name: 'Rosaphir'
+        code: 5OqtNUFHQpg
+    - name: Saison 4
+      episodes:
+      - name: 'Prologue'
+        code: k20lB3c5Ik4
+      - name: 'Pk-Dilles'
+        code: h8zaY5FeFWQ
+      - name: 'Conflit d''interet'
+        code: YhM9P8kOooM
+      - name: 'Sourcelame'
+        code: zVBkoZMoUus
+      - name: 'Dramegatique'
+        code: K8ol4sw9SNA
+      - name: 'Bad reputation'
+        code: 2wxm7-C4Np4
+      - name: 'Reconnaissance'
+        code: 3iDfZixpdRo
+      - name: 'Meme pas en rêve'
+        code: AjkpC6mZ8vU
+      - name: 'Le donjon du chaos 1/3'
+        code: 89xlQFcYwuo
+      - name: 'Le donjon du chaos 2/3'
+        code: xGRYYfU8bgA
+      - name: 'Le donjon du chaos 3/3'
+        code: R2ESTIEZtEE
+      - name: 'Incompatibilite'
+        code: UnSntLWJV9U
+      - name: 'Apocalypse 1/3'
+        code: rQhze1-uzvw
+      - name: 'Apocalypse 2/3'
+        code: 8I17TldlU8k
+      - name: 'Apocalypse 3/3'
+        code: 8CysIpEB-Xo
+    - name: Saison 5
+      episodes:
+      - name: 'Prologue'
+        code: Mvxj1Y9GnQA
+      - name: 'La partie continue'
+        code: y0IpZG-4yyo
+      - name: 'Nouvelles ambitions'
+        code: yaf6NFmorQ8
+      - name: 'World boss'
+        code: kUuUdRn__M0
+      - name: 'Historique perdu'
+        code: r9zya6btKzA
+      - name: 'Reunion de famille'
+        code: C4OODrx2t5s
+      - name: 'Eliminatoires'
+        code: 7UseqFBJ9M0
+      - name: 'Phases finales'
+        code: DbGSQALdED0
+      - name: 'Le secret de tenshirock'
+        code: wWFA9VXf3mY
+      - name: 'Magouilles et gaeabouilles'
+        code: LLdaZhjMbso
+      - name: 'Crepuscule 2.0 1/2'
+        code: nBNFMF5WboU
+      - name: 'Crepuscule 2.0 2/2'
+        code: 8Y7Ee2Zb7eE
+    - name: Saison 6
+      episodes:
+      - name: 'La source du chaos'
+        code: -xxH4WIQNWI
+      - name: 'L''objet unique'
+        code: aSfrmevDFgQ
+      - name: 'Accomplissement'
+        code: BtVYpKb55Ig
+      - name: 'Dead & Rock'
+        code: Gxqyzdg0ngY
+      - name: 'La prophetie'
+        code: EaXTW4h2BjA
+      - name: 'Quête d''enquête'
+        code: bmDCLj4tHpc
+      - name: 'Echantillons'
+        code: nKiQrEvDVjs
+      - name: 'Le conseil des trois factions'
+        code: -gE8rNjoYGA
+      - name: 'Les sept géneraux'
+        code: K2goPnzoqow
+    - name: Saison 7
+      episodes:
+      - name: 'Complot megalo'
+        code: FldgNd3zsdU
+      - name: '/quit ou double'
+        code: dXSACK1YRJI
+      - name: 'Case prison'
+        code: 8cKuT4vzTDQ
+      - name: 'Renfort inattendu'
+        code: IPLNL7pqbx8
+      - name: 'Premieres epreuves'
+        code: VaQX1nIsyf8
+      - name: 'Chacun sa route'
+        code: 8AC1a-rY9P0
+      - name: 'Deconcertant'
+        code: a6D0PivCF-8
+      - name: 'L''heure du duel'
+        code: 0gUQmDx7HrU
+      - name: 'Les mines damnees'
+        code: sA_ZpFKXxVw
+      - name: 'La source du neant'
+        code: SgiUGdTzfjw
+      - name: 'Partage de quête'
+        code: V9nB7yw6i9g
+      - name: 'Histoire de troll'
+        code: GgFvdFcnXzE
+      - name: 'La revanche'
+        code: NtuWhGLbHwI
+      - name: 'Contre toute attente (bonus)'
+        code: O2tczMg92FM
+    - name: Saison 8
+      episodes:
+      - name: 'Le conseil de Glacesang'
+        code: A6yDzDeWewI
+      - name: 'Quêtes et enquêtes'
+        code: '-w7_WC0oEMc'
+      - name: 'La forge'
+        code: Eq_QMWK3vlU
+      - name: 'Le bâton legendaire'
+        code: f0rYGRFzZks
+      - name: 'Freres ennemis'
+        code: WMes_36h09w
+      - name: 'Chaos en olydri'
+        code: Pa9euKS07lw
+      - name: 'Epilogue'
+        code: kVGSgarJylw
+    - name: Saison 9
+      episodes:
+      - name: 'Battleground'
+        code: Qp1SAioaxYM
+      - name: 'Rafale le tank'
+        code: CdmRMjd024k
+      - name: 'Besoin d''un break'
+        code: 0oyP5mKfMog
+      - name: 'Un peu rouillé'
+        code: 8qNwo-76PVE
+      - name: 'Pro game master'
+        code: uRdI9sgCcdk
+      - name: 'Reunion du roster un'
+        code: AqCGA8iBaIU
+      - name: 'L''event d''halloween'
+        code: kLGH5bKlnB8
+      - name: 'Gigazertek'
+        code: cKaKfQCd-3E
+      - name: 'L''event de pâques'
+        code: 5vZ3tyOZe8k
+      - name: 'Démonstration'
+        code: XAiXIM_91OA
+      - name: 'Responsabilités'
+        code: i9bWbbG7pH0
+      - name: 'Mise au point'
+        code: BjMSA7WElRY
+      - name: 'Arme secrete'
+        code: gtSjW8_Epbg
+      - name: 'Gaming house'
+        code: rYy4NPJQjYE
+      - name: 'Les pionniers'
+        code: r29rXNIO_qc
+      - name: 'Spécial noël'
+        code: -eWXzbmuB3o
+
+

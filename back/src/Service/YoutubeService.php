@@ -33,7 +33,7 @@ class YoutubeService
      * @return array
      * @throws \Exception
      */
-    public function getPlaylistInfo(string $code, string $page = null)
+    public function getPlaylistInfo(string $code, string $page = null): array
     {
         $params = [
             'playlistId' => $code,
@@ -50,7 +50,7 @@ class YoutubeService
 
         foreach ($infos['results'] as $info) {
             $data[] = [
-                'name' => $info->snippet->title,
+                'name' => ucfirst(strtolower($info->snippet->title)),
                 'code' => $info->snippet->resourceId->videoId
             ];
         }
