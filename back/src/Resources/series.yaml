@@ -2080,3 +2080,97 @@ series:
         code: NOK-Hh_3I8k
       - name: 'La rilaxitude'
         code: m1T4LpJMKXw
+  monsieur_flap:
+    name: Monsieur Flap
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/GHR21HB4cZ8/maxresdefault.jpg
+    description:
+      C’est l’histoire d’un homme avec une tête de cul qui tombe amoureux.
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'LA COIFFEUSE'
+        code: GHR21HB4cZ8
+      - name: 'LE TRAVAIL'
+        code: 1-4FTV4Dwq0
+      - name: 'LA PLAGE'
+        code: UtQ_mteeNl4
+      - name: 'LE STYLE'
+        code: FryrbMjOFuA
+      - name: 'LA CÉRAMIQUE'
+        code: pVRjn4bT5Dw
+      - name: 'LE KARAOKÉ'
+        code: AUPL4sXAIzM
+      - name: 'RIO'
+        code: Kv4zWimUjlg
+      - name: 'LE BUZZ'
+        code: ywVkeIA9z2Q
+      - name: 'LE DOCTEUR'
+        code: wbeJNjv8UBM
+      - name: 'LA GROSSE SOIRÉE'
+        code: R_htGfy2KM4
+      - name: 'LE MARIAGE'
+        code: WsZcpr5PfmM
+  la_petite_mort:
+    name: La Petite Mort
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/XiY0AdNd79s/maxresdefault.jpg
+    description:
+      Déménager quand on est gosse ce n'est jamais facile, mais quand en plus il faut faucher le voisinage...
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Une nouvelle vie'
+        code: XiY0AdNd79s
+      - name: 'Une nouvelle classe'
+        code: zh9tSYWpMqI
+      - name: 'Un nouvel Halloween'
+        code: IUtMi8q9-pU
+      - name: 'Une nouvelle lune'
+        code: ZTTpRHC5ZH4
+      - name: 'De nouvelles fêtes'
+        code: y63SpxPPFQY
+      - name: 'Un nouvel espoir'
+        code: BCz3f3JbD4k
+      - name: 'Une nouvelle question'
+        code: 6xMYzZ10Vr8
+      - name: 'Une nouvelle merveille du monde'
+        code: R7un4yvOIEY
+      - name: 'Une terrible nouvelle'
+        code: ic-J_ilYuKA
+      - name: 'Une nouvelle mort'
+        code: U-PqgL8Xxyo
+  the_cell:
+    name: The Cell
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/B-HEy0JloAs/maxresdefault.jpg
+    description:
+      Gaspard, il est comme toi et moi, une petite vie tranquille mais un peu chiante quand même...
+      jusqu'à ... la journée de merde de trop.
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'En Taule'
+        code: B-HEy0JloAs
+      - name: 'I Know Kung Fu'
+        code: Xae0AGXiYSE
+      - name: 'Total Eclipse (Of The Heart?)'
+        code: paSRsok3V-s
+      - name: 'Aspirator 2 : le jugement dernier'
+        code: QLDtCX05DNc
+      - name: 'Jurassic Squat'
+        code: t2BLsxJPjYU
+      - name: 'Vers L''infini ! et ...'
+        code: ITHUC0dsoEk
+      - name: 'Le Highlander'
+        code: wSEypP18utE
+      - name: 'Un Plan Simple ?'
+        code: qLOe6GdDARQ
+      - name: 'Cube'
+        code: sAE4myjrgAw
+      - name: 'Alien vs Aspirator'
+        code: 44ZVZblsDZ8
+
