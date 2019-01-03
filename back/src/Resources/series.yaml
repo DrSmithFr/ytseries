@@ -2589,3 +2589,34 @@ series:
         code: 7dbk8dKAQpY
       - name: 'Hologramme & big bisous'
         code: '-vXfBz7SsTo'
+  face_au_diable:
+    name: Face au Diable
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/6M1OAbeefp4/maxresdefault.jpg
+    description:
+      En plein bras de fer avec la direction de son usine, Hugo Bernal est lâché par la CFT, son syndicat.
+      C’est la chute libre. Heureusement son ami Stan l’emmène en boite, où il va faire une rencontre.
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Tout perdre'
+        code: 6M1OAbeefp4
+      - name: 'Derrière les apparences'
+        code: EVLOgYDUBss
+      - name: 'L’intensité de la relation'
+        code: KZlNZ6TDe7c
+      - name: 'En délicieuse compagnie'
+        code: xwT2AZPD1oc
+      - name: 'C’est l’intention qui compte'
+        code: Z-0CW5kMh8o
+      - name: 'À bout touchant'
+        code: zqOkdZN5ysE
+      - name: 'Retour au bercail'
+        code: v_2KEks3nmg
+      - name: 'La solution de facilité'
+        code: UbzvN5GiNrk
+      - name: 'Dans les pas de mon père'
+        code: o0Jhsdnv4Kk
+      - name: 'Le grand bain'
+        code: CT26CPyxrYo
