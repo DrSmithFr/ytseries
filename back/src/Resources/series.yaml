@@ -2251,3 +2251,201 @@ series:
         code: RjpNXIY8INY
       - name: 'Mix Chel'
         code: qryFVk3uPUU
+  tout_le_monde_sen_fou:
+    name: Et tout le monde s'en fout
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/EDDxAIhHt08/maxresdefault.jpg
+    description:
+      Notre monde est stupéfiant. Et si on arrêtait de s’en foutre ?
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Les femmes'
+        code: EDDxAIhHt08
+      - name: 'L''argent'
+        code: 3s8-GtFt6f4
+      - name: 'Les émotions'
+        code: _DakEvdZWLk
+      - name: 'L''eau'
+        code: MWwJGhtsH54
+      - name: 'Le désir sexuel'
+        code: YhJ4BwKdkOA
+      - name: 'Le vote blanc'
+        code: Kxkvba3GH3g
+      - name: 'Le bonheur'
+        code: mym9UzxOs5g
+      - name: 'Le racisme'
+        code: YzyOGhWO3Gk
+      - name: 'La salope'
+        code: mriGX5DutlM
+      - name: 'La guerre'
+        code: _QMpyljfBAE
+      - name: 'L''estime de soi'
+        code: a82VN1RZI-k
+      - name: 'Le sable'
+        code: Tnfk44DzBEs
+      - name: 'Le clitoris'
+        code: N67C7G5y9Dk
+      - name: 'La viande'
+        code: Qcd4VIkCI3k
+      - name: 'La culture du viol'
+        code: pPH2GEB7-X0
+      - name: 'La vérité'
+        code: VD4ne7VuFVs
+      - name: 'Les hommes'
+        code: ByqBT1loIFI
+      - name: 'Le pouvoir'
+        code: kF1_qecmP4Y
+      - name: 'Les déchets'
+        code: BqyUne1vSSs
+      - name: 'La bienveillance'
+        code: pCBcuVitjKo
+      - name: 'La révolte'
+        code: FNKm3GV1r_k
+    - name: Saison 2
+      episodes:
+      - name: 'La violence'
+        code: wvvuVrt_XuE
+      - name: 'Les arbres'
+        code: VzaOlaYyCmw
+      - name: 'Les valeurs'
+        code: OqInPOy50p4
+      - name: 'Le temps'
+        code: ZbWTEbEx9D4
+      - name: 'L''échec'
+        code: c0IsvrSpcx4
+      - name: 'La vie'
+        code: wtKUCezgVFM
+      - name: 'Je t''aime'
+        code: qG_dmDEw50w
+      - name: 'La religion'
+        code: tKSaZrw7HxU
+      - name: 'Le couple'
+        code: 6S9saPTnNcQ
+      - name: 'Les vêtements'
+        code: UU7w1D2PKr4
+      - name: 'La perfection'
+        code: 9qltmpDNX7Q
+      - name: 'Le féminisme'
+        code: qmCd2HF_zZM
+      - name: 'La mort'
+        code: qWkPTPVMIQw
+      - name: 'Le handicap'
+        code: 7ET8zD0xbDw
+      - name: 'Les règles'
+        code: bOd_xIdQ1LA
+      - name: 'Noël'
+        code: qfUOEJXmeZg
+  durty_biologie:
+    name: DirtyBiology
+    locale: fr
+    type: documentary
+    image: https://img.youtube.com/vi/JyQqFZHJWTA/maxresdefault.jpg
+    description:
+      Des vidéos de science sur des sujets mindfuck, crades, ou juste rigolos. Parfois on parle de biologie aussi.
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'GAME OF THRONES VS SCIENCE : Des dragons volants ?'
+        code: fmByrcEhj-Y
+      - name: 'La guerre du sperme'
+        code: IlyLAuvtIjo
+      - name: 'La science des GIFs'
+        code: OD1nwi4kvXM
+      - name: 'La pandémie de World of Warcraft'
+        code: 2Yq-I4JRH7s
+      - name: 'Les bourrelets de l''évolution : être gros est-il un avantage ?'
+        code: vrRUZAewUXM
+      - name: 'La science du Ice Bucket Challenge'
+        code: 18-VT9wwEyU
+      - name: 'Darwin chez les Pokémons'
+        code: OcKfWW7sAMk
+      - name: 'Les animaux à roues du futur'
+        code: LUWkaZkosY0
+      - name: 'Des histoires pour l''humanité'
+        code: Gkc7euz7Y74
+      - name: 'Tuto Création Zombie : La chirurgie'
+        code: cbZ7SWYCBSY
+      - name: 'Les fruits sont des ovaires dégueulasses'
+        code: bovZt3bHcmg
+      - name: 'À quoi sert un pénis ?'
+        code: lcD3e7fhwZE
+      - name: 'Les enfers artificiels'
+        code: JdxfhMbSwL0
+      - name: 'Faites des enfants avec vos cousins'
+        code: onbPjqSOAPE
+      - name: 'La science inutile des rayures de zèbres'
+        code: R4wJb2O0dWw
+      - name: 'Le deuil numérique'
+        code: IgsTTcUCETU
+      - name: 'Prédire l''Histoire pt.1 - Les émeutes aux USA, feat. Histoire Brève'
+        code: vKRkba_hTKU
+      - name: 'Tuto Création Zombie pt.2 : L''électronique'
+        code: g9Is8gOuRpw
+      - name: 'La sagesse de YouTube'
+        code: xtuh5zTa7mQ
+      - name: 'Sommes-nous humains ?'
+        code: 940mJse7H5Q
+      - name: '5 choses qui font de vous une CHIMÈRE'
+        code: lqWvZSZBTy8
+      - name: 'Personnalité animale'
+        code: sVTiRBfZiI4
+      - name: 'Les origines de la richesse'
+        code: zb98HSJVHWk
+      - name: 'Des races dans l''humanité ?'
+        code: 7NxgBPoBMT0
+      - name: 'L''amnésie écologique'
+        code: KWWoDoMKiuY
+      - name: 'La biologie du porno'
+        code: 3MGzSlcLmoc
+      - name: 'Les OGMs sont-ils nocifs ? (non)'
+        code: lGG6s5x9FQs
+      - name: 'Pokémon Go et la science'
+        code: hEBZ0chwtAk
+      - name: 'Résoudre la surpopulation'
+        code: QbZXSpt0kOM
+      - name: 'Combien vaut la Nature ?'
+        code: '-IJnr0nUpVo'
+      - name: 'La beauté cachée de la Science'
+        code: yGL_LJosToY
+      - name: 'L''archéologie autrement'
+        code: '-MoN1sHzfxg'
+      - name: 'Pourquoi l''humanité a-t-elle failli disparaître ?'
+        code: wZyx5EEfUSE
+      - name: 'La science des révisions !'
+        code: Sxy6ye_QzPg
+      - name: 'À quoi sert un vagin ?'
+        code: jfxla6Ze5ww
+      - name: 'Faut-il tout tuer ?'
+        code: w3hTp7v2rqc
+      - name: 'D''où viennent les chemins ?'
+        code: cRpkOq1F_5E
+      - name: 'Existe-t-il une beauté absolue ?  au Louvre'
+        code: puPFb3nuooo
+      - name: 'Le paradoxe des drogues agréables'
+        code: ORzkjXg6M4k
+      - name: 'Cette ville agit comme un labyrinthe. Voici pourquoi.'
+        code: jAvI9DWDhKs
+      - name: 'L''erreur du biomimétisme'
+        code: 1qvJDQTqSHY
+      - name: 'Ces peuples prouvent la théorie de l''évolution'
+        code: R7Y9WHaJO-A
+      - name: 'Vous êtes de sang royal'
+        code: wXAydbyKD_4
+      - name: 'Une science pour protéger la Nature - Documentaire'
+        code: cdwfBSl12dg
+      - name: 'Êtes-vous sûr d''être vivant ?'
+        code: d6u6Xhsg-qk
+      - name: 'Les Youtubeurs et leurs problèmes psychologiques'
+        code: 6k1J_h4OxQg
+      - name: 'Un os dans le pénis'
+        code: 5OqQymAnA-M
+      - name: 'Superstimulus'
+        code: H5LpKMAzFL4
+      - name: 'La Terre pourrait-elle être un DONUT ?'
+        code: eZU9qsugcBY
+      - name: 'Comment cette capitale s''est évaporée'
+        code: nEx2lQyfSlc
+      - name: 'Ce que vous savez sur cette tribu est faux'
+        code: JyQqFZHJWTA
