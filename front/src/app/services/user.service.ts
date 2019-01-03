@@ -34,6 +34,16 @@ export class UserService {
         return null !== this.getCurrentUser();
     }
 
+    register(login: string, password: string): Observable<void> {
+        return this.http.post<any>(
+            API_URL + '/open/register',
+            {
+                email: login,
+                password: password
+            }
+        );
+    }
+
     connect(login: string, password: string, rememberMe: boolean): Observable<User> {
         return Observable.create((observer) => {
             const request = this.http.post<TokenModel>(

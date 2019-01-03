@@ -1,6 +1,6 @@
 <div class="login-page-container">
 
-  <form class="form" [formGroup]="loginForm">
+  <form class="form" [formGroup]="loginForm" (ngSubmit)="register()">
     <mat-card class="card">
 
       <mat-card-content *ngIf="!displayLoadingPanel">
