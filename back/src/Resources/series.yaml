@@ -1446,4 +1446,56 @@ series:
         code: Clumuvqj7c8
       - name: 'Episode 10 - Le Clou du Spectacle'
         code: rNveF_z9lTw
-
+  la_boucherie_ethique:
+    name: La Boucherie Éthique
+    locale: fr
+    type: movie
+    image: https://img.youtube.com/vi/vwZee0r_ICs/maxresdefault.jpg
+    description:
+      La Boucherie éthique est une avancée pour la cause animale et une révolution alimentaire qui nous a posé
+      beaucoup de questions et auxquelles nous avons essayé de répondre à travers ce documentaire.
+    seasons:
+    - name: Le Film
+      episodes:
+      - name: La Boucherie Éthique
+        code: vwZee0r_ICs
+  les_parasites:
+    name: Les Parasites
+    locale: fr
+    type: series
+    image: https://en.tipeee.com/api/v1.0/images/1063091?width=1200&height=630
+    description:
+      Les Parasites vous racontent des histoires...
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Lanceur d''Alerte'
+        code: ruooxBTydtE
+      - name: 'Jeu de Société'
+        code: EwK9glIxIoo
+      - name: 'M. Carotte - Lucie et le Périscope'
+        code: sfmG04ov6Vg
+      - name: 'Faux Contact'
+        code: 3Vi0b_S0lUE
+      - name: 'Crise d''Empathie'
+        code: mPZBTfX3vqU
+      - name: 'Vertige (48HFP Paris 2015)'
+        code: 86JIMIqxiKk
+      - name: 'Symptômes d''Amour'
+        code: cki1P3wsJ4A
+      - name: 'Eva D.'
+        code: sStaSlGFDBw
+      - name: 'Le Figurant'
+        code: XtA_qh91Do8
+      - name: 'La Légende du Vieux Jacques'
+        code: UvhlHateb0Y
+      - name: 'Amour Artificiel'
+        code: iXkwVkvNBAo
+      - name: 'Bienvenue Chez Vous'
+        code: Lnk7C7HrLuU
+      - name: 'La Pièce'
+        code: B5dN2JLQaeY
+      - name: 'Tentative 49'
+        code: WDOsoarED6I
+      - name: 'Kung Fou'
+        code: hSKpxrNEjx4
