@@ -2450,3 +2450,142 @@ series:
         code: nEx2lQyfSlc
       - name: 'Ce que vous savez sur cette tribu est faux'
         code: JyQqFZHJWTA
+  jaime_mon_job:
+    name: J'aime mon Job
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/cqhA5hpu2KE/maxresdefault.jpg
+    description:
+      A chaque épisode un personnage nous fait découvrir avec sérieux son métier nous présentant ses avantages et
+      ses inconvénients, avec mise en situation, la caméra le suivant sur ses lieux d'exercic
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Loueur d''épaule réconfortante'
+        code: cqhA5hpu2KE
+      - name: 'Annonceuse de mauvaises nouvelles'
+        code: MBX-9wtSPjM
+      - name: 'L''attendrisseuse'
+        code: JUogOCKigyI
+      - name: 'Procréateur professionnel'
+        code: 4gCMan7CUr0
+      - name: 'La rabibocheuse'
+        code: AaH01Zn2xnE
+      - name: 'Plombeuse d''ambiance'
+        code: w4_aNiThEIM
+      - name: 'Anti bad trip'
+        code: GcQm_VbK6Q4
+      - name: 'Gardeuse de secrets'
+        code: JM5gv-UwnpQ
+      - name: 'Traductrice de SDF'
+        code: JTDG7fF1yeE
+      - name: 'Fils d''appoint'
+        code: EdmGxf3gzsU
+      - name: 'Dealer de mots'
+        code: RCqNB1VPiq4
+      - name: 'Décoratrice de tout petit intérieur'
+        code: nuu2baFIt1I
+      - name: 'Accordeur de Air guitare'
+        code: qcFiDCMJQjY
+      - name: 'Conseillère d''orientation sexuelle'
+        code: 0akv1v-bu5Y
+      - name: 'Sportif de bas niveau'
+        code: I-0C2XNyU0Q
+      - name: 'Punching ball humain'
+        code: 9jFD-GcmNaU
+      - name: 'Extincteur de torche humaine'
+        code: ufFEdJNybYk
+  the_system:
+    name: The System
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/OOwFCinUA9s/maxresdefault.jpg
+    description:
+      La terreur s’intensifie en France depuis l’arrivée au pouvoir du nouveau président.
+      En cette année 2032, le pays se détruit, et l’état met tout en place pour éviter toute rébellion.
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Épisode 1'
+        code: OOwFCinUA9s
+      - name: 'Épisode 2'
+        code: ui80mugdPbs
+      - name: 'Épisode 3'
+        code: fL_eKWtuy-Y
+      - name: 'Épisode 4'
+        code: fWf8sc1nx6o
+      - name: 'Épisode 5'
+        code: nT6loYcCeMs
+      - name: 'Épisode Final'
+        code: Nkg_yoCaAJs
+  seltsam:
+    name: SELTSAM
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/QhoCszDhOuM/maxresdefault.jpg
+    description:
+      Par une belle nuit, Emilien s’endormit de nouveau dans son canapé devant son téléviseur.
+      Mais cette fois une mystérieuse dame a frappé à sa porte ...
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Le fantome amoureux'
+        code: QhoCszDhOuM
+      - name: 'Le sommeil'
+        code: WWU_7OwZXYA
+      - name: 'Mere et fille'
+        code: rd6sKkuSCo4
+      - name: 'Le rendez-vous'
+        code: nvOQuakd8NU
+    - name: Saison 1
+      episodes:
+      - name: 'Première nuit'
+        code: Hyz7uaL34ks
+      - name: 'L''homme en rouge'
+        code: oLwk8_c-Ooo
+      - name: 'Le labyrinthe'
+        code: J23OZTd2N1A
+      - name: 'Le reflet du coiffeur'
+        code: G2IrZkkcfKU
+      - name: 'Dangerous woman'
+        code: CZj4hKkrPMQ
+      - name: 'P.A.N'
+        code: neqAE6v9g_g
+      - name: 'Le bataillon perdu'
+        code: WV1DhwUFfpA
+      - name: 'Delivre-vous du Mal'
+        code: DGRl_pGJ39w
+  machine_et_machinette:
+    name: Machine & Machinette
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/zt091zLYYLk/maxresdefault.jpg
+    description:
+      Ce jour où, bien pépère au taf, on t’apprend que ton nouvel adjoint n’est autre qu’un robot.
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Boule & boulet'
+        code: zt091zLYYLk
+      - name: 'Silicon valley & procrastination'
+        code: RxRcezkikTk
+      - name: 'Préférences Système & booooya'
+        code: JGsZVfD0UYk
+      - name: 'Ex & esc '
+        code: '-QN8ZeS4Q9E'
+      - name: 'Algorithmes & faux flemmards'
+        code: BwEyFIpkS4I
+      - name: 'Reset & vuvuzela'
+        code: pJyObAr6Pyc
+      - name: 'Erreur 404 & sweats du dimanche'
+        code: HuD-BOxlcjE
+      - name: 'Carte-mère & perche du siècle'
+        code: aqPq7lFHTo0
+      - name: 'Fails & trous de boulette'
+        code: lX48TwZP4DI
+      - name: 'Reboot & mc turbin'
+        code: whiDNPLAqP4
+      - name: 'Obsolescence programmée & option chiale'
+        code: 7dbk8dKAQpY
+      - name: 'Hologramme & big bisous'
+        code: '-vXfBz7SsTo'
