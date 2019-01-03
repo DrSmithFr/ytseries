@@ -1940,3 +1940,35 @@ series:
         code: foFKXS6Nyho
       - name: asdfmovie11
         code: LJnpwL-2Drc
+  histoire_chausette:
+    name: L'Histoire racontée par des Chaussettes
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/8JedMH7URdM/maxresdefault.jpg
+    description:
+      Les découvertes étranges d'après des chaussettes. Par Yacine et Dedo.
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'La Découverte Mystérieuse'
+        code: 8JedMH7URdM
+      - name: 'Le truc de Troie (Part 2)'
+        code: qUKtJwLROpI
+      - name: 'Le truc de Troie'
+        code: A1Kx5wa3NjE
+      - name: 'Jeanne d''Arc'
+        code: lUuncjDTSKI
+      - name: 'Le casting de Star Wars'
+        code: 1TT56NMKXwU
+      - name: 'L''invention de la télécommande'
+        code: p-WljKMGMLw
+      - name: 'Jésus & Judas'
+        code: E2ZqkRSzpeQ
+      - name: 'Les Pyramides'
+        code: zJ5LupvEkag
+      - name: 'L''invention des Pokemon'
+        code: Ks5l0zFgne4
+      - name: 'L''histoire racontée par des chaussettes - Louis XVI'
+        code: KiQUhxWtdBc
+      - name: 'L''invention des toilettes'
+        code: 48NMAs1mka0
