@@ -537,13 +537,13 @@ series:
             code: W01P8G45iWk
   eden:
     name: Eden
-    locale: en
+    locale: fr
     type: series
     image: https://img.youtube.com/vi/SQzK9-39tWY/maxresdefault.jpg
     description:
       Le conseil d'Eden condamne Nora à l'effacement de sa mémoire suit à la mort du jeune Data.
     seasons:
-    - name: Season 1
+    - name: Saison 1
       episodes:
       - name: Eden
         code: oED3bdk8vRw
@@ -563,14 +563,14 @@ series:
         code: qq7TzfMNjy8
   io:
     name: IO
-    locale: en
+    locale: fr
     type: series
     image: https://img.youtube.com/vi/SQzK9-39tWY/maxresdefault.jpg
     description:
       MOI, un étudiant comme les autres, se réveille brutalement d'un cauchemar.
       Il décide de tout avouer à sa copine SOPHIA...
     seasons:
-    - name: Season 1
+    - name: Saison 1
       episodes:
       - name: Changer le Monde 1/2
         code: Gf4r8dTwEj8
@@ -596,3 +596,66 @@ series:
         code: lESa_6tqvy8
       - name: De part et d'autre
         code: ErNTdK-RgM0
+  random:
+    name: IO
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/d5R-Wn2UHQs/maxresdefault.jpg
+    description:
+      Six amis confrontés à l’inexplicable dans un huis-clos infernal. Bloqués dans leur appartement,
+      face à un mystère qui bouleverse leur existence,
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: Enfermés
+        code: d5R-Wn2UHQs
+      - name: Le Phénomène
+        code: _x5_d-HPUOA
+      - name: Garder espoir
+        code: 6ooc3XAQwAE
+      - name: Une bouteille à la mer
+        code: 82L5CCfuLAc
+      - name: Etat de choc
+        code: G8qB4HJXanU
+      - name: Révélations
+        code: GnUeStqv188
+      - name: Elle(s)
+        code: ejCJ4P_zrHQ
+      - name: Confrontation
+        code: RZYUn2ab04s
+      - name: Les hommes en blanc
+        code: FqpxJ-I2FTc
+      - name: Condamnés
+        code: xCobu0DP97E
+      - name: Divisions
+        code: 2wY8r4xqMDk
+      - name: Effondrement
+        code: -AYG3Vbh2h0
+    - name: Saison 2
+      episodes:
+      - name: Résumé de la Saison 1
+        code: CneMh2BC5wQ
+      - name: Chez eux.
+        code: dT3TpawRyIw
+      - name: Aller de l'avant.
+        code: NGwPKXDVgS0
+      - name: Retour à l’anormal
+        code: EU2oagei3dg
+      - name: Réalité(s)
+        code: SHr2s9kNhV4
+      - name: Seule
+        code: i0OUbxirgg4
+      - name: Promesse
+        code: 0qX7_yxp0Cc
+      - name: Anomalie Z7-22
+        code: lNsRCwzaw24
+      - name: Appels à l'aide
+        code: tJ3pd5XGzWE
+      - name: Le Néant
+        code: SU0q1FZags8
+      - name: La balle
+        code: CKB4ko4px7s
+      - name: Choix et conséquences
+        code: -2Ur53L7t8s
+      - name: Réunis.
+        code: ldejQqdsLW4
