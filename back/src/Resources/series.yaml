@@ -1073,3 +1073,178 @@ series:
         code: Xa1iH5o3i1A
       - name: '#120 - Dernier épisode : On perd notre temps'
         code: DnZwByFtuZw
+  bref:
+    name: Bref
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/UO8tcf3U0dY/maxresdefault.jpg
+    description:
+      Les chroniques extraordinaires d’un homme ordinaire. Dans la vie, au début on naît, à la fin on meurt,
+      pendant ce temps là, il se passe des trucs. Bref, c'est la vie d'un mec pendant ce temps là.
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: '01 - J''ai dragué cette fille.'
+        code: UO8tcf3U0dY
+      - name: '02 - Je remets tout à demain.'
+        code: JmghDKkeiik
+      - name: '03 - Je me suis préparé pour un rendez-vous.'
+        code: 1x3P61ck0QI
+      - name: '04 - J''ai passé un entretien d''embauche.'
+        code: 7_VQCD863CU
+      - name: '05 - J''ai fait un repas de famille.'
+        code: yC7LPgNlD9M
+      - name: '06 - J''ai traîné sur internet.'
+        code: br82-adJ0FU
+      - name: '07 - Je joue de la guitare.'
+        code: QJEyHT7IU5M
+      - name: '08 - J''ai vu un psy.'
+        code: xHTx3mYfGUQ
+      - name: '09 - J''ai recroisé cette fille.'
+        code: r7LVaWeM_bg
+      - name: '10 - J''ai un plan cul régulier.'
+        code: 9zk0TrOU_cI
+      - name: '11 - Je suis comme tout le monde.'
+        code: tkMoSaUMsiM
+      - name: '12 - J''ai eu un job.'
+        code: DUDE5JWW-q8
+      - name: '13 - J''étais coincé dans l''ascenseur.'
+        code: l4Dz4EKZExI
+      - name: '14 - Mes parents divorcent.'
+        code: cDWcCpqFh_M
+      - name: '15 - J''ai fait les courses avec mon frère.'
+        code: Htm39YuNOog
+      - name: '16 - Je me suis bourré la gueule.'
+        code: 4tdCI0GUy7w
+      - name: '17 - Je suis allé à ce mariage.'
+        code: gx9ph_0tzRw
+      - name: '18 - J''ai couché avec une flic.'
+        code: if3EipAM2WQ
+      - name: '19 - Mon pote s''est fait larguer.'
+        code: J9EL_bGpdP4
+      - name: '20 - J''ai eu 47 minutes de retard.'
+        code: K0XI5d8080Q
+      - name: '21 - Je suis allé au supermarché.'
+        code: onb8vNaHYB4
+      - name: '22 - On a enterré croquette.'
+        code: LRzOCN7zths
+      - name: '23 - Mon coloc'' a fait l''amour.'
+        code: 2u0BYLUyyBI
+      - name: '24 - J''ai fait un rêve.'
+        code: gYSzEUcLIZ4
+      - name: '25 - J''ai fait un dépistage.'
+        code: 41X9gwbeMxQ
+      - name: '26 - J''ai un pote à conditions générales.'
+        code: Z_Iqj4P90Qg
+      - name: '27 - J''ai recouché avec mon ex.'
+        code: KtLp-gLL0Aw
+      - name: '28 - J''aime bien cette photo.'
+        code: 00r3RKxAExo
+      - name: '29 - Je suis hypocondriaque.'
+        code: _AH6uf2dTLg
+      - name: '30 - J''ai pas réussi à dormir.'
+        code: vxJ3BL7-IhM
+      - name: '31 - Je suis allé au cinéma avec cette fille.'
+        code: r-cbMtBLY0g
+      - name: '32 - Je sais pas dire non.'
+        code: OmEx0mpHFG4
+      - name: '33 - J''ai couché avec Émilie.'
+        code: mEu0q3Slzj0
+      - name: '34 - J''ai fait un concert.'
+        code: 04gASg8-J3Y
+      - name: '35 - J''ai monté un meuble.'
+        code: 46O65gqs03c
+      - name: '36 - J''ai dîné avec cette fille.'
+        code: 6dyIHnUE5FY
+      - name: '37 - J''y pense et je souris.'
+        code: O1BZzYB3X6U
+      - name: '38 - J''ai voulu partir en vacances.'
+        code: FThJiyU25jc
+      - name: '39 - J''ai déménagé.'
+        code: YFLtnewtqAE
+      - name: '40 - J''étais à côté de cette fille.'
+        code: DOMouPqhIus
+      - name: '41 - J''ai pris le métro.'
+        code: aqrab4lKVm0
+      - name: '42 - J''ai un nouvel appart.'
+        code: c-51sCEAiCg
+      - name: '43 - Je suis allé aux urgences.'
+        code: 1tZiw9KR6Jk
+      - name: '44 - Je me suis fait agresser.'
+        code: yQbvhuSlOt8
+      - name: '45 - J''ai eu une panne.'
+        code: BJoEGR47rk0
+      - name: '46 - J''ai eu 30 ans.'
+        code: Xi-oROsTsG8
+      - name: '47 - Je suis vieille.'
+        code: 5pr4Q09-16k
+      - name: '48 - Ma copine travaille dans un sex-shop.'
+        code: vrbqkwd6Zi8
+      - name: '49 - Baptiste est Super Flippant.'
+        code: lrWa9VYEb78
+      - name: '50 - J''ai fêté le nouvel an.'
+        code: '-KG96E4nu-s'
+      - name: '51 - Mon frère a quelqu''un.'
+        code: m5Ezt99WggY
+      - name: '52 - Je suis en couple.'
+        code: 1m-zfWkcgrg
+      - name: '53 - Il y a des gens qui m''énervent.'
+        code: tjRXxJaupoc
+      - name: '54 - J''ai aucune mémoire.'
+        code: elOH0CasAPw
+      - name: '55 - Je m''appelle Eric Dampierre.'
+        code: tkOuQiO-Vzg
+      - name: '56 - J''ai grandi dans les années 90.'
+        code: HO2SLJQShJ8
+      - name: '57 - On était des gamins.'
+        code: LI0mfa3sqWY
+      - name: '58 - C''était sa chanson préférée.'
+        code: UURXmjwlcDI
+      - name: '59 - Mon père veut être jeune.'
+        code: 7Ry1eljBOvM
+      - name: '60 - Je suis un plan cul régulier.'
+        code: 5rKgC34qhFI
+      - name: '61 - J''étais dans la merde.'
+        code: I4-bhdkKSfU
+      - name: '62 - J''étais toujours dans la merde.'
+        code: KM1Rsc4JyxA
+      - name: '63 - J''ai fait un choix.'
+        code: UNbu1DM-jk0
+      - name: '64 - J''ai fait un dessin.'
+        code: LZQUFY0W_lY
+      - name: '65 - J''ai un nouveau pote.'
+        code: ZbGrzgcO68A
+      - name: '66 - Mon frère est gay.'
+        code: '-tInLKCRUrs'
+      - name: '67 - J''ai perdu mes cheveux.'
+        code: akriQ9yTodk
+      - name: '68 - J''ai passé un coup de fil.'
+        code: 8matlnmBY98
+      - name: '69 - C''est la merde.'
+        code: 5U0CfNpXdEc
+      - name: '70 - J''ai fait une connerie.'
+        code: hpCO1AIWo60
+      - name: '71 - J''ai fait une soirée déguisée (Partie 1).'
+        code: rOI3TXz-igs
+      - name: '72 - J''ai fait une soirée déguisée (partie 2)'
+        code: m7Y624w6MFU
+      - name: '73 - J''ai fait une soirée déguisée (partie 3).'
+        code: WRXsFwhVzTs
+      - name: '74 - J''ai fait une soirée déguisée (partie 4).'
+        code: UDko2X994U4
+      - name: '75 - J''ai tout cassé.'
+        code: 9u9X-FzVWZ0
+      - name: '76 - Je suis en mode survie.'
+        code: ZQHDDjV-KgQ
+      - name: '77 - J''ai envoyé un texto.'
+        code: 94NzqAY2Yhk
+      - name: '78 - Je me suis réveillé à côté d''une fille.'
+        code: 9UEJzfo0_m4
+      - name: '79 - Je suis né.'
+        code: lGBPAoLUn-0
+      - name: '80 - J''ai fait une dépression.'
+        code: DwfwmxOF_3E
+      - name: '81 - Lui c''est Kheiron.'
+        code: z5tHQfjXtwc
+      - name: '82 - Dernier épisode.'
+        code: 1cZ_H0rgwCU
