@@ -13,20 +13,20 @@ series:
       Arthur est un Youtubeur célèbre sous pression qui n'arrive plus à sortir de vidéo.
       Preview, une étrange fonctionnalité de la plateforme de vidéo, se propose de le relancer.
     seasons:
-      - name: Saison 1
-        episodes:
-          - name: '#React'
-            code: 5bMOgK4SXH4
-          - name: '#CopyCat'
-            code: qxsDbnB4k2Q
-          - name: '#DoItYourself'
-            code: BBxgMWHWYec
-          - name: '#LetsPlay'
-            code: EVtfD854SuY
-          - name: '#Challenge'
-            code: _PTOjCxN88w
-          - name: '#Prank'
-            code: XcnZr8_vLoU
+    - name: Saison 1
+      episodes:
+      - name: '#React'
+        code: 5bMOgK4SXH4
+      - name: '#CopyCat'
+        code: qxsDbnB4k2Q
+      - name: '#DoItYourself'
+        code: BBxgMWHWYec
+      - name: '#LetsPlay'
+        code: EVtfD854SuY
+      - name: '#Challenge'
+        code: _PTOjCxN88w
+      - name: '#Prank'
+        code: XcnZr8_vLoU
   stranded_deep:
     name: Stranded Deep - Joueur Du Grenier
     locale: fr
@@ -36,24 +36,24 @@ series:
       Let's play Narratif de Stranded Deep par Joueur Du Genier.
       La plage le soleil et les crustacés !
     seasons:
-      - name: Saison 1
-        episodes:
-          - name: Belle île en mer
-            code: 00vLSHLXr1U
-          - name: Le mystère des caisses en bois
-            code: lsXqsYOJmDo
-          - name: Cargo de nuit
-            code: 3njPN68JP1E
-          - name: Les dents de la mer
-            code: 4jwStaniUes
-          - name: Seul au monde ?
-            code: V6viogmw39w
-          - name: Force de la nature
-            code: wiVSKB8Orzk
-          - name: Marin d'eau douce
-            code: EBuOSHQnRI4
-          - name: Le grand saut
-            code: nylHZLfH4jY
+    - name: Saison 1
+      episodes:
+      - name: Belle île en mer
+        code: 00vLSHLXr1U
+      - name: Le mystère des caisses en bois
+        code: lsXqsYOJmDo
+      - name: Cargo de nuit
+        code: 3njPN68JP1E
+      - name: Les dents de la mer
+        code: 4jwStaniUes
+      - name: Seul au monde ?
+        code: V6viogmw39w
+      - name: Force de la nature
+        code: wiVSKB8Orzk
+      - name: Marin d'eau douce
+        code: EBuOSHQnRI4
+      - name: Le grand saut
+        code: nylHZLfH4jY
   les_dissocies:
     name: Les Dissociés
     locale: fr
@@ -63,10 +63,10 @@ series:
       Après s’être fait voler leur corps, Lily et Ben vont explorer un monde
       où le corps ne compte plus et dans lequel leur âme sera mise à l’épreuve.
     seasons:
-      - name: Le Film
-        episodes:
-          - name: Les Dissociés
-            code: 5lUBlW72qBQ
+    - name: Le Film
+      episodes:
+      - name: Les Dissociés
+        code: 5lUBlW72qBQ
   les_breves_de_petard:
     name: Brèves de Pétard
     locale: fr
@@ -104,46 +104,46 @@ series:
       Dans la vie, ne pas savoir dire non peut entrainer beaucoup d'emmerdes.
       Mais heureusement pour lui, Tom va tester une méthode expérimentale pour lui donner un peu de charisme.
     seasons:
-      - name: Saison 1
-        episodes:
-          - name: Non aux conséquences !
-            code: aPmY05b_YYg
-          - name: Non à l'incruste !
-            code: DrfvGa6a748
-          - name: Non aux sextoys !
-            code: Nd_zCJNx9A0
-          - name: Editor's cut 1
-            code: LmtFtZ4sP6Y
-          - name: Non à la générosité !
-            code: siF2nOWDOzE
-          - name: Non à la l'honnêteté !
-            code: 6mMtNwPPHU
-          - name: Non au couple !
-            code: N6Kcc13Fi9c
-          - name: Editor's cut 2
-            code: 2b2TqQmdGYY
-          - name: Oh yeah !
-            code: 9KHQU9jR3Y8
-          - name: Non à Einstein !
-            code: P-qHsMf3Gic
-          - name: Editor's cut 3
-            code: wNkdmulnqAQ
-          - name: Non à la rébellion !
-            code: lL0H74ZVt3k
-          - name: Non aux histoires !
-            code: Fq53v3PbDRM
-          - name: Editor's cut 4
-            code: 1gO3K2VH4gY
-          - name: Non aux chips !
-            code: x-aoHD7eMXY
-          - name: Non aux mesures !
-            code: wfPDKDWXpgY
-          - name: Editor's cut 5
-            code: E1SAG9ZYfV4
-          - name: Non aux révélations !
-            code: 8V-q7HFcNUA
-          - name: Non à la PBT !
-            code: S5sgQHJiRH0
+    - name: Saison 1
+      episodes:
+      - name: Non aux conséquences !
+        code: aPmY05b_YYg
+      - name: Non à l'incruste !
+        code: DrfvGa6a748
+      - name: Non aux sextoys !
+        code: Nd_zCJNx9A0
+      - name: Editor's cut 1
+        code: LmtFtZ4sP6Y
+      - name: Non à la générosité !
+        code: siF2nOWDOzE
+      - name: Non à la l'honnêteté !
+        code: 6mMtNwPPHU
+      - name: Non au couple !
+        code: N6Kcc13Fi9c
+      - name: Editor's cut 2
+        code: 2b2TqQmdGYY
+      - name: Oh yeah !
+        code: 9KHQU9jR3Y8
+      - name: Non à Einstein !
+        code: P-qHsMf3Gic
+      - name: Editor's cut 3
+        code: wNkdmulnqAQ
+      - name: Non à la rébellion !
+        code: lL0H74ZVt3k
+      - name: Non aux histoires !
+        code: Fq53v3PbDRM
+      - name: Editor's cut 4
+        code: 1gO3K2VH4gY
+      - name: Non aux chips !
+        code: x-aoHD7eMXY
+      - name: Non aux mesures !
+        code: wfPDKDWXpgY
+      - name: Editor's cut 5
+        code: E1SAG9ZYfV4
+      - name: Non aux révélations !
+        code: 8V-q7HFcNUA
+      - name: Non à la PBT !
+        code: S5sgQHJiRH0
   le_theorie_des_balls:
     name: La théorie des Balls
     locale: fr
@@ -317,18 +317,18 @@ series:
       Nightwing follows the story of Batman's former sidekick, Dick Grayson aka Robin.
       After a falling out with his mentor, Dick abandons Gotham and everyone in it.
     seasons:
-      - name: Season 1
-        episodes:
-          - name: Deathstroke
-            code: o297A1wmys0
-          - name: Origins
-            code: Adv8OASsZu0
-          - name: Descent
-            code: kfYoS0YkAtY
-          - name: Oracle
-            code: 43GNeN8qHwQ
-          - name: Legacy
-            code: DMUJTWrf8
+    - name: Season 1
+      episodes:
+      - name: Deathstroke
+        code: o297A1wmys0
+      - name: Origins
+        code: Adv8OASsZu0
+      - name: Descent
+        code: kfYoS0YkAtY
+      - name: Oracle
+        code: 43GNeN8qHwQ
+      - name: Legacy
+        code: DMUJTWrf8
   realer:
     name: RealEr
     locale: fr
@@ -337,26 +337,26 @@ series:
     description:
       Un mystérieux personnage prend contact avec Koss...
     seasons:
-      - name: Season 1
-        episodes:
-          - name: REveil
-            code: dxg87ECe9qw
-          - name: REférences
-            code: ek4kuLE1S0Q
-          - name: REalités
-            code: 2QIElnMDFPg
-          - name: QuatRE
-            code: 5xi40clbksQ
-          - name: REtard
-            code: GF8rbW97si8
-          - name: REtard
-            code: GF8rbW97si8
-          - name: Les autREs
-            code: P_UiPyTX16U
-          - name: REgles
-            code: nz8s02r1LZ0
-          - name: Nouvelle ER
-            code: 4chHv3sWUi0
+    - name: Season 1
+      episodes:
+      - name: REveil
+        code: dxg87ECe9qw
+      - name: REférences
+        code: ek4kuLE1S0Q
+      - name: REalités
+        code: 2QIElnMDFPg
+      - name: QuatRE
+        code: 5xi40clbksQ
+      - name: REtard
+        code: GF8rbW97si8
+      - name: REtard
+        code: GF8rbW97si8
+      - name: Les autREs
+        code: P_UiPyTX16U
+      - name: REgles
+        code: nz8s02r1LZ0
+      - name: Nouvelle ER
+        code: 4chHv3sWUi0
   en_passant_pecho:
     name: En Passant Pécho
     locale: fr
@@ -365,24 +365,24 @@ series:
     description:
       Une serie déjenté sur la vie de cité
     seasons:
-      - name: Saison 1
-        episodes:
-          - name: Le film de boule est-il une drogue?
-            code: YBcwG9G6oHU
-          - name: A propos de Mojo
-            code: oBTVou0P2D4
-          - name: Carotte cellule
-            code: wGHJ5bwa_Bo
-          - name: Bande de Bollos
-            code: ZH9Y3tr6d08
-          - name: Y'a les Keufs
-            code: jL81u734sWo
-          - name: Tape de Ouf
-            code: xwy4a9Stqzw
-          - name: Un Bête de Plan
-            code: JjkE91UHY1Q
-          - name: Qui veut épouser Cokeman ?
-            code: Ko_YL9jnRSc
+    - name: Saison 1
+      episodes:
+      - name: Le film de boule est-il une drogue?
+        code: YBcwG9G6oHU
+      - name: A propos de Mojo
+        code: oBTVou0P2D4
+      - name: Carotte cellule
+        code: wGHJ5bwa_Bo
+      - name: Bande de Bollos
+        code: ZH9Y3tr6d08
+      - name: Y'a les Keufs
+        code: jL81u734sWo
+      - name: Tape de Ouf
+        code: xwy4a9Stqzw
+      - name: Un Bête de Plan
+        code: JjkE91UHY1Q
+      - name: Qui veut épouser Cokeman ?
+        code: Ko_YL9jnRSc
   ulysse:
     name: Ulysse
     locale: fr
@@ -392,50 +392,50 @@ series:
       2038. 14 ans après la fin d'une guerre mondiale aussi dévastatrice que mystérieuse,
       une jeune orpheline - Elena - reçoit un carnet qui pourrait bien tout expliquer.
     seasons:
-      - name: Saison 1
-        episodes:
-          - name: Un nouveau départ 1/3
-            code: yQBKEwvsdtE
-          - name: Un nouveau départ 2/3
-            code: Oi6TzHusYII
-          - name: Un nouveau départ 3/3
-            code: X6tAUbwbG5c
-          - name: La tarte au citron 1/2
-            code: NY6-GmBcGM0
-          - name: La tarte au citron 2/2
-            code: dJUzIfYDTzU
-          - name: Cette fille 1/3
-            code: TCfQnPRolwY
-          - name: Cette fille 2/3
-            code: LjmpRAy_OKc
-          - name: Cette fille 3/3
-            code: yCyp5ed_PAo
-          - name: L'envers du décor 1/2
-            code: puOY1kf8h7c
-          - name: L'envers du décor 2/2
-            code: 9Kpyp4Ljhqw
-      - name: Saison 2
-        episodes:
-          - name: MM's sacrifice 1/2
-            code: _aNuQaWdRCo
-          - name: MM's sacrifice 2/2
-            code: UpxnGa74KVM
-          - name: Retrouvailles 1/2
-            code: 6FS8jQUInRM
-          - name: Retrouvailles 2/2
-            code: ZaFK845GxMU
-          - name: Il y a 5 ans
-            code: OgCIYumWi6k
-          - name: Les âmes soeurs 1/3
-            code: eJ6I575Uw1Q
-          - name: Les âmes soeurs 2/3
-            code: hoq2fU-bh-g
-          - name: Les âmes soeurs 3/3
-            code: Di2w-0eI7sc
-          - name: Son choix 1/2
-            code: vx9L3Mvpxf0
-          - name: Son choix 2/2
-            code: s3kOlBPxivE
+    - name: Saison 1
+      episodes:
+      - name: Un nouveau départ 1/3
+        code: yQBKEwvsdtE
+      - name: Un nouveau départ 2/3
+        code: Oi6TzHusYII
+      - name: Un nouveau départ 3/3
+        code: X6tAUbwbG5c
+      - name: La tarte au citron 1/2
+        code: NY6-GmBcGM0
+      - name: La tarte au citron 2/2
+        code: dJUzIfYDTzU
+      - name: Cette fille 1/3
+        code: TCfQnPRolwY
+      - name: Cette fille 2/3
+        code: LjmpRAy_OKc
+      - name: Cette fille 3/3
+        code: yCyp5ed_PAo
+      - name: L'envers du décor 1/2
+        code: puOY1kf8h7c
+      - name: L'envers du décor 2/2
+        code: 9Kpyp4Ljhqw
+    - name: Saison 2
+      episodes:
+      - name: MM's sacrifice 1/2
+        code: _aNuQaWdRCo
+      - name: MM's sacrifice 2/2
+        code: UpxnGa74KVM
+      - name: Retrouvailles 1/2
+        code: 6FS8jQUInRM
+      - name: Retrouvailles 2/2
+        code: ZaFK845GxMU
+      - name: Il y a 5 ans
+        code: OgCIYumWi6k
+      - name: Les âmes soeurs 1/3
+        code: eJ6I575Uw1Q
+      - name: Les âmes soeurs 2/3
+        code: hoq2fU-bh-g
+      - name: Les âmes soeurs 3/3
+        code: Di2w-0eI7sc
+      - name: Son choix 1/2
+        code: vx9L3Mvpxf0
+      - name: Son choix 2/2
+        code: s3kOlBPxivE
   donjon_legacy:
     name: Donjon Legacy
     locale: fr
@@ -444,30 +444,30 @@ series:
     description:
       Jon s'en vient découvrir dans des ruines l'héritage d'un père qu'il n'a pas connu.
     seasons:
-      - name: Saison 1
-        episodes:
-          - name: Episode 1
-            code: Miaq_E5gmlk
-          - name: Episode 2
-            code: wDuI-ayW3Cw
-          - name: Episode 3
-            code: n-9XF0bcgFw
-          - name: Episode 4
-            code: lvJym9dpBTg
-          - name: Episode 5
-            code: IWlq_RzzDhQ
-          - name: Episode 6
-            code: Mf2x2zzj-vg
-          - name: Episode 7
-            code: LyI6Pe6r0JI
-          - name: Episode 8
-            code: 1wJKAFemCVo
-          - name: Episode 9
-            code: Ez6b0CSeBa0
-      - name: Saison 2
-        episodes:
-          - name: Episode 1
-            code: rWhaQBglm4k
+    - name: Saison 1
+      episodes:
+      - name: Episode 1
+        code: Miaq_E5gmlk
+      - name: Episode 2
+        code: wDuI-ayW3Cw
+      - name: Episode 3
+        code: n-9XF0bcgFw
+      - name: Episode 4
+        code: lvJym9dpBTg
+      - name: Episode 5
+        code: IWlq_RzzDhQ
+      - name: Episode 6
+        code: Mf2x2zzj-vg
+      - name: Episode 7
+        code: LyI6Pe6r0JI
+      - name: Episode 8
+        code: 1wJKAFemCVo
+      - name: Episode 9
+        code: Ez6b0CSeBa0
+    - name: Saison 2
+      episodes:
+      - name: Episode 1
+        code: rWhaQBglm4k
   la_web_series:
     name: LA Web Series
     locale: en
@@ -477,64 +477,64 @@ series:
       LA Web Series is a love story between two young women who start as strangers and
       forge a lasting bond filled with past stories and future questions.
     seasons:
-      - name: Season 1
-        episodes:
-          - name: What if?
-            code: Miaq_E5gmlk
-          - name: Where Are You Now?
-            code: eMoN-0C9AwE
-          - name: Who Are You?
-            code: p1sz6NjRSXU
-          - name: What's Your Name?
-            code: bLpyFnR3Xwk
-          - name: Why Not?
-            code: qsbhsAIx_RI
-          - name: Where Did You Come From?
-            code: pdEsW53WtFg
-          - name: Why Are You Here?
-            code: k_lmecGqnGM
-          - name: Why Don't We Stop?
-            code: _zopuTTjIZA
-          - name: Why'd You Tell Me?
-            code: uq_Rp9UnzLM
-          - name: Where's It Going?
-            code: Ym6MhaN5mUo
-          - name: Avery?
-            code: 7GuF3WxLCwU
-          - name: Landon?
-            code: 7d-6s1RHEbE
-          - name: Can I Listen?
-            code: TNUYwOcAgjk
-          - name: What'd You Say?
-            code: gq0H3CS6D78
-          - name: Where Are We Going Now?
-            code: XHot7AmmgAM
-          - name: How Did We Get Here?
-            code: X43zQPyZP5o
-          - name: What? Where? Who? When? Why?
-            code: hsUO3zCxyKc
-          - name: ?
-            code: jm7zPgX7KXk
-      - name: Season 1
-        episodes:
-          - name: Hello?
-            code: iMUY2Q7NlAU
-          - name: Who is This?
-            code: ex_hDwlxemA
-          - name: Megan?
-            code: 1M7ybXpjyPg
-          - name: Which Way?
-            code: pI2tThZwc7Y
-          - name: Isn't it Crazy?
-            code: 0G9pkKNHaIk
-          - name: Nervous?
-            code: 1RCsa3LfvNM
-          - name: How Come?
-            code: _U7meI2lHUA
-          - name: Stay?
-            code: RmEH2NW2tD8
-          - name: ?
-            code: W01P8G45iWk
+    - name: Season 1
+      episodes:
+      - name: What if?
+        code: Miaq_E5gmlk
+      - name: Where Are You Now?
+        code: eMoN-0C9AwE
+      - name: Who Are You?
+        code: p1sz6NjRSXU
+      - name: What's Your Name?
+        code: bLpyFnR3Xwk
+      - name: Why Not?
+        code: qsbhsAIx_RI
+      - name: Where Did You Come From?
+        code: pdEsW53WtFg
+      - name: Why Are You Here?
+        code: k_lmecGqnGM
+      - name: Why Don't We Stop?
+        code: _zopuTTjIZA
+      - name: Why'd You Tell Me?
+        code: uq_Rp9UnzLM
+      - name: Where's It Going?
+        code: Ym6MhaN5mUo
+      - name: Avery?
+        code: 7GuF3WxLCwU
+      - name: Landon?
+        code: 7d-6s1RHEbE
+      - name: Can I Listen?
+        code: TNUYwOcAgjk
+      - name: What'd You Say?
+        code: gq0H3CS6D78
+      - name: Where Are We Going Now?
+        code: XHot7AmmgAM
+      - name: How Did We Get Here?
+        code: X43zQPyZP5o
+      - name: What? Where? Who? When? Why?
+        code: hsUO3zCxyKc
+      - name: ?
+        code: jm7zPgX7KXk
+    - name: Season 1
+      episodes:
+      - name: Hello?
+        code: iMUY2Q7NlAU
+      - name: Who is This?
+        code: ex_hDwlxemA
+      - name: Megan?
+        code: 1M7ybXpjyPg
+      - name: Which Way?
+        code: pI2tThZwc7Y
+      - name: Isn't it Crazy?
+        code: 0G9pkKNHaIk
+      - name: Nervous?
+        code: 1RCsa3LfvNM
+      - name: How Come?
+        code: _U7meI2lHUA
+      - name: Stay?
+        code: RmEH2NW2tD8
+      - name: ?
+        code: W01P8G45iWk
   eden:
     name: Eden
     locale: fr
@@ -694,3 +694,61 @@ series:
         code: KmP1PVQLyHA
       - name: Sin
         code: xC0E4vh-sJg
+  le_departement:
+    name: Le Département
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/3b_vTuxEL-I/maxresdefault.jpg
+    description:
+      Le Département décline toute responsabilité en cas de digestion douloureuse lors du visionnage.
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: Se présenter
+        code: 3b_vTuxEL-I
+      - name: Faire des cafés
+        code: BwTFGgHI0tw
+      - name: Aider un collègue
+        code: KqkuOqRQ-4g
+      - name: Créer sa boîte mail
+        code: vAoybmNG9vI
+      - name: Faire signer un papier
+        code: MXYBYciizHA
+      - name: Savoir s'habiller
+        code: 7rjvQaMARzU
+      - name: Se faire contrôler
+        code: afjJt2E5u94
+      - name: Boucler un dossier
+        code: UGZZI8XOy4c
+      - name: Prendre des notes
+        code: Rz3-EFXBd7M
+      - name: Faire des réunions
+        code: ChKiOHe_zec
+      - name: Partager un bon moment
+        code: 21XVNunpWYM
+      - name: Avoir l'esprit d'équipe
+        code: ipKVq7sW4TY
+      - name: Perdre une collègue
+        code: Veigf5F1wqQ
+      - name: Se faire entendre
+        code: CdaK1kZsKL8
+      - name: Toucher sa prime de Noël
+        code: vmWJRFwZhtg
+    - name: Saison 2
+      episodes:
+      - name: La Fin
+        code: km6bTUQccTY
+      - name: La Chef
+        code: KCIlUWTxTjw
+      - name: Le piège
+        code: TKdbLFw2VAY
+      - name: La joute
+        code: GqG6AwGcsdg
+      - name: La lutte
+        code: wzRBLZhoUNs
+      - name: L’urgence
+        code: Cm93sGDNhwc
+      - name: La nuit
+        code: TcH_6tvpsS8
+      - name: Le début
+        code: p8Z-AyQrUyk
