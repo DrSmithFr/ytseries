@@ -1972,3 +1972,111 @@ series:
         code: KiQUhxWtdBc
       - name: 'L''invention des toilettes'
         code: 48NMAs1mka0
+  ferdinand:
+    name: Ferdinand
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/8JedMH7URdM/maxresdefault.jpg
+    description:
+      Ferdinand n'avait pas d'amis... Mais Ferdinand avait un plan !
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Ferdinand achète un Ami'
+        code: jJy3abklXeQ
+      - name: 'Ferdinand cherche l''Amour'
+        code: 92P2n0n8r84
+      - name: 'Ferdinand fait la Vélorution'
+        code: 2HFmSoFYG_g
+  petit_monstre:
+    name: Le petit Monstre
+    locale: fr
+    type: short
+    image: https://img.youtube.com/vi/HwmAt01cjMU/maxresdefault.jpg
+    description:
+      Un jeune livreur tombe sous le charme d’une mystérieuse jeune femme qui vit cloîtrée dans son appartement.
+      Lorsqu’il réussit enfin à avoir un rendez-vous chez elle, celle-ci lui révèle son secret…
+    seasons:
+    - name: Le Film
+      episodes:
+      - name: 'Le petit Monstre'
+        code: HwmAt01cjMU
+  croc_love:
+    name: CROC LOVE
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/pjYl1TQbj1c/maxresdefault.jpg
+    description:
+      'Hector et Héléna assiste ébahis à une révolution technologique majeure : une journaliste annonce l’invention
+      d’un Test de l’Amour, permettant de mesurer vos sentiments.'
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Un petit pas pour l’humanité'
+        code: pjYl1TQbj1c
+      - name: 'A la folie... pas du tout'
+        code: iH2b_NRPyQ8
+      - name: 'Cobaye myself'
+        code: pw_aeZYEjiE
+      - name: 'Love Célébration'
+        code: M7ygjof88V8
+      - name: 'Poison Mortel'
+        code: mW7NMUT8a-U
+      - name: 'Le Trip'
+        code: VKxLfr1ayns
+      - name: 'Le Temps des regrets'
+        code: sTT3fNSd00k
+      - name: 'Mauvaise piste'
+        code: zg2HOg6ED5s
+      - name: 'Les épreuves d’amour'
+        code: Ie4XU_VD9wg
+      - name: 'La rééducation'
+        code: Mlg6PU-_HKU
+  terreur_404:
+    name: TERREUR 404
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/JtJ4OJImJ5Q/maxresdefault.jpg
+    description:
+      La soirée s’annonçait parfaite, jusqu’à ce que Maxime accepte, sans réfléchir sur Facebook,
+      une demande d’amis envoyée par… lui-même.
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Demande d''amitié'
+        code: JtJ4OJImJ5Q
+      - name: 'Ma première morte'
+        code: 6iJCd0XyUkk
+      - name: 'Monsieur Parfait'
+        code: g1rWo0Pi5Dg
+      - name: 'Course de nuit'
+        code: ye5t5IqtwXM
+      - name: 'La maison des amants'
+        code: lw29pawqyWU
+      - name: 'Maman, j''ai peur'
+        code: l0Vr2ZKHZ-w
+      - name: 'Chirurgie d''un jour'
+        code: OTSUQR2TdLU
+      - name: 'Le virus'
+        code: AjmZSxde5QE
+  bitmuch:
+    name: BITMUCH
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/V6DCYtAKL1s/maxresdefault.jpg
+    description:
+      Multinationale gigantesque, la société Bitmuch est dirigée par des hommes d’affaires
+      extrêmement ambitieux mais complètement incompétents.
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Adopte un stagiaire'
+        code: V6DCYtAKL1s
+      - name: 'Exormcisme social'
+        code: QNLUiMn3VpU
+      - name: 'Licenciement à sec'
+        code: rqxMuV7gZcU
+      - name: 'Meeting 2 merde'
+        code: NOK-Hh_3I8k
+      - name: 'La rilaxitude'
+        code: m1T4LpJMKXw
