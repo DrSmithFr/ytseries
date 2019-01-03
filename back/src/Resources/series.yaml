@@ -1834,4 +1834,55 @@ series:
         code: RT-ZTEmACEc
       - name: 'Episode 10 : Transcendance'
         code: ptrhs8hRsNY
-
+  derriere_youtube:
+    name: Derrière Youtube
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/9kQ__KUK2bw/maxresdefault.jpg
+    description:
+      Un aperçu de la vie difficile des youtubers
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Avoir un concept'
+        code: 9kQ__KUK2bw
+      - name: 'L''argent sur youtube'
+        code: nzzx14dEHvA
+      - name: 'Le metier d''acteur'
+        code: uXV5qfNCs78
+      - name: 'Connu sur youtube, ça vaut quoi ?'
+        code: gP_-kAHcnnE
+      - name: 'Faisons un film !'
+        code: 5o8n7v1Kz5M
+      - name: 'J''aurais voulu être un acteur'
+        code: c67mwIOw0s4
+    - name: Saison 2
+      episodes:
+      - name: 'Populaire'
+        code: szS2VCAQFBc
+      - name: 'Qui perd, perd'
+        code: zchM3R89IpA
+      - name: 'La roue tourne'
+        code: vupxuYL2FWk
+      - name: 'Quelle connerie !'
+        code: 3QSXaCbBd1c
+      - name: 'J''aurais voulu être'
+        code: Ju1I_615iLc
+      - name: 'Copinage'
+        code: xsVG8ZWKgLI
+      - name: 'Qui perd gagne'
+        code: 126L3ByHwA8
+    - name: Saison 3
+      episodes:
+      - name: 'Lâche l''affaire'
+        code: vaEOWAuuCAQ
+      - name: 'Retour aux sources'
+        code: SsL9N9ynEcA
+      - name: 'Youtuber n''est pas un métier'
+        code: MAenZaIw-go
+      - name: 'J''vais m''refaire'
+        code: 7O_UAeFpO2w
+      - name: 'Cercle vicieux'
+        code: A2XrDuvOleI
+      - name: 'Fin du game'
+        code: dTbHOXT6xhE
