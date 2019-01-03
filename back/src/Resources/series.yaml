@@ -659,3 +659,38 @@ series:
         code: -2Ur53L7t8s
       - name: Réunis.
         code: ldejQqdsLW4
+  supa_supa:
+    name: Supa Supa
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/JjZA57fodWI/maxresdefault.jpg
+    description:
+      Supa Supa et son pote sont posés chez eux et jouent aux jeux vidéos,
+      lorsque Supa détecte la présence d'une Fille, ce qui ne le laisse pas insensible.
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: Girl
+        code: JjZA57fodWI
+      - name: Powers
+        code: tFn_evs_I_g
+      - name: Mega Mega
+        code: SQBdImuiVRw
+      - name: Bogoss
+        code: rYz0ysCbuZ4
+      - name: Uninvited
+        code: e2YrNgdY1jI
+      - name: Bullshit
+        code: LguDlce3LL4
+      - name: Frozen
+        code: QMpN_yXWr4k
+      - name: Speed
+        code: xDj-VWEWVAU
+      - name: Fight
+        code: ag9bvnmCJWE
+      - name: She said Yes
+        code: SrXS6Fwfnqw
+      - name: Rendez-vous
+        code: KmP1PVQLyHA
+      - name: Sin
+        code: xC0E4vh-sJg
