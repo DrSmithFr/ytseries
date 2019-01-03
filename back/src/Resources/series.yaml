@@ -310,7 +310,7 @@ series:
         code: aSy03qaL99U
   nightwing:
     name: Nightwing
-    locale: en
+    locale: us
     type: series
     image: https://img.youtube.com/vi/o297A1wmys0/maxresdefault.jpg
     description:
@@ -470,7 +470,7 @@ series:
         code: rWhaQBglm4k
   la_web_series:
     name: LA Web Series
-    locale: en
+    locale: us
     type: series
     image: https://img.youtube.com/vi/SQzK9-39tWY/maxresdefault.jpg
     description:
@@ -1889,7 +1889,7 @@ series:
         code: dTbHOXT6xhE
   crash_zoom:
     name: CRASH ZOOM
-    locale: en
+    locale: us
     type: series
     image: https://img.youtube.com/vi/Ii4Rbbk8zAs/maxresdefault.jpg
     description:
@@ -1911,7 +1911,7 @@ series:
         code: TnyBXvB3_ho
   asdf:
     name: ASDF Movie
-    locale: en
+    locale: us
     type: series
     image: https://img.youtube.com/vi/IYnsfV5N2n8/maxresdefault.jpg
     description:

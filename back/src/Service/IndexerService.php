@@ -42,6 +42,7 @@ class IndexerService
             $series->getId(), // Manually defined ID
             [
                 'id'          => $series->getId(),
+                'locale'      => $series->getLocale(),
                 'name'        => $series->getName(),
                 'image'       => $series->getImage() ?? '',
                 'type'        => $series->getType()->getName(),

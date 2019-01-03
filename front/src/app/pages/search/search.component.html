@@ -12,10 +12,10 @@
 
   <div class="page_body">
     <div class="search-bar">
-      <button class="search-filter" mat-flat-button (click)="toogleFilterMenu()">
-        <i class="material-icons">filter_list</i>
-      </button>
-      <input class="search-input" type="text" (keyup)="onSearchChange($event)">
+      <!--<button class="search-filter" mat-flat-button (click)="toogleFilterMenu()">-->
+        <!--<i class="material-icons">filter_list</i>-->
+      <!--</button>-->
+      <input class="search-input" type="text" (keyup)="onSearchChange($event)" style="border-radius: 5px 0 0 5px">
       <button class="search-button" mat-flat-button color="primary">
         <i class="material-icons">search</i>
       </button>
@@ -40,6 +40,7 @@
             <div class="gridView-duration" *ngIf="row.seasons > 1">{{row.seasons}} saisons</div>
             <div class="gridView-duration" *ngIf="row.seasons <= 1 && row.episodes > 1">{{row.episodes}} episodes</div>
             <div class="gridView-duration" *ngIf="row.seasons <= 1 && row.episodes <= 1">{{row.type}}</div>
+            <div class="gridView-locale"><span class="flag-icon flag-icon-{{row.locale}}"></span></div>
           </div>
           <div class="gridView-detailsSection" routerLink="/watch/{{row.id}}">
             <div class="gridView-detailsTop">
