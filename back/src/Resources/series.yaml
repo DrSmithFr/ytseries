@@ -781,11 +781,11 @@ series:
         code: hLeCprXAXuo
       - name: Faites la guerre, pas l'amour !
         code: XuvhoH9NgKQ
-      - name: Le fan film 1/3 : Le Casting
+      - name: Le fan film 1/3: Le Casting
         code: Dpc-5TXhjwc
-      - name: Le fan film 2/3 : Making of !
+      - name: Le fan film 2/3: Making of !
         code: S-vbEuce2yg
-      - name: Le fan film 3/3 : Far-Trek
+      - name: Le fan film 3/3: Far-Trek
         code: mZWRP1A07Og
       - name: Un Noël Star Wars
         code: ntqrBhLx7TY
@@ -823,3 +823,253 @@ series:
         code: DDoJ5HgPmWo
       - name: Valérie
         code: os67i0NFVeo
+  bloques:
+    name: Bloqués
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/WjsXFY_tGx4/maxresdefault.jpg
+    description:
+      En attendant qu’il se passe quelque chose, ils ont décidé de ne rien faire.
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: '#1 - Si j''étais riche'
+        code: WjsXFY_tGx4
+      - name: '#2 - On fait du nettoyage'
+        code: qbGz82oosvI
+      - name: '#3 - C''était qui ?'
+        code: q9LCDKbduxI
+      - name: '#4 - Ca fait longtemps que j''ai pas baisé'
+        code: ieb4DP_Gl3g
+      - name: '#5 - Le jeu du Johnny Depp'
+        code: bAW4jV1T0nw
+      - name: '#6 - Pourquoi t''as démissionné ?'
+        code: NFSL_bygqlQ
+      - name: '#7 - Les meufs'
+        code: uRaf6DcfnYQ
+      - name: '#8 - Ni oui Ni non'
+        code: Yoemw9ao4WM
+      - name: '#9 - Les animaux'
+        code: GSijviowHvk
+      - name: '#10 - Comment tu sais que tu l''aimes ?'
+        code: Www-LxClEB8
+      - name: '#11 - Les jeux de mots'
+        code: sYXyW176gcU
+      - name: '#12 - Le cinéma'
+        code: MfS5yVAMs2Q
+      - name: '#13 - L''amitié'
+        code: kBMBNNuja9I
+      - name: '#14 - Le féminisme'
+        code: JgW-XRMOydc
+      - name: '#15 - Théories'
+        code: BhLL8C3OC5M
+      - name: '#16 -  Sex-tape'
+        code: l0mH_PcjQow
+      - name: '#17 - La gueule de bois'
+        code: 9dHhr_jiAd4
+      - name: '#18 -  Le placard'
+        code: 2juR1F58Hj8
+      - name: '#19 - Marty'
+        code: bHvdhiwerAw
+      - name: '#20  -  La meuf de l''anniv à Bruno'
+        code: NhBbjdfaXgk
+      - name: '#21 -  Pourquoi tu l''as quittée ?'
+        code: llWq6fjynTI
+      - name: '#22 - Encore des animaux'
+        code: MHpPa5eCbIw
+      - name: '#23 - Les salons de massages'
+        code: jpkNqryTFCU
+      - name: '#24 - Si j etais riche 2'
+        code: hMmr4KsHsN0
+      - name: '#25 - Trois petits chats'
+        code: 9ONw28hWmOs
+      - name: '#26 - Les aventures de Serge le mytho en Thaïlande'
+        code: 6mQUFVrie5E
+      - name: '#27 - Les parents'
+        code: qE5VfGMrDx8
+      - name: '#28 - Les contraires'
+        code: gBr6Oddtgiw
+      - name: '#29 - Le petit chat'
+        code: IUfmbMDRyk0
+      - name: '#30 - Gringe est véner'''
+        code: TkSYcYZaYTg
+      - name: '#31 - Je vais monter ma boite'
+        code: hY9oMz9J2Fw
+      - name: '#32 - Encore des théories'
+        code: a7JeBxlEKW4
+      - name: '#33 - L''écologie'
+        code: dhWvNnngQIU
+      - name: '#34 - La tour de Mamy Belle'
+        code: 3_PTOOCICrA
+      - name: '#35 - Le pire truc que t''aies fait à ton ex'
+        code: XUuSMWV-IaY
+      - name: '#36 - Le toupisme'
+        code: 4vJC7h5vqu4
+      - name: '#37 - Le saviez vous ?'
+        code: lWyaU1Gn7T0
+      - name: '#38 -  Cool / pas cool'
+        code: Nm_bgQX43TE
+      - name: '#39 - Être fragile'
+        code: K23ZXGZr4s4
+      - name: '#40 -  Comment tu sais que tu l''aimes ? 2'
+        code: fj2qinUN6ko
+      - name: '#41 - Ma grand mère, à 20 ans'
+        code: OnD-CsC8uf4
+      - name: '#42 - Questions'
+        code: 0eurT_rqdrE
+      - name: '#43 -  Projet Chaos'
+        code: 8fBNggJYNjU
+      - name: '#44 - Encore des parents'
+        code: BkTM0hPZlLk
+      - name: '#45 -  La soirée de la voisine bonne'
+        code: U6hSL14gyuk
+      - name: '#46 - Le jour de la Marmotte'
+        code: 7n2qZFq7hSI
+      - name: '#47 - Le canapé'
+        code: KIKawRB0RdU
+      - name: '#48 - Tu préfères ?'
+        code: eJZY1gDI7es
+      - name: '#49 - Aller plus haut'
+        code: 5PgaCCIp7nc
+      - name: '#50 - Se reproduire'
+        code: NGwJ94wn8Z8
+      - name: '#51 - L''école'
+        code: LuH49n54udc
+      - name: '#52 - Un seul truc'
+        code: YLgxBZGYiw0
+      - name: '#53 - Les aventures de Serge le mytho à Saint-Tropez'
+        code: j6AGiNk-Ihk
+      - name: '#54 - Galère de thunes'
+        code: 5DNQ2i8DYn4
+      - name: '#55 - Make a wish'
+        code: oNeSzuIMcJs
+      - name: '#56 - L''embrouille'
+        code: YdJU8oChC1E
+      - name: '#57 - La marinière'
+        code: Tri7RyGoEYw
+      - name: 'Bloqué #58 - La fidelité'
+        code: ghqrcL5SPd0
+      - name: '#59 - Le téléporteur'
+        code: QVODBGqrm5c
+      - name: '#60 -  Baise de ta conception'
+        code: uGtFHrw4haE
+      - name: '#61 - Tuer Hitler'
+        code: '-Vxog8ikmJk'
+      - name: '#62 - L''oeil de Sauron'
+        code: B9F0e5gUmxY
+      - name: '#63 - La Liste de Schindler'
+        code: JcA8I6QiaZk
+      - name: '#64 - Les aventures de Serge le mytho et l''eau du robinet'
+        code: qdXSzp2-lhM
+      - name: '#65 - Gratter un loyer'
+        code: 8OVNMypCXlY
+      - name: '#66 - Le générique'
+        code: yVcCV7Rc6p4
+      - name: '#67 - La voix off'
+        code: 8DGHdnCgrtc
+      - name: '#68 - Hey salut...'
+        code: 3H5XeGOC2wU
+      - name: '#69 - Comme tu veux'
+        code: WA06tstaL_E
+      - name: '#70 - Le dopage'
+        code: ngAU10NQouc
+      - name: '#71 - Les aventures de Serge le Mytho et Steve Jobs'
+        code: eYhWcDdI3rM
+      - name: '#72 - La théorie de Denver'
+        code: ipBtsIDPX20
+      - name: '#73 - Le porno'
+        code: OpHQhAEK7vQ
+      - name: '#74 - L''enfer'
+        code: p_hfx0uosyM
+      - name: '#75 - Devine à quoi je pense'
+        code: LsLvVjhVaZo
+      - name: '#76 - Gringe est seul'
+        code: b6uK05zf-kw
+      - name: '#77 - Mister Jingles'
+        code: 8c7qn6clyno
+      - name: '#78 - Le puits'
+        code: IaBgasSC8n0
+      - name: '#79 - Le courrier'
+        code: O1Xu7jsZskc
+      - name: '#80 - Bouh !'
+        code: 8klJj91MtVI
+      - name: '#81 - Les objets'
+        code: 8C6HwCo0qMo
+      - name: '#82 - Les aventures de Serge le Mytho à la prison de Crenshaw'
+        code: JLYWyped4nM
+      - name: '#83 - Médiamétrie'
+        code: LC-W96FYUvM
+      - name: '#84 - La télékinésie'
+        code: CeW0lSIjldA
+      - name: '#85 - Les Puma Air Jordan'
+        code: TqdynycW_Hk
+      - name: '#86 - Le truc le plus triste qu''on t''ait dit'
+        code: _EUD3head80
+      - name: '#87 - Le secret des pyramides'
+        code: dmYtr8HdOq8
+      - name: '#88 - Orel fait son foufou'
+        code: DKcfWGpuhWM
+      - name: '#89 - Les aventures de Serge le Mytho enfant'
+        code: rVzeL56yPSo
+      - name: '#90 - Des grosses barres de rire'
+        code: YeXLvZNt82o
+      - name: '#91 - Gringe est encore véner'''
+        code: uW5zXHU7czQ
+      - name: '#92 - C''est raciste à cause des racistes'
+        code: 6EqN00uvXAU
+      - name: '#93 - Perdre du poids'
+        code: tyiKg2IpwCE
+      - name: '#94 - La vie serait mieux si'
+        code: ANUzTSsVa9I
+      - name: '#95 - Mon grand-père est mort'
+        code: ph5ZLnPoFZs
+      - name: '#96 - Orel a un synthé'
+        code: 3BjehXST8xY
+      - name: '#97 - Le dernier jour de ta vie'
+        code: BqTwbPKr8AI
+      - name: '#98 - Claude le plombier gênant'
+        code: HeMajDDaupw
+      - name: '#99 - Le tour des ex'
+        code: Y0i258NHrxM
+      - name: '#100 - Les histoires qui font peur'
+        code: 8pCHARVoC0E
+      - name: '#101 - Enfermés dehors'
+        code: 24Jacut3FuI
+      - name: '#102 - Le darknet'
+        code: WOi7g7_ZOpI
+      - name: '#103 - La moitié'
+        code: zm8JrjHxVSQ
+      - name: '#104 - Les jours fériés'
+        code: jqDXkAyuMMg
+      - name: '#105 - Les aventures de Serge le mytho et la petite amie secrète'
+        code: J-LyL1bXoyQ
+      - name: '#106 - Naruto VS Balzac'
+        code: LHhmq3LzHBM
+      - name: '#107 - Les pièces'
+        code: sG_pPu8yIKA
+      - name: '#108 - On est les vieux des jeunes'
+        code: LZLFTbBDnoM
+      - name: '#109 - Le plan cul'
+        code: f8vlQEO5UIo
+      - name: '#110 - Les sports'
+        code: 1mIU0wmFbos
+      - name: '#111 - Les aventures de Sergi Sergio Le Mytho'
+        code: I4kBn_O2U1M
+      - name: '#112 – La sève du mâle'
+        code: DUerTzAxyiA
+      - name: '#113 – Putaaain !'
+        code: sH1PWf_jUws
+      - name: '#114 - Manger un humain'
+        code: Qst855ihS7o
+      - name: '#115 - Les passions d''Orel'
+        code: 0cn3YzOWJqs
+      - name: '#116 - Le mensongeur'
+        code: mty6_9SEIEo
+      - name: '#117 - La tolérance pour tous'
+        code: pZpyMBKq5VM
+      - name: '#118 - Les aventures de Serge le mytho au Mexique'
+        code: LdxHY9V1GtE
+      - name: '#119 - La clégi de mes amis'
+        code: Xa1iH5o3i1A
+      - name: '#120 - Dernier épisode : On perd notre temps'
+        code: DnZwByFtuZw
