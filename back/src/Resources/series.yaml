@@ -561,3 +561,38 @@ series:
         code: r-ttq9wOrxc
       - name: Mateo, Pandora
         code: qq7TzfMNjy8
+  io:
+    name: IO
+    locale: en
+    type: series
+    image: https://img.youtube.com/vi/SQzK9-39tWY/maxresdefault.jpg
+    description:
+      MOI, un étudiant comme les autres, se réveille brutalement d'un cauchemar.
+      Il décide de tout avouer à sa copine SOPHIA...
+    seasons:
+    - name: Season 1
+      episodes:
+      - name: Changer le Monde 1/2
+        code: Gf4r8dTwEj8
+      - name: Changer le Monde 2/2
+        code: _4RvkkFYLf0
+      - name: Ubik et Moi
+        code: bIZL0MXsh5k
+      - name: La Fac
+        code: ZIdwBDLRTtg
+      - name: First Person Sleeper
+        code: jpwvlcwr_rI
+      - name: La Psy
+        code: GCYuZOvpn9g
+      - name: Free
+        code: r_aKWrA7E60
+      - name: Le Pirate
+        code: Q1tQx8ZyHo8
+      - name: Fedora
+        code: 69n2nV9z-0k
+      - name: L'amour donne des zèles
+        code: 4GzpSxQAfyM
+      - name: Dos au mur
+        code: lESa_6tqvy8
+      - name: De part et d'autre
+        code: ErNTdK-RgM0
