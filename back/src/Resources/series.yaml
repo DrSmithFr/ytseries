@@ -1316,3 +1316,134 @@ series:
         code: MhU_V7Ql-XM
       - name: '#30 FIN - Le dernier mensonge de Serge'
         code: oicbi8iVaVo
+  visiteur_du_future:
+    name: Le Visiteur du Futur
+    locale: fr
+    type: series
+    image: http://idata.over-blog.com/2/43/97/50/New2/Affiches/VDF-Saison3-Action-pour-Web.jpg
+    description:
+      Il vient du futur pour nous rendre visite, c'est le Visiteur du Futur.
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Episode 01'
+        code: 1wtGLc_Fvf0
+      - name: 'Episode 02'
+        code: IHA0P_QRHJo
+      - name: 'Episode 03'
+        code: XmTVJaik91o
+      - name: 'Episode 04'
+        code: MOa4EURDSd8
+      - name: 'Episode 05'
+        code: 4xN6UFn1FZ0
+      - name: 'Episode 06'
+        code: CdJn6tgvDGc
+      - name: 'Episode 07'
+        code: jFqtrD5FwBs
+      - name: 'Episode 08'
+        code: HTAuJC3uV7o
+      - name: 'Episode 09'
+        code: PKTLQeUj9Ls
+      - name: 'Episode 10'
+        code: kL26nXle1KU
+      - name: 'Episode 11'
+        code: HfcDNShkbcM
+      - name: 'Episode 12'
+        code: oC4SyCA_x6A
+      - name: 'Episode 13'
+        code: ZCZpzcuR6J8
+      - name: 'Episode 14'
+        code: XcoaFruzNCo
+      - name: 'Episode 15'
+        code: RS4schYbUus
+      - name: 'Episode 16'
+        code: qCtnFnNwwiE
+      - name: 'Episode 17'
+        code: g1Nyw2-s5Ls
+      - name: 'Episode 18'
+        code: bxI4DvqqAiA
+      - name: 'Episode 19'
+        code: _o0Mrnpn-90
+      - name: 'Episode 20'
+        code: aVliiK83x_0
+      - name: 'Episode 21'
+        code: h1UNLPpjg-8
+      - name: 'Episode 22'
+        code: xwifp7Zpkuo
+    - name: Saison 2
+      episodes:
+      - name: 'Episode 01'
+        code: akRGciMZaDs
+      - name: 'Episode 02'
+        code: YuDdR79QP78
+      - name: 'Episode 03'
+        code: P7utpBdUf18
+      - name: 'Episode 04'
+        code: BWq-vttAOzs
+      - name: 'Episode 05'
+        code: '-xkfFbtdbRw'
+      - name: 'Episode 06'
+        code: w3erZF6P54g
+      - name: 'Episode 07'
+        code: oNKaNUIpR1A
+      - name: 'Episode 08'
+        code: GMG8vDA3DXk
+      - name: 'Episode 09'
+        code: FpkNacYZ4Qs
+      - name: 'Episode 10'
+        code: p1zbzRoaG4g
+      - name: 'Episode 11'
+        code: ij5aRSEHM-k
+      - name: 'Episode 12'
+        code: MVoK8ZvpvPk
+      - name: 'Episode 13'
+        code: zLkyz4rrsuU
+      - name: 'Episode 14'
+        code: ql31hSnJFv4
+      - name: 'Episode 15'
+        code: z2jBnrMDxCo
+    - name: Saison 3 - Les Missionnaires
+      episodes:
+      - name: 'Episode 01'
+        code: x2H8TBqMWBI
+      - name: 'Episode 02'
+        code: MfSjJuFF15M
+      - name: 'Episode 03'
+        code: O5hxYvC3658
+      - name: 'Episode 04'
+        code: rOaMqvZPSnc
+      - name: 'Episode 05'
+        code: f1xMHzf_QkI
+      - name: 'Episode 06'
+        code: UOxaNcY3gQQ
+      - name: 'Episode 07'
+        code: vGddoolwaoc
+      - name: 'Episode 08'
+        code: hLdxTH1s7q8
+      - name: 'Episode 09'
+        code: zqr2_rrEIBI
+      - name: 'Episode 10'
+        code: WaQE66zJ4aY
+    - name: Saison 4 - Neo-Versailles
+      episodes:
+      - name: 'Episode 1 - La Balade de Raph et Stella'
+        code: oLwly4iwkFg
+      - name: 'Episode 3 - Le Sauveur malgré lui'
+        code: 9ECZLRyMm80
+      - name: 'Episode 2 - La Cour Royale'
+        code: 93zcOAbWsp8
+      - name: 'Episode 4 - Un Nouvel Espoir'
+        code: sLfRBSw3JqM
+      - name: 'Episode 5 - le Bal'
+        code: EaoVPHcV0lo
+      - name: 'Episode 6 - Le Réveil'
+        code: T1Toha5ubTY
+      - name: 'Episode 7- Coup de Théâtre'
+        code: 4juTeGhn-Ns
+      - name: 'Episode 8 - Les Ficelles'
+        code: PL51e_5kwrU
+      - name: 'Episode 9 - La Révolution'
+        code: Clumuvqj7c8
+      - name: 'Episode 10 - Le Clou du Spectacle'
+        code: rNveF_z9lTw
+
