@@ -76,10 +76,14 @@ class SeriesImportCommand extends Command
         $io->progressStart(count($series['series']));
 
         foreach ($series['series'] as $key => $data) {
-            $s = $this->getSeries($key, $data, $seriesTypeMap);
-
-            $this->entityManager->persist($s);
-            $this->entityManager->flush();
+            try {
+                $s = $this->getSeries($key, $data, $seriesTypeMap);
+                $this->entityManager->persist($s);
+                $this->entityManager->flush();
+            } catch (\Exception $e) {
+                dump($data);
+                throw $e;
+            }
 
             $io->progressAdvance();
         }
