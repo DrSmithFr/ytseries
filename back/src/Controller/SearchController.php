@@ -63,7 +63,7 @@ class SearchController extends BaseAdminController
             $query->setQuery(new Query\MatchAll());
         }
 
-        $query->setSize(18);
+        $query->setSize(96);
         $query->setSort(
             [
                 'id' => [
