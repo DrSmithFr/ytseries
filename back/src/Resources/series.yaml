@@ -1782,5 +1782,56 @@ series:
         code: r29rXNIO_qc
       - name: 'Spécial noël'
         code: -eWXzbmuB3o
-
+  damned:
+    name: Damned
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/vtUyBDpplh0/maxresdefault.jpg
+    description:
+      Sinji Sam et Johan sont exorcistes à Grenoble.
+      Leur petite entreprise ne connait pas la crise mais leur position de  monopole va être quelque peu malmenée...
+    seasons:
+    - name: Damned 2
+      episodes:
+      - name: Again
+        code: X1kEHFmeKz4
+    - name: Damned Next
+      episodes:
+      - name: 'Damned 5.1 - come back 1/2'
+        code: Flev4c28qBU
+      - name: 'Damned 5.1 - come back 2/2'
+        code: KCeXctJ7D6s
+      - name: 'Damned 5.2 - blow out 1/3'
+        code: 2b44LhIk-zs
+      - name: 'Damned 5.2 - blow out 2/3'
+        code: xLMUZfQNldU
+      - name: 'Damned 5.2 - blow out 3/3'
+        code: dq_FmkwRXCE
+      - name: 'Damned 6.2 - conspiracy'
+        code: hMuGR3mvmxg
+      - name: 'Damned 6.3 - 1/2'
+        code: nBWqWW7GRnE
+      - name: 'Damned 6.3 - 2/2'
+    - name: Damned 7 - Awakening
+      episodes:
+      - name: 'Episode 1'
+        code: bxPZvbJNczg
+      - name: 'Episode 2'
+        code: Ht6QZ_btVKE
+      - name: 'Episode 3'
+        code: 9JXCqj9H7G4
+      - name: 'Episode 4'
+        code: TQPe-LMEcwY
+      - name: 'Episode 5'
+        code: oj4lqFofVYQ
+      - name: 'Episode 6'
+        code: hdYjexzo664
+      - name: 'Episode 7 : The Holy Ones'
+        code: TdiilsCUclo
+      - name: 'Episode 8 : Blank Hour'
+        code: cU15X4Nbsjg
+      - name: 'Episode 9 : Royal Rumble'
+        code: RT-ZTEmACEc
+      - name: 'Episode 10 : Transcendance'
+        code: ptrhs8hRsNY
 
