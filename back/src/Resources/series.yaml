@@ -270,6 +270,44 @@ series:
       episodes:
       - name: Sweet Cocoon
         code: VMyQkfHr9a0
+  relationship:
+    name: Relationship
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/5FrsDJXb9b8/maxresdefault.jpg
+    description:
+      la web-série Relationship raconte l'histoire d'amour entre Marc et Alice, deux jeunes d'une vingtaine d'années.
+    seasons:
+    - name: Le Film
+      episodes:
+      - name: Episode 1
+        code: 5FrsDJXb9b8
+      - name: Episode 2
+        code: 8wAl4L-KwRE
+      - name: Episode 3
+        code: 2_-hupDeGl0
+      - name: Episode 4
+        code: aTMHaykQ5dg
+      - name: Episode 5
+        code: zG3t9fSDLdk
+      - name: Episode 6
+        code: IFg0MamzRMI
+      - name: Episode 7
+        code: nJhPYstkznI
+      - name: Episode 8
+        code: NccbGlw1mrM
+  somnambule:
+    name: Somnambule
+    locale: fr
+    type: short
+    image: https://img.youtube.com/vi/aSy03qaL99U/maxresdefault.jpg
+    description:
+      Quand vous dormez, vous ne contrôlez plus rien ... Découvrez "Somnambule", le nouveau court-métrage de Studio Movie. Inspiré de faits réels
+    seasons:
+    - name: Le Film
+      episodes:
+      - name: Somnambule
+        code: aSy03qaL99U
   nightwing:
     name: Nightwing
     locale: en
