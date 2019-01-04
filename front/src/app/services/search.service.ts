@@ -15,12 +15,14 @@ export class SearchService {
   ) {
   }
 
-  search(query ?: string): Observable<any[]> {
+  search(query: string|null, activeFilter: any): Observable<any[]> {
     let params = new HttpParams();
 
     if (query) {
       params = params.set('query', query);
     }
+
+    params = params.set('filters', JSON.stringify(activeFilter));
 
     return this.http.get<any[]>(API_URL + '/open/search', {params: params});
   }

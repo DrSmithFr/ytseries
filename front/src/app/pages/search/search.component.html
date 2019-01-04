@@ -17,7 +17,7 @@
 
     <div *ngIf="filters['locales'].length">
       <h2>Locale</h2>
-      <mat-radio-group class="example-radio-group" [(ngModel)]="activeFilters.locale">
+      <mat-radio-group class="example-radio-group" [(ngModel)]="activeFilters.locale" (change)="onFiltersChange()">
         <mat-radio-button
           class="example-radio-button"
           *ngFor="let locale of filters.locales"
@@ -29,7 +29,7 @@
 
     <div *ngIf="filters['types'].length">
       <h2>Type</h2>
-      <mat-radio-group class="example-radio-group" [(ngModel)]="activeFilters.type">
+      <mat-radio-group class="example-radio-group" [(ngModel)]="activeFilters.type" (change)="onFiltersChange()">
         <mat-radio-button
           class="example-radio-button"
           *ngFor="let type of filters.types"
@@ -46,7 +46,7 @@
       <button class="search-filter" mat-flat-button (click)="toogleFilterMenu()">
         <i class="material-icons">filter_list</i>
       </button>
-      <input class="search-input" type="text" (keyup)="onSearchChange($event)" style="border-radius: 5px 0 0 5px">
+      <input class="search-input" type="text" (keyup)="makeSearch()" [(ngModel)]="query">
       <button class="search-button" mat-flat-button color="primary">
         <i class="material-icons">search</i>
       </button>

@@ -13,6 +13,8 @@ export class SearchComponent implements OnInit {
   result: any[] = [];
   filters: {} = {};
 
+  query: string;
+
   activeFilters = {
     locale: null,
     type: null,
@@ -23,31 +25,27 @@ export class SearchComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.searchService.search().subscribe(data => {
-      this.result = data['assets'];
-      this.filters = data['filters'];
-    });
+    this.makeSearch();
   }
 
   toogleFilterMenu() {
     this.displayFilterMenu = !this.displayFilterMenu;
   }
 
-  onSearchChange(event) {
-    let query = event.target.value;
-
-    if ('' === query) {
-      query = null;
-    }
-
-    this.searchService.search(query).subscribe(data => {
+  makeSearch(): void {
+    this.searchService.search(this.query, this.activeFilters).subscribe(data => {
       this.result = data['assets'];
       this.filters = data['filters'];
     });
   }
 
+  onFiltersChange(): void {
+    this.makeSearch();
+  }
+
   clearActiveFilters(): void {
     this.activeFilters.locale = null;
     this.activeFilters.type = null;
+    this.makeSearch();
   }
 }

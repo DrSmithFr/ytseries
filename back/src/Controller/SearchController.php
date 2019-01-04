@@ -7,6 +7,7 @@ use App\Repository\SeriesRepository;
 use App\Service\SearchService;
 use Elastica\Aggregation\AbstractAggregation;
 use Elastica\Aggregation\Terms;
+use Elastica\Query\Match;
 use Elastica\ResultSet;
 use JMS\Serializer\SerializerBuilder;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -33,6 +34,8 @@ class SearchController extends BaseAdminController
         Request $request,
         SearchService $searchService
     ) {
+        $filters = json_decode($request->get('filters'), true);
+
         $query = new Query();
 
         if ($q = $request->get('query')) {
@@ -46,10 +49,25 @@ class SearchController extends BaseAdminController
             $fuzzy = new Query\Fuzzy();
             $fuzzy->setField('name', $q);
 
+            $textQuery = new BoolQuery();
+
+            $textQuery->addShould($match);
+            $textQuery->addShould($fuzzy);
+
+            $filterQuery = new BoolQuery();
+
+            foreach ($filters as $field => $value) {
+                if (null !== $value) {
+                    $filterMatch = new Match();
+                    $filterMatch->setFieldQuery($field, $value);
+                    $filterQuery->addShould($filterMatch);
+                }
+            }
+
             $bool = new BoolQuery();
 
-            $bool->addShould($match);
-            $bool->addShould($fuzzy);
+            $bool->addMust($textQuery);
+            $bool->addMust($filterQuery);
 
             $query->setQuery($bool);
 
@@ -63,7 +81,19 @@ class SearchController extends BaseAdminController
                 ]
             );
         } else {
-            $query->setQuery(new Query\MatchAll());
+            $bool = new BoolQuery();
+
+            $bool->addShould(new Query\MatchAll());
+
+            foreach ($filters as $field => $value) {
+                if (null !== $value) {
+                    $filterMatch = new Match();
+                    $filterMatch->setFieldQuery($field, $value);
+                    $bool->addFilter($filterMatch);
+                }
+            }
+
+            $query->setQuery($bool);
         }
 
         $query->setSize(96);
@@ -84,8 +114,6 @@ class SearchController extends BaseAdminController
         );
 
         $result = $searchService->getIndex()->search($query);
-
-//        dump($result); die;
 
         $assets = [];
         foreach ($result as $asset) {
