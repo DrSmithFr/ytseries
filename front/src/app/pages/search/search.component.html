@@ -11,7 +11,10 @@
     <div *ngIf="filters['locales'].length">
       <h2>Locale</h2>
       <mat-radio-group class="example-radio-group">
-        <mat-radio-button class="example-radio-button" *ngFor="let locale of filters.locales" [value]="locale.key">
+        <mat-radio-button
+          class="example-radio-button"
+          *ngFor="let locale of filters.locales"
+          [value]="locale.key">
           <span class="flag-icon flag-icon-{{locale.key}}"></span> ({{locale.doc_count}})
         </mat-radio-button>
       </mat-radio-group>
@@ -20,7 +23,10 @@
     <div *ngIf="filters['types'].length">
       <h2>Type</h2>
       <mat-radio-group class="example-radio-group">
-        <mat-radio-button class="example-radio-button" *ngFor="let type of filters.types" [value]="type.key">
+        <mat-radio-button
+          class="example-radio-button"
+          *ngFor="let type of filters.types"
+          [value]="type.key">
           {{type.key}} ({{type.doc_count}})
         </mat-radio-button>
       </mat-radio-group>

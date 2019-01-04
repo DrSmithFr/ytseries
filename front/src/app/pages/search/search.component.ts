@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {SearchService} from "../../services/search.service";
 
 @Component({
@@ -39,6 +38,8 @@ export class SearchComponent implements OnInit {
     this.searchService.search(query).subscribe(data => {
       this.result = data['assets'];
       this.filters = data['filters'];
+
+      console.log(this.activeFilters);
     });
   }
 }
