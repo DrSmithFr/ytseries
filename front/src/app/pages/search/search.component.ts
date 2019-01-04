@@ -13,6 +13,11 @@ export class SearchComponent implements OnInit {
   result: any[] = [];
   filters: {} = {};
 
+  activeFilters = {
+    locale: null,
+    type: null,
+  };
+
   constructor(
     private searchService: SearchService
   ) { }
@@ -38,8 +43,11 @@ export class SearchComponent implements OnInit {
     this.searchService.search(query).subscribe(data => {
       this.result = data['assets'];
       this.filters = data['filters'];
-
-      console.log(this.activeFilters);
     });
+  }
+
+  clearActiveFilters(): void {
+    this.activeFilters.locale = null;
+    this.activeFilters.type = null;
   }
 }
