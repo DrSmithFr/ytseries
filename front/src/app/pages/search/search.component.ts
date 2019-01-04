@@ -48,4 +48,16 @@ export class SearchComponent implements OnInit {
     this.activeFilters.type = null;
     this.makeSearch();
   }
+
+  hasActiveFilters(): boolean {
+    let activeFilter = false;
+
+    for (let [key, value] of Object.entries(this.activeFilters)) {
+      if (value) {
+        activeFilter = true;
+      }
+    }
+
+    return activeFilter;
+  }
 }
