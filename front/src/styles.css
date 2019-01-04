@@ -97,3 +97,8 @@ body {
   width: 100%;
   height: 100%;
 }
+
+/* radio btn related */
+.mat-radio-outer-circle, .mat-radio-inner-circle {
+  border-color: rgba(255, 255, 255, .54);
+}

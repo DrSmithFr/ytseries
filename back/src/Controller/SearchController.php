@@ -5,6 +5,9 @@ namespace App\Controller;
 use App\Repository\MapBackgroundRepository;
 use App\Repository\SeriesRepository;
 use App\Service\SearchService;
+use Elastica\Aggregation\AbstractAggregation;
+use Elastica\Aggregation\Terms;
+use Elastica\ResultSet;
 use JMS\Serializer\SerializerBuilder;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -72,9 +75,19 @@ class SearchController extends BaseAdminController
             ]
         );
 
+        $query->addAggregation(
+            (new Terms('locales'))->setField('locale')
+        );
+
+        $query->addAggregation(
+            (new Terms('types'))->setField('type')
+        );
+
         $result = $searchService->getIndex()->search($query);
 
-        $results = [];
+//        dump($result); die;
+
+        $assets = [];
         foreach ($result as $asset) {
             $assetData = $asset->getSource();
 
@@ -84,10 +97,20 @@ class SearchController extends BaseAdminController
                 $assetData['name'] = $highlights['name'][0];
             }
 
-            $results[] = $assetData;
+            $assets[] = $assetData;
         }
 
-        return new JsonResponse($results);
+        $filters = [
+            'locales' => $result->getAggregation('locales')['buckets'],
+            'types'   => $result->getAggregation('types')['buckets'],
+        ];
+
+        return new JsonResponse(
+            [
+                'assets' => $assets,
+                'filters' => $filters
+            ]
+        );
     }
 
     /**
@@ -95,6 +118,7 @@ class SearchController extends BaseAdminController
      * @param Request          $request
      * @param SeriesRepository $repository
      * @return JsonResponse
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function seriesInformationAction(
         Request $request,

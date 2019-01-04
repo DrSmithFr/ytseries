@@ -12,6 +12,7 @@ export class SearchComponent implements OnInit {
   displayFilterMenu: boolean = false;
 
   result: any[] = [];
+  filters: {} = {};
 
   constructor(
     private searchService: SearchService
@@ -19,7 +20,8 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     this.searchService.search().subscribe(data => {
-      this.result = data;
+      this.result = data['assets'];
+      this.filters = data['filters'];
     });
   }
 
@@ -35,7 +37,8 @@ export class SearchComponent implements OnInit {
     }
 
     this.searchService.search(query).subscribe(data => {
-      this.result = data;
+      this.result = data['assets'];
+      this.filters = data['filters'];
     });
   }
 }

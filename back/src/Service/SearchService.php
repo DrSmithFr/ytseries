@@ -18,7 +18,7 @@ class SearchService
         $this->indexName = $elasticSearchIndexName;
     }
 
-    public function createTempIndex() : Index
+    public function createTempIndex(): Index
     {
         $index = $this->getTempIndex();
 
@@ -30,14 +30,14 @@ class SearchService
         return $index;
     }
 
-    public function getTempIndex() : Index
+    public function getTempIndex(): Index
     {
         return $this->client->getIndex(
             sprintf('%s_temp', $this->indexName)
         );
     }
 
-    public function createIndex() : Index
+    public function createIndex(): Index
     {
         $index = $this->getIndex();
 
@@ -49,12 +49,12 @@ class SearchService
         return $index;
     }
 
-    public function getIndex() : Index
+    public function getIndex(): Index
     {
         return $this->client->getIndex($this->indexName);
     }
 
-    public function switchTempIndexWithProduction() : Response
+    public function switchTempIndexWithProduction(): Response
     {
         return $this->client->request(
             '_reindex',
@@ -70,7 +70,7 @@ class SearchService
         );
     }
 
-    private function makeIndexConfiguration() : array
+    private function makeIndexConfiguration(): array
     {
         return [
             'settings' => $this->makeIndexSettings(),
@@ -80,7 +80,7 @@ class SearchService
         ];
     }
 
-    private function makeIndexSettings() : array
+    private function makeIndexSettings(): array
     {
         return [
             'number_of_shards' => 1,
@@ -106,12 +106,20 @@ class SearchService
         ];
     }
 
-    private function makeAssetsMapping() : array
+    private function makeAssetsMapping(): array
     {
         $properties = [];
 
         $properties['id'] = [
             'type' => 'integer',
+        ];
+
+        $properties['type'] = [
+            'type' => 'keyword',
+        ];
+
+        $properties['locale'] = [
+            'type' => 'keyword',
         ];
 
         $properties['name'] = [
