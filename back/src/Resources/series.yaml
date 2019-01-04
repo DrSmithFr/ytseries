@@ -2649,8 +2649,8 @@ series:
     type: series
     image: https://img.youtube.com/vi/GBWfB_lgZT4/mqdefault.jpg
     description:
-      Anna s’ennuie dans son couple. Sur un coup de tête, elle plante Matteo, son copain qui l’emmène tous les dimanches
-      chez ses parents pour manger du gratin. Elle se retrouve dans un bar où elle fait la connaissance de Malik et de Claire...
+      Anna s’ennuie dans son couple. Sur un coup de tête, elle plante Matteo, son copain.
+      Elle se retrouve dans un bar où elle fait la connaissance de Malik et de Claire...
     seasons:
     - name: Saison 1
       episodes:
@@ -2676,3 +2676,182 @@ series:
         code: 18fh-5Sty8k
       - name: 'La bonne personne'
         code: GB1YO8uqUg4
+  osef:
+    name: OSEF
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/lNdsEaCwttI/maxresdefault.jpg
+    description:
+      Dans cette web série, vous suivrez 7 adolescents aux personnalités différentes au cours d'une année scolaire.
+      Des professeurs complétement déjantés viendront également mettre leurs grain de sel.
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'Retour au Bahut'
+        code: lNdsEaCwttI
+      - name: 'Premières Tensions'
+        code: bu1glp2XdA8
+      - name: 'Problèmes d''Ados'
+        code: oB0OkGu_myk
+      - name: 'Trop d''Emotion'
+        code: z7YBdETYw74
+      - name: 'Noël au Collège'
+        code: '-926M70Uh9o'
+      - name: 'Donnons d''la Voix'
+        code: bLsRNWJDOZU
+      - name: 'Quand l''orage passe'
+        code: 9zsCSYFRPTo
+      - name: 'Déjà en Vacances'
+        code: hkUSlZtG_4U
+    - name: Saison 2
+      episodes:
+      - name: 'Vive la rentrée !'
+        code: jbCSwGRMkUo
+      - name: 'Le changement c''est maintenant !'
+        code: y11DUMXYiDw
+      - name: 'Attrapez les tous!'
+        code: LrppRKDaToo
+      - name: 'Triches et Manigances'
+        code: CPVZWpwyTVw
+      - name: 'A l''abordage !'
+        code: 1M-HN719QSE
+  tu_mourras_moins_bete:
+    name: Tu mourras moins bête
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/GYjiQYkFG-A/maxresdefault.jpg
+    description:
+      Le Professeur Moustache et son assistant Nathanaël expliquent les phénomènes scientifiques du quotidien.
+    seasons:
+    - name: Saison 1
+      episodes:
+      - name: 'A quand le sabre laser ?'
+        code: GYjiQYkFG-A
+      - name: 'La peur en avion'
+        code: LpOrmysNDdE
+      - name: 'Chérie, j''veux rétrécir les gosses !'
+        code: BmqycyV-y4Q
+      - name: 'Immunologie'
+        code: vfHMGPbbxvs
+      - name: 'Avaler une araignée en dormant'
+        code: EHTwxD6tkJY
+      - name: 'Ma copine veut épouser un poney'
+        code: Rfnlu2rSI94
+      - name: 'Le boson de Higgs, quèsaco ?'
+        code: y3YsHsWXAI0
+      - name: 'La cryogénisation, c''est pour quand ? '
+        code: XzPs7se7gSM
+      - name: 'Petite leçon d''hobbitologie'
+        code: 6OcbZcXH1iU
+      - name: 'L''ophtalmologie chez les animaux'
+        code: jlczq3-BoWY
+      - name: 'L''ascenseur spatial, c''est pour quand ?'
+        code: JljZAugkm3o
+      - name: 'L''alcool c''est bon, mais pas pour la santé'
+        code: 76QirJsMiDs
+      - name: 'Etudes scientifiques improbables'
+        code: lQc8_JsR_sA
+      - name: 'Aux armes etc.'
+        code: GwZnbUeeBlo
+      - name: 'Comment ça marche une centrale nucléaire ?'
+        code: PpJ2RcBUv2o
+      - name: 'Quand pourrons-nous voyager comme dans Alien?'
+        code: uQ9PesXcVtI
+      - name: 'Blessures par balles, ça fait mal?'
+        code: fC_GeI1Urf0
+      - name: 'A quoi servent les rêves ?'
+        code: lQYeUf_EIOU
+      - name: 'Pourquoi les ados sont-ils si mous ?'
+        code: Nayz46CPw64
+      - name: 'Jamais sans mes acariens'
+        code: hOblI8F6DQo
+      - name: 'Perdre son gras, pas une mince affaire'
+        code: mwvww0L1Zmk
+      - name: 'Les animaux s''aiment comme des bêtes'
+        code: 5TS5UvTt_sU
+      - name: 'Pâtée pour chien'
+        code: iv3YjScjwBE
+      - name: 'Les chercheurs surmenés'
+        code: 73jvsaE0vV8
+      - name: 'Les dinosaures avaient-ils des plumes ?'
+        code: '-2jL0a_wTuY'
+      - name: 'L''évolution sexuelle chez l''homme'
+        code: GKY4Z3ZK49Q
+    - name: Saison 2
+      episodes:
+      - name: 'Animaux gays'
+        code: SNJdvTHBOE4
+      - name: 'Tous dopés'
+        code: eStStwLJhBA
+      - name: 'Expression des animaux'
+        code: EFNJ9LoIVvc
+      - name: 'Respirer sous l''eau'
+        code: SBwmLvb54qI
+      - name: 'Comment devenir un beau fossile ?'
+        code: D4o1YN5HMH4
+      - name: 'La Bave de bébé'
+        code: JQywqj1BD0k
+      - name: 'Que faire d''un cadavre spatial ?'
+        code: bdSgnYSWeHc
+      - name: 'Greffe de visages'
+        code: BvwvWQOvx14
+      - name: 'Voyage au centre de la Terre'
+        code: ipRbm6zEKi4
+      - name: 'Astrophysicien, c''est bien'
+        code: rSC-PyyLY6E
+      - name: 'Les Turbulences'
+        code: LjxKjzSBzcI
+      - name: 'Entomologie forensique'
+        code: h-r_K2e1Ju4
+      - name: 'Briller en société avec le plexus cœliaque'
+        code: lW4unL5Mb1I
+      - name: 'S''irradier au ciné'
+        code: 7XJfp_oo52U
+      - name: 'Voyage dans le temps'
+        code: KIHFauQFCTw
+      - name: 'Les Scientifiques malchanceux'
+        code: 8wrK5UG2N4E
+      - name: 'Des urinoirs et des hommes'
+        code: bpbBILyfNbo
+      - name: 'L''Amour Jurassique'
+        code: jtG8oszjfEY
+      - name: 'Placentophagie'
+        code: S2O4UVBoRRg
+      - name: 'La Biomécanique'
+        code: 4Js8JjBR3zs
+      - name: 'Vaccinologie'
+        code: CjaP_yMSkuE
+      - name: 'Darwin'
+        code: X91tEaZgnwU
+      - name: 'La cosmétique'
+        code: lE5vqrluHdM
+      - name: 'Les séries médicales à la télé'
+        code: QQoYlkE0AvI
+      - name: 'Baumgartner franchit le mur du son'
+        code: RdS1DGqnumY
+      - name: 'La science Gandalphique'
+        code: qv87pEacza8
+      - name: 'Folie spatiale'
+        code: G3DSQIBuTIo
+      - name: 'La Foule : l''enfer c''est les autres'
+        code: icxxhZjWf9c
+      - name: 'Comment fonctionne la mémoire des visages ?'
+        code: ffUiTZLsy4o
+      - name: 'Dermatologie'
+        code: Jex0O2K_mhQ
+      - name: 'Stades Freudiens'
+        code: uBF2PRChnus
+      - name: 'Animaux dépravés'
+        code: xcQk001GaZY
+      - name: 'Les lunettes de la peur'
+        code: K_1Uzx1u308
+      - name: 'Peut-on être digéré vivant ?'
+        code: fCWsWSfGqTg
+      - name: 'La triste vie de Darth Vader'
+        code: NLfKbgxOX_s
+      - name: 'Autant en emporte le vent'
+        code: LGJNn_Sl1TU
+      - name: 'Les Stups dans les films'
+        code: j5aOQ7HAG4I
+      - name: 'Le cerveau de Lucy'
+        code: 3MQIVNuEGoE
