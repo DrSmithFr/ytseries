@@ -8,6 +8,8 @@ import {UserService} from "../../services/user.service";
 import {HistoricModel} from "../../models/historic.model";
 import {Subscription} from "rxjs/index";
 
+const HISTORIC_FREQUENCY_IN_SECOND=3;
+
 @Component({
     selector: 'app-watch',
     templateUrl: './watch.component.html',
@@ -24,9 +26,10 @@ export class WatchComponent implements OnInit, OnDestroy {
 
     currentEpisode: EpisodeModel = null;
     currentTimeCheckInterval = null;
+    timeInterval: number;
 
     countDownActive: boolean = false;
-    countDown: number = 5;
+    countDown: number = 3;
     countDownInterval = null;
 
     video = {
@@ -82,7 +85,6 @@ export class WatchComponent implements OnInit, OnDestroy {
     }
 
     onPlayerReady() {
-        console.log('player ready')
         // this.loadVideo('M7lc1UVf-VE');
     }
 
@@ -146,10 +148,11 @@ export class WatchComponent implements OnInit, OnDestroy {
     }
 
     checkTime() {
-        this.player.getCurrentTime().then((e) => {
-            this.video.currentTime = Math.round(e);
-            this.saveHistoric();
-        });
+        const time = performance.now();
+        this.video.currentTime += Math.round((time - this.timeInterval) / 1000);
+        this.saveHistoric();
+
+        this.timeInterval = time;
 
         this.player.getDuration().then(e => {
             this.video.duration = e;
@@ -157,9 +160,19 @@ export class WatchComponent implements OnInit, OnDestroy {
     }
 
     startDuractionChecker() {
+        this.timeInterval = performance.now();
+
+        this.player.getCurrentTime().then((e) => {
+            this.video.currentTime = Math.round(e);
+        });
+
+        this.player.getDuration().then(e => {
+            this.video.duration = e;
+        });
+
         this.currentTimeCheckInterval = setInterval(() => {
             this.checkTime()
-        }, 3000);
+        }, HISTORIC_FREQUENCY_IN_SECOND * 1000);
     }
 
     stopTimeChecker() {
@@ -227,7 +240,7 @@ export class WatchComponent implements OnInit, OnDestroy {
             return;
         }
 
-        this.countDown = 5;
+        this.countDown = 3;
         this.countDownActive = true;
         this.countDownInterval = setInterval(() => {
             this.countDown--;
