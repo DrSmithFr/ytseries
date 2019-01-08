@@ -2856,35 +2856,88 @@ series:
       - name: 'Le cerveau de Lucy'
         code: 3MQIVNuEGoE
   univers_aurelien_bareau:
-      name: L'Univers par Aurélien Barrau
-      locale: fr
-      type: documentary
-      image: https://img.youtube.com/vi/zjIC6jIQRKQ/maxresdefault.jpg
-      description:
-        L’enjeu de ce cours est à la fois de constituer une introduction élémentaire à la cosmologie
-        et de proposer un lieu d’échange et de réflexion sur la nature de la pensée scientifique.
-      seasons:
-      - name: Cours tout public
-        episodes:
-        - name: Partie 1
-          code: zjIC6jIQRKQ
-        - name: Partie 2
-          code: ityDFGkw3dI
-        - name: Partie 3
-          code: 8E6snYUdDt4
-        - name: Partie 4
-          code: 5-yodUsL2Wc
-        - name: Partie 5
-          code: 8foGd34PFiw
-        - name: Partie 6
-          code: TX1HxOF5evk
-        - name: Partie 7
-          code: FWjadYSATuM
-        - name: Partie 8
-          code: TeadUc-4-qE
-        - name: Partie 9
-          code: zEhuOz6W7IQ
-        - name: Partie 10
-          code: EGLn4dqUXrY
-        - name: Partie 11
-          code: C8dNVkBHeNc
+    name: L'Univers par Aurélien Barrau
+    locale: fr
+    type: documentary
+    image: https://img.youtube.com/vi/zjIC6jIQRKQ/maxresdefault.jpg
+    description:
+      L’enjeu de ce cours est à la fois de constituer une introduction élémentaire à la cosmologie
+      et de proposer un lieu d’échange et de réflexion sur la nature de la pensée scientifique.
+    seasons:
+    - name: Cours tout public
+      episodes:
+      - name: Partie 1
+        code: zjIC6jIQRKQ
+      - name: Partie 2
+        code: ityDFGkw3dI
+      - name: Partie 3
+        code: 8E6snYUdDt4
+      - name: Partie 4
+        code: 5-yodUsL2Wc
+      - name: Partie 5
+        code: 8foGd34PFiw
+      - name: Partie 6
+        code: TX1HxOF5evk
+      - name: Partie 7
+        code: FWjadYSATuM
+      - name: Partie 8
+        code: TeadUc-4-qE
+      - name: Partie 9
+        code: zEhuOz6W7IQ
+      - name: Partie 10
+        code: EGLn4dqUXrY
+      - name: Partie 11
+        code: C8dNVkBHeNc
+  swerve:
+    name: Swerve
+    locale: us
+    type: series
+    image: https://img.youtube.com/vi/vnl93IPAZUc/maxresdefault.jpg
+    description:
+      Elise is a young woman who decides to leave her dead-end job and dead-end life behind and try to hitchhike
+      her way to something better. Along the way she meets two women who will leave a permanent mark on who she is.
+    seasons:
+    - name: Season 1
+      episodes:
+      - name: 'No Small Talk'
+        code: zguGynJr5lE
+      - name: 'The Girl on the Deck'
+        code: y1ySmULhRcQ
+      - name: 'Mixed Signals'
+        code: ryz9ydAeH4M
+      - name: 'Girls'' Night Out'
+        code: wzb-c16k-Oc
+      - name: 'The Last Communion'
+        code: UAc1zq11W6c
+      - name: 'Addendum'
+        code: s3VdqZMghU4
+      - name: 'Going Home'
+        code: KtO4EKZ3Xd4
+      - name: 'Things We Hold Back'
+        code: FbF5hJY4LVI
+      - name: 'Hunger'
+        code: 0CysFEfu4gM
+      - name: 'Iris'
+        code: XlO_b4g-SH8
+      - name: 'Vinyl Destination'
+        code: MKnyLLCLGzA
+      - name: 'Therapy'
+        code: E27upwj1on0
+      - name: 'Exposure'
+        code: h9HFGTqxH8s
+      - name: 'Reunions'
+        code: oey9RunHrfE
+      - name: 'Just a Taste'
+        code: JhNoD7xvdH0
+      - name: 'The Ones You Love'
+        code: 16NhW6_jiAs
+      - name: 'Choices'
+        code: IYFeiQwlyXw
+      - name: 'Trauma'
+        code: mqQmSPp3cz8
+      - name: 'Broken & Loved'
+        code: LyLmCuEV23E
+      - name: 'Nobody'
+        code: 0fNyknGCvoc
+      - name: 'Goodbye, Again'
+        code: RCOGa3X9qrY
