@@ -22,7 +22,7 @@
       <h2 *ngIf="!isMovie()">{{getSeasonName(currentEpisode)}} - Episode {{currentEpisode.rank + 1}}</h2>
     </div>
 
-    <div *ngIf="video.duration && video.currentTime && canShowNextEpisodeButton()">
+    <div *ngIf="video.currentTime && canShowNextEpisodeButton()">
       <button mat-flat-button class="new-episode-btn" (click)="loadNextEpisode()">
         Episode suivant
         <span *ngIf="countDownActive">({{countDown}}s)</span>

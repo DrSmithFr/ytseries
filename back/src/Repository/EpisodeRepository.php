@@ -57,4 +57,16 @@ class EpisodeRepository extends ServiceEntityRepository
             ->getQuery()
             ->getOneOrNullResult();
     }
+
+    /**
+     * @return Episode[]
+     */
+    public function findAllWithoutDuration(): array
+    {
+        return $this
+            ->createQueryBuilder('e')
+            ->where('e.duration IS NULL')
+            ->getQuery()
+            ->getResult();
+    }
 }

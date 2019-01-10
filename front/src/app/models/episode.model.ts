@@ -3,5 +3,6 @@ export class EpisodeModel {
   rank: number;
   code: string;
   name: string;
+  duration: number;
   created_at: Date;
 }

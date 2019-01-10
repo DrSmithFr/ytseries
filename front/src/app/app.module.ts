@@ -4,7 +4,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {ReactiveFormsModule} from '@angular/forms';
 import {StorageServiceModule} from 'angular-webstorage-service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS, HttpClientJsonpModule} from '@angular/common/http';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
@@ -64,6 +64,7 @@ import { RegisterComponent } from './pages/register/register.component';
       ReactiveFormsModule,
       StorageServiceModule,
       MatButtonToggleModule,
+      HttpClientJsonpModule,
       BrowserAnimationsModule,
       MatProgressSpinnerModule
     ],

@@ -55,6 +55,15 @@ class Episode
     protected $name;
 
     /**
+     * @var int|null
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @JMS\Expose()
+     * @JMS\Type("integer")
+     */
+    protected $duration;
+
+    /**
      * @var string|null
      * @ORM\Column(type="string", nullable=true)
      * @JMS\Type("string")
@@ -101,6 +110,25 @@ class Episode
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getDuration()
+    {
+        return $this->duration;
+    }
+
+    /**
+     * @param int|null $duration
+     * @return $this
+     */
+    public function setDuration($duration)
+    {
+        $this->duration = $duration;
 
         return $this;
     }

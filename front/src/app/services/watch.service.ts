@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/index";
 import {environment} from "../../environments/environment";
@@ -8,13 +8,11 @@ import {HistoricModel} from "../models/historic.model";
 const API_URL = environment.apiUrl;
 
 @Injectable({
-  providedIn: 'root'
-})
+              providedIn: 'root'
+            })
 export class WatchService {
 
-  constructor(
-      private http: HttpClient
-  ) {
+  constructor(private http: HttpClient) {
   }
 
   seriesInformation(id: number): Observable<SeriesModel> {
@@ -27,12 +25,12 @@ export class WatchService {
 
   addHistoric(seriesId: number, episodeId: number, timeCode: number): Observable<void> {
     return this.http.post<void>(
-        API_URL + '/api/add_to_historic',
-        {
-          series_id: seriesId,
-          episode_id: episodeId,
-          time_code: timeCode
-        }
+      API_URL + '/api/add_to_historic',
+      {
+        series_id: seriesId,
+        episode_id: episodeId,
+        time_code: timeCode
+      }
     );
   }
 }

@@ -35,7 +35,6 @@ export class WatchComponent implements OnInit, OnDestroy {
     video = {
         code: null,
         currentTime: null,
-        duration: null
     };
 
     constructor(private route: ActivatedRoute,
@@ -94,6 +93,7 @@ export class WatchComponent implements OnInit, OnDestroy {
         switch (state) {
             case 1: // playing
                 if (this.historic) {
+                    console.debug('loading historic');
                     this.player.seekTo(this.historic.time_code, true);
                     this.historic = null;
                 }
@@ -149,14 +149,11 @@ export class WatchComponent implements OnInit, OnDestroy {
 
     checkTime() {
         const time = performance.now();
+
         this.video.currentTime += Math.round((time - this.timeInterval) / 1000);
         this.saveHistoric();
 
         this.timeInterval = time;
-
-        this.player.getDuration().then(e => {
-            this.video.duration = e;
-        });
     }
 
     startDuractionChecker() {
@@ -164,10 +161,6 @@ export class WatchComponent implements OnInit, OnDestroy {
 
         this.player.getCurrentTime().then((e) => {
             this.video.currentTime = Math.round(e);
-        });
-
-        this.player.getDuration().then(e => {
-            this.video.duration = e;
         });
 
         this.currentTimeCheckInterval = setInterval(() => {
@@ -204,7 +197,11 @@ export class WatchComponent implements OnInit, OnDestroy {
     }
 
     canShowNextEpisodeButton(): boolean {
-        if (this.video.currentTime > (this.video.duration - 30)) {
+        if (null !== this.countDownInterval) {
+            return true;
+        }
+
+        if (this.video.currentTime > (this.currentEpisode.duration - 30)) {
             if (null !== this.getNextEpisode(this.currentEpisode)) {
                 return true;
             }
@@ -250,7 +247,7 @@ export class WatchComponent implements OnInit, OnDestroy {
                 this.countDownActive = false;
                 clearInterval(this.countDownInterval);
             }
-        }, 1000)
+        }, 1000);
     }
 
     getSeasonName(episode: EpisodeModel): string {
