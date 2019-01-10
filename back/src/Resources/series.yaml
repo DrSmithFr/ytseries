@@ -3372,28 +3372,70 @@ series:
           name: 'Maintenant ça va chier !'
           code: LZpJBLEyId8
   dead_floor:
-      name:  DEAD FLOOR
-      locale: fr
-      type: series
-      image: https://img.youtube.com/vi/j-4Cbv71nuw/maxresdefault.jpg
-      description:
-         Après une nuit de fête, c’est l’heure de l’after à l’Armagedance. Mais pour
-         les acharnés qui refusent de quitter le dance floor, le pire est à venir...
-      seasons:
-      - name: Saison 1
-        episodes:
-        -
-            name: 'AFTER'
-            code: j-4Cbv71nuw
-        -
-            name: 'FOG'
-            code: vHOHSlLhbqA
-        -
-            name: 'BOX'
-            code: pPC24zuuqNQ
-        -
-            name: 'LUST'
-            code: VuQ30nqpE1c
-        -
-            name: 'EXECUTION'
-            code: M0Hyk4g7dnw
+    name:  DEAD FLOOR
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/j-4Cbv71nuw/maxresdefault.jpg
+    description:
+       Après une nuit de fête, c’est l’heure de l’after à l’Armagedance. Mais pour
+       les acharnés qui refusent de quitter le dance floor, le pire est à venir...
+    seasons:
+    - name: Saison 1
+      episodes:
+      -
+          name: 'AFTER'
+          code: j-4Cbv71nuw
+      -
+          name: 'FOG'
+          code: vHOHSlLhbqA
+      -
+          name: 'BOX'
+          code: pPC24zuuqNQ
+      -
+          name: 'LUST'
+          code: VuQ30nqpE1c
+      -
+          name: 'EXECUTION'
+          code: M0Hyk4g7dnw
+  dead_lands:
+    name:  Dead Landes
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/sWS5beMd18I/maxresdefault.jpg
+    description:
+       C'est la fin de l'été à l'Escapade, un petit camping au bord de la faillite au cœur des Landes.
+       Alors qu'une équipe de télévision est venue tourner un reportage sur la fin des vacances,
+       de mystérieuses catastrophes surviennent...
+    seasons:
+    - name: Saison 1
+      episodes:
+      -
+          name: 'Et sa colère s''abattit'
+          code: sWS5beMd18I
+      -
+          name: 'Et l''horizon s''enflamma'
+          code: LJ7MQHpox_Q
+      -
+          name: 't les ténèbres s''épaissirent'
+          code: w4EveVgHThE
+      -
+          name: 'Et un étranger apparut'
+          code: hoj6qBCpFgc
+      -
+          name: 'Et les premiers nés moururent France 4'
+          code: rFrtGSxcfKk
+      -
+          name: 'Et la fièvre les consuma'
+          code: h024CjrFJO0
+      -
+          name: 'Et les voix se turent'
+          code: tG4yCIxIErw
+      -
+          name: 'Et l''espoir s''éteignit'
+          code: 5Hmnc0Khp8w
+      -
+          name: 'Et les morts se relevèrent'
+          code: mo0yhRXDnfQ
+      -
+          name: 'Et la spirale se referma'
+          code: 5dYfla-vjoY
