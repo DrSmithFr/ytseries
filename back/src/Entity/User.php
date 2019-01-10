@@ -39,9 +39,16 @@ class User extends BaseUser
      */
     protected $groups;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Historic", mappedBy="user", cascade={"remove"})
+     * @var ArrayCollection
+     */
+    private $historics;
+
     public function __construct()
     {
         $this->groups = new ArrayCollection();
+        $this->historics = new ArrayCollection();
 
         parent::__construct();
     }
@@ -79,6 +86,51 @@ class User extends BaseUser
     public function setGroups($groups): self
     {
         $this->groups = $groups;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getHistorics() : ArrayCollection
+    {
+        return $this->historics;
+    }
+
+    /**
+     * @param ArrayCollection $historics
+     * @return $this
+     */
+    public function setHistorics(ArrayCollection $historics)
+    {
+        $this->historics = $historics;
+
+        return $this;
+    }
+
+    /**
+     * @param mixed $historic
+     * @return $this
+     */
+    public function addHistoric($historic)
+    {
+        if (! $this->historics->contains($historic)) {
+            $this->historics->add($historic);
+            $historic->setUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param mixed $historic
+     * @return $this
+     */
+    public function removeHistoric($historic)
+    {
+        $this->historics->removeElement($historic);
+        $historic->setUser(null);
+
         return $this;
     }
 }
