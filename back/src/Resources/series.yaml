@@ -2949,7 +2949,7 @@ series:
     description:
       Web Série humoristique, portant sur la vie palpitante et rocambolesque des dieux de l'Olympe au 21éme siècle !
     seasons:
-    - name: Season 1
+    - name: Saison 1
       episodes:
       -
           name: 'Episode 1'
@@ -2993,7 +2993,7 @@ series:
       Au début du XXème siècle, cinq bourgeoises aiment se retrouver à l’heure du thé pour discuter
       de faits divers meurtriers. Celles-ci vont un jour se mettre au défi de réaliser le meurtre parfait.
     seasons:
-    - name: Season 1
+    - name: Saison 1
       episodes:
       -
           name: 'Episode 1'
@@ -3027,7 +3027,7 @@ series:
     description:
       Fitness , Lifestyle, Motivation, Défis, Challenge, vlogs... QUE DU SALE
     seasons:
-    - name: Season 1
+    - name: Saison 1
       episodes:
       -
           name: 'LA MASSE GRASSE'
@@ -3068,7 +3068,7 @@ series:
       Survie est une websérie post-apocalyptique qui met en scène un groupe de survivants dans leur vie quotidienne,
       sur fond d'attaque d'infectés.
     seasons:
-    - name: Season 1
+    - name: Saison 1
       episodes:
       -
           name: 'Pilote'
@@ -3100,7 +3100,7 @@ series:
        Série ou le G.I.R.P ( groupe d'intervention et de recherche du paranormal ),
        enquête sur les menaces humaines et non humaines.
     seasons:
-    - name: Season 1
+    - name: Saison 1
       episodes:
       -
           name: 'La rencontre'
@@ -3144,7 +3144,7 @@ series:
       -
           name: 'Versus'
           code: Oshsx3yUYr4
-    - name: Season 2
+    - name: Saison 2
       episodes:
       -
           name: 'Les Sentinelles'
@@ -3187,7 +3187,7 @@ series:
     description:
        'Nous suivons les aventures du Capitaine Nikolas et de son équipage, poursuivit par le Gouverneur et son fidèle et redouté Capitaine : Erick le Sanglant.'
     seasons:
-    - name: Season 1
+    - name: Saison 1
       episodes:
       -
           name: 'Point de départ'
@@ -3213,3 +3213,44 @@ series:
       -
           name: 'Bataille Finale'
           code: Qa8XLLqv1jw
+  kerith:
+    name:  KERITH
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/nzYl9NERsbw/maxresdefault.jpg
+    description:
+       Un monastère éclairé à la bougie. Un moine et cinq moniales habillés d’une longue robe blanche déambulent.
+       Mara s’écroule, envahie par les larmes, accusant le moine Isidore.
+    seasons:
+    - name: Saison 1
+      episodes:
+      -
+          name: 'Episode 1'
+          code: LKausHCyf1E
+      -
+          name: 'Episode 2'
+          code: aTOlDcic2RI
+      -
+          name: 'Episode 3'
+          code: agUOuZSThNA
+      -
+          name: 'Episode 4'
+          code: 100FwNsQdj0
+      -
+          name: 'Episode 5'
+          code: uu5tqtd3GgE
+      -
+          name: 'Episode 6'
+          code: vp_bOdrB15s
+      -
+          name: 'Episode 7'
+          code: m90tEIYSktM
+      -
+          name: 'Episode 8'
+          code: OkvBdTfyGNc
+      -
+          name: 'Episode 9'
+          code: IJZ4F0ILi-c
+      -
+          name: 'Episode 10'
+          code: 7Yvv8_5joZE
