@@ -3179,7 +3179,7 @@ series:
       -
           name: 'Blackstorm'
           code: gjuceg08zmE
-   steampirate_chronicles:
+  steampirate_chronicles:
     name:  Steampirate Chronicles
     locale: fr
     type: series
