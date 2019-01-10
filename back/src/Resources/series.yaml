@@ -2941,3 +2941,121 @@ series:
         code: 0fNyknGCvoc
       - name: 'Goodbye, Again'
         code: RCOGa3X9qrY
+  olympe_project:
+    name: Olympe Project
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/EDEuETlJ8Jc/maxresdefault.jpg
+    description:
+      Web Série humoristique, portant sur la vie palpitante et rocambolesque des dieux de l'Olympe au 21éme siècle !
+    seasons:
+    - name: Season 1
+      episodes:
+      -
+          name: 'Episode 1'
+          code: EDEuETlJ8Jc
+      -
+          name: 'Episode 2'
+          code: awFrgUgOb90
+      -
+          name: 'Episode 3'
+          code: cpJ3P9rJreg
+      -
+          name: 'Episode 4'
+          code: T9rBrDCPt-I
+      -
+          name: 'Episode 5'
+          code: acX-7PT70Ow
+      -
+          name: 'Episode 6'
+          code: 9xZs5PSDTfw
+      -
+          name: 'Episode 7'
+          code: rRgIcMTsGMM
+      -
+          name: 'Episode 8'
+          code: 5Cb0o5jPilc
+      -
+          name: 'Episode 9'
+          code: 6RgrgbpD3bQ
+      -
+          name: 'Episode 10'
+          code: lBzeWANrE2Q
+      -
+          name: 'Episode 11'
+          code: qguRNZ5Rcf0
+  tea_time:
+    name: Tea Time
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/VXpY_LUfOTs/maxresdefault.jpg
+    description:
+      Au début du XXème siècle, cinq bourgeoises aiment se retrouver à l’heure du thé pour discuter
+      de faits divers meurtriers. Celles-ci vont un jour se mettre au défi de réaliser le meurtre parfait.
+    seasons:
+    - name: Season 1
+      episodes:
+      -
+          name: 'Episode 1'
+          code: VXpY_LUfOTs
+      -
+          name: 'Episode 2'
+          code: sKRZO5RnirQ
+      -
+          name: 'Episode 3'
+          code: '-u7IQLxDAck'
+      -
+          name: 'Episode 4'
+          code: dc_-Bv7xLqg
+      -
+          name: 'Episode 5'
+          code: s1kxcfecky0
+      -
+          name: 'Episode 6'
+          code: XEUqfBhulTA
+      -
+          name: 'Episode 7'
+          code: wA7sRHUHCkw
+      -
+          name: 'Episode 8'
+          code: chDxsJ17xeg
+  la_muscule:
+      name: La Muscule
+      locale: fr
+      type: series
+      image: https://img.youtube.com/vi/JIF5BKyMlac/maxresdefault.jpg
+      description:
+        Fitness , Lifestyle, Motivation, Défis, Challenge, vlogs... QUE DU SALE
+      seasons:
+      - name: Season 1
+        episodes:
+        -
+            name: 'LA MASSE GRASSE'
+            code: JIF5BKyMlac
+        -
+            name: 'LES YOUTUBEURS FITNESS'
+            code: wEUw7QDqxvU
+        -
+            name: 'LA PROTÉINE'
+            code: km-y1oBI8Wk
+        -
+            name: 'LA SÈCHE'
+            code: _nz4cPrW_2I
+        -
+            name: 'LES PRÉJUGÉS RACISTES'
+            code: 0UxrRrGlelU
+        -
+            name: 'LA PRISE DE MASSE'
+            code: a6gH3tEM7Mk
+        -
+            name: 'LE CARDIO'
+            code: N3scTa87UXc
+        -
+            name: 'LA PREMIÈRE FOIS'
+            code: _BtiM3ByU9g
+        -
+            name: 'ÉPISODE FINAL, L'' ESPOIR '
+            code: UgfseJq-SD0
+        -
+            name: 'LE PATRON'
+            code: redJOfQQlhg
