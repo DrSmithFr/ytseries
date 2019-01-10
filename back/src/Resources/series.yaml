@@ -3179,3 +3179,37 @@ series:
       -
           name: 'Blackstorm'
           code: gjuceg08zmE
+   steampirate_chronicles:
+    name:  Steampirate Chronicles
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/nzYl9NERsbw/maxresdefault.jpg
+    description:
+       'Nous suivons les aventures du Capitaine Nikolas et de son équipage, poursuivit par le Gouverneur et son fidèle et redouté Capitaine : Erick le Sanglant.'
+    seasons:
+    - name: Season 1
+      episodes:
+      -
+          name: 'Point de départ'
+          code: nzYl9NERsbw
+      -
+          name: 'Capture'
+          code: VlN-CQtmH14
+      -
+          name: 'Mecano'
+          code: Jm2mAOcc3mI
+      -
+          name: 'Chroniques'
+          code: lTXujA_HMig
+      -
+          name: 'Révélations'
+          code: bguZbECYTQM
+      -
+          name: 'Romance'
+          code: aw4pWsNCp4I
+      -
+          name: 'Affrontements'
+          code: peDUVC9O74g
+      -
+          name: 'Bataille Finale'
+          code: Qa8XLLqv1jw
