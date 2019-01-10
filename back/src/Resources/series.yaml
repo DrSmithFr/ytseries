@@ -3020,42 +3020,162 @@ series:
           name: 'Episode 8'
           code: chDxsJ17xeg
   la_muscule:
-      name: La Muscule
-      locale: fr
-      type: series
-      image: https://img.youtube.com/vi/JIF5BKyMlac/maxresdefault.jpg
-      description:
-        Fitness , Lifestyle, Motivation, Défis, Challenge, vlogs... QUE DU SALE
-      seasons:
-      - name: Season 1
-        episodes:
-        -
-            name: 'LA MASSE GRASSE'
-            code: JIF5BKyMlac
-        -
-            name: 'LES YOUTUBEURS FITNESS'
-            code: wEUw7QDqxvU
-        -
-            name: 'LA PROTÉINE'
-            code: km-y1oBI8Wk
-        -
-            name: 'LA SÈCHE'
-            code: _nz4cPrW_2I
-        -
-            name: 'LES PRÉJUGÉS RACISTES'
-            code: 0UxrRrGlelU
-        -
-            name: 'LA PRISE DE MASSE'
-            code: a6gH3tEM7Mk
-        -
-            name: 'LE CARDIO'
-            code: N3scTa87UXc
-        -
-            name: 'LA PREMIÈRE FOIS'
-            code: _BtiM3ByU9g
-        -
-            name: 'ÉPISODE FINAL, L'' ESPOIR '
-            code: UgfseJq-SD0
-        -
-            name: 'LE PATRON'
-            code: redJOfQQlhg
+    name: La Muscule
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/JIF5BKyMlac/maxresdefault.jpg
+    description:
+      Fitness , Lifestyle, Motivation, Défis, Challenge, vlogs... QUE DU SALE
+    seasons:
+    - name: Season 1
+      episodes:
+      -
+          name: 'LA MASSE GRASSE'
+          code: JIF5BKyMlac
+      -
+          name: 'LES YOUTUBEURS FITNESS'
+          code: wEUw7QDqxvU
+      -
+          name: 'LA PROTÉINE'
+          code: km-y1oBI8Wk
+      -
+          name: 'LA SÈCHE'
+          code: _nz4cPrW_2I
+      -
+          name: 'LES PRÉJUGÉS RACISTES'
+          code: 0UxrRrGlelU
+      -
+          name: 'LA PRISE DE MASSE'
+          code: a6gH3tEM7Mk
+      -
+          name: 'LE CARDIO'
+          code: N3scTa87UXc
+      -
+          name: 'LA PREMIÈRE FOIS'
+          code: _BtiM3ByU9g
+      -
+          name: 'ÉPISODE FINAL, L'' ESPOIR '
+          code: UgfseJq-SD0
+      -
+          name: 'LE PATRON'
+          code: redJOfQQlhg
+  survie:
+    name: Survie
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/HF6mbxYu3k4/maxresdefault.jpg
+    description:
+      Survie est une websérie post-apocalyptique qui met en scène un groupe de survivants dans leur vie quotidienne,
+      sur fond d'attaque d'infectés.
+    seasons:
+    - name: Season 1
+      episodes:
+      -
+          name: 'Pilote'
+          code: HF6mbxYu3k4
+      -
+          name: 'Vivre en communauté'
+          code: PhrUZAuWX4c
+      -
+          name: 'Se soigner'
+          code: udjn4RNUj94
+      -
+          name: 'Explorer et échanger'
+          code: Y4UpZi-dBYY
+      -
+          name: 'Se défendre'
+          code: p1EXFo_jj30
+      -
+          name: 'Gérer les conflits'
+          code: CVMzlzi21TQ
+      -
+          name: 'Se nourrir'
+          code: 5AiOkyDOl4s
+  racines:
+    name: Racines
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/6XqMDBWFCxU/maxresdefault.jpg
+    description:
+       Série ou le G.I.R.P ( groupe d'intervention et de recherche du paranormal ),
+       enquête sur les menaces humaines et non humaines.
+    seasons:
+    - name: Season 1
+      episodes:
+      -
+          name: 'La rencontre'
+          code: 6XqMDBWFCxU
+      -
+          name: 'Praeteritum Praesens Futurum'
+          code: eiOyaSKRSoM
+      -
+          name: 'Le rite'
+          code: DEErrGapR8c
+      -
+          name: 'PERDITION'
+          code: eNBnQXU4Rvg
+      -
+          name: 'Mirage'
+          code: DhKsXwvVddM
+      -
+          name: 'La Traque'
+          code: DIZYkXmZSJI
+      -
+          name: 'La Menace'
+          code: O_wlXPfxo3E
+      -
+          name: 'Praeteritum'
+          code: qjmOacHumsI
+      -
+          name: 'La Confrontation'
+          code: x1ZLAGgW7fA
+      -
+          name: 'La Sanction'
+          code: sVDt9hGANxk
+      -
+          name: 'Les Immortels'
+          code: zxqWfS2rQ1g
+      -
+          name: 'TOC TOC'
+          code: jmP9z24Jhqg
+      -
+          name: 'La transaction'
+          code: Z_whv7lhH5I
+      -
+          name: 'Versus'
+          code: Oshsx3yUYr4
+    - name: Season 2
+      episodes:
+      -
+          name: 'Les Sentinelles'
+          code: _iaQZeg4apI
+      -
+          name: 'La livraison'
+          code: NUBXiH8slnc
+      -
+          name: 'Verneuil'
+          code: NCDeK3Z_fbk
+      -
+          name: 'Froissac'
+          code: t4GUYzsqP3A
+      -
+          name: 'Yuzel'
+          code: FXnMy8hrIDQ
+      -
+          name: 'Fugitifs'
+          code: qoNNLluHY_Q
+      -
+          name: 'Montfroid'
+          code: 5BfRqbqi8aU
+      -
+          name: 'Alliances'
+          code: J57XO48bw1Q
+      -
+          name: 'Destin'
+          code: 7-_FTg0K-MM
+      -
+          name: 'En vie'
+          code: 9NeMpi77xEM
+      -
+          name: 'Blackstorm'
+          code: gjuceg08zmE
