@@ -3217,7 +3217,7 @@ series:
     name:  KERITH
     locale: fr
     type: series
-    image: https://img.youtube.com/vi/nzYl9NERsbw/maxresdefault.jpg
+    image: https://img.youtube.com/vi/LKausHCyf1E/maxresdefault.jpg
     description:
        Un monastère éclairé à la bougie. Un moine et cinq moniales habillés d’une longue robe blanche déambulent.
        Mara s’écroule, envahie par les larmes, accusant le moine Isidore.
@@ -3254,3 +3254,31 @@ series:
       -
           name: 'Episode 10'
           code: 7Yvv8_5joZE
+  thug_life:
+    name:  Thug Life
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/TixO9Opy6QY/maxresdefault.jpg
+    description:
+       Mickaël et Dylan, deux fausses racailles qui rêvent de devenir des rappeurs.
+    seasons:
+    - name: Saison 1
+      episodes:
+      -
+          name: 'EPISODE 1'
+          code: TixO9Opy6QY
+      -
+          name: 'EPISODE 2'
+          code: nG5_F9OM72o
+      -
+          name: 'EPISODE 3'
+          code: la48qvoztBM
+      -
+          name: 'EPISODE 4'
+          code: RQn7ZeaClPc
+      -
+          name: 'EPISODE 5'
+          code: QVO61olh9po
+      -
+          name: 'EPISODE 6 (FINAL)'
+          code: NGzHJIJ1Tc0
