@@ -2,7 +2,7 @@
 
   <div class="sidebar" *ngIf="displayFilterMenu">
     <div class="sidebar_item back-button">
-      <button mat-raised-button class="centered-btn clear-filter-btn" (click)="toogleFilterMenu()">Close Menu</button>
+      <button mat-raised-button class="centered-btn clear-filter-btn" (click)="toogleFilterMenu()">Fermer le Menu</button>
     </div>
 
     <button
@@ -10,10 +10,10 @@
       mat-flat-button
       class="clear-filter-btn"
       (click)="clearActiveFilters()">
-      Clear Filters
+      Supprimer les filtres
     </button>
 
-    <h1>Filters</h1>
+    <h1>Filtres</h1>
     <mat-divider></mat-divider>
 
     <div *ngIf="filters['locales'].length">

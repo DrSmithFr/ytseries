@@ -3,8 +3,8 @@
     <img class="site-title" src="/assets/logo.png">
   </a>
   <div class="menu-container">
-    <a class="menu-link" routerLink="/search" routerLinkActive="active">Explore</a>
-    <a class="menu-link" routerLink="/historic" routerLinkActive="active" *ngIf="isConnected()">Historic</a>
+    <a class="menu-link" routerLink="/search" routerLinkActive="active">Explorer</a>
+    <a class="menu-link" routerLink="/historic" routerLinkActive="active" *ngIf="isConnected()">Historique</a>
   </div>
   <div class="menu-container-mobile">
     <a class="menu-link" [matMenuTriggerFor]="mobilemenu" href="javascript:void(0)">
@@ -17,7 +17,7 @@
     <mat-icon>person</mat-icon>
   </button>
   <div *ngIf="!isConnected()">
-    <button mat-flat-button routerLink="/login">Login</button>
+    <button mat-flat-button routerLink="/login">Connection</button>
   </div>
 </mat-toolbar>
 
@@ -25,18 +25,18 @@
 <mat-menu #mobilemenu="matMenu">
   <button mat-menu-item routerLink="/search">
     <mat-icon>search</mat-icon>
-    <span>Explore</span>
+    <span>Explorer</span>
   </button>
   <button mat-menu-item routerLink="/historic" *ngIf="isConnected()">
     <mat-icon>history</mat-icon>
-    <span>Historic</span>
+    <span>Historique</span>
   </button>
 </mat-menu>
 
 <mat-menu #usermenu="matMenu">
   <button mat-menu-item (click)="logout()">
     <mat-icon>settings_power</mat-icon>
-    <span>Log out</span>
+    <span>Déconnection</span>
   </button>
 </mat-menu>
 

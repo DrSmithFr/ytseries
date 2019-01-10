@@ -1,8 +1,8 @@
 types:
-  movie: 'Movie'
-  short: 'Short Film'
-  series: 'Series'
-  documentary: 'Documentary'
+  movie: 'Film'
+  short: 'Court métrage'
+  series: 'Séries'
+  documentary: 'Documentaire'
 series:
   preview:
     name: Preview

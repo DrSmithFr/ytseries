@@ -18,14 +18,14 @@
           <mat-form-field class="full-width">
             <input
               matInput
-              placeholder="Password"
+              placeholder="Mot de passe"
               type="password"
               autocomplete="current-password"
               formControlName="password"
               required>
           </mat-form-field>
 
-            <mat-checkbox matInput formControlName="rememberMe">Remember me</mat-checkbox>
+            <mat-checkbox matInput formControlName="rememberMe">Rester connecter ?</mat-checkbox>
         </mat-card-content>
 
         <mat-card-content *ngIf="displayLoadingPanel">
@@ -33,13 +33,13 @@
         </mat-card-content>
 
         <mat-card-actions class="button-spacer" *ngIf="!displayLoadingPanel">
-          <a mat-button routerLink="/password_forgot">Forgot password?</a>
-          <button [disabled]="!loginForm.valid" mat-raised-button type="submit" color="primary">Connect</button>
+          <a mat-button routerLink="/password_forgot">Mot de passe oublié ?</a>
+          <button [disabled]="!loginForm.valid" mat-raised-button type="submit" color="primary">Connection</button>
         </mat-card-actions>
 
       </mat-card>
       <div class="register-btn">
-        <a mat-flat-button routerLink="/register">Create an account</a>
+        <a mat-flat-button routerLink="/register">Inscription</a>
       </div>
     </form>
 
