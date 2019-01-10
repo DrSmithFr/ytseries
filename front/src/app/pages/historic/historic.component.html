@@ -1,6 +1,6 @@
 <div class="gridViewContainer">
 
-  <div class="gridView-listItem" *ngFor="let row of result">
+  <div class="gridView-listItem" *ngFor="let row of result" routerLink="/watch/{{row.id}}">
     <div class="gridView-tile">
       <div class="gridView-imageSection thumbnailWrap">
         <div class="gridView-imageSectionMaskTop"></div>
@@ -13,7 +13,7 @@
           <img src="{{row.image}}">
         </div>
       </div>
-      <div class="gridView-detailsSection" routerLink="/watch/{{row.id}}">
+      <div class="gridView-detailsSection">
         <div class="gridView-detailsTop">
           <a class="gridView-title u-link" [innerHtml]="row.name"></a>
         </div>
