@@ -3439,3 +3439,118 @@ series:
       -
           name: 'Et la spirale se referma'
           code: 5dYfla-vjoY
+  what_the_cut:
+    name:  WHAT THE CUT
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/sWS5beMd18I/maxresdefault.jpg
+    description:
+       L'emition d'antoine daniel,  Review de vidéos du net.
+    seasons:
+    - name: Saison 1
+      episodes:
+      -
+          name: 'MENACES, SUBWOOFER ET CHEVAUX'
+          code: OsAT9DPNC4Q
+      -
+          name: 'ANNIVERSAIRE, VIAGRA ET MORSAY PRÉSIDENT'
+          code: n2MCSxZh_9Y
+      -
+          name: 'CHIEN, CANARDS ET TAPIS VOLANT'
+          code: ivxwp4pY3ZQ
+      -
+          name: 'BELGE, SINGE ET BISOUS'
+          code: P-iq9GiyXg0
+      -
+          name: 'E-UPLOAD) - SEDUCTEUR, CHANTEUR ET PUBLICITÉ'
+          code: R2e3hu282AI
+      -
+          name: 'E-UPLOAD) - CRÉATURE, CHORÉGRAPHIE ET DES RUSSES'
+          code: 1Cd9DLNfTdw
+      -
+          name: 'YOGA, SURPRISE ET DE L''ART'
+          code: md3gGDCj67c
+      -
+          name: 'LARMES, AVENTURES ET LE JAPON'
+          code: VZDHesmcFiI
+      -
+          name: 'AMOUR, JONGLEUR ET UN ÉMEU'
+          code: AyfOQG05G3Y
+      -
+          name: 'CHÈVRE, UN CHIOT ET MA BITE'
+          code: pYcWWPj6lvg
+      -
+          name: 'NICKI MINAJ, CANICHE ET COURSE-POURSUITE'
+          code: fn3VpMxMHQs
+      -
+          name: 'DES BRIQUES, DU SEXE ET DU LOURD'
+          code: EerMCWNon34
+      -
+          name: 'UNE PORTE, UN BATTEUR ET UN PIRATE'
+          code: FK6weJwIm8Y
+      -
+          name: 'DE LA BOUE, UN TROMBONE ET DU RAP'
+          code: DIIW1-VBLDY
+      -
+          name: 'DU MAÏS, DES CÉRÉALES ET MARC-EDOUARD'
+          code: 4zrY1L7ibqc
+      -
+          name: 'UN INVITÉ, DE LA PEINTURE ET MA CHATTE'
+          code: jDWqyNjLd8Q
+      -
+          name: 'DU VERRE, KEVIN PROTOTYPE ET UN COUSSIN'
+          code: UtvkKgH84vU
+      -
+          name: 'DU PORC, UN PUCEAU ET DU CACA'
+          code: W7m8yDNNVo4
+      -
+          name: 'UNE VOIX, LE BRÉSIL ET 2016'
+          code: bBcfOMqL844
+      -
+          name: 'DU KUNG-FU, DES ARBRES ET DU PIPI'
+          code: EFhif72jZoA
+      -
+          name: 'UNE DOUCHE, DU MANQUE ET UN CAHIER'
+          code: iOz0GkHYTeE
+      -
+          name: 'NOURRITURE, ANNONCE ET DOCUMENTAIRE'
+          code: fw3yDPBLVmY
+      -
+          name: 'CIGARETTE, UN SAVANT ET BONSOIR'
+          code: kqefNJ7qaOY
+      -
+          name: 'METRO, AH-AH ET UNE SOIRÉE DE FOLIE'
+          code: GGtQJnlbpwo
+      -
+          name: 'QUENOUILLES, ADIEU ET LA CHOSE'
+          code: 0jZf7jIjB5s
+      -
+          name: 'PHOTOBOMB, UN GROUPE ET LA DÉVIANCE'
+          code: MEugteASSBw
+      -
+          name: 'MICHEL, L''ALLEMAGNE ET DES MURS'
+          code: TKHPRKd1qaY
+      -
+          name: 'BALLONS, TANGO ET UN CONCERT'
+          code: 5sZtTk0Y5QI
+      -
+          name: 'POTEAU, PINCEAU ET L''AVENTURIER'
+          code: q4sojhUQV74
+      -
+          name: 'PATATE, PELLE ET PIANO'
+          code: flBwfPNKNvE
+      -
+          name: 'DENTS, BATEAU ET GÉNIE'
+          code: CjsPSeupj2w
+      -
+          name: 'LIQUIDE, MAIRE ET PONEY'
+          code: JYVAGod7lxk
+      -
+          name: 'ENFANCE, MASQUE ET CUISINE'
+          code: IB7Cg6BAdo0
+      -
+          name: 'JESUS, HIVER ET PACIFIQUE'
+          code: F23568GDskw
+      -
+          name: 'TEMPLE, CÉRÉMONIE ET COSMOS'
+          code: _ghgW_tSPAI
