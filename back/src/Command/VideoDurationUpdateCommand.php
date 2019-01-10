@@ -52,7 +52,7 @@ class VideoDurationUpdateCommand extends Command
         $io = new SymfonyStyle($input, $output);
 
         $io->section('Loading Episode to update');
-        $episodes = $this->episodeRepository->findAll();
+        $episodes = $this->episodeRepository->findAllWithoutDuration();
 
         $io->progressStart(count($episodes));
 
