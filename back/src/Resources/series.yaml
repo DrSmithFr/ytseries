@@ -3340,3 +3340,34 @@ series:
       -
           name: 'La Dernière Etape'
           code: 6vhCDzbD1KM
+  real_cops:
+    name:  Real Cops
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/ZUoONgPfrag/maxresdefault.jpg
+    description:
+       La vie de policier est parfois bien difficile !
+    seasons:
+    - name: Saison 1
+      episodes:
+      -
+          name: 'a VHS'
+          code: J9tAYZeKCRM
+      -
+          name: 'Le Gros Mangeur'
+          code: Qj5zyWk-e9w
+      -
+          name: 'On va au Coco Club'
+          code: uIpBwzrKA20
+      -
+          name: 'Méthode musclée'
+          code: arsL5VeNyZw
+      -
+          name: 'Les Infiltrés'
+          code: BXgHGxgX_y4
+      -
+          name: 'Two Cops One Girl'
+          code: '-swfp10-YGc'
+      -
+          name: 'Maintenant ça va chier !'
+          code: LZpJBLEyId8
