@@ -1,56 +1,61 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Yt Series</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Yt Series</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <meta property="og:url" content="https://ytseries.fr"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="YtSeries"/>
+    <meta property="og:description" content="Watch youtube movies, Short film & Web series for free"/>
+    <meta property="og:image" content="https://ytseries.fr/assets/facebook_image.png"/>
 </head>
 <body>
-  <app-root>
+<app-root>
     <style>
-      .preloader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        z-index: 999999;
-        align-items: center;
-        background: #000;
-      }
-
-      .spinner {
-        width: 50px;
-        height: 50px;
-        border-width: 3px;
-        border-left: 1px;
-        border-style: solid;
-        border-color: hsl(0, 100%, 47%) hsla(0, 0%, 0%, 0) hsla(0, 0%, 0%, 0)
-        hsl(0, 100%, 47%);
-        border-radius: 50%;
-        margin: 100px auto;
-        -webkit-animation: loader 0.5s infinite linear;
-        -moz-animation: loader 0.5s infinite linear;
-        -ms-animation: loader 0.5s infinite linear;
-        -o-animation: loader 0.5s infinite linear;
-        animation: loader 0.5s infinite linear;
-      }
-
-      @keyframes loader {
-        100% {
-          -webkit-transform: rotate(360deg);
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            z-index: 999999;
+            align-items: center;
+            background: #000;
         }
-      }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border-width: 3px;
+            border-left: 1px;
+            border-style: solid;
+            border-color: hsl(0, 100%, 47%) hsla(0, 0%, 0%, 0) hsla(0, 0%, 0%, 0) hsl(0, 100%, 47%);
+            border-radius: 50%;
+            margin: 100px auto;
+            -webkit-animation: loader 0.5s infinite linear;
+            -moz-animation: loader 0.5s infinite linear;
+            -ms-animation: loader 0.5s infinite linear;
+            -o-animation: loader 0.5s infinite linear;
+            animation: loader 0.5s infinite linear;
+        }
+
+        @keyframes loader {
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
     </style>
     <div class="preloader">
-      <div class="spinner">
-      </div>
+        <div class="spinner">
+        </div>
     </div>
-  </app-root>
+</app-root>
 </body>
 </html>
