@@ -3344,7 +3344,7 @@ series:
     name:  Real Cops
     locale: fr
     type: series
-    image: https://img.youtube.com/vi/ZUoONgPfrag/maxresdefault.jpg
+    image: https://img.youtube.com/vi/J9tAYZeKCRM/maxresdefault.jpg
     description:
        La vie de policier est parfois bien difficile !
     seasons:
@@ -3371,3 +3371,29 @@ series:
       -
           name: 'Maintenant ça va chier !'
           code: LZpJBLEyId8
+  dead_floor:
+      name:  DEAD FLOOR
+      locale: fr
+      type: series
+      image: https://img.youtube.com/vi/j-4Cbv71nuw/maxresdefault.jpg
+      description:
+         Après une nuit de fête, c’est l’heure de l’after à l’Armagedance. Mais pour
+         les acharnés qui refusent de quitter le dance floor, le pire est à venir...
+      seasons:
+      - name: Saison 1
+        episodes:
+        -
+            name: 'AFTER'
+            code: j-4Cbv71nuw
+        -
+            name: 'FOG'
+            code: vHOHSlLhbqA
+        -
+            name: 'BOX'
+            code: pPC24zuuqNQ
+        -
+            name: 'LUST'
+            code: VuQ30nqpE1c
+        -
+            name: 'EXECUTION'
+            code: M0Hyk4g7dnw
