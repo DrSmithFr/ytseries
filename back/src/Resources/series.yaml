@@ -3282,3 +3282,32 @@ series:
       -
           name: 'EPISODE 6 (FINAL)'
           code: NGzHJIJ1Tc0
+  utk:
+    name:  UTK
+    locale: fr
+    type: series
+    image: https://img.youtube.com/vi/u4ZIa5bIcN8/maxresdefault.jpg
+    description:
+       Dans un monde dévasté par un virus, des personnes tentent de survivre dans un quartier protégé.
+       Parmi ces rescapés, un scientifique brillant du nom de Ferdinand Houlache.
+    seasons:
+    - name: Saison 1
+      episodes:
+      -
+          name: 'Un Nouveau Monde'
+          code: u4ZIa5bIcN8
+      -
+          name: 'Le Bienfaiteur'
+          code: 776NZJ0zSnQ
+      -
+          name: 'Le Sens du Sacrifice'
+          code: YZ1Tri9kPYk
+      -
+          name: 'Dilemmes'
+          code: 6HdLXU0qS_g
+      -
+          name: 'Le Soulèvement'
+          code: 6G2-MQ8PSYc
+      -
+          name: 'La Fin du Quartier Sain'
+          code: KGEL_ilr1pM
