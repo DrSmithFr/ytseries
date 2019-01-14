@@ -78,7 +78,7 @@ class Series
 
     /**
      * @var ArrayCollection|Category[]
-     * @ORM\OneToMany(targetEntity="Category", mappedBy="series")
+     * @ORM\ManyToMany(targetEntity="Category", inversedBy="series")
      * @ORM\JoinTable(
      *  name="mtm_series_to_categories",
      *  joinColumns={

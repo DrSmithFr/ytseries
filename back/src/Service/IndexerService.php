@@ -19,6 +19,11 @@ class IndexerService
         $this->repository = $repository;
     }
 
+    /**
+     * @param Series $series
+     * @return Document|null
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function buildSeriesDocument(Series $series):? Document
     {
         $series = $this->repository->getFullyLoadedSeriesById($series->getId());
@@ -34,6 +39,11 @@ class IndexerService
             }
         }
 
+        $categories = [];
+        foreach ($series->getCategories() as $category) {
+            $categories[] = $category->getName();
+        }
+
         if (count($episodes) === 0) {
             return null;
         }
@@ -47,6 +57,8 @@ class IndexerService
                 'image'       => $series->getImage() ?? '',
                 'type'        => $series->getType()->getName(),
                 'description' => $series->getDescription(),
+                'categories'  => $categories,
+                'tags'        => $series->getTags() ?? [],
                 'seasons'     => $series->getSeasons()->count(),
                 'episodes'    => count($episodes),
             ],

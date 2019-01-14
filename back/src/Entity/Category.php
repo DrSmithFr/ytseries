@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
- * @ORM\Table(name="tags")
+ * @ORM\Table(name="categories")
  * @JMS\ExclusionPolicy("all")
  */
 class Category
@@ -37,7 +37,7 @@ class Category
 
     /**
      * @var ArrayCollection|Series[]
-     * @ORM\ManyToMany(targetEntity="App\Entity\Series", mappedBy="tags")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Series", mappedBy="categories")
      */
     protected $series;
 
