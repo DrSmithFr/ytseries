@@ -3,6 +3,15 @@ types:
   short: 'Court métrage'
   series: 'Séries'
   documentary: 'Documentaire'
+categories:
+  thriller: 'Thriller'
+  scifi: 'Science fiction'
+  romantic: 'Rommantique'
+  drame: 'Drames'
+  action: 'Action'
+  adventure: 'Aventure'
+  humour: 'Humour'
+  horror: 'Horreur'
 series:
   preview:
     name: Preview
@@ -12,6 +21,12 @@ series:
     description:
       Arthur est un Youtubeur célèbre sous pression qui n'arrive plus à sortir de vidéo.
       Preview, une étrange fonctionnalité de la plateforme de vidéo, se propose de le relancer.
+    categories:
+      - humour
+      - adventure
+    tags:
+      - preview
+      - youtube
     seasons:
       - name: Saison 1
         episodes:
@@ -35,6 +50,12 @@ series:
     description:
       Let's play Narratif de Stranded Deep par Joueur Du Genier.
       La plage le soleil et les crustacés !
+    categories:
+      - humour
+      - adventure
+      - drame
+    tags:
+      - let's play
     seasons:
       - name: Saison 1
         episodes:

@@ -2,10 +2,12 @@
 
 namespace App\Command;
 
+use App\Entity\Category;
 use App\Entity\Episode;
 use App\Entity\Season;
 use App\Entity\Series;
 use App\Entity\SeriesType;
+use App\Repository\CategoryRepository;
 use App\Repository\EpisodeRepository;
 use App\Repository\SeasonRepository;
 use App\Repository\SeriesRepository;
@@ -41,21 +43,26 @@ class SeriesImportCommand extends Command
      * @var EpisodeRepository
      */
     private $episodeRepository;
+    /**
+     * @var CategoryRepository
+     */
+    private $categoryRepository;
 
     public function __construct(
         EntityManagerInterface $entityManager,
         SeriesTypeRepository $seriesTypeRepository,
+        CategoryRepository $categoryRepository,
         SeriesRepository $seriesRepository,
         SeasonRepository $seasonRepository,
         EpisodeRepository $episodeRepository
-    )
-    {
-        $this->entityManager = $entityManager;
+    ) {
         parent::__construct();
+        $this->entityManager        = $entityManager;
         $this->seriesTypeRepository = $seriesTypeRepository;
         $this->seriesRepository     = $seriesRepository;
         $this->seasonRepository     = $seasonRepository;
         $this->episodeRepository    = $episodeRepository;
+        $this->categoryRepository   = $categoryRepository;
     }
 
     protected function configure()
@@ -71,13 +78,14 @@ class SeriesImportCommand extends Command
 
         $series        = $this->getYamlSeriesData();
         $seriesTypeMap = $this->getSeriesTypes($series['types']);
+        $categoriesMap = $this->getCategories($series['categories']);
 
         $io->section('Importing series');
         $io->progressStart(count($series['series']));
 
         foreach ($series['series'] as $key => $data) {
             try {
-                $s = $this->getSeries($key, $data, $seriesTypeMap);
+                $s = $this->getSeries($key, $data, $seriesTypeMap, $categoriesMap);
                 $this->entityManager->persist($s);
                 $this->entityManager->flush();
             } catch (\Exception $e) {
@@ -99,7 +107,7 @@ class SeriesImportCommand extends Command
         return Yaml::parse($fileString);
     }
 
-    private function getSeriesTypes(array $types) : array
+    private function getSeriesTypes(array $types): array
     {
         $seriesTypesMap = [];
 
@@ -113,7 +121,7 @@ class SeriesImportCommand extends Command
             $type->setName($name);
             $this->entityManager->persist($type);
 
-            $seriesTypesMap[ $key ] = $type;
+            $seriesTypesMap[$key] = $type;
         }
 
         $this->entityManager->flush();
@@ -121,8 +129,35 @@ class SeriesImportCommand extends Command
         return $seriesTypesMap;
     }
 
-    private function getSeries(string $importCode, array $data, array $seriesTypesMap) : Series
+    private function getCategories(array $categories): array
     {
+        $categoriesMap = [];
+
+        foreach ($categories as $key => $name) {
+            /** @var Category $category */
+            $category = $this->categoryRepository->findOneBy(['slug' => $key]);
+
+            if (null === $category) {
+                $category = (new Category())->setSlug($key);
+            }
+
+            $category->setName($name);
+            $this->entityManager->persist($category);
+
+            $categoriesMap[$key] = $category;
+        }
+
+        $this->entityManager->flush();
+
+        return $categoriesMap;
+    }
+
+    private function getSeries(
+        string $importCode,
+        array $data,
+        array $seriesTypesMap,
+        array $categoriesMap
+    ): Series {
         $series = $this->seriesRepository->findOneBy(['importCode' => $importCode]);
 
         if (null === $series) {
@@ -136,7 +171,12 @@ class SeriesImportCommand extends Command
             ->setLocale($data['locale'])
             ->setImage($data['image'])
             ->setDescription($data['description'])
-            ->setType($seriesTypesMap[ $typeId ]);
+            ->setType($seriesTypesMap[$typeId])
+            ->setTags($data['tags'] ?? null);
+
+        foreach ($data['categories'] ?? [] as $category) {
+            $series->addCategory($categoriesMap[$category]);
+        }
 
         foreach ($data['seasons'] as $index => $seasonData) {
             $season = $this->getSeason($importCode, $index, $seasonData);
@@ -148,7 +188,7 @@ class SeriesImportCommand extends Command
         return $series;
     }
 
-    private function getSeason(string $importCode, int $index, array $data) : Season
+    private function getSeason(string $importCode, int $index, array $data): Season
     {
         $importCode = sprintf('%s_%s', $importCode, $index);
         $season     = $this->seasonRepository->findOneBy(['importCode' => $importCode]);
@@ -171,7 +211,7 @@ class SeriesImportCommand extends Command
         return $season;
     }
 
-    private function getEpisode(string $importCode, int $index, array $data) : Episode
+    private function getEpisode(string $importCode, int $index, array $data): Episode
     {
         $importCode = sprintf('%s_%s', $importCode, $index);
         $episode    = $this->episodeRepository->findOneBy(['importCode' => $importCode]);

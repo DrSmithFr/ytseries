@@ -76,9 +76,34 @@ class Series
      */
     protected $seasons;
 
+    /**
+     * @var ArrayCollection|Category[]
+     * @ORM\OneToMany(targetEntity="Category", mappedBy="series")
+     * @ORM\JoinTable(
+     *  name="mtm_series_to_categories",
+     *  joinColumns={
+     *      @ORM\JoinColumn(name="series_id", referencedColumnName="id")
+     *  },
+     *  inverseJoinColumns={
+     *     @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     *  }
+     * )
+     * @JMS\Type("ArrayCollection<App\Entity\Category>")
+     */
+    protected $categories;
+
+    /**
+     * @var array|null
+     * @ORM\Column(type="simple_array", nullable=true)
+     * @JMS\Type("array<string>")
+     */
+    protected $tags;
+
     public function __construct()
     {
-        $this->seasons = new ArrayCollection();
+        $this->seasons    = new ArrayCollection();
+        $this->categories = new ArrayCollection();
+        $this->tags       = [];
     }
 
     /**
@@ -140,7 +165,7 @@ class Series
     /**
      * @return null|string
      */
-    public function getImage():? string
+    public function getImage(): ?string
     {
         return $this->image;
     }
@@ -218,7 +243,7 @@ class Series
      */
     public function addSeason(Season $season)
     {
-        if (! $this->seasons->contains($season)) {
+        if (!$this->seasons->contains($season)) {
             $this->seasons->add($season);
             $season->setSeries($this);
         }
@@ -253,6 +278,84 @@ class Series
     public function setType($type): self
     {
         $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * @return Category[]|ArrayCollection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    /**
+     * @param Category[]|ArrayCollection $categories
+     * @return self
+     */
+    public function setCategories($categories)
+    {
+        $this->categories = $categories;
+        return $this;
+    }
+
+    /**
+     * @param Category $category
+     * @return self
+     */
+    public function addCategory(Category $category): self
+    {
+        $this->categories->add($category);
+        return $this;
+    }
+
+    /**
+     * @param Category $category
+     * @return self
+     */
+    public function removeCategory(Category $category): self
+    {
+        $this->categories->removeElement($category);
+        return $this;
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getTags(): ?array
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param array|null $tags
+     * @return self
+     */
+    public function setTags(?array $tags): self
+    {
+        $this->tags = $tags;
+        return $this;
+    }
+
+    /**
+     * @param string $tag
+     * @return self
+     */
+    public function addTag(string $tag): self
+    {
+        $this->tags[] = $tag;
+        return $this;
+    }
+
+    /**
+     * @param string $tag
+     * @return self
+     */
+    public function removeTag(string $tag): self
+    {
+        if (false !== $key = array_search($tag, $this->tags, true)) {
+            array_splice($this->tags, $key, 1);
+        }
         return $this;
     }
 
