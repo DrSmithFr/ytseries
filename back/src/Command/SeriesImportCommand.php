@@ -158,7 +158,7 @@ class SeriesImportCommand extends Command
         array $seriesTypesMap,
         array $categoriesMap
     ): Series {
-        $series = $this->seriesRepository->findOneBy(['importCode' => $importCode]);
+        $series = $this->seriesRepository->findOneByImportCode($importCode);
 
         if (null === $series) {
             $series = (new Series())->setImportCode($importCode);
