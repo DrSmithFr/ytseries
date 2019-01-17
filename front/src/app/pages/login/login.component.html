@@ -33,7 +33,8 @@
         </mat-card-content>
 
         <mat-card-actions class="button-spacer" *ngIf="!displayLoadingPanel">
-          <a mat-button routerLink="/password_forgot">Mot de passe oublié ?</a>
+          <div></div>
+          <!-- <a mat-button routerLink="/password_forgot">Mot de passe oublié ?</a> -->
           <button [disabled]="!loginForm.valid" mat-raised-button type="submit" color="primary">Connection</button>
         </mat-card-actions>
 
