@@ -145,9 +145,6 @@
 .gridView-listItem:hover .gridView-detailsSection {
   background: #232323;
 }
-.gridView-listItem:hover {
-  margin: -5px;
-}
 .gridView-tile {
   display: flex;
   flex-direction: column;
