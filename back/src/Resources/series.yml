@@ -67,6 +67,11 @@ les_breves_de_petard:
   image: https://img.youtube.com/vi/iYF7hj6YYxw/maxresdefault.jpg
   description:
     L'herbe ça fait réfléchir, mais tu choisis pas la réflexion.
+  categories:
+    - humour
+  tags:
+    - weed
+    - 420
   seasons:
     - name: Saison 1
       episodes:
@@ -96,6 +101,9 @@ jai_jamais_su_dire_non:
   description:
     Dans la vie, ne pas savoir dire non peut entrainer beaucoup d'emmerdes.
     Mais heureusement pour lui, Tom va tester une méthode expérimentale pour lui donner un peu de charisme.
+  categories:
+    - humour
+    - drame
   seasons:
     - name: Saison 1
       episodes:
@@ -145,6 +153,9 @@ le_theorie_des_balls:
   description:
     Dans la vie, ne pas savoir dire non peut entrainer beaucoup d'emmerdes.
     Mais heureusement pour lui, Tom va tester méthode expérimentale pour lui donner un peu de charisme.
+  categories:
+    - humour
+    - romantic
   seasons:
     - name: La théorie des Balls
       episodes:
@@ -197,6 +208,9 @@ relationship:
   image: https://img.youtube.com/vi/5FrsDJXb9b8/maxresdefault.jpg
   description:
     la web-série Relationship raconte l'histoire d'amour entre Marc et Alice, deux jeunes d'une vingtaine d'années.
+  categories:
+    - romantic
+    - drame
   seasons:
     - name: Saison 1
       episodes:
@@ -224,6 +238,11 @@ nightwing:
   description:
     Nightwing follows the story of Batman's former sidekick, Dick Grayson aka Robin.
     After a falling out with his mentor, Dick abandons Gotham and everyone in it.
+  categories:
+    - action
+    - thriller
+    - scifi
+    - adventure
   seasons:
     - name: Season 1
       episodes:
@@ -244,6 +263,9 @@ realer:
   image: https://img.youtube.com/vi/dxg87ECe9qw/maxresdefault.jpg
   description:
     Un mystérieux personnage prend contact avec Koss...
+  categories:
+    - scifi
+    - adventure
   seasons:
     - name: Season 1
       episodes:
@@ -272,6 +294,13 @@ en_passant_pecho:
   image: https://img.youtube.com/vi/YBcwG9G6oHU/maxresdefault.jpg
   description:
     Une serie déjenté sur la vie de cité
+  categories:
+    - humour
+    - adventure
+  tags:
+    - weed
+    - coke
+    - 420
   seasons:
     - name: Saison 1
       episodes:
@@ -299,6 +328,10 @@ ulysse:
   description:
     2038. 14 ans après la fin d'une guerre mondiale aussi dévastatrice que mystérieuse,
     une jeune orpheline - Elena - reçoit un carnet qui pourrait bien tout expliquer.
+  categories:
+    - adventure
+    - scifi
+    - thriller
   seasons:
     - name: Saison 1
       episodes:
@@ -351,6 +384,9 @@ donjon_legacy:
   image: https://img.youtube.com/vi/Miaq_E5gmlk/maxresdefault.jpg
   description:
     Jon s'en vient découvrir dans des ruines l'héritage d'un père qu'il n'a pas connu.
+  categories:
+    - adventure
+    - scifi
   seasons:
     - name: Saison 1
       episodes:
@@ -384,6 +420,9 @@ la_web_series:
   description:
     LA Web Series is a love story between two young women who start as strangers and
     forge a lasting bond filled with past stories and future questions.
+  categories:
+    - drame
+    - romantic
   seasons:
     - name: Season 1
       episodes:
@@ -450,6 +489,9 @@ eden:
   image: https://img.youtube.com/vi/oED3bdk8vRw/maxresdefault.jpg
   description:
     Le conseil d'Eden condamne Nora à l'effacement de sa mémoire suit à la mort du jeune Data.
+  categories:
+    - adventure
+    - scifi
   seasons:
     - name: Saison 1
       episodes:
@@ -477,6 +519,9 @@ io:
   description:
     MOI, un étudiant comme les autres, se réveille brutalement d'un cauchemar.
     Il décide de tout avouer à sa copine SOPHIA...
+  categories:
+    - adventure
+    - scifi
   seasons:
     - name: Saison 1
       episodes:
@@ -511,7 +556,9 @@ random:
   image: https://img.youtube.com/vi/d5R-Wn2UHQs/maxresdefault.jpg
   description:
     Six amis confrontés à l’inexplicable dans un huis-clos infernal. Bloqués dans leur appartement,
-    face à un mystère qui bouleverse leur existence,
+    face à un mystère qui bouleverse leur existence
+  categories:
+    - thriller
   seasons:
     - name: Saison 1
       episodes:
@@ -575,6 +622,8 @@ supa_supa:
   description:
     Supa Supa et son pote sont posés chez eux et jouent aux jeux vidéos,
     lorsque Supa détecte la présence d'une Fille, ce qui ne le laisse pas insensible.
+  categories:
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -609,6 +658,8 @@ le_departement:
   image: https://img.youtube.com/vi/3b_vTuxEL-I/maxresdefault.jpg
   description:
     Le Département décline toute responsabilité en cas de digestion douloureuse lors du visionnage.
+  categories:
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -668,6 +719,8 @@ hello_geekette:
   description:
     Valérie est une geekette qui vit dans son univers imaginaire. Alors que Greg est un garçon pas du tout geek et
     plutôt dragueur. Colocataires, c’est dans leur appartement que vont s’affronter leurs amis respectifs
+  categories:
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -738,6 +791,8 @@ bloques:
   image: https://img.youtube.com/vi/WjsXFY_tGx4/maxresdefault.jpg
   description:
     En attendant qu’il se passe quelque chose, ils ont décidé de ne rien faire.
+  categories:
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -989,6 +1044,9 @@ bref:
   description:
     Les chroniques extraordinaires d’un homme ordinaire. Dans la vie, au début on naît, à la fin on meurt,
     pendant ce temps là, il se passe des trucs. Bref, c'est la vie d'un mec pendant ce temps là.
+  categories:
+    - humour
+    - romantic
   seasons:
     - name: Saison 1
       episodes:
@@ -1163,6 +1221,8 @@ serge_le_mytho:
   image: https://img.youtube.com/vi/lIkYYGwp1y4/maxresdefault.jpg
   description:
     L'histoire d'un mec qui raconte des histoires.
+  categories:
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -1231,6 +1291,10 @@ visiteur_du_future:
   image: http://idata.over-blog.com/2/43/97/50/New2/Affiches/VDF-Saison3-Action-pour-Web.jpg
   description:
     Il vient du futur pour nous rendre visite, c'est le Visiteur du Futur.
+  categories:
+    - scifi
+    - adventure
+    - thriller
   seasons:
     - name: Saison 1
       episodes:
@@ -1402,6 +1466,10 @@ noob:
   description:
     NOOB est la première web-série sur le thème des mmorpg ! Elle est numéro 1 au box office français depuis 2009
     et présente les aventures déjantées de la pire guilde de tous les temps !
+  categories:
+    - adventure
+    - scifi
+    - action
   seasons:
     - name: Saison 1
       episodes:
@@ -1685,6 +1753,9 @@ damned:
   description:
     Sinji Sam et Johan sont exorcistes à Grenoble.
     Leur petite entreprise ne connait pas la crise mais leur position de  monopole va être quelque peu malmenée...
+  categories:
+    - thriller
+    - action
   seasons:
     - name: Damned 2
       episodes:
@@ -1737,6 +1808,8 @@ derriere_youtube:
   image: https://img.youtube.com/vi/9kQ__KUK2bw/maxresdefault.jpg
   description:
     Un aperçu de la vie difficile des youtubers
+  categories:
+    - adventure
   seasons:
     - name: Saison 1
       episodes:
@@ -1789,6 +1862,9 @@ crash_zoom:
   image: https://img.youtube.com/vi/Ii4Rbbk8zAs/maxresdefault.jpg
   description:
     "CONTENT WARNINGS: Demons, explosions, violence... Honestly it's got everything but swearing and blasphemy."
+  categories:
+    - action
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -1811,6 +1887,8 @@ asdf:
   image: https://img.youtube.com/vi/IYnsfV5N2n8/maxresdefault.jpg
   description:
     "nothing more than internet."
+  categories:
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -1843,6 +1921,8 @@ histoire_chausette:
   image: https://img.youtube.com/vi/8JedMH7URdM/maxresdefault.jpg
   description:
     Les découvertes étranges d'après des chaussettes. Par Yacine et Dedo.
+  categories:
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -1875,6 +1955,9 @@ ferdinand:
   image: https://img.youtube.com/vi/jJy3abklXeQ/maxresdefault.jpg
   description:
     Ferdinand n'avait pas d'amis... Mais Ferdinand avait un plan !
+  categories:
+    - humour
+    - adventure
   seasons:
     - name: Saison 1
       episodes:
@@ -1892,6 +1975,9 @@ croc_love:
   description:
     'Hector et Héléna assiste ébahis à une révolution technologique majeure : une journaliste annonce l’invention
     d’un Test de l’Amour, permettant de mesurer vos sentiments.'
+  categories:
+    - drame
+    - romantic
   seasons:
     - name: Saison 1
       episodes:
@@ -1923,6 +2009,8 @@ terreur_404:
   description:
     La soirée s’annonçait parfaite, jusqu’à ce que Maxime accepte, sans réfléchir sur Facebook,
     une demande d’amis envoyée par… lui-même.
+  categories:
+    - thriller
   seasons:
     - name: Saison 1
       episodes:
@@ -1950,6 +2038,8 @@ bitmuch:
   description:
     Multinationale gigantesque, la société Bitmuch est dirigée par des hommes d’affaires
     extrêmement ambitieux mais complètement incompétents.
+  categories:
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -1970,6 +2060,8 @@ monsieur_flap:
   image: https://img.youtube.com/vi/GHR21HB4cZ8/maxresdefault.jpg
   description:
     C’est l’histoire d’un homme avec une tête de cul qui tombe amoureux.
+  categories:
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -2002,6 +2094,9 @@ la_petite_mort:
   image: https://img.youtube.com/vi/XiY0AdNd79s/maxresdefault.jpg
   description:
     Déménager quand on est gosse ce n'est jamais facile, mais quand en plus il faut faucher le voisinage...
+  categories:
+    - humour
+    - drame
   seasons:
     - name: Saison 1
       episodes:
@@ -2033,6 +2128,9 @@ the_cell:
   description:
     Gaspard, il est comme toi et moi, une petite vie tranquille mais un peu chiante quand même...
     jusqu'à ... la journée de merde de trop.
+  categories:
+    - thriller
+    - action
   seasons:
     - name: Saison 1
       episodes:
@@ -2064,6 +2162,8 @@ monsieur_carton:
   description:
     La candeur et la douce folie de Mr. Carton, son inconscience aussi parfois,
     fédèrent le spectateur à sa cause, aussi futile soit-elle.
+  categories:
+    - adventure
   seasons:
     - name: Saison 1
       episodes:
@@ -2101,6 +2201,9 @@ reboot:
   description:
     'Oscar a tout pour être heureux : une femme enceinte, une maison en banlieue et un Kangoo.
     Tout est parfait… sauf lorsqu’il se rend compte que tous ses collègues de travail sont des robots.'
+  categories:
+    - thriller
+    - adventure
   seasons:
     - name: Saison 1
       episodes:
@@ -2141,6 +2244,8 @@ tout_le_monde_sen_fou:
   image: https://img.youtube.com/vi/EDDxAIhHt08/maxresdefault.jpg
   description:
     Notre monde est stupéfiant. Et si on arrêtait de s’en foutre ?
+  categories:
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -2227,6 +2332,8 @@ durty_biologie:
   image: https://img.youtube.com/vi/JyQqFZHJWTA/maxresdefault.jpg
   description:
     Des vidéos de science sur des sujets mindfuck, crades, ou juste rigolos. Parfois on parle de biologie aussi.
+  categories:
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -2340,6 +2447,8 @@ jaime_mon_job:
   description:
     A chaque épisode un personnage nous fait découvrir avec sérieux son métier nous présentant ses avantages et
     ses inconvénients, avec mise en situation, la caméra le suivant sur ses lieux d'exercic
+  categories:
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -2385,6 +2494,9 @@ the_system:
   description:
     La terreur s’intensifie en France depuis l’arrivée au pouvoir du nouveau président.
     En cette année 2032, le pays se détruit, et l’état met tout en place pour éviter toute rébellion.
+  categories:
+    - drame
+    - thriller
   seasons:
     - name: Saison 1
       episodes:
@@ -2408,6 +2520,8 @@ seltsam:
   description:
     Par une belle nuit, Emilien s’endormit de nouveau dans son canapé devant son téléviseur.
     Mais cette fois une mystérieuse dame a frappé à sa porte ...
+  categories:
+    - thriller
   seasons:
     - name: Saison 1
       episodes:
@@ -2444,6 +2558,8 @@ machine_et_machinette:
   image: https://img.youtube.com/vi/zt091zLYYLk/maxresdefault.jpg
   description:
     Ce jour où, bien pépère au taf, on t’apprend que ton nouvel adjoint n’est autre qu’un robot.
+  categories:
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -2479,6 +2595,9 @@ face_au_diable:
   description:
     En plein bras de fer avec la direction de son usine, Hugo Bernal est lâché par la CFT, son syndicat.
     C’est la chute libre. Heureusement son ami Stan l’emmène en boite, où il va faire une rencontre.
+  categories:
+    - drame
+    - adventure
   seasons:
     - name: Saison 1
       episodes:
@@ -2510,6 +2629,8 @@ hashtag_32:
   description:
     Dans le Gers, cinq amis inséparables découvrent les résultats du bac. Si certains l’ont, et vont partir poursuivre
     leurs études hors du département, d’autres ont échoué, et vont devoir rester une année de plus au lycée.
+  categories:
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -2533,6 +2654,9 @@ la_theorie_du_y:
   description:
     Anna s’ennuie dans son couple. Sur un coup de tête, elle plante Matteo, son copain.
     Elle se retrouve dans un bar où elle fait la connaissance de Malik et de Claire...
+  categories:
+    - drame
+    - romantic
   seasons:
     - name: Saison 1
       episodes:
@@ -2566,6 +2690,8 @@ osef:
   description:
     Dans cette web série, vous suivrez 7 adolescents aux personnalités différentes au cours d'une année scolaire.
     Des professeurs complétement déjantés viendront également mettre leurs grain de sel.
+  categories:
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -2604,6 +2730,8 @@ tu_mourras_moins_bete:
   image: https://img.youtube.com/vi/GYjiQYkFG-A/maxresdefault.jpg
   description:
     Le Professeur Moustache et son assistant Nathanaël expliquent les phénomènes scientifiques du quotidien.
+  categories:
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -2778,6 +2906,9 @@ swerve:
   description:
     Elise is a young woman who decides to leave her dead-end job and dead-end life behind and try to hitchhike
     her way to something better. Along the way she meets two women who will leave a permanent mark on who she is.
+  categories:
+    - romantic
+    - drame
   seasons:
     - name: Season 1
       episodes:
@@ -2830,6 +2961,8 @@ olympe_project:
   image: https://img.youtube.com/vi/EDEuETlJ8Jc/maxresdefault.jpg
   description:
     Web Série humoristique, portant sur la vie palpitante et rocambolesque des dieux de l'Olympe au 21éme siècle !
+  categories:
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -2863,6 +2996,8 @@ tea_time:
   description:
     Au début du XXème siècle, cinq bourgeoises aiment se retrouver à l’heure du thé pour discuter
     de faits divers meurtriers. Celles-ci vont un jour se mettre au défi de réaliser le meurtre parfait.
+  categories:
+    - thriller
   seasons:
     - name: Saison 1
       episodes:
@@ -2889,6 +3024,8 @@ la_muscule:
   image: https://img.youtube.com/vi/JIF5BKyMlac/maxresdefault.jpg
   description:
     Fitness , Lifestyle, Motivation, Défis, Challenge, vlogs... QUE DU SALE
+  categories:
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -2920,6 +3057,10 @@ survie:
   description:
     Survie est une websérie post-apocalyptique qui met en scène un groupe de survivants dans leur vie quotidienne,
     sur fond d'attaque d'infectés.
+  categories:
+    - thriller
+    - drame
+    - adventure
   seasons:
     - name: Saison 1
       episodes:
@@ -2945,6 +3086,9 @@ racines:
   description:
     Série ou le G.I.R.P ( groupe d'intervention et de recherche du paranormal ),
     enquête sur les menaces humaines et non humaines.
+  categories:
+    - thriller
+    - adventure
   seasons:
     - name: Saison 1
       episodes:
@@ -3007,6 +3151,8 @@ steampirate_chronicles:
   image: https://img.youtube.com/vi/nzYl9NERsbw/maxresdefault.jpg
   description:
     'Nous suivons les aventures du Capitaine Nikolas et de son équipage, poursuivit par le Gouverneur et son fidèle et redouté Capitaine : Erick le Sanglant.'
+  categories:
+    - adventure
   seasons:
     - name: Saison 1
       episodes:
@@ -3034,6 +3180,9 @@ kerith:
   description:
     Un monastère éclairé à la bougie. Un moine et cinq moniales habillés d’une longue robe blanche déambulent.
     Mara s’écroule, envahie par les larmes, accusant le moine Isidore.
+  categories:
+    - drame
+    - thriller
   seasons:
     - name: Saison 1
       episodes:
@@ -3064,6 +3213,9 @@ thug_life:
   image: https://img.youtube.com/vi/TixO9Opy6QY/maxresdefault.jpg
   description:
     Mickaël et Dylan, deux fausses racailles qui rêvent de devenir des rappeurs.
+  categories:
+    - adventure
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -3087,6 +3239,13 @@ utk:
   description:
     Dans un monde dévasté par un virus, des personnes tentent de survivre dans un quartier protégé.
     Parmi ces rescapés, un scientifique brillant du nom de Ferdinand Houlache.
+  categories:
+    - thriller
+    - scifi
+    - drame
+    - adventure
+  tgas:
+    - zombie
   seasons:
     - name: Saison 1
       episodes:
@@ -3110,6 +3269,10 @@ unthinkable:
   description:
     Dans un monde où certaines personnes sont dotées de capacités hors du commun,
     une société secrète tente de les éliminer et de garder leurs existences cachées.
+  categories:
+    - thriller
+    - adventure
+    - scifi
   seasons:
     - name: Saison 1
       episodes:
@@ -3132,6 +3295,8 @@ real_cops:
   image: https://img.youtube.com/vi/J9tAYZeKCRM/maxresdefault.jpg
   description:
     La vie de policier est parfois bien difficile !
+  categories:
+    - humour
   seasons:
     - name: Saison 1
       episodes:
@@ -3157,6 +3322,14 @@ dead_floor:
   description:
     Après une nuit de fête, c’est l’heure de l’after à l’Armagedance. Mais pour
     les acharnés qui refusent de quitter le dance floor, le pire est à venir...
+  categories:
+    - drame
+    - thriller
+    - adventure
+    - action
+  tags:
+    - zombie
+    - musique
   seasons:
     - name: Saison 1
       episodes:
@@ -3179,6 +3352,11 @@ dead_lands:
     C'est la fin de l'été à l'Escapade, un petit camping au bord de la faillite au cœur des Landes.
     Alors qu'une équipe de télévision est venue tourner un reportage sur la fin des vacances,
     de mystérieuses catastrophes surviennent...
+  categories:
+    - scifi
+    - drame
+    - adventure
+    - thriller
   seasons:
     - name: Saison 1
       episodes:
@@ -3209,6 +3387,8 @@ what_the_cut:
   image: https://img.youtube.com/vi/OsAT9DPNC4Q/mqdefault.jpg
   description:
     L'emition d'antoine daniel,  Review de vidéos du net.
+  categories:
+    - humour
   seasons:
     - name: Saison 1
       episodes:

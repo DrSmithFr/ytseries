@@ -33,7 +33,8 @@ class SearchController extends BaseAdminController
     public function getBackgroundLayersAction(
         Request $request,
         SearchService $searchService
-    ) {
+    )
+    {
         $filters = json_decode($request->get('filters'), true);
 
         $query = new Query();
@@ -74,10 +75,10 @@ class SearchController extends BaseAdminController
             $query->setHighlight(
                 [
                     'number_of_fragments' => 3,
-                    'fragment_size' => 255,
-                    'fields' => [
-                        'name' => new \stdClass()
-                    ]
+                    'fragment_size'       => 255,
+                    'fields'              => [
+                        'name' => new \stdClass(),
+                    ],
                 ]
             );
         } else {
@@ -100,8 +101,8 @@ class SearchController extends BaseAdminController
         $query->setSort(
             [
                 'id' => [
-                    'order' => 'desc'
-                ]
+                    'order' => 'desc',
+                ],
             ]
         );
 
@@ -111,6 +112,10 @@ class SearchController extends BaseAdminController
 
         $query->addAggregation(
             (new Terms('types'))->setField('type')
+        );
+
+        $query->addAggregation(
+            (new Terms('categories'))->setField('categories')
         );
 
         $result = $searchService->getIndex()->search($query);
@@ -129,14 +134,15 @@ class SearchController extends BaseAdminController
         }
 
         $filters = [
-            'locales' => $result->getAggregation('locales')['buckets'],
-            'types'   => $result->getAggregation('types')['buckets'],
+            'locales'    => $result->getAggregation('locales')['buckets'],
+            'types'      => $result->getAggregation('types')['buckets'],
+            'categories' => $result->getAggregation('categories')['buckets'],
         ];
 
         return new JsonResponse(
             [
-                'assets' => $assets,
-                'filters' => $filters
+                'assets'  => $assets,
+                'filters' => $filters,
             ]
         );
     }
@@ -162,7 +168,7 @@ class SearchController extends BaseAdminController
             );
         }
 
-        $serializer = SerializerBuilder::create()->build();
+        $serializer  = SerializerBuilder::create()->build();
         $jsonContent = $serializer->serialize($series, 'json');
 
         return (new JsonResponse())

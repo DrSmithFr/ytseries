@@ -21,6 +21,7 @@
   width: 450px;
   background-color: #000;
   position: relative;
+  overflow-y: auto;
 }
 
 .page_divided .sidebar .sidebar_item {

@@ -18,6 +18,7 @@ export class SearchComponent implements OnInit {
   activeFilters = {
     locale: null,
     type: null,
+    categories: null,
   };
 
   constructor(
@@ -46,6 +47,7 @@ export class SearchComponent implements OnInit {
   clearActiveFilters(): void {
     this.activeFilters.locale = null;
     this.activeFilters.type = null;
+    this.activeFilters.categories = null;
     this.makeSearch();
   }
 

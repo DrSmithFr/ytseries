@@ -118,6 +118,10 @@ class SearchService
             'type' => 'keyword',
         ];
 
+        $properties['categories'] = [
+            'type' => 'keyword',
+        ];
+
         $properties['locale'] = [
             'type' => 'keyword',
         ];
