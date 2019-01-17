@@ -55,7 +55,8 @@ class SeriesImportCommand extends Command
         SeriesRepository $seriesRepository,
         SeasonRepository $seasonRepository,
         EpisodeRepository $episodeRepository
-    ) {
+    )
+    {
         parent::__construct();
         $this->entityManager        = $entityManager;
         $this->seriesTypeRepository = $seriesTypeRepository;
@@ -76,14 +77,18 @@ class SeriesImportCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        $series        = $this->getYamlSeriesData();
-        $seriesTypeMap = $this->getSeriesTypes($series['types']);
-        $categoriesMap = $this->getCategories($series['categories']);
+        $series     = $this->getYmlSeriesData('series.yml');
+        $movies     = $this->getYmlSeriesData('movies.yml');
+        $types      = $this->getYmlSeriesData('types.yml');
+        $categories = $this->getYmlSeriesData('categories.yml');
+
+        $seriesTypeMap = $this->getSeriesTypes($types);
+        $categoriesMap = $this->getCategories($categories);
 
         $io->section('Importing series');
-        $io->progressStart(count($series['series']));
+        $io->progressStart(count($series));
 
-        foreach ($series['series'] as $key => $data) {
+        foreach ($series as $key => $data) {
             try {
                 $s = $this->getSeries($key, $data, $seriesTypeMap, $categoriesMap);
                 $this->entityManager->persist($s);
@@ -97,31 +102,50 @@ class SeriesImportCommand extends Command
         }
 
         $io->progressFinish();
-        $io->success('Done');
+        $io->success(sprintf('%d series imported', count($series)));
+
+        $io->section('Importing movies');
+        $io->progressStart(count($movies));
+
+        foreach ($movies as $key => $data) {
+            try {
+                $m = $this->getMovie($key, $data, $seriesTypeMap, $categoriesMap);
+                $this->entityManager->persist($m);
+                $this->entityManager->flush();
+            } catch (\Exception $e) {
+                dump($data);
+                throw $e;
+            }
+
+            $io->progressAdvance();
+        }
+
+        $io->progressFinish();
+        $io->success(sprintf('%d movies imported', count($movies)));
     }
 
-    private function getYamlSeriesData()
+    private function getYmlSeriesData(string $filename)
     {
-        $fileString = file_get_contents(__DIR__ . '/../Resources/series.yaml');
+        $fileString = file_get_contents(__DIR__ . '/../Resources/' . $filename);
 
         return Yaml::parse($fileString);
     }
 
-    private function getSeriesTypes(array $types): array
+    private function getSeriesTypes(array $types) : array
     {
         $seriesTypesMap = [];
 
-        foreach ($types as $key => $name) {
+        foreach ($types as $key => $data) {
             $type = $this->seriesTypeRepository->findOneBy(['importCode' => $key]);
 
             if (null === $type) {
                 $type = (new SeriesType())->setImportCode($key);
             }
 
-            $type->setName($name);
+            $type->setName($data['name']);
             $this->entityManager->persist($type);
 
-            $seriesTypesMap[$key] = $type;
+            $seriesTypesMap[ $key ] = $type;
         }
 
         $this->entityManager->flush();
@@ -129,11 +153,11 @@ class SeriesImportCommand extends Command
         return $seriesTypesMap;
     }
 
-    private function getCategories(array $categories): array
+    private function getCategories(array $categories) : array
     {
         $categoriesMap = [];
 
-        foreach ($categories as $key => $name) {
+        foreach ($categories as $key => $data) {
             /** @var Category $category */
             $category = $this->categoryRepository->findOneBy(['slug' => $key]);
 
@@ -141,10 +165,10 @@ class SeriesImportCommand extends Command
                 $category = (new Category())->setSlug($key);
             }
 
-            $category->setName($name);
+            $category->setName($data['name']);
             $this->entityManager->persist($category);
 
-            $categoriesMap[$key] = $category;
+            $categoriesMap[ $key ] = $category;
         }
 
         $this->entityManager->flush();
@@ -157,7 +181,8 @@ class SeriesImportCommand extends Command
         array $data,
         array $seriesTypesMap,
         array $categoriesMap
-    ): Series {
+    ) : Series
+    {
         $series = $this->seriesRepository->findOneByImportCode($importCode);
 
         if (null === $series) {
@@ -171,11 +196,11 @@ class SeriesImportCommand extends Command
             ->setLocale($data['locale'])
             ->setImage($data['image'])
             ->setDescription($data['description'])
-            ->setType($seriesTypesMap[$typeId])
+            ->setType($seriesTypesMap[ $typeId ])
             ->setTags($data['tags'] ?? null);
 
         foreach ($data['categories'] ?? [] as $category) {
-            $series->addCategory($categoriesMap[$category]);
+            $series->addCategory($categoriesMap[ $category ]);
         }
 
         foreach ($data['seasons'] as $index => $seasonData) {
@@ -188,7 +213,52 @@ class SeriesImportCommand extends Command
         return $series;
     }
 
-    private function getSeason(string $importCode, int $index, array $data): Season
+    private function getMovie(
+        string $importCode,
+        array $data,
+        array $seriesTypesMap,
+        array $categoriesMap
+    ) : Series
+    {
+        $series = $this->seriesRepository->findOneByImportCode($importCode);
+
+        if (null === $series) {
+            $series = (new Series())->setImportCode($importCode);
+        }
+
+        $typeId = $data['type'];
+
+        $series
+            ->setName($data['name'])
+            ->setLocale($data['locale'])
+            ->setImage($data['image'])
+            ->setDescription($data['description'])
+            ->setType($seriesTypesMap[ $typeId ])
+            ->setTags($data['tags'] ?? null);
+
+        foreach ($data['categories'] ?? [] as $category) {
+            $series->addCategory($categoriesMap[ $category ]);
+        }
+
+        $seasonData = [
+            'name' => '',
+            'episodes' => [
+                [
+                    'name' => $data['name'],
+                    'code' => $data['code']
+                ]
+            ]
+        ];
+
+        $season = $this->getSeason($importCode, 0, $seasonData);
+        $series->addSeason($season);
+
+        $this->entityManager->persist($series);
+
+        return $series;
+    }
+
+    private function getSeason(string $importCode, int $index, array $data) : Season
     {
         $importCode = sprintf('%s_%s', $importCode, $index);
         $season     = $this->seasonRepository->findOneBy(['importCode' => $importCode]);
@@ -211,7 +281,7 @@ class SeriesImportCommand extends Command
         return $season;
     }
 
-    private function getEpisode(string $importCode, int $index, array $data): Episode
+    private function getEpisode(string $importCode, int $index, array $data) : Episode
     {
         $importCode = sprintf('%s_%s', $importCode, $index);
         $episode    = $this->episodeRepository->findOneBy(['importCode' => $importCode]);
