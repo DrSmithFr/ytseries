@@ -111,7 +111,7 @@ class SearchService
         $properties = [];
 
         $properties['id'] = [
-            'type' => 'integer',
+            'type' => 'keyword',
         ];
 
         $properties['type'] = [

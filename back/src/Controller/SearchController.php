@@ -153,7 +153,7 @@ class SearchController extends BaseAdminController
         SeriesRepository $repository
     )
     {
-        $series = $repository->getFullyLoadedSeriesById($request->get('id', null));
+        $series = $repository->getFullyLoadedSeriesByImportCode($request->get('id', null));
 
         if (null === $series) {
             return new JsonResponse(

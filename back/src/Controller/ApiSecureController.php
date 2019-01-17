@@ -61,7 +61,7 @@ class ApiSecureController extends BaseAdminController
         EntityManagerInterface $entityManager
     )
     {
-        $series = $seriesRepository->findOneById($request->get('series_id'));
+        $series = $seriesRepository->findOneByImportCode($request->get('series_id'));
 
         if (null === $series) {
             return new JsonResponse(
@@ -111,7 +111,7 @@ class ApiSecureController extends BaseAdminController
         SeriesRepository $seriesRepository
     )
     {
-        $series = $seriesRepository->findOneById($request->get('series_id'));
+        $series = $seriesRepository->findOneByImportCode($request->get('series_id'));
 
         if (null === $series) {
             return new JsonResponse(
@@ -158,7 +158,7 @@ class ApiSecureController extends BaseAdminController
             $series = $historic->getSeries();
 
             $result[] = [
-                'id' => $series->getId(),
+                'id' => $series->getImportCode(),
                 'name' => $series->getName(),
                 'image' => $series->getImage(),
                 'description' => $series->getDescription()

@@ -70,6 +70,37 @@ class SeriesRepository extends ServiceEntityRepository
             ->getQuery()
             ->getOneOrNullResult();
     }
+    /**
+     * @param string|null $importCode
+     * @return Series|null
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function getFullyLoadedSeriesByImportCode(?string $importCode):? Series
+    {
+        if (null === $importCode) {
+            return null;
+        }
+
+        return $this
+            ->getEntityManager()
+            ->createQueryBuilder()
+            ->addSelect('series')
+            ->addSelect('type')
+            ->addSelect('season')
+            ->addSelect('episode')
+            ->addSelect('category')
+            ->from(Series::class, 'series')
+            ->leftJoin('series.type', 'type')
+            ->leftJoin('series.seasons', 'season')
+            ->leftJoin('season.episodes', 'episode')
+            ->leftJoin('series.categories', 'category')
+            ->where('series.importCode = :importCode')
+            ->setParameter('importCode', $importCode)
+            ->addOrderBy('season.rank', 'ASC')
+            ->addOrderBy('episode.rank', 'ASC')
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 
     public function findOneById(int $id):? Series
     {
@@ -77,6 +108,15 @@ class SeriesRepository extends ServiceEntityRepository
             ->createQueryBuilder('s')
             ->where('s.id = :id')
             ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+    public function findOneByImportCode(string $importCode):? Series
+    {
+        return $this
+            ->createQueryBuilder('s')
+            ->where('s.importCode = :importCode')
+            ->setParameter('importCode', $importCode)
             ->getQuery()
             ->getOneOrNullResult();
     }

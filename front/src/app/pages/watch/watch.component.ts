@@ -115,7 +115,7 @@ export class WatchComponent implements OnInit, OnDestroy {
     loadHistoric() {
         this
             .watchService
-            .getHistoric(this.series.id)
+            .getHistoric(this.series.import_code)
             .subscribe(historic => {
                 const playlist = [];
                 for (const season of this.series.seasons) {
@@ -142,7 +142,7 @@ export class WatchComponent implements OnInit, OnDestroy {
 
         this
             .watchService
-            .addHistoric(this.series.id, this.currentEpisode.id, this.video.currentTime)
+            .addHistoric(this.series.import_code, this.currentEpisode.id, this.video.currentTime)
             .subscribe(() => {
             });
     }

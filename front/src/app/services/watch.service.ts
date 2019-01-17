@@ -15,15 +15,15 @@ export class WatchService {
   constructor(private http: HttpClient) {
   }
 
-  seriesInformation(id: number): Observable<SeriesModel> {
+  seriesInformation(id: string): Observable<SeriesModel> {
     return this.http.get<SeriesModel>(API_URL + '/open/series/' + id);
   }
 
-  getHistoric(seriesId: number): Observable<HistoricModel> {
+  getHistoric(seriesId: string): Observable<HistoricModel> {
     return this.http.get<HistoricModel>(API_URL + '/api/get_historic/' + seriesId);
   }
 
-  addHistoric(seriesId: number, episodeId: number, timeCode: number): Observable<void> {
+  addHistoric(seriesId: string, episodeId: number, timeCode: number): Observable<void> {
     return this.http.post<void>(
       API_URL + '/api/add_to_historic',
       {
