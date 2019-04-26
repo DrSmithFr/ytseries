@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# loading all hooks helper
+source ./hooks/bin/loader.sh
+
+# get all modified files array
+FILES=$(git_modified_files)
+
+display inspect
+
+# check for merge tags against all files
+./hooks/src/check-merge-tags.sh ${FILES}
+[[ $? -ne 0 ]] && exit 1
+
+# check for dump tags against all php files
+./hooks/src/check-dump.sh ${FILES}
+[[ $? -ne 0 ]] && exit 1
+
+# check for console.log against JS/TS files
+./hooks/src/check-console-log.sh ${FILES}
+[[ $? -ne 0 ]] && exit 1
+
+# getting all php files affected by commit
+PHPs=$(git_modified_files_by_ext "php")
+
+# phpcs must be filled with relative path to back/ (running within container)
+PHPs=$(str_remove_prefix "back/" ${PHPs})
+
+PHPCS=0
+if [[ "$PHPs" != "" ]]
+then
+    # check php syntax
+    display phpcs && \
+    ./docker.sh phpcs ${PHPs} && \
+    display success "PSR-2 Syntax checked"
+
+    PHPCS=$?
+fi
+
+Ts=$(git_modified_files_by_ext "ts")
+
+TSLINT=0
+if [[ "$Ts" != "" ]]
+then
+    display tslint && \
+    ./front/node_modules/tslint/bin/tslint --config front/tslint.json ${Ts} && \
+    display success "Javascript syntax checked"
+
+    TSLINT=$?
+fi
+
+if [[ $(( $PHPCS + $TSLINT )) -ne 0 ]]
+then
+    # display fix your code smile
+    exit 1
+fi
+
+# Post checkup validation
+display final && \
+./hooks/src/ask-validation.sh ${FILES}
+exit $?

@@ -27,10 +27,7 @@ function psql() {
 }
 
 function install() {
-    #
-    # Adding git hook
-    #
-    #ln -sf $(pwd)/hooks/pre-commit .git/hooks/pre-commit
+    ln -sf $(pwd)/hooks/pre-commit .git/hooks/pre-commit
 
     #
     # starting docker containers
@@ -60,6 +57,7 @@ function install() {
 }
 
 function reload() {
+    ln -sf $(pwd)/hooks/pre-commit .git/hooks/pre-commit
     docker-compose kill && \
     docker-compose rm -f && \
     docker-compose build && \
