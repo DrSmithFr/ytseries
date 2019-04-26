@@ -1,11 +1,11 @@
 Installation
 ============
 
- 1) Install the latest version of docker.
+ 1) Install the latest version of docker
  
- 2) Install the latest version of docker-compose.
+ 2) Install the latest version of docker-compose
 
- 3) Then run the `./bin/docker install.sh` script.
+ 3) Then run the `./bin/docker install.sh` script
  
  4) Follow back/README.md to generate your jwt keys
 
