@@ -4,21 +4,25 @@ import { ValidationErrors } from '@angular/forms/src/directives/validators';
 import { UserService } from '../../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
-@Component({
-  selector: 'app-password-reset',
-  templateUrl: './password-reset.component.html',
-  styleUrls: ['./password-reset.component.css']
-})
+@Component(
+  {
+    selector: 'app-password-reset',
+    templateUrl: './password-reset.component.html',
+    styleUrls: ['./password-reset.component.css']
+  }
+)
 export class PasswordResetComponent implements OnInit {
 
-  initialized: boolean = false;
-  tokenValidity: boolean = false;
+  initialized: boolean     = false;
+  tokenValidity: boolean   = false;
   passwordUpdated: boolean = false;
 
-  form = this.fb.group({
-    password: ['', Validators.required],
-    repeated_password: ['', [Validators.required, this.isPasswordRepeated(this)]],
-  });
+  form = this.fb.group(
+    {
+      password: ['', Validators.required],
+      repeated_password: ['', [Validators.required, this.isPasswordRepeated(this)]],
+    }
+  );
 
   constructor(
     private fb: FormBuilder,
@@ -39,7 +43,7 @@ export class PasswordResetComponent implements OnInit {
       .userService
       .isPasswordResetTokenValid(token)
       .subscribe(validity => {
-        this.initialized = true;
+        this.initialized   = true;
         this.tokenValidity = validity;
       });
   }

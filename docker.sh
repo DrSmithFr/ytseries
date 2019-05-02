@@ -31,6 +31,10 @@ function psql() {
      docker-compose exec --user="${YOUR_ID}:${DOCKER_GID}" postgres /bin/sh -c "psql --dbname=symfony $*"
 }
 
+function tslint() {
+    ./front/node_modules/tslint/bin/tslint --project ./front
+}
+
 function install() {
     #
     # Adding git hook
