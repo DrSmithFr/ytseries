@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMS;
 use Gedmo\Blameable\Traits\BlameableEntity;
-use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
@@ -48,6 +51,7 @@ class Season
     protected $importCode;
 
     /**
+     * @var Series|null
      * @JMS\Exclude()
      * @ORM\ManyToOne(targetEntity="App\Entity\Series", inversedBy="seasons", cascade={"persist"})
      * @ORM\JoinColumn(name="series_id", referencedColumnName="id")
@@ -55,9 +59,9 @@ class Season
     protected $series;
 
     /**
-     * @var ArrayCollection|Episode[]
+     * @var Collection|Episode[]
      * @ORM\OneToMany(targetEntity="App\Entity\Episode", mappedBy="season", cascade={"persist", "remove"})
-     * @JMS\Type("ArrayCollection<App\Entity\Episode>")
+     * @JMS\Type("Collection<App\Entity\Episode>")
      */
     protected $episodes;
 
@@ -85,28 +89,63 @@ class Season
     }
 
     /**
-     * @return null|string
+     * @return int|null
      */
-    public function getName()
+    public function getRank(): ?int
+    {
+        return $this->rank;
+    }
+
+    /**
+     * @param int|null $rank
+     * @return self
+     */
+    public function setRank(?int $rank): self
+    {
+        $this->rank = $rank;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getName(): ?string
     {
         return $this->name;
     }
 
     /**
-     * @param null|string $name
-     * @return $this
+     * @param string|null $name
+     * @return self
      */
-    public function setName($name)
+    public function setName(?string $name): self
     {
         $this->name = $name;
+        return $this;
+    }
 
+    /**
+     * @return string|null
+     */
+    public function getImportCode(): ?string
+    {
+        return $this->importCode;
+    }
+
+    /**
+     * @param string|null $importCode
+     * @return self
+     */
+    public function setImportCode(?string $importCode): self
+    {
+        $this->importCode = $importCode;
         return $this;
     }
 
     /**
      * @return Series|null
      */
-    public function getSeries():? Series
+    public function getSeries(): ?Series
     {
         return $this->series;
     }
@@ -122,69 +161,30 @@ class Season
     }
 
     /**
-     * @return int|null
+     * @return Episode[]|Collection
      */
-    public function getRank()
-    {
-        return $this->rank;
-    }
-
-    /**
-     * @param int|null $rank
-     * @return $this
-     */
-    public function setRank($rank)
-    {
-        $this->rank = $rank;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getImportCode()
-    {
-        return $this->importCode;
-    }
-
-    /**
-     * @param mixed $importCode
-     * @return $this
-     */
-    public function setImportCode($importCode)
-    {
-        $this->importCode = $importCode;
-
-        return $this;
-    }
-
-    /**
-     * @return Episode[]|ArrayCollection
-     */
-    public function getEpisodes()
+    public function getEpisodes(): Collection
     {
         return $this->episodes;
     }
 
     /**
-     * @param Episode[]|ArrayCollection $episodes
-     * @return $this
+     * @param Episode[]|Collection $episodes
+     * @return self
      */
-    public function setEpisodes($episodes)
+    public function setEpisodes(Collection $episodes): self
     {
         $this->episodes = $episodes;
-
         return $this;
     }
 
     /**
      * @param Episode $episode
-     * @return $this
+     * @return self
      */
-    public function addEpisode(Episode $episode)
+    public function addEpisode(Episode $episode): self
     {
-        if (! $this->episodes->contains($episode)) {
+        if (!$this->episodes->contains($episode)) {
             $this->episodes->add($episode);
             $episode->setSeason($this);
         }
@@ -194,9 +194,9 @@ class Season
 
     /**
      * @param Episode $episode
-     * @return $this
+     * @return self
      */
-    public function removeEpisode(Episode $episode)
+    public function removeEpisode(Episode $episode): self
     {
         $this->episodes->removeElement($episode);
         $episode->setSeason(null);
@@ -206,6 +206,6 @@ class Season
 
     public function __toString()
     {
-        return $this->name;
+        return $this->name ?? '';
     }
 }

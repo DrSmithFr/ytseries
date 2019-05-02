@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use App\Entity\User;
 use App\Enum\SecurityRoleEnum;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
 
@@ -14,9 +17,9 @@ class AdminController extends BaseAdminController
     /**
      * @Route("dashboard", name="admin_dashboard")
      * @param EntityManagerInterface $entityManager
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
-    public function dashboardAction(EntityManagerInterface $entityManager)
+    public function dashboardAction(EntityManagerInterface $entityManager): Response
     {
         $userArray = $entityManager->getRepository(User::class)->findAll();
 
@@ -24,12 +27,12 @@ class AdminController extends BaseAdminController
         $users = new ArrayCollection($userArray);
 
         /** @var ArrayCollection|User[] $admin */
-        $admin = $users->filter(function (User $user) {
-            return in_array(SecurityRoleEnum::ADMIN, $user->getRoles());
+        $admin = $users->filter(static function (User $user) {
+            return in_array(SecurityRoleEnum::ADMIN, $user->getRoles(), true);
         });
 
         $loads = array_map(
-            function (float $f) {
+            static function (float $f) {
                 return floor($f * 100) / 100;
             },
             sys_getloadavg()
@@ -39,18 +42,18 @@ class AdminController extends BaseAdminController
             'load'         => $loads,
             'user_count'   => $users->count(),
             'admin_count'  => $admin->count(),
-            'memory_usage' => $this->getServerMemoryUsage()
+            'memory_usage' => $this->getServerMemoryUsage(),
         ]);
     }
 
     private function getServerMemoryUsage(): float
     {
-        $free        = shell_exec('free');
-        $free        = (string)trim($free);
-        $freeArr     = explode("\n", $free);
-        $mem         = explode(" ", $freeArr[1]);
-        $mem         = array_filter($mem);
-        $mem         = array_merge($mem);
+        $free = shell_exec('free');
+        $free = (string)trim($free);
+        $freeArr = explode("\n", $free);
+        $mem = explode(" ", $freeArr[1]);
+        $mem = array_filter($mem);
+        $mem = array_merge($mem);
         $memoryUsage = $mem[2] / $mem[1] * 100;
 
         return floor($memoryUsage * 100) / 100;

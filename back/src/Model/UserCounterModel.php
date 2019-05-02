@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Model;
 
 class UserCounterModel
@@ -10,7 +12,7 @@ class UserCounterModel
     /**
      * @return int
      */
-    public function getTotal() : int
+    public function getTotal(): int
     {
         return $this->total;
     }
@@ -28,7 +30,7 @@ class UserCounterModel
     /**
      * @return int
      */
-    public function getActive() : int
+    public function getActive(): int
     {
         return $this->active;
     }

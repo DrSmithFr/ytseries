@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 use Gedmo\Blameable\Traits\BlameableEntity;
@@ -26,6 +29,7 @@ class User extends BaseUser
     protected $id;
 
     /**
+     * @var Collection|Group[]
      * @ORM\ManyToMany(targetEntity="App\Entity\Group")
      * @ORM\JoinTable(
      *  name="mtm_user_to_group",
@@ -40,8 +44,8 @@ class User extends BaseUser
     protected $groups;
 
     /**
+     * @var Collection|Historic[]
      * @ORM\OneToMany(targetEntity="App\Entity\Historic", mappedBy="user", cascade={"remove"})
-     * @var ArrayCollection
      */
     private $historics;
 
@@ -51,14 +55,6 @@ class User extends BaseUser
         $this->historics = new ArrayCollection();
 
         parent::__construct();
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     /**
@@ -72,36 +68,36 @@ class User extends BaseUser
     }
 
     /**
-     * @return ArrayCollection
+     * @return Collection
      */
-    public function getGroups()
+    public function getGroups(): Collection
     {
         return $this->groups;
     }
 
     /**
-     * @param ArrayCollection $groups
+     * @param Collection $groups
      * @return self
      */
-    public function setGroups($groups): self
+    public function setGroups(Collection $groups): self
     {
         $this->groups = $groups;
         return $this;
     }
 
     /**
-     * @return ArrayCollection
+     * @return Collection
      */
-    public function getHistorics() : ArrayCollection
+    public function getHistorics(): Collection
     {
         return $this->historics;
     }
 
     /**
-     * @param ArrayCollection $historics
-     * @return $this
+     * @param Collection $historics
+     * @return self
      */
-    public function setHistorics(ArrayCollection $historics)
+    public function setHistorics(Collection $historics): self
     {
         $this->historics = $historics;
 
@@ -109,12 +105,12 @@ class User extends BaseUser
     }
 
     /**
-     * @param mixed $historic
-     * @return $this
+     * @param Historic $historic
+     * @return self
      */
-    public function addHistoric($historic)
+    public function addHistoric(Historic $historic): self
     {
-        if (! $this->historics->contains($historic)) {
+        if (!$this->historics->contains($historic)) {
             $this->historics->add($historic);
             $historic->setUser($this);
         }
@@ -123,10 +119,10 @@ class User extends BaseUser
     }
 
     /**
-     * @param mixed $historic
-     * @return $this
+     * @param Historic $historic
+     * @return self
      */
-    public function removeHistoric($historic)
+    public function removeHistoric(Historic $historic): self
     {
         $this->historics->removeElement($historic);
         $historic->setUser(null);

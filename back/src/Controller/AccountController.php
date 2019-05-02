@@ -1,12 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
-use App\Entity\User;
 use App\Repository\UserRepository;
+use Doctrine\ORM\NonUniqueResultException;
+use Exception;
 use FOS\UserBundle\Model\UserInterface;
 use FOS\UserBundle\Model\UserManagerInterface;
 use FOS\UserBundle\Util\TokenGeneratorInterface;
+use Swift_Mailer;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,16 +23,16 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminContr
 class AccountController extends BaseAdminController
 {
     /**
-     * @Route("/password_reset_request", name="api_password_reset_request")
      * @param Request                 $request
-     * @param \Swift_Mailer           $mailer
+     * @param Swift_Mailer            $mailer
      * @param UserManagerInterface    $userManager
      * @param TokenGeneratorInterface $tokenGenerator
      * @return Response | JsonResponse
+     * @throws Exception
      */
     public function passwordResetRequestAction(
         Request $request,
-        \Swift_Mailer $mailer,
+        Swift_Mailer $mailer,
         UserManagerInterface $userManager,
         TokenGeneratorInterface $tokenGenerator
     ) {
@@ -40,7 +44,7 @@ class AccountController extends BaseAdminController
         if (null === $user) {
             return new JsonResponse(
                 [
-                    'error' => 'User not recognised'
+                    'error' => 'User not recognised',
                 ],
                 JsonResponse::HTTP_FORBIDDEN
             );
@@ -68,7 +72,7 @@ class AccountController extends BaseAdminController
                 $this->renderView(
                     'emails/password_reset.html.twig',
                     [
-                        'user' => $user
+                        'user' => $user,
                     ]
                 ),
                 'text/html'
@@ -78,7 +82,7 @@ class AccountController extends BaseAdminController
 
         return new JsonResponse(
             [
-                'info' => 'mail send'
+                'info' => 'mail send',
             ],
             JsonResponse::HTTP_ACCEPTED
         );
@@ -90,14 +94,14 @@ class AccountController extends BaseAdminController
      * @param UserRepository       $userRepository
      * @param UserManagerInterface $userManager
      * @return JsonResponse
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NonUniqueResultException
      */
     public function passwordResetAction(
         Request $request,
         UserRepository $userRepository,
         UserManagerInterface $userManager
-    ) {
-        $token    = $request->get('token');
+    ): JsonResponse {
+        $token = $request->get('token');
         $password = $request->get('new_password');
 
         $user = $userRepository->getUserByPasswordResetToken($token);
@@ -105,7 +109,7 @@ class AccountController extends BaseAdminController
         if (null === $user) {
             return new JsonResponse(
                 [
-                    'error' => 'token not valid.'
+                    'error' => 'token not valid.',
                 ],
                 JsonResponse::HTTP_BAD_REQUEST
             );
@@ -131,19 +135,19 @@ class AccountController extends BaseAdminController
      * @param Request        $request
      * @param UserRepository $userRepository
      * @return JsonResponse
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NonUniqueResultException
      */
     public function isPasswordResetTokenValidAction(
         Request $request,
         UserRepository $userRepository
-    ) {
+    ): JsonResponse {
         $token = $request->get('token');
-        $user  = $userRepository->getUserByPasswordResetToken($token);
+        $user = $userRepository->getUserByPasswordResetToken($token);
 
         if (null === $user) {
             return new JsonResponse(
                 [
-                    'error' => 'token not valid.'
+                    'error' => 'token not valid.',
                 ],
                 JsonResponse::HTTP_BAD_REQUEST
             );

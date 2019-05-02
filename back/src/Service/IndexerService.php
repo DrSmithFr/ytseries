@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Service;
 
-use App\Entity\Asset;
 use App\Entity\Series;
 use App\Repository\SeriesRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Elastica\Document;
 
 class IndexerService
@@ -22,9 +24,9 @@ class IndexerService
     /**
      * @param Series $series
      * @return Document|null
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NonUniqueResultException
      */
-    public function buildSeriesDocument(Series $series):? Document
+    public function buildSeriesDocument(Series $series): ?Document
     {
         $series = $this->repository->getFullyLoadedSeriesById($series->getId());
 
@@ -62,8 +64,7 @@ class IndexerService
                 'seasons'     => $series->getSeasons()->count(),
                 'episodes'    => count($episodes),
             ],
-            "series" // Types are deprecated, to be removed in Elastic 7
+            'series' // Types are deprecated, to be removed in Elastic 7
         );
     }
-
 }

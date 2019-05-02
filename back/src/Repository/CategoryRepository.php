@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Repository;
 
 use App\Entity\Category;
@@ -8,6 +10,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
  * Class CategoryRepository
+ *
  * @package App\Repository
  * @codeCoverageIgnore
  */
@@ -15,6 +18,7 @@ class CategoryRepository extends ServiceEntityRepository
 {
     /**
      * UserRepository constructor.
+     *
      * @param RegistryInterface $registry
      */
     public function __construct(RegistryInterface $registry)

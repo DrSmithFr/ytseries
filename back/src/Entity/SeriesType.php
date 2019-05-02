@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMS;
 use Gedmo\Blameable\Traits\BlameableEntity;
@@ -41,7 +44,7 @@ class SeriesType
     protected $importCode;
 
     /**
-     * @var ArrayCollection|Series[]
+     * @var Collection|Series[]
      * @ORM\OneToMany(targetEntity="App\Entity\Series", mappedBy="type")
      * @JMS\Exclude()
      */
@@ -71,40 +74,56 @@ class SeriesType
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
 
     /**
-     * @param null|string $name
-     * @return $this
+     * @param string|null $name
+     * @return self
      */
-    public function setName($name)
+    public function setName(?string $name): self
     {
         $this->name = $name;
-
         return $this;
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
-    public function getImportCode()
+    public function getImportCode(): ?string
     {
         return $this->importCode;
     }
 
     /**
-     * @param null|string $importCode
-     * @return $this
+     * @param string|null $importCode
+     * @return self
      */
-    public function setImportCode($importCode)
+    public function setImportCode(?string $importCode): self
     {
         $this->importCode = $importCode;
+        return $this;
+    }
 
+    /**
+     * @return Series[]|Collection
+     */
+    public function getSeries(): Collection
+    {
+        return $this->series;
+    }
+
+    /**
+     * @param Series[]|Collection $series
+     * @return self
+     */
+    public function setSeries(Collection $series): self
+    {
+        $this->series = $series;
         return $this;
     }
 
@@ -112,7 +131,7 @@ class SeriesType
      * @param Series $series
      * @return self
      */
-    public function addSeries(Series $series)
+    public function addSeries(Series $series): self
     {
         $this->series->add($series);
         $series->setType($this);
@@ -123,34 +142,15 @@ class SeriesType
      * @param Series $series
      * @return self
      */
-    public function removeSeries(Series $series)
+    public function removeSeries(Series $series): self
     {
         $this->series->removeElement($series);
         $series->setType(null);
         return $this;
     }
 
-
-    /**
-     * @return Series[]|ArrayCollection
-     */
-    public function getSeries()
-    {
-        return $this->series;
-    }
-
-    /**
-     * @param Series[]|ArrayCollection $series
-     * @return self
-     */
-    public function setSeries($series): self
-    {
-        $this->series = $series;
-        return $this;
-    }
-
     public function __toString()
     {
-        return $this->name;
+        return $this->name ?? '';
     }
 }

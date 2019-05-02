@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -71,6 +73,7 @@ class Episode
     protected $importCode;
 
     /**
+     * @var Season|null
      * @JMS\Exclude()
      * @ORM\ManyToOne(targetEntity="App\Entity\Season", inversedBy="episodes", cascade={"persist"})
      * @ORM\JoinColumn(name="season_id", referencedColumnName="id")
@@ -96,116 +99,110 @@ class Episode
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param null|string $name
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getDuration()
-    {
-        return $this->duration;
-    }
-
-    /**
-     * @param int|null $duration
-     * @return $this
-     */
-    public function setDuration($duration)
-    {
-        $this->duration = $duration;
-
-        return $this;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
+    public function getCode(): ?string
     {
         return $this->code;
     }
 
     /**
-     * @param null|string $code
-     * @return $this
+     * @param string|null $code
+     * @return self
      */
-    public function setCode($code)
+    public function setCode(?string $code): self
     {
         $this->code = $code;
-
         return $this;
     }
 
     /**
      * @return int|null
      */
-    public function getRank()
+    public function getRank(): ?int
     {
         return $this->rank;
     }
 
     /**
      * @param int|null $rank
-     * @return $this
+     * @return self
      */
-    public function setRank($rank)
+    public function setRank(?int $rank): self
     {
         $this->rank = $rank;
-
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return string|null
      */
-    public function getImportCode()
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string|null $name
+     * @return self
+     */
+    public function setName(?string $name): self
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getDuration(): ?int
+    {
+        return $this->duration;
+    }
+
+    /**
+     * @param int|null $duration
+     * @return self
+     */
+    public function setDuration(?int $duration): self
+    {
+        $this->duration = $duration;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getImportCode(): ?string
     {
         return $this->importCode;
     }
 
     /**
-     * @param mixed $importCode
-     * @return $this
+     * @param string|null $importCode
+     * @return self
      */
-    public function setImportCode($importCode)
+    public function setImportCode(?string $importCode): self
     {
         $this->importCode = $importCode;
-
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return Season|null
      */
-    public function getSeason()
+    public function getSeason(): ?Season
     {
         return $this->season;
     }
 
     /**
-     * @param mixed $season
-     * @return $this
+     * @param Season|null $season
+     * @return self
      */
-    public function setSeason($season)
+    public function setSeason(?Season $season): self
     {
         $this->season = $season;
-
         return $this;
     }
 

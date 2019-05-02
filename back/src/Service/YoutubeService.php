@@ -1,18 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Service;
 
 use App\Entity\Episode;
+use DateInterval;
+use Exception;
 use Madcoda\Youtube\Youtube;
 
 class YoutubeService
 {
-
-    /**
-     * @var string
-     */
-    private $apiKey;
-
     /**
      * @var
      */
@@ -20,21 +18,22 @@ class YoutubeService
 
     /**
      * YoutubeService constructor.
+     *
      * @param string $apiKey
-     * @throws \Exception
+     * @throws Exception
      */
     public function __construct(string $apiKey)
     {
-        $this->apiKey  = $apiKey;
         $this->youtube = new Youtube(['key' => $apiKey]);
     }
 
     /**
-     * @param string $code
+     * @param string      $code
+     * @param string|null $page
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
-    public function getPlaylistInfo(string $code, string $page = null) : array
+    public function getPlaylistInfo(string $code, string $page = null): array
     {
         $params = [
             'playlistId' => $code,
@@ -47,7 +46,7 @@ class YoutubeService
         }
 
         $infos = $this->youtube->getPlaylistItemsByPlaylistIdAdvanced($params, true);
-        $data  = [];
+        $data = [];
 
         foreach ($infos['results'] as $info) {
             $data[] = [
@@ -63,13 +62,18 @@ class YoutubeService
         return $data;
     }
 
-    public function getVideoDuration(Episode $episode):? int
+    /**
+     * @param Episode $episode
+     * @return int|null
+     * @throws Exception
+     */
+    public function getVideoDuration(Episode $episode): ?int
     {
         $API_URL = $this->youtube->getApi('videos.list');
-        $params = array(
-            'id' => $episode->getCode(),
-            'part' => 'contentDetails'
-        );
+        $params = [
+            'id'   => $episode->getCode(),
+            'part' => 'contentDetails',
+        ];
 
         $apiData = $this->youtube->api_get($API_URL, $params);
         $data = $this->youtube->decodeSingle($apiData);
@@ -79,9 +83,9 @@ class YoutubeService
         }
 
         $duration = $data->contentDetails->duration;
-        $hours = (new \DateInterval($duration))->h;
-        $minutes = (new \DateInterval($duration))->i;
-        $seconds  = (new \DateInterval($duration))->s;
+        $hours = (new DateInterval($duration))->h;
+        $minutes = (new DateInterval($duration))->i;
+        $seconds = (new DateInterval($duration))->s;
 
         return $hours * 3600 + $minutes * 60 + $seconds;
     }
