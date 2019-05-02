@@ -1,16 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Enum;
+
+use ReflectionClass;
+use ReflectionException;
 
 abstract class Enum
 {
     /**
      * @var array
      */
-    private static $constCacheArray = null;
+    private static $constCacheArray;
 
     /**
      * Enum constructor.
+     *
      * @codeCoverageIgnore
      */
     private function __construct()
@@ -20,17 +26,18 @@ abstract class Enum
 
     /**
      * @return array
+     * @throws ReflectionException
      */
     public static function getAll(): array
     {
-        if (self::$constCacheArray == null) {
+        if (self::$constCacheArray === null) {
             self::$constCacheArray = [];
         }
 
-        $calledClass = get_called_class();
+        $calledClass = static::class;
 
         if (!array_key_exists($calledClass, self::$constCacheArray)) {
-            $reflect                             = new \ReflectionClass($calledClass);
+            $reflect = new ReflectionClass($calledClass);
             self::$constCacheArray[$calledClass] = $reflect->getConstants();
         }
 
@@ -38,8 +45,9 @@ abstract class Enum
     }
 
     /**
-     * @param mixed $name
+     * @param string $name
      * @return bool
+     * @throws ReflectionException
      */
     public static function isValidName(string $name): bool
     {
@@ -48,8 +56,9 @@ abstract class Enum
     }
 
     /**
-     * @param mixed $value
+     * @param string $value
      * @return bool
+     * @throws ReflectionException
      */
     public static function isValidValue(string $value): bool
     {

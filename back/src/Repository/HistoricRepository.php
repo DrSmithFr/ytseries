@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Repository;
 
 use App\Entity\Historic;
 use App\Entity\Series;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -24,6 +27,12 @@ class HistoricRepository extends ServiceEntityRepository
         parent::__construct($registry, Historic::class);
     }
 
+    /**
+     * @param User   $user
+     * @param Series $series
+     * @return Historic|null
+     * @throws NonUniqueResultException
+     */
     public function getHistoricByUserAndSeries(User $user, Series $series):? Historic
     {
         return $this

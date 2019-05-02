@@ -2,19 +2,23 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 
-@Component({
-  selector: 'app-password-forgot',
-  templateUrl: './password-forgot.component.html',
-  styleUrls: ['./password-forgot.component.css']
-})
+@Component(
+  {
+    selector: 'app-password-forgot',
+    templateUrl: './password-forgot.component.html',
+    styleUrls: ['./password-forgot.component.css']
+  }
+)
 export class PasswordForgotComponent {
 
   initialize: boolean = false;
-  mailSend: boolean = false;
+  mailSend: boolean   = false;
 
-  form = this.fb.group({
-    username: ['', Validators.required],
-  });
+  form = this.fb.group(
+    {
+      username: ['', Validators.required],
+    }
+  );
 
   constructor(
     private fb: FormBuilder,
@@ -30,7 +34,7 @@ export class PasswordForgotComponent {
       .requestPasswordReset(username)
       .subscribe(mailSend => {
         this.initialize = true;
-        this.mailSend = mailSend;
+        this.mailSend   = mailSend;
       });
   }
 

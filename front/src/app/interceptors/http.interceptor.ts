@@ -5,12 +5,12 @@ import {
   HttpInterceptor as HttpInterceptorInterface,
   HttpErrorResponse
 } from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {UserService} from '../services/user.service';
-import {tap} from 'rxjs/operators';
-import {Router} from "@angular/router";
-import {MatSnackBar} from "@angular/material";
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { UserService } from '../services/user.service';
+import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Injectable()
 export class HttpInterceptor implements HttpInterceptorInterface {
@@ -45,8 +45,8 @@ export class HttpInterceptor implements HttpInterceptorInterface {
             if (err.status === 401) {
               this.auth.clearSession();
 
-              this.snackBar.open('Session expired', null, { duration: 1500 });
-              this.router.navigate(['/login'], { queryParams: { referer: this.router.url } });
+              this.snackBar.open('Session expired', null, {duration: 1500});
+              this.router.navigate(['/login'], {queryParams: {referer: this.router.url}});
             }
           }
         }

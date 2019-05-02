@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Command;
 
 use App\Repository\SeriesRepository;
@@ -32,8 +34,7 @@ class SeriesIndexationCommand extends Command
     {
         $this
             ->setName('app:series:indexation')
-            ->setDescription('Rebuild the Index and populate it.')
-        ;
+            ->setDescription('Rebuild the Index and populate it.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

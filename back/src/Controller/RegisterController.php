@@ -1,11 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use App\Entity\User;
 use App\Enum\SecurityRoleEnum;
 use App\Repository\UserRepository;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,12 +33,11 @@ class RegisterController extends BaseAdminController
         EntityManagerInterface $entityManager,
         UserRepository $userRepository,
         UserPasswordEncoderInterface $encoder
-    )
-    {
+    ): JsonResponse {
         $email = $request->get('email');
-        $pass  = $request->get('password');
+        $pass = $request->get('password');
 
-        if (! $email || ! $pass) {
+        if (!$email || !$pass) {
             return new JsonResponse(
                 ['error' => 'email or password empty'],
                 JsonResponse::HTTP_BAD_REQUEST

@@ -1,14 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Repository;
 
 use App\Entity\Episode;
 use App\Entity\Series;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
  * Class EpisodeRepository
+ *
  * @package App\Repository
  * @codeCoverageIgnore
  */
@@ -16,6 +20,7 @@ class EpisodeRepository extends ServiceEntityRepository
 {
     /**
      * UserRepository constructor.
+     *
      * @param RegistryInterface $registry
      */
     public function __construct(RegistryInterface $registry)
@@ -25,7 +30,7 @@ class EpisodeRepository extends ServiceEntityRepository
 
     /**
      * @return int
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NonUniqueResultException
      */
     public function countAll(): int
     {
@@ -40,7 +45,13 @@ class EpisodeRepository extends ServiceEntityRepository
         return (int)$count;
     }
 
-    public function findOneBySeriesAndId(Series $series, int $id):? Episode
+    /**
+     * @param Series $series
+     * @param int    $id
+     * @return Episode|null
+     * @throws NonUniqueResultException
+     */
+    public function findOneBySeriesAndId(Series $series, int $id): ?Episode
     {
         return $this
             ->createQueryBuilder('episode')
@@ -51,7 +62,7 @@ class EpisodeRepository extends ServiceEntityRepository
             ->setParameters(
                 [
                     'series' => $series,
-                    'id' => $id
+                    'id'     => $id,
                 ]
             )
             ->getQuery()

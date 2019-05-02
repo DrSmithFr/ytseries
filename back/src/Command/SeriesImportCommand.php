@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Command;
 
 use App\Entity\Category;
@@ -12,9 +14,9 @@ use App\Repository\EpisodeRepository;
 use App\Repository\SeasonRepository;
 use App\Repository\SeriesRepository;
 use App\Repository\SeriesTypeRepository;
-use App\Service\IndexerService;
-use App\Service\SearchService;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\NonUniqueResultException;
+use Exception;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -55,15 +57,14 @@ class SeriesImportCommand extends Command
         SeriesRepository $seriesRepository,
         SeasonRepository $seasonRepository,
         EpisodeRepository $episodeRepository
-    )
-    {
+    ) {
         parent::__construct();
-        $this->entityManager        = $entityManager;
+        $this->entityManager = $entityManager;
         $this->seriesTypeRepository = $seriesTypeRepository;
-        $this->seriesRepository     = $seriesRepository;
-        $this->seasonRepository     = $seasonRepository;
-        $this->episodeRepository    = $episodeRepository;
-        $this->categoryRepository   = $categoryRepository;
+        $this->seriesRepository = $seriesRepository;
+        $this->seasonRepository = $seasonRepository;
+        $this->episodeRepository = $episodeRepository;
+        $this->categoryRepository = $categoryRepository;
     }
 
     protected function configure()
@@ -77,9 +78,9 @@ class SeriesImportCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        $series     = $this->getYmlSeriesData('series.yml');
-        $movies     = $this->getYmlSeriesData('movies.yml');
-        $types      = $this->getYmlSeriesData('types.yml');
+        $series = $this->getYmlSeriesData('series.yml');
+        $movies = $this->getYmlSeriesData('movies.yml');
+        $types = $this->getYmlSeriesData('types.yml');
         $categories = $this->getYmlSeriesData('categories.yml');
 
         $seriesTypeMap = $this->getSeriesTypes($types);
@@ -93,7 +94,7 @@ class SeriesImportCommand extends Command
                 $s = $this->getSeries($key, $data, $seriesTypeMap, $categoriesMap);
                 $this->entityManager->persist($s);
                 $this->entityManager->flush();
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 dump($data);
                 throw $e;
             }
@@ -112,7 +113,7 @@ class SeriesImportCommand extends Command
                 $m = $this->getMovie($key, $data, $seriesTypeMap, $categoriesMap);
                 $this->entityManager->persist($m);
                 $this->entityManager->flush();
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 dump($data);
                 throw $e;
             }
@@ -131,7 +132,7 @@ class SeriesImportCommand extends Command
         return Yaml::parse($fileString);
     }
 
-    private function getSeriesTypes(array $types) : array
+    private function getSeriesTypes(array $types): array
     {
         $seriesTypesMap = [];
 
@@ -145,7 +146,7 @@ class SeriesImportCommand extends Command
             $type->setName($data['name']);
             $this->entityManager->persist($type);
 
-            $seriesTypesMap[ $key ] = $type;
+            $seriesTypesMap[$key] = $type;
         }
 
         $this->entityManager->flush();
@@ -153,7 +154,7 @@ class SeriesImportCommand extends Command
         return $seriesTypesMap;
     }
 
-    private function getCategories(array $categories) : array
+    private function getCategories(array $categories): array
     {
         $categoriesMap = [];
 
@@ -168,7 +169,7 @@ class SeriesImportCommand extends Command
             $category->setName($data['name']);
             $this->entityManager->persist($category);
 
-            $categoriesMap[ $key ] = $category;
+            $categoriesMap[$key] = $category;
         }
 
         $this->entityManager->flush();
@@ -176,13 +177,20 @@ class SeriesImportCommand extends Command
         return $categoriesMap;
     }
 
+    /**
+     * @param string $importCode
+     * @param array  $data
+     * @param array  $seriesTypesMap
+     * @param array  $categoriesMap
+     * @return Series
+     * @throws NonUniqueResultException
+     */
     private function getSeries(
         string $importCode,
         array $data,
         array $seriesTypesMap,
         array $categoriesMap
-    ) : Series
-    {
+    ): Series {
         $series = $this->seriesRepository->findOneByImportCode($importCode);
 
         if (null === $series) {
@@ -196,11 +204,11 @@ class SeriesImportCommand extends Command
             ->setLocale($data['locale'])
             ->setImage($data['image'])
             ->setDescription($data['description'])
-            ->setType($seriesTypesMap[ $typeId ])
+            ->setType($seriesTypesMap[$typeId])
             ->setTags($data['tags'] ?? null);
 
         foreach ($data['categories'] ?? [] as $category) {
-            $series->addCategory($categoriesMap[ $category ]);
+            $series->addCategory($categoriesMap[$category]);
         }
 
         foreach ($data['seasons'] as $index => $seasonData) {
@@ -213,13 +221,20 @@ class SeriesImportCommand extends Command
         return $series;
     }
 
+    /**
+     * @param string $importCode
+     * @param array  $data
+     * @param array  $seriesTypesMap
+     * @param array  $categoriesMap
+     * @return Series
+     * @throws NonUniqueResultException
+     */
     private function getMovie(
         string $importCode,
         array $data,
         array $seriesTypesMap,
         array $categoriesMap
-    ) : Series
-    {
+    ): Series {
         $series = $this->seriesRepository->findOneByImportCode($importCode);
 
         if (null === $series) {
@@ -233,21 +248,21 @@ class SeriesImportCommand extends Command
             ->setLocale($data['locale'])
             ->setImage($data['image'])
             ->setDescription($data['description'])
-            ->setType($seriesTypesMap[ $typeId ])
+            ->setType($seriesTypesMap[$typeId])
             ->setTags($data['tags'] ?? null);
 
         foreach ($data['categories'] ?? [] as $category) {
-            $series->addCategory($categoriesMap[ $category ]);
+            $series->addCategory($categoriesMap[$category]);
         }
 
         $seasonData = [
-            'name' => '',
+            'name'     => '',
             'episodes' => [
                 [
                     'name' => $data['name'],
-                    'code' => $data['code']
-                ]
-            ]
+                    'code' => $data['code'],
+                ],
+            ],
         ];
 
         $season = $this->getSeason($importCode, 0, $seasonData);
@@ -258,10 +273,10 @@ class SeriesImportCommand extends Command
         return $series;
     }
 
-    private function getSeason(string $importCode, int $index, array $data) : Season
+    private function getSeason(string $importCode, int $index, array $data): Season
     {
         $importCode = sprintf('%s_%s', $importCode, $index);
-        $season     = $this->seasonRepository->findOneBy(['importCode' => $importCode]);
+        $season = $this->seasonRepository->findOneBy(['importCode' => $importCode]);
 
         if (null === $season) {
             $season = (new Season())->setImportCode($importCode);
@@ -281,10 +296,10 @@ class SeriesImportCommand extends Command
         return $season;
     }
 
-    private function getEpisode(string $importCode, int $index, array $data) : Episode
+    private function getEpisode(string $importCode, int $index, array $data): Episode
     {
         $importCode = sprintf('%s_%s', $importCode, $index);
-        $episode    = $this->episodeRepository->findOneBy(['importCode' => $importCode]);
+        $episode = $this->episodeRepository->findOneBy(['importCode' => $importCode]);
 
         if (null === $episode) {
             $episode = (new Episode())->setImportCode($importCode);

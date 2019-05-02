@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMS;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -36,7 +39,7 @@ class Category
     protected $name;
 
     /**
-     * @var ArrayCollection|Series[]
+     * @var Collection|Series[]
      * @ORM\ManyToMany(targetEntity="App\Entity\Series", mappedBy="categories")
      */
     protected $series;
@@ -101,18 +104,18 @@ class Category
     }
 
     /**
-     * @return Series[]|ArrayCollection
+     * @return Series[]|Collection
      */
-    public function getSeries()
+    public function getSeries(): Collection
     {
         return $this->series;
     }
 
     /**
-     * @param Series[]|ArrayCollection $series
+     * @param Series[]|Collection $series
      * @return self
      */
-    public function setSeries($series)
+    public function setSeries(Collection $series): self
     {
         $this->series = $series;
         return $this;
@@ -120,6 +123,6 @@ class Category
 
     public function __toString()
     {
-        return $this->name;
+        return $this->name ?? '';
     }
 }

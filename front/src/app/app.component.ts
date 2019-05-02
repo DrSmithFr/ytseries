@@ -1,14 +1,14 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {UserService} from './services/user.service';
-import {Router} from '@angular/router';
-import {StorageService, LOCAL_STORAGE} from 'angular-webstorage-service';
-import {MatSnackBar} from "@angular/material";
+import { Component, Inject, OnInit } from '@angular/core';
+import { UserService } from './services/user.service';
+import { Router } from '@angular/router';
+import { StorageService, LOCAL_STORAGE } from 'angular-webstorage-service';
+import { MatSnackBar } from '@angular/material';
 
 @Component(
   {
-    selector:    'app-root',
+    selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls:   ['./app.component.css']
+    styleUrls: ['./app.component.css']
   }
 )
 export class AppComponent implements OnInit {
@@ -21,20 +21,20 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      if (this.loginService.canReconnect()) {
+    if (this.loginService.canReconnect()) {
 
-          this
-              .loginService
-              .reconnect()
-              .subscribe(
-                  (user) => {
-                      this.snackBar.open('Welcome back ' + user.username, null, { duration: 1500 });
-                  },
-                  () => {
-                      this.snackBar.open('Cannot reconnect', null, { duration: 1500 });
-                  }
-              );
-      }
+      this
+        .loginService
+        .reconnect()
+        .subscribe(
+          (user) => {
+            this.snackBar.open('Welcome back ' + user.username, null, {duration: 1500});
+          },
+          () => {
+            this.snackBar.open('Cannot reconnect', null, {duration: 1500});
+          }
+        );
+    }
   }
 
   isConnected() {

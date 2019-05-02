@@ -1,13 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Repository;
 
 use App\Entity\Series;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
  * Class SerieRepository
+ *
  * @package App\Repository
  * @codeCoverageIgnore
  */
@@ -15,6 +19,7 @@ class SeriesRepository extends ServiceEntityRepository
 {
     /**
      * UserRepository constructor.
+     *
      * @param RegistryInterface $registry
      */
     public function __construct(RegistryInterface $registry)
@@ -24,7 +29,7 @@ class SeriesRepository extends ServiceEntityRepository
 
     /**
      * @return int
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NonUniqueResultException
      */
     public function countAll(): int
     {
@@ -32,7 +37,7 @@ class SeriesRepository extends ServiceEntityRepository
             ->getEntityManager()
             ->createQueryBuilder()
             ->select('count(s) as series')
-            ->from(Serie::class, 's')
+            ->from(Series::class, 's')
             ->getQuery()
             ->getSingleScalarResult();
 
@@ -42,9 +47,9 @@ class SeriesRepository extends ServiceEntityRepository
     /**
      * @param int|null $id
      * @return Series|null
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NonUniqueResultException
      */
-    public function getFullyLoadedSeriesById(?int $id):? Series
+    public function getFullyLoadedSeriesById(?int $id): ?Series
     {
         if (null === $id) {
             return null;
@@ -70,12 +75,13 @@ class SeriesRepository extends ServiceEntityRepository
             ->getQuery()
             ->getOneOrNullResult();
     }
+
     /**
      * @param string|null $importCode
      * @return Series|null
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NonUniqueResultException
      */
-    public function getFullyLoadedSeriesByImportCode(?string $importCode):? Series
+    public function getFullyLoadedSeriesByImportCode(?string $importCode): ?Series
     {
         if (null === $importCode) {
             return null;
@@ -102,7 +108,12 @@ class SeriesRepository extends ServiceEntityRepository
             ->getOneOrNullResult();
     }
 
-    public function findOneById(int $id):? Series
+    /**
+     * @param int $id
+     * @return Series|null
+     * @throws NonUniqueResultException
+     */
+    public function findOneById(int $id): ?Series
     {
         return $this
             ->createQueryBuilder('s')
@@ -111,7 +122,13 @@ class SeriesRepository extends ServiceEntityRepository
             ->getQuery()
             ->getOneOrNullResult();
     }
-    public function findOneByImportCode(string $importCode):? Series
+
+    /**
+     * @param string $importCode
+     * @return Series|null
+     * @throws NonUniqueResultException
+     */
+    public function findOneByImportCode(string $importCode): ?Series
     {
         return $this
             ->createQueryBuilder('s')

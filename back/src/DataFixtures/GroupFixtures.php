@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\DataFixtures;
 
 use App\Entity\Group;
@@ -9,17 +11,18 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 /**
  * Class GroupFixtures
+ *
  * @package App\DataFixtures
  * @codeCoverageIgnore
  */
 class GroupFixtures extends Fixture
 {
-    const GROUP_DEV = 'group-dev';
-    const GROUP_USER = 'group-user';
+    public const GROUP_DEV = 'group-dev';
+    public const GROUP_USER = 'group-user';
 
     public function load(ObjectManager $manager): void
     {
-        $devGroup    = new Group('dev', [SecurityRoleEnum::SUPER_ADMIN]);
+        $devGroup = new Group('dev', [SecurityRoleEnum::SUPER_ADMIN]);
         $commonGroup = new Group('user', [SecurityRoleEnum::USER]);
 
         $manager->persist($devGroup);

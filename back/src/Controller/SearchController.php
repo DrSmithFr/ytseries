@@ -1,14 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
-use App\Repository\MapBackgroundRepository;
 use App\Repository\SeriesRepository;
 use App\Service\SearchService;
-use Elastica\Aggregation\AbstractAggregation;
+use Doctrine\ORM\NonUniqueResultException;
 use Elastica\Aggregation\Terms;
 use Elastica\Query\Match;
-use Elastica\ResultSet;
 use JMS\Serializer\SerializerBuilder;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,8 +33,7 @@ class SearchController extends BaseAdminController
     public function getBackgroundLayersAction(
         Request $request,
         SearchService $searchService
-    )
-    {
+    ): JsonResponse {
         $filters = json_decode($request->get('filters'), true);
 
         $query = new Query();
@@ -43,7 +42,7 @@ class SearchController extends BaseAdminController
             // add exact match query
             $match = new MultiMatch();
             $match->setQuery($q);
-            $match->setFields(["name"]);
+            $match->setFields(['name']);
             $match->setAnalyzer('standard');
 
             // add miss spell query
@@ -77,7 +76,7 @@ class SearchController extends BaseAdminController
                     'number_of_fragments' => 3,
                     'fragment_size'       => 255,
                     'fields'              => [
-                        'name' => new \stdClass(),
+                        'name' => (object)[],
                     ],
                 ]
             );
@@ -152,14 +151,13 @@ class SearchController extends BaseAdminController
      * @param Request          $request
      * @param SeriesRepository $repository
      * @return JsonResponse
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NonUniqueResultException
      */
     public function seriesInformationAction(
         Request $request,
         SeriesRepository $repository
-    )
-    {
-        $series = $repository->getFullyLoadedSeriesByImportCode($request->get('id', null));
+    ): JsonResponse {
+        $series = $repository->getFullyLoadedSeriesByImportCode($request->get('id'));
 
         if (null === $series) {
             return new JsonResponse(
@@ -168,7 +166,7 @@ class SearchController extends BaseAdminController
             );
         }
 
-        $serializer  = SerializerBuilder::create()->build();
+        $serializer = SerializerBuilder::create()->build();
         $jsonContent = $serializer->serialize($series, 'json');
 
         return (new JsonResponse())
