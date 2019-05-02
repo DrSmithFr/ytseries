@@ -1,4 +1,6 @@
-# Yt series
+<p align="center">
+    <img src="front/src/assets/logo.png">
+</p>
 
 ## Installation
 
@@ -46,25 +48,24 @@ You will find equivalent in every programming language.
 
 ### Git
 
-Follow [the documentation](documentation/who-to-git.md) to learn who to use git on this project.
-Please use the [git configuration](documentation/git-config.md) of this project.
-
-#### Git Hooks
+ - Follow [the documentation](documentation/who-to-git.md) to learn who to use git on this project.
+ - Please use the [git configuration](documentation/git-config.md) of this project.
 
 Git hooks exist as simple text files in your `/hooks` directory.
 They are inject inside `.git/hooks` using symbolic link.
 
-#### pre-commit hook
+#### pre-commit checkup
 
-This will run syntactic checkup over the all code base
-- PSR-4 checkup
+
+- JS console.log finder
+- PHP dump finder
+- Merge tag finder
+- PSR-2 checkup
 - PHP Mess Detector Checkup
 - TsLint checkup
+- Affected file lister
 
-This hook is triggered with:
-- Commit
-- Amend
-- Merge Resolve
+Checks will run only over the committed code base
 
 ## Every day usage
 
