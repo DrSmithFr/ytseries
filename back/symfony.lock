@@ -164,9 +164,6 @@
     "jms/serializer": {
         "version": "2.0.2"
     },
-    "jsor/doctrine-postgis": {
-        "version": "v1.7.0"
-    },
     "knplabs/knp-components": {
         "version": "v1.3.10"
     },

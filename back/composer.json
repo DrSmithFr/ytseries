@@ -12,7 +12,6 @@
         "friendsofsymfony/user-bundle": "~2.0",
         "gesdinet/jwt-refresh-token-bundle": "^0.5.3",
         "jms/serializer": "^2.0",
-        "jsor/doctrine-postgis": "^1.7",
         "knplabs/knp-paginator-bundle": "^2.8",
         "lexik/jwt-authentication-bundle": "^2.5",
         "madcoda/php-youtube-api": "^1.2",

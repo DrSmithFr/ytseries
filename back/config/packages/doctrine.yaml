@@ -9,7 +9,7 @@ doctrine:
     dbal:
         # configure these for your database server
         driver: 'pdo_pgsql'
-        server_version: '11.1'
+        server_version: '11.2'
         charset: UTF8
         url: '%env(resolve:DATABASE_URL)%'
         schema_filter: ~^(?!(tiger|topology))~

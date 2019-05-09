@@ -28,17 +28,5 @@ class MigrationEventSubscriber implements EventSubscriber
         if (!$Schema->hasNamespace('public')) {
             $Schema->createNamespace('public');
         }
-
-        if (!$Schema->hasNamespace('topology')) {
-            $Schema->createNamespace('topology');
-        }
-
-        if (!$Schema->hasNamespace('tiger')) {
-            $Schema->createNamespace('tiger');
-        }
-
-        if (!$Schema->hasNamespace('tiger_data')) {
-            $Schema->createNamespace('tiger_data');
-        }
     }
 }

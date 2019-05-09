@@ -11,18 +11,19 @@ function php() {
 }
 
 function phpcs() {
-    docker-compose exec --user="${YOUR_ID}:${DOCKER_GID}" phpfpm /bin/sh -c "php vendor/bin/phpcs --ignore=vendor,bin,src/Migrations,pub"
+    docker-compose run --rm -T phpfpm /bin/sh -c "php vendor/bin/phpcs --ignore=vendor,bin,src/Migrations,pub $*"
+    exit $?
 }
 
 function phpmd() {
-    docker-compose run -T phpfpm /bin/sh -c "php vendor/phpmd/phpmd/src/bin/phpmd src text ruleset.xml --exclude src/Migrations"
+    docker-compose run --rm -T phpfpm /bin/sh -c "php vendor/phpmd/phpmd/src/bin/phpmd src text ruleset.xml --exclude src/Migrations"
     exit $?
 }
 
 function phpunit() {
-    docker-compose exec --user="${YOUR_ID}:${DOCKER_GID}" phpfpm /bin/sh -c "php bin/phpunit $*"
+    docker-compose run --rm -T phpfpm /bin/sh -c "php bin/phpunit $*"
+    exit $?
 }
-
 function console() {
     docker-compose exec --user="${YOUR_ID}:${DOCKER_GID}" phpfpm /bin/sh -c "php bin/console $*"
 }

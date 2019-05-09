@@ -6,7 +6,7 @@ for FILE in $*
 do
     EXT="${FILE##*.}"
 
-    if [ "$EXT" != "php" ]
+    if [[ "$EXT" != "php" ]]
     then
         continue
     fi
@@ -22,7 +22,7 @@ do
     fi
 done
 
-if [ $found -ne 0 ]
+if [[ ${found} -ne 0 ]]
 then
     echo "######################################################################"
     echo -e "\n\t\e[31mERROR: dump() calls found.\e[0m\n"

@@ -9,7 +9,7 @@
   - Install the latest version of [npm](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04)
   - Add your user to the `docker` group, using `sudo adduser $USER docker`, them logout/logback to your computer
   - Copy `docker-compose.dist.yml` to `docker-compose.yml`
-  - Then run the `./docker install` script.
+  - Then run the `./aliases.sh install` script.
   - Use `ng serve --port={PORT}` to access app on `http://localhost:{PORT}/`
   - if the connexion doesn't work, try
  
@@ -69,29 +69,29 @@ Checks will run only over the committed code base
 
 ## Every day usage
 
-Run the `./bin/docker reload` script and start coding!
+Run the `./aliases.sh reload` script and start coding!
  
 ### Useful PHP commands 
 
-    ./bin/docker php ...
+    ./aliases.sh php ...
 Direct access to php
 
-    ./bin/docker composer ...
+    ./aliases.sh composer ...
 Use composer inside /server folder (flex ready)
 
-    ./bin/docker console ...
+    ./aliases.sh console ...
 Direct access to symfony console
 
-    ./bin/docker phpcs ...
+    ./aliases.sh phpcs ...
 Direct access to phpcs
 
-    ./bin/docker phpmd ...
+    ./aliases.sh phpmd ...
 Direct access to phpmd
 
-    ./bin/docker phpunit ...
+    ./aliases.sh phpunit ...
 Direct access to phpunit
 
 ### Useful Database commands 
 
-    ./bin/docker psql ...
+    ./aliases.sh psql ...
 Direct access to postgres
