@@ -3462,3 +3462,38 @@ what_the_cut:
           code: F23568GDskw
         - name: 'TEMPLE, CÉRÉMONIE ET COSMOS'
           code: _ghgW_tSPAI
+identifier:
+  name: 'Ctrl alt del'
+  locale: en
+  type: series
+  images: 'https://i.ytimg.com/vi/RJEeTH3gQjU/maxresdefault.jpg'
+  description: "Time for a love story reset. The first episode from our first ever web series. Watch and Enjoy."
+  categories:
+    - romantic
+  season:
+    name: 'Saison 1'
+    episodes:
+      -
+        name: 'Ctrl alt del: pilot episode'
+        code: RJEeTH3gQjU
+      -
+        name: 'I have an idea'
+        code: p47tmVoyMW8
+      -
+        name: 'I am waiting'
+        code: daxwt59KECU
+      -
+        name: 'A party to remember'
+        code: AtRBZcSzeug
+      -
+        name: 'Shifting gears'
+        code: IG4pjmzffTE
+      -
+        name: 'Back to square one'
+        code: ao9Ln3K50qA
+      -
+        name: 'New beginnings'
+        code: i4RIyoHnoM4
+      -
+        name: 'Reset'
+        code: iAvQv7Ew95A

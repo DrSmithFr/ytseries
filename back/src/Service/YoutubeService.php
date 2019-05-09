@@ -46,11 +46,17 @@ class YoutubeService
         }
 
         $infos = $this->youtube->getPlaylistItemsByPlaylistIdAdvanced($params, true);
-        $data = [];
+
+        $firstEp = null;
+        $data    = [];
 
         foreach ($infos['results'] as $info) {
+            if ($firstEp === null) {
+                $firstEp = $info;
+            }
+
             $data[] = [
-                'name' => $info->snippet->title,
+                'name' => ucfirst(strtolower($info->snippet->title)),
                 'code' => $info->snippet->resourceId->videoId,
             ];
         }
@@ -59,7 +65,18 @@ class YoutubeService
             $data = array_merge($data, $this->getPlaylistInfo($code, $token));
         }
 
-        return $data;
+        return [
+            'name'        => ucfirst(strtolower($firstEp->snippet->title)),
+            'locale'      => 'fr',
+            'type'        => 'series',
+            'images'      => $firstEp->snippet->thumbnails->maxres->url,
+            'description' => $firstEp->snippet->description,
+            'categories'  => [],
+            'season'      => [
+                'name'     => 'Saison 1',
+                'episodes' => $data,
+            ],
+        ];
     }
 
     /**
@@ -70,22 +87,22 @@ class YoutubeService
     public function getVideoDuration(Episode $episode): ?int
     {
         $API_URL = $this->youtube->getApi('videos.list');
-        $params = [
+        $params  = [
             'id'   => $episode->getCode(),
             'part' => 'contentDetails',
         ];
 
         $apiData = $this->youtube->api_get($API_URL, $params);
-        $data = $this->youtube->decodeSingle($apiData);
+        $data    = $this->youtube->decodeSingle($apiData);
 
         if (!$data) {
             return null;
         }
 
         $duration = $data->contentDetails->duration;
-        $hours = (new DateInterval($duration))->h;
-        $minutes = (new DateInterval($duration))->i;
-        $seconds = (new DateInterval($duration))->s;
+        $hours    = (new DateInterval($duration))->h;
+        $minutes  = (new DateInterval($duration))->i;
+        $seconds  = (new DateInterval($duration))->s;
 
         return $hours * 3600 + $minutes * 60 + $seconds;
     }

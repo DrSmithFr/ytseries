@@ -57,7 +57,7 @@ class PlaylistReaderCommand extends Command
             $data = array_reverse($data);
         }
 
-        $yaml = Yaml::dump($data);
+        $yaml = Yaml::dump(['id' => $data], 5);
         $io->writeln($yaml);
     }
 }
