@@ -317,7 +317,10 @@ class Series
      */
     public function addCategory(Category $category): self
     {
-        $this->categories->add($category);
+        if (!$this->categories->contains($category)) {
+            $this->categories->add($category);
+        }
+
         return $this;
     }
 

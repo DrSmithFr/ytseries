@@ -3466,13 +3466,13 @@ identifier:
   name: 'Ctrl alt del'
   locale: en
   type: series
-  images: 'https://i.ytimg.com/vi/RJEeTH3gQjU/maxresdefault.jpg'
+  image: 'https://i.ytimg.com/vi/RJEeTH3gQjU/maxresdefault.jpg'
   description: "Time for a love story reset. The first episode from our first ever web series. Watch and Enjoy."
   categories:
     - romantic
-  season:
-    name: 'Saison 1'
-    episodes:
+  seasons:
+    - name: 'Saison 1'
+      episodes:
       -
         name: 'Ctrl alt del: pilot episode'
         code: RJEeTH3gQjU
