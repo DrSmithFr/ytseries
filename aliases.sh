@@ -11,13 +11,19 @@ function php() {
 }
 
 function phpcs() {
-    docker-compose exec --user="${YOUR_ID}:${DOCKER_GID}" phpfpm /bin/sh -c "php vendor/bin/phpcs --ignore=vendor,bin,src/Migrations,pub"
+    docker-compose run --rm -T phpfpm /bin/sh -c "php vendor/bin/phpcs --ignore=vendor,bin,src/Migrations,pub $*"
+    exit $?
+}
+
+function phpmd() {
+    docker-compose run --rm -T phpfpm /bin/sh -c "php vendor/phpmd/phpmd/src/bin/phpmd src text ruleset.xml --exclude src/Migrations"
+    exit $?
 }
 
 function phpunit() {
-    docker-compose exec --user="${YOUR_ID}:${DOCKER_GID}" phpfpm /bin/sh -c "php bin/phpunit $*"
+    docker-compose run --rm -T phpfpm /bin/sh -c "php bin/phpunit $*"
+    exit $?
 }
-
 function console() {
     docker-compose exec --user="${YOUR_ID}:${DOCKER_GID}" phpfpm /bin/sh -c "php bin/console $*"
 }
@@ -26,7 +32,14 @@ function psql() {
      docker-compose exec --user="${YOUR_ID}:${DOCKER_GID}" postgres /bin/sh -c "psql --dbname=symfony $*"
 }
 
+function tslint() {
+    ./front/node_modules/tslint/bin/tslint --project ./front
+}
+
 function install() {
+    #
+    # Adding git hook
+    #
     ln -sf $(pwd)/hooks/pre-commit .git/hooks/pre-commit
 
     #
@@ -58,14 +71,29 @@ function install() {
 
 function reload() {
     ln -sf $(pwd)/hooks/pre-commit .git/hooks/pre-commit
+
     docker-compose kill && \
     docker-compose rm -f && \
     docker-compose build && \
     docker-compose up --remove-orphans -d && \
+
     sleep 10
+
     console app:series:imp
     console app:series:ind
+
     cd front && ng serve
 }
 
-$*
+function reset() {
+    console doctrine:database:drop --force
+    console doctrine:database:create
+
+    console doctrine:migration:migrate -n
+    console doctrine:fixtures:load -n
+
+    console app:series:imp
+    console app:series:ind
+}
+
+$@

@@ -3462,3 +3462,83 @@ what_the_cut:
           code: F23568GDskw
         - name: 'TEMPLE, CÉRÉMONIE ET COSMOS'
           code: _ghgW_tSPAI
+identifier:
+  name: 'Ctrl alt del'
+  locale: en
+  type: series
+  image: 'https://i.ytimg.com/vi/RJEeTH3gQjU/maxresdefault.jpg'
+  description: "Time for a love story reset. The first episode from our first ever web series. Watch and Enjoy."
+  categories:
+    - romantic
+  seasons:
+    - name: 'Saison 1'
+      episodes:
+      -
+        name: 'Ctrl alt del: pilot episode'
+        code: RJEeTH3gQjU
+      -
+        name: 'I have an idea'
+        code: p47tmVoyMW8
+      -
+        name: 'I am waiting'
+        code: daxwt59KECU
+      -
+        name: 'A party to remember'
+        code: AtRBZcSzeug
+      -
+        name: 'Shifting gears'
+        code: IG4pjmzffTE
+      -
+        name: 'Back to square one'
+        code: ao9Ln3K50qA
+      -
+        name: 'New beginnings'
+        code: i4RIyoHnoM4
+      -
+        name: 'Reset'
+        code: iAvQv7Ew95A
+salade_fingers:
+    name: 'Salad fingers'
+    locale: en
+    type: series
+    image: 'https://i.ytimg.com/vi/OWBFKL6H7rI/sddefault.jpg'
+    description: "Salad Fingers goes on the lookout for the perfect spoon."
+    categories:
+        - humour
+        - horror
+    seasons:
+        - name: 'Saison 1'
+          episodes:
+            -
+                name: 'Spoons'
+                code: OWBFKL6H7rI
+            -
+                name: 'Friends'
+                code: cuCw5k-Lph0
+            -
+                name: 'Nettles'
+                code: ojoICRzSCOo
+            -
+                name: 'Cage'
+                code: tBNrtrntkJ4
+            -
+                name: 'Picnic'
+                code: P_zbGGNI7lo
+            -
+                name: 'Present'
+                code: rU2D0ncBFm0
+            -
+                name: 'Shore leave'
+                code: kQNRkdHeK1A
+            -
+                name: 'Cupboard'
+                code: oykmawhKWhc
+            -
+                name: 'Letter'
+                code: MSOnIS84x1k
+            -
+                name: 'Birthday'
+                code: fwFrIvkCux8
+            -
+                name: 'Glass brother'
+                code: qeE-J-GjAyQ

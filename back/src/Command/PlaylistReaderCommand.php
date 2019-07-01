@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Command;
 
 use App\Service\YoutubeService;
+use Exception;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -25,7 +28,7 @@ class PlaylistReaderCommand extends Command
         $this->youtubeService = $youtubeService;
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('app:playlist:read')
@@ -34,10 +37,16 @@ class PlaylistReaderCommand extends Command
             ->addArgument('playlistId', InputArgument::OPTIONAL);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    /**
+     * @param InputInterface  $input
+     * @param OutputInterface $output
+     * @return int|void|null
+     * @throws Exception
+     */
+    protected function execute(InputInterface $input, OutputInterface $output): void
     {
         $playlistCode = $input->getArgument('playlistId');
-        $io           = new SymfonyStyle($input, $output);
+        $io = new SymfonyStyle($input, $output);
 
         $io->section('Reading playlist information');
         $data = $this->youtubeService->getPlaylistInfo($playlistCode);
@@ -48,7 +57,8 @@ class PlaylistReaderCommand extends Command
             $data = array_reverse($data);
         }
 
-        $yaml = Yaml::dump($data);
+        $yaml = Yaml::dump(['id' => $data], 5);
         $io->writeln($yaml);
     }
 }
+

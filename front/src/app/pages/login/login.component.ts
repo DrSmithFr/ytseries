@@ -4,20 +4,24 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
 
-@Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
-})
+@Component(
+  {
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css']
+  }
+)
 export class LoginComponent implements OnInit {
 
   displayLoadingPanel = false;
 
-  loginForm = this.fb.group({
-    login: ['', Validators.required],
-    password: ['', Validators.required],
-    rememberMe: [false],
-  });
+  loginForm = this.fb.group(
+    {
+      login: ['', Validators.required],
+      password: ['', Validators.required],
+      rememberMe: [false],
+    }
+  );
 
   constructor(
     private fb: FormBuilder,
@@ -51,7 +55,7 @@ export class LoginComponent implements OnInit {
         () => {
           this.displayLoadingPanel = false;
           // add notification bad credential
-          this.snackBar.open('Bad credential', null, { duration: 1500 });
+          this.snackBar.open('Bad credential', null, {duration: 1500});
         }
       );
   }

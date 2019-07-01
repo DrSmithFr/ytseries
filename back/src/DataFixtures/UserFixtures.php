@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\DataFixtures;
 
+use App\Entity\Group;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -10,6 +13,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * Class UserFixtures
+ *
  * @package App\DataFixtures
  * @codeCoverageIgnore
  */
@@ -27,7 +31,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager): void
     {
-        $devUser    = $this->makeUser('dev', 'dev', [GroupFixtures::GROUP_DEV]);
+        $devUser = $this->makeUser('dev', 'dev', [GroupFixtures::GROUP_DEV]);
         $commonUser = $this->makeUser('user', 'user', [GroupFixtures::GROUP_USER]);
 
         $devUser->setSuperAdmin(true);
@@ -52,8 +56,10 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $password = $this->encoder->encodePassword($user, $pass);
         $user->setPassword($password);
 
-        foreach ($groups as $group) {
-            $user->addGroup($this->getReference($group));
+        foreach ($groups as $key) {
+            /** @var Group $group */
+            $group = $this->getReference($key);
+            $user->addGroup($group);
         }
 
         return $user;
@@ -61,8 +67,8 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
 
     public function getDependencies(): array
     {
-        return array(
+        return [
             GroupFixtures::class,
-        );
+        ];
     }
 }

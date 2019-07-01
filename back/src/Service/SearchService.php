@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Service;
 
 use Elastica\Client;
@@ -14,7 +16,7 @@ class SearchService
 
     public function __construct(Client $client, string $elasticSearchIndexName)
     {
-        $this->client    = $client;
+        $this->client = $client;
         $this->indexName = $elasticSearchIndexName;
     }
 

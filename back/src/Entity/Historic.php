@@ -1,11 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMS;
 use Gedmo\Blameable\Traits\BlameableEntity;
-use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
@@ -74,76 +75,72 @@ class Historic
     /**
      * @return int|null
      */
-    public function getTimeCode()
+    public function getTimeCode(): ?int
     {
         return $this->timeCode;
     }
 
     /**
      * @param int|null $timeCode
-     * @return $this
+     * @return self
      */
-    public function setTimeCode($timeCode)
+    public function setTimeCode(?int $timeCode): self
     {
         $this->timeCode = $timeCode;
-
         return $this;
     }
 
     /**
      * @return User|null
      */
-    public function getUser()
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
     /**
      * @param User|null $user
-     * @return $this
+     * @return self
      */
-    public function setUser($user)
+    public function setUser(?User $user): self
     {
         $this->user = $user;
-
         return $this;
     }
 
     /**
      * @return Series|null
      */
-    public function getSeries()
+    public function getSeries(): ?Series
     {
         return $this->series;
     }
 
     /**
      * @param Series|null $series
-     * @return $this
+     * @return self
      */
-    public function setSeries($series)
+    public function setSeries(?Series $series): self
     {
         $this->series = $series;
-
         return $this;
     }
 
     /**
      * @return Episode|null
      */
-    public function getEpisode()
+    public function getEpisode(): ?Episode
     {
         return $this->episode;
     }
 
     /**
      * @param Episode|null $episode
-     * @return $this
+     * @return self
      */
-    public function setEpisode($episode)
+    public function setEpisode(?Episode $episode): self
     {
         $this->episode = $episode;
-
         return $this;
     }
 }

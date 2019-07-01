@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  phpfpm:
+    build:
+      context: docker/phpfpm
+      args:
+      - uid=1000
+    volumes:
+    - ./back:/www/
+
+  postgres:
+    image: postgres:11.2-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: symfony
+      POSTGRES_USER: symfony
+      POSTGRES_PASSWORD: passwd

@@ -1,20 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
-use App\Repository\MapBackgroundRepository;
 use App\Repository\SeriesRepository;
 use App\Service\SearchService;
-use Elastica\Aggregation\AbstractAggregation;
+use Doctrine\ORM\NonUniqueResultException;
 use Elastica\Aggregation\Terms;
 use Elastica\Query\Match;
-use Elastica\ResultSet;
 use JMS\Serializer\SerializerBuilder;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
-
 use Elastica\Query;
 use Elastica\Query\BoolQuery;
 use Elastica\Query\MultiMatch;
@@ -22,7 +20,7 @@ use Elastica\Query\MultiMatch;
 /**
  * @Route("/open")
  */
-class SearchController extends BaseAdminController
+class SearchController
 {
     /**
      * @Route("/search", name="api_asset_search")
@@ -33,8 +31,7 @@ class SearchController extends BaseAdminController
     public function getBackgroundLayersAction(
         Request $request,
         SearchService $searchService
-    )
-    {
+    ): JsonResponse {
         $filters = json_decode($request->get('filters'), true);
 
         $query = new Query();
@@ -43,7 +40,7 @@ class SearchController extends BaseAdminController
             // add exact match query
             $match = new MultiMatch();
             $match->setQuery($q);
-            $match->setFields(["name"]);
+            $match->setFields(['name']);
             $match->setAnalyzer('standard');
 
             // add miss spell query
@@ -77,7 +74,7 @@ class SearchController extends BaseAdminController
                     'number_of_fragments' => 3,
                     'fragment_size'       => 255,
                     'fields'              => [
-                        'name' => new \stdClass(),
+                        'name' => (object)[],
                     ],
                 ]
             );
@@ -145,33 +142,5 @@ class SearchController extends BaseAdminController
                 'filters' => $filters,
             ]
         );
-    }
-
-    /**
-     * @Route("/series/{id}", name="api_series_info")
-     * @param Request          $request
-     * @param SeriesRepository $repository
-     * @return JsonResponse
-     * @throws \Doctrine\ORM\NonUniqueResultException
-     */
-    public function seriesInformationAction(
-        Request $request,
-        SeriesRepository $repository
-    )
-    {
-        $series = $repository->getFullyLoadedSeriesByImportCode($request->get('id', null));
-
-        if (null === $series) {
-            return new JsonResponse(
-                ['error' => 'Series not found'],
-                JsonResponse::HTTP_BAD_REQUEST
-            );
-        }
-
-        $serializer  = SerializerBuilder::create()->build();
-        $jsonContent = $serializer->serialize($series, 'json');
-
-        return (new JsonResponse())
-            ->setContent($jsonContent);
     }
 }

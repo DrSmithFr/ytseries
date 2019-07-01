@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use App\Entity\Historic;
@@ -7,29 +9,23 @@ use App\Entity\User;
 use App\Repository\EpisodeRepository;
 use App\Repository\HistoricRepository;
 use App\Repository\SeriesRepository;
-use App\Repository\UserRepository;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
-use FOS\UserBundle\Model\UserInterface;
-use FOS\UserBundle\Model\UserManagerInterface;
-use FOS\UserBundle\Util\TokenGeneratorInterface;
-use JMS\Serializer\SerializerBuilder;
+use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
 
 /**
  * @Route("/api")
  */
-class ApiSecureController extends BaseAdminController
+class ApiSecureController
 {
     /**
      * @Route("/user_info", name="api_user_info")
      * @return JsonResponse
      */
-    public function userInformationAction()
+    public function userInformationAction(): JsonResponse
     {
         /** @var User $user */
         $user = $this->getUser();
@@ -46,11 +42,12 @@ class ApiSecureController extends BaseAdminController
 
     /**
      * @Route("/add_to_historic", name="api_historic_add", methods={"POST"})
-     * @param Request                $request
+     * @throws NonUniqueResultException
      * @param HistoricRepository     $historicRepository
      * @param SeriesRepository       $seriesRepository
      * @param EpisodeRepository      $episodeRepository
      * @param EntityManagerInterface $entityManager
+     * @param Request                $request
      * @return JsonResponse
      */
     public function addToHistoricAction(
@@ -59,8 +56,7 @@ class ApiSecureController extends BaseAdminController
         SeriesRepository $seriesRepository,
         EpisodeRepository $episodeRepository,
         EntityManagerInterface $entityManager
-    )
-    {
+    ): JsonResponse {
         $series = $seriesRepository->findOneByImportCode($request->get('series_id'));
 
         if (null === $series) {
@@ -79,7 +75,7 @@ class ApiSecureController extends BaseAdminController
             );
         }
 
-        $user     = $this->getUser();
+        $user = $this->getUser();
         $historic = $historicRepository->getHistoricByUserAndSeries($user, $series);
 
         if (null === $historic) {
@@ -90,7 +86,7 @@ class ApiSecureController extends BaseAdminController
         }
 
         $historic->setEpisode($episode);
-        $historic->setTimeCode((int) $request->get('time_code'));
+        $historic->setTimeCode((int)$request->get('time_code'));
 
         $entityManager->persist($historic);
         $entityManager->flush();
@@ -100,17 +96,17 @@ class ApiSecureController extends BaseAdminController
 
     /**
      * @Route("/get_historic/{series_id}", name="api_historic_get", methods={"GET"})
-     * @param Request            $request
+     * @throws NonUniqueResultException
      * @param HistoricRepository $historicRepository
      * @param SeriesRepository   $seriesRepository
+     * @param Request            $request
      * @return JsonResponse
      */
     public function getHistoricAction(
         Request $request,
         HistoricRepository $historicRepository,
         SeriesRepository $seriesRepository
-    )
-    {
+    ): JsonResponse {
         $series = $seriesRepository->findOneByImportCode($request->get('series_id'));
 
         if (null === $series) {
@@ -120,7 +116,7 @@ class ApiSecureController extends BaseAdminController
             );
         }
 
-        $user     = $this->getUser();
+        $user = $this->getUser();
         $historic = $historicRepository->getHistoricByUserAndSeries($user, $series);
 
         if (null === $historic) {
@@ -132,7 +128,7 @@ class ApiSecureController extends BaseAdminController
 
         return new JsonResponse(
             [
-                'episode_id' => $historic->getEpisode()->getId(),
+                'episode_id' => $historic->getEpisode() ? $historic->getEpisode()->getId() : null,
                 'time_code'  => $historic->getTimeCode(),
             ],
             JsonResponse::HTTP_OK
@@ -146,8 +142,7 @@ class ApiSecureController extends BaseAdminController
      */
     public function getHistoricListAction(
         HistoricRepository $repository
-    )
-    {
+    ): JsonResponse {
         $user = $this->getUser();
         $historicList = $repository->findAllByUser($user);
 
@@ -157,11 +152,15 @@ class ApiSecureController extends BaseAdminController
         foreach ($historicList as $historic) {
             $series = $historic->getSeries();
 
+            if ($series === null) {
+                continue;
+            }
+
             $result[] = [
-                'id' => $series->getImportCode(),
-                'name' => $series->getName(),
-                'image' => $series->getImage(),
-                'description' => $series->getDescription()
+                'id'          => $series->getImportCode(),
+                'name'        => $series->getName(),
+                'image'       => $series->getImage(),
+                'description' => $series->getDescription(),
             ];
         }
 

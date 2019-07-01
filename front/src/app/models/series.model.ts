@@ -1,4 +1,5 @@
-import {SeasonModel} from "./season.model";
+import { SeasonModel } from './season.model';
+
 export class SeriesModel {
   id: number;
   import_code: string;

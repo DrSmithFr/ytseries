@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import {SearchService} from "../../services/search.service";
+import { SearchService } from '../../services/search.service';
 
-@Component({
-  selector: 'app-assets-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
-})
+@Component(
+  {
+    selector: 'app-assets-search',
+    templateUrl: './search.component.html',
+    styleUrls: ['./search.component.css']
+  }
+)
 export class SearchComponent implements OnInit {
 
   displayFilterMenu: boolean = false;
 
   result: any[] = [];
-  filters: {} = {};
+  filters: {}   = {};
 
   query: string;
 
@@ -23,7 +25,8 @@ export class SearchComponent implements OnInit {
 
   constructor(
     private searchService: SearchService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.makeSearch();
@@ -35,7 +38,7 @@ export class SearchComponent implements OnInit {
 
   makeSearch(): void {
     this.searchService.search(this.query, this.activeFilters).subscribe(data => {
-      this.result = data['assets'];
+      this.result  = data['assets'];
       this.filters = data['filters'];
     });
   }
@@ -45,8 +48,8 @@ export class SearchComponent implements OnInit {
   }
 
   clearActiveFilters(): void {
-    this.activeFilters.locale = null;
-    this.activeFilters.type = null;
+    this.activeFilters.locale     = null;
+    this.activeFilters.type       = null;
     this.activeFilters.categories = null;
     this.makeSearch();
   }
@@ -54,7 +57,7 @@ export class SearchComponent implements OnInit {
   hasActiveFilters(): boolean {
     let activeFilter = false;
 
-    for (let [key, value] of Object.entries(this.activeFilters)) {
+    for (const [, value] of Object.entries(this.activeFilters)) {
       if (value) {
         activeFilter = true;
       }

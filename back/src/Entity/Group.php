@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -24,17 +26,9 @@ class Group extends BaseGroup
      */
     protected $id;
 
-    public function __construct($name, $roles = array())
+    public function __construct(string $name, array $roles = [])
     {
         parent::__construct($name, $roles);
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     /**
@@ -49,6 +43,6 @@ class Group extends BaseGroup
 
     public function __toString(): string
     {
-        return $this->getName();
+        return $this->getName() ?? '';
     }
 }

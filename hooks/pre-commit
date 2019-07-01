@@ -31,7 +31,7 @@ if [[ "$PHPs" != "" ]]
 then
     # check php syntax
     display phpcs && \
-    ./docker.sh phpcs ${PHPs} && \
+    ./aliases.sh phpcs ${PHPs} && \
     display success "PSR-2 Syntax checked"
 
     PHPCS=$?

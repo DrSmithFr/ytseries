@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Repository;
 
 use App\Entity\User;
 use App\Model\UserCounterModel;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -26,9 +29,10 @@ class UserRepository extends ServiceEntityRepository
     /**
      * @param string $apiKey
      * @return User|null
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NonUniqueResultException
      */
-    public function getUserByApiKey(string $apiKey): ?User {
+    public function getUserByApiKey(string $apiKey): ?User
+    {
         return $this
             ->getEntityManager()
             ->createQueryBuilder()
@@ -43,9 +47,10 @@ class UserRepository extends ServiceEntityRepository
     /**
      * @param string $username
      * @return User|null
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NonUniqueResultException
      */
-    public function getUserByUsername(string $username): ?User {
+    public function getUserByUsername(string $username): ?User
+    {
         return $this
             ->getEntityManager()
             ->createQueryBuilder()
@@ -60,9 +65,10 @@ class UserRepository extends ServiceEntityRepository
     /**
      * @param string $token
      * @return User|null
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NonUniqueResultException
      */
-    public function getUserByPasswordResetToken(string $token): ?User {
+    public function getUserByPasswordResetToken(string $token): ?User
+    {
         return $this
             ->getEntityManager()
             ->createQueryBuilder()
@@ -76,7 +82,7 @@ class UserRepository extends ServiceEntityRepository
 
     /**
      * @return UserCounterModel
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NonUniqueResultException
      */
     public function getUserCounter(): UserCounterModel
     {
@@ -87,7 +93,7 @@ class UserRepository extends ServiceEntityRepository
 
     /**
      * @return int
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NonUniqueResultException
      */
     public function countAll(): int
     {
@@ -104,9 +110,9 @@ class UserRepository extends ServiceEntityRepository
 
     /**
      * @return int
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NonUniqueResultException
      */
-    public function getActiveCount()
+    public function getActiveCount(): int
     {
         $count = $this
             ->getEntityManager()

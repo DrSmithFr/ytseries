@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\PersistentCollection;
 use JMS\Serializer\Annotation as JMS;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -71,14 +73,14 @@ class Series
     protected $type;
 
     /**
-     * @var ArrayCollection|Season[]
+     * @var Collection|Season[]
      * @ORM\OneToMany(targetEntity="App\Entity\Season", mappedBy="series", cascade={"persist", "remove"})
      * @JMS\Type("ArrayCollection<App\Entity\Season>")
      */
     protected $seasons;
 
     /**
-     * @var ArrayCollection|Category[]
+     * @var Collection|Category[]
      * @ORM\ManyToMany(targetEntity="Category", inversedBy="series")
      * @ORM\JoinTable(
      *  name="mtm_series_to_categories",
@@ -102,9 +104,9 @@ class Series
 
     public function __construct()
     {
-        $this->seasons    = new ArrayCollection();
+        $this->seasons = new ArrayCollection();
         $this->categories = new ArrayCollection();
-        $this->tags       = [];
+        $this->tags = [];
     }
 
     /**
@@ -126,45 +128,43 @@ class Series
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
 
     /**
-     * @param null|string $name
-     * @return $this
+     * @param string|null $name
+     * @return self
      */
-    public function setName($name)
+    public function setName(?string $name): self
     {
         $this->name = $name;
-
         return $this;
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
-    public function getLocale()
+    public function getLocale(): ?string
     {
         return $this->locale;
     }
 
     /**
-     * @param null|string $locale
-     * @return $this
+     * @param string|null $locale
+     * @return self
      */
-    public function setLocale($locale)
+    public function setLocale(?string $locale): self
     {
         $this->locale = $locale;
-
         return $this;
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
     public function getImage(): ?string
     {
@@ -172,7 +172,7 @@ class Series
     }
 
     /**
-     * @param null|string $image
+     * @param string|null $image
      * @return self
      */
     public function setImage(?string $image): self
@@ -182,45 +182,61 @@ class Series
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
     /**
-     * @param null|string $description
-     * @return $this
+     * @param string|null $description
+     * @return self
      */
-    public function setDescription($description)
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
-
         return $this;
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
-    public function getImportCode()
+    public function getImportCode(): ?string
     {
         return $this->importCode;
     }
 
     /**
-     * @param null|string $importCode
-     * @return $this
+     * @param string|null $importCode
+     * @return self
      */
-    public function setImportCode($importCode)
+    public function setImportCode(?string $importCode): self
     {
         $this->importCode = $importCode;
-
         return $this;
     }
 
     /**
-     * @return Season[]|ArrayCollection
+     * @return SeriesType|null
+     */
+    public function getType(): ?SeriesType
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param SeriesType|null $type
+     * @return self
+     */
+    public function setType(?SeriesType $type): self
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * @return Season[]|Collection
      */
     public function getSeasons()
     {
@@ -228,62 +244,17 @@ class Series
     }
 
     /**
-     * @param Season[]|ArrayCollection $seasons
-     * @return $this
+     * @param Season[]|Collection $seasons
+     * @return self
      */
     public function setSeasons($seasons)
     {
         $this->seasons = $seasons;
-
         return $this;
     }
 
     /**
-     * @param Season $season
-     * @return $this
-     */
-    public function addSeason(Season $season)
-    {
-        if (!$this->seasons->contains($season)) {
-            $this->seasons->add($season);
-            $season->setSeries($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param Season $season
-     * @return $this
-     */
-    public function removeSeason(Season $season)
-    {
-        $this->seasons->removeElement($season);
-        $season->setSeries(null);
-
-        return $this;
-    }
-
-    /**
-     * @return SeriesType|null
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param SeriesType $type
-     * @return self
-     */
-    public function setType($type): self
-    {
-        $this->type = $type;
-        return $this;
-    }
-
-    /**
-     * @return Category[]|ArrayCollection
+     * @return Category[]|Collection
      */
     public function getCategories()
     {
@@ -291,12 +262,52 @@ class Series
     }
 
     /**
-     * @param Category[]|ArrayCollection $categories
+     * @param Category[]|Collection $categories
      * @return self
      */
     public function setCategories($categories)
     {
         $this->categories = $categories;
+        return $this;
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getTags(): ?array
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param array|null $tags
+     * @return self
+     */
+    public function setTags(?array $tags): self
+    {
+        $this->tags = $tags;
+        return $this;
+    }
+
+    /**
+     * @param Season $season
+     * @return self
+     */
+    public function addSeason(Season $season): self
+    {
+        $this->seasons->add($season);
+        $season->setSeries($this);
+        return $this;
+    }
+
+    /**
+     * @param Season $season
+     * @return self
+     */
+    public function removeSeason(Season $season): self
+    {
+        $this->seasons->removeElement($season);
+        $season->setSeries(null);
         return $this;
     }
 
@@ -324,47 +335,31 @@ class Series
     }
 
     /**
-     * @return array|null
-     */
-    public function getTags(): ?array
-    {
-        return $this->tags;
-    }
-
-    /**
-     * @param array|null $tags
+     * @param mixed $tag
      * @return self
      */
-    public function setTags(?array $tags): self
-    {
-        $this->tags = $tags;
-        return $this;
-    }
-
-    /**
-     * @param string $tag
-     * @return self
-     */
-    public function addTag(string $tag): self
+    public function addTag($tag): self
     {
         $this->tags[] = $tag;
         return $this;
     }
 
     /**
-     * @param string $tag
+     * @param mixed $tag
      * @return self
      */
-    public function removeTag(string $tag): self
+    public function removeTag($tag): self
     {
         if (false !== $key = array_search($tag, $this->tags, true)) {
             array_splice($this->tags, $key, 1);
         }
+
         return $this;
     }
 
+
     public function __toString()
     {
-        return $this->name;
+        return $this->name ?? '';
     }
 }

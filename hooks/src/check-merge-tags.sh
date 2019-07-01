@@ -15,7 +15,7 @@ do
     fi
 done
 
-if [ $found -ne 0 ]
+if [[ ${found} -ne 0 ]]
 then
     echo "######################################################################"
     echo -e "\n\t\e[31mERROR: Merging tags found.\e[0m\n"

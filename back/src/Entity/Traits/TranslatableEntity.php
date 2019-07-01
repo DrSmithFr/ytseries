@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity\Traits;
 
 trait TranslatableEntity
@@ -14,7 +16,7 @@ trait TranslatableEntity
     /**
      * @return string
      */
-    public function getTranslatableLocale()
+    public function getTranslatableLocale(): string
     {
         return $this->locale;
     }
@@ -23,7 +25,7 @@ trait TranslatableEntity
      * @param $locale
      * @return self
      */
-    public function setTranslatableLocale($locale)
+    public function setTranslatableLocale($locale): self
     {
         $this->locale = $locale;
         return $this;

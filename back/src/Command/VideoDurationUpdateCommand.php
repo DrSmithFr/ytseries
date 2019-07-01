@@ -1,17 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Command;
 
 use App\Repository\EpisodeRepository;
 use App\Service\YoutubeService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\Yaml\Yaml;
 
 class VideoDurationUpdateCommand extends Command
 {
@@ -32,11 +31,10 @@ class VideoDurationUpdateCommand extends Command
         YoutubeService $youtubeService,
         EpisodeRepository $episodeRepository,
         EntityManagerInterface $entityManager
-    )
-    {
+    ) {
         parent::__construct();
-        $this->entityManager     = $entityManager;
-        $this->youtubeService    = $youtubeService;
+        $this->entityManager = $entityManager;
+        $this->youtubeService = $youtubeService;
         $this->episodeRepository = $episodeRepository;
     }
 
