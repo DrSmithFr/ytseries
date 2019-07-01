@@ -3497,3 +3497,48 @@ identifier:
       -
         name: 'Reset'
         code: iAvQv7Ew95A
+salade_fingers:
+    name: 'Salad fingers'
+    locale: en
+    type: series
+    image: 'https://i.ytimg.com/vi/OWBFKL6H7rI/sddefault.jpg'
+    description: "Salad Fingers goes on the lookout for the perfect spoon."
+    categories:
+        - humour
+        - horror
+    seasons:
+        - name: 'Saison 1'
+          episodes:
+            -
+                name: 'Spoons'
+                code: OWBFKL6H7rI
+            -
+                name: 'Friends'
+                code: cuCw5k-Lph0
+            -
+                name: 'Nettles'
+                code: ojoICRzSCOo
+            -
+                name: 'Cage'
+                code: tBNrtrntkJ4
+            -
+                name: 'Picnic'
+                code: P_zbGGNI7lo
+            -
+                name: 'Present'
+                code: rU2D0ncBFm0
+            -
+                name: 'Shore leave'
+                code: kQNRkdHeK1A
+            -
+                name: 'Cupboard'
+                code: oykmawhKWhc
+            -
+                name: 'Letter'
+                code: MSOnIS84x1k
+            -
+                name: 'Birthday'
+                code: fwFrIvkCux8
+            -
+                name: 'Glass brother'
+                code: qeE-J-GjAyQ
