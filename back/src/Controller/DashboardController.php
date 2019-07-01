@@ -10,9 +10,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController;
 
-class AdminController extends BaseAdminController
+class DashboardController extends AdminController
 {
     /**
      * @Route("dashboard", name="admin_dashboard")
@@ -51,7 +51,7 @@ class AdminController extends BaseAdminController
         $free = shell_exec('free');
         $free = (string)trim($free);
         $freeArr = explode("\n", $free);
-        $mem = explode(" ", $freeArr[1]);
+        $mem = explode(' ', $freeArr[1]);
         $mem = array_filter($mem);
         $mem = array_merge($mem);
         $memoryUsage = $mem[2] / $mem[1] * 100;

@@ -17,7 +17,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 /**
  * @Route("/open")
  */
-class RegisterController extends BaseAdminController
+class RegisterController
 {
     /**
      * @Route("/register", name="api_register")

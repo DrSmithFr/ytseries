@@ -61,7 +61,7 @@ class Season
     /**
      * @var Collection|Episode[]
      * @ORM\OneToMany(targetEntity="App\Entity\Episode", mappedBy="season", cascade={"persist", "remove"})
-     * @JMS\Type("Collection<App\Entity\Episode>")
+     * @JMS\Type("ArrayCollection<App\Entity\Episode>")
      */
     protected $episodes;
 

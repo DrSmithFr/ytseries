@@ -13,8 +13,6 @@ use JMS\Serializer\SerializerBuilder;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
-
 use Elastica\Query;
 use Elastica\Query\BoolQuery;
 use Elastica\Query\MultiMatch;
@@ -22,7 +20,7 @@ use Elastica\Query\MultiMatch;
 /**
  * @Route("/open")
  */
-class SearchController extends BaseAdminController
+class SearchController
 {
     /**
      * @Route("/search", name="api_asset_search")
@@ -144,32 +142,5 @@ class SearchController extends BaseAdminController
                 'filters' => $filters,
             ]
         );
-    }
-
-    /**
-     * @Route("/series/{id}", name="api_series_info")
-     * @param Request          $request
-     * @param SeriesRepository $repository
-     * @return JsonResponse
-     * @throws NonUniqueResultException
-     */
-    public function seriesInformationAction(
-        Request $request,
-        SeriesRepository $repository
-    ): JsonResponse {
-        $series = $repository->getFullyLoadedSeriesByImportCode($request->get('id'));
-
-        if (null === $series) {
-            return new JsonResponse(
-                ['error' => 'Series not found'],
-                JsonResponse::HTTP_BAD_REQUEST
-            );
-        }
-
-        $serializer = SerializerBuilder::create()->build();
-        $jsonContent = $serializer->serialize($series, 'json');
-
-        return (new JsonResponse())
-            ->setContent($jsonContent);
     }
 }

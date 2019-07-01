@@ -10,6 +10,7 @@ use App\Repository\EpisodeRepository;
 use App\Repository\HistoricRepository;
 use App\Repository\SeriesRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,7 +19,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminContr
 /**
  * @Route("/api")
  */
-class ApiSecureController extends BaseAdminController
+class ApiSecureController
 {
     /**
      * @Route("/user_info", name="api_user_info")
@@ -41,11 +42,12 @@ class ApiSecureController extends BaseAdminController
 
     /**
      * @Route("/add_to_historic", name="api_historic_add", methods={"POST"})
-     * @param Request                $request
+     * @throws NonUniqueResultException
      * @param HistoricRepository     $historicRepository
      * @param SeriesRepository       $seriesRepository
      * @param EpisodeRepository      $episodeRepository
      * @param EntityManagerInterface $entityManager
+     * @param Request                $request
      * @return JsonResponse
      */
     public function addToHistoricAction(
@@ -94,9 +96,10 @@ class ApiSecureController extends BaseAdminController
 
     /**
      * @Route("/get_historic/{series_id}", name="api_historic_get", methods={"GET"})
-     * @param Request            $request
+     * @throws NonUniqueResultException
      * @param HistoricRepository $historicRepository
      * @param SeriesRepository   $seriesRepository
+     * @param Request            $request
      * @return JsonResponse
      */
     public function getHistoricAction(
