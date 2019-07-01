@@ -19,8 +19,8 @@ class YoutubeService
     /**
      * YoutubeService constructor.
      *
-     * @param string $apiKey
      * @throws Exception
+     * @param string $apiKey
      */
     public function __construct(string $apiKey)
     {
@@ -28,10 +28,10 @@ class YoutubeService
     }
 
     /**
-     * @param string      $code
-     * @param string|null $page
-     * @return array
      * @throws Exception
+     * @param string|null $page
+     * @param string      $code
+     * @return array
      */
     public function getPlaylistInfo(string $code, string $page = null): array
     {
@@ -65,24 +65,32 @@ class YoutubeService
             $data = array_merge($data, $this->getPlaylistInfo($code, $token));
         }
 
+        $thumb = $firstEp->snippet->thumbnails->standard->url;
+
+        if (isset($firstEp->snippet->thumbnails->maxres)) {
+            $thumb = $firstEp->snippet->thumbnails->maxres->url;
+        }
+
         return [
             'name'        => ucfirst(strtolower($firstEp->snippet->title)),
             'locale'      => 'fr',
             'type'        => 'series',
-            'images'      => $firstEp->snippet->thumbnails->maxres->url,
+            'image'       => $thumb,
             'description' => $firstEp->snippet->description,
             'categories'  => [],
-            'season'      => [
-                'name'     => 'Saison 1',
-                'episodes' => $data,
+            'seasons'      => [
+                [
+                    'name'     => 'Saison 1',
+                    'episodes' => $data,
+                ]
             ],
         ];
     }
 
     /**
+     * @throws Exception
      * @param Episode $episode
      * @return int|null
-     * @throws Exception
      */
     public function getVideoDuration(Episode $episode): ?int
     {

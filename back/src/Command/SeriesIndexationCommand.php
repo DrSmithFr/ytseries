@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Command;
 
+use App\Entity\Series;
 use App\Repository\SeriesRepository;
 use App\Service\IndexerService;
 use App\Service\SearchService;
+use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -14,18 +16,36 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 class SeriesIndexationCommand extends Command
 {
+    /**
+     * @var SearchService
+     */
     private $elasticSearchService;
+
+    /**
+     * @var IndexerService
+     */
     private $indexer;
+
+    /**
+     * @var SeriesRepository
+     */
     private $repository;
 
+    /**
+     * SeriesIndexationCommand constructor.
+     *
+     * @param SearchService    $elasticSearchService
+     * @param IndexerService   $indexer
+     * @param SeriesRepository $repository
+     */
     public function __construct(
         SearchService $elasticSearchService,
         IndexerService $indexer,
         SeriesRepository $repository
     ) {
         $this->elasticSearchService = $elasticSearchService;
-        $this->indexer = $indexer;
-        $this->repository = $repository;
+        $this->indexer              = $indexer;
+        $this->repository           = $repository;
 
         parent::__construct();
     }
@@ -37,6 +57,12 @@ class SeriesIndexationCommand extends Command
             ->setDescription('Rebuild the Index and populate it.');
     }
 
+    /**
+     * @throws NonUniqueResultException
+     * @param OutputInterface $output
+     * @param InputInterface  $input
+     * @return int|void|null
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $io = new SymfonyStyle($input, $output);
@@ -54,6 +80,8 @@ class SeriesIndexationCommand extends Command
         $io->progressStart(count($assets));
 
         $documents = [];
+
+        /** @var Series $asset */
         foreach ($assets as $asset) {
             if ($document = $this->indexer->buildSeriesDocument($asset)) {
                 $documents[] = $document;
