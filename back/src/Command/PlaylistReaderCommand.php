@@ -61,3 +61,4 @@ class PlaylistReaderCommand extends Command
         $io->writeln($yaml);
     }
 }
+
