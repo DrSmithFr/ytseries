@@ -83,8 +83,6 @@ class SeriesIndexationCommand extends Command
 
         /** @var Series $asset */
         foreach ($assets as $asset) {
-            dump($asset->getImportCode());
-
             if ($document = $this->indexer->buildSeriesDocument($asset)) {
                 $documents[] = $document;
             }

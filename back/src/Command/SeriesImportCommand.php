@@ -95,7 +95,6 @@ class SeriesImportCommand extends Command
                 $this->entityManager->persist($s);
                 $this->entityManager->flush();
             } catch (Exception $e) {
-                dump($data);
                 throw $e;
             }
 
@@ -114,7 +113,6 @@ class SeriesImportCommand extends Command
                 $this->entityManager->persist($m);
                 $this->entityManager->flush();
             } catch (Exception $e) {
-                dump($data);
                 throw $e;
             }
 
