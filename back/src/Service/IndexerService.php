@@ -53,7 +53,8 @@ class IndexerService
         return new Document(
             $series->getImportCode(), // Manually defined ID
             [
-                'id'          => $series->getImportCode(),
+                'id'          => $series->getId(),
+                'slug'        => $series->getImportCode(),
                 'locale'      => $series->getLocale(),
                 'name'        => $series->getName(),
                 'image'       => $series->getImage() ?? '',
@@ -63,6 +64,7 @@ class IndexerService
                 'tags'        => $series->getTags() ?? [],
                 'seasons'     => $series->getSeasons()->count(),
                 'episodes'    => count($episodes),
+                'created_at'  => $series->getCreatedAt()
             ],
             'series' // Types are deprecated, to be removed in Elastic 7
         );
