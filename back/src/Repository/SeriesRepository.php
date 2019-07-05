@@ -137,4 +137,16 @@ class SeriesRepository extends ServiceEntityRepository
             ->getQuery()
             ->getOneOrNullResult();
     }
+
+    /**
+     * @return array|Series[]
+     */
+    public function findAll(): array
+    {
+        return $this
+            ->createQueryBuilder('s')
+            ->orderBy('s.id')
+            ->getQuery()
+            ->getResult();
+    }
 }
