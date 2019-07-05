@@ -79,6 +79,7 @@ class SeriesImportCommand extends Command
         $io = new SymfonyStyle($input, $output);
 
         $series = $this->getYmlSeriesData('series.yml');
+
         $movies = $this->getYmlSeriesData('movies.yml');
         $types = $this->getYmlSeriesData('types.yml');
         $categories = $this->getYmlSeriesData('categories.yml');
