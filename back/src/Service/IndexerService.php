@@ -64,7 +64,7 @@ class IndexerService
                 'tags'        => $series->getTags() ?? [],
                 'seasons'     => $series->getSeasons()->count(),
                 'episodes'    => count($episodes),
-                'created_at'  => $series->getCreatedAt()
+                'import_date' => $series->getCreatedAt()->getTimestamp()
             ],
             'series' // Types are deprecated, to be removed in Elastic 7
         );

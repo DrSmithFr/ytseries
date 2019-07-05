@@ -120,6 +120,10 @@ class SearchService
             'type' => 'keyword',
         ];
 
+        $properties['import_date'] = [
+            'type' => 'date',
+        ];
+
         $properties['type'] = [
             'type' => 'keyword',
         ];

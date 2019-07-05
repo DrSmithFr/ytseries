@@ -97,7 +97,7 @@ class SearchController
         $query->setSize(96);
         $query->setSort(
             [
-                'id' => [
+                'import_date' => [
                     'order' => 'desc',
                 ],
             ]
