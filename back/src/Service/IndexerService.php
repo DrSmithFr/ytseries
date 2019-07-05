@@ -53,8 +53,7 @@ class IndexerService
         return new Document(
             $series->getImportCode(), // Manually defined ID
             [
-                'id'          => $series->getId(),
-                'slug'        => $series->getImportCode(),
+                'id'          => $series->getImportCode(),
                 'locale'      => $series->getLocale(),
                 'name'        => $series->getName(),
                 'image'       => $series->getImage() ?? '',
