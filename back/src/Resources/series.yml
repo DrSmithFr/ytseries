@@ -3542,3 +3542,22 @@ salade_fingers:
             -
                 name: 'Glass brother'
                 code: qeE-J-GjAyQ
+eighty-sixed:
+    name: 'Eighty-sixed'
+    locale: en
+    type: series
+    image: 'https://i.ytimg.com/vi/2qNX97CtgSQ/maxresdefault.jpg'
+    description: 'Remi gets dumped and her friends attempts to console her only makes things worse.'
+    categories: {  }
+    seasons:
+        -
+            name: 'Saison 1'
+            episodes:
+                - { name: 'promise i''ll win', code: 2qNX97CtgSQ }
+                - { name: 'solidarity cones', code: 0J7V9uaYpIo }
+                - { name: 'tight vagina melissa', code: X-g6kHrR6rw }
+                - { name: 'remi v drone', code: IjIu482ZkQ8 }
+                - { name: 'new friend', code: 37iKWje1eaQ }
+                - { name: 'the birthday monster', code: 6EoB1EDoBzo }
+                - { name: 'cat scan', code: lD8Kfue3qgQ }
+                - { name: 'texting', code: iJgyg6TIxa4 }
