@@ -11,15 +11,15 @@ use App\Repository\HistoricRepository;
 use App\Repository\SeriesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\NonUniqueResultException;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
 
 /**
  * @Route("/api")
  */
-class ApiSecureController
+class ApiSecureController extends Controller
 {
     /**
      * @Route("/user_info", name="api_user_info")

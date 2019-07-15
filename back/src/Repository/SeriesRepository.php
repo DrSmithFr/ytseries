@@ -149,4 +149,27 @@ class SeriesRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    /**
+     * @return array
+     */
+    public function getManaged(): array
+    {
+        return $this
+            ->getEntityManager()
+            ->createQueryBuilder()
+            ->select('series.importCode as code')
+            ->addSelect('series.image as image')
+            ->addSelect('series.name as title')
+            ->addSelect('count(DISTINCT season.id) as seasons')
+            ->addSelect('count(episode.id) as episodes')
+            ->from(Series::class, 'series')
+            ->leftJoin('series.seasons', 'season')
+            ->leftJoin('season.episodes', 'episode')
+            ->groupBy('season.id')
+            ->groupBy('series.id')
+            ->orderBy('series.name', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 }

@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Repository\SeriesRepository;
 use App\Service\SearchService;
-use Doctrine\ORM\NonUniqueResultException;
 use Elastica\Aggregation\Terms;
 use Elastica\Query\Match;
-use JMS\Serializer\SerializerBuilder;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,7 +18,7 @@ use Elastica\Query\MultiMatch;
 /**
  * @Route("/open")
  */
-class SearchController
+class SearchController extends Controller
 {
     /**
      * @Route("/search", name="api_asset_search")

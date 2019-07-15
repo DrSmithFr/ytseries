@@ -63,7 +63,6 @@ They are inject inside `.git/hooks` using symbolic link.
 - PSR-2 checkup
 - PHP Mess Detector Checkup
 - TsLint checkup
-- Affected file lister
 
 Checks will run only over the committed code base
 

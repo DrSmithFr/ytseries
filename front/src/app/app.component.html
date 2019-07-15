@@ -34,6 +34,10 @@
 </mat-menu>
 
 <mat-menu #usermenu="matMenu">
+  <button mat-menu-item routerLink="/manage">
+    <mat-icon>list</mat-icon>
+    <span>Mes séries</span>
+  </button>
   <button mat-menu-item (click)="logout()">
     <mat-icon>settings_power</mat-icon>
     <span>Déconnection</span>

@@ -1,0 +1,85 @@
+<div class="page_body">
+  <form class="form" (ngSubmit)="save()">
+    <h1>{{ series.name }}</h1>
+
+    <div style="text-align:right">
+      <button mat-raised-button type="submit" color="warn" (click)="save()">Save</button>
+      <hr>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+
+        <mat-card class="card">
+
+          <mat-form-field>
+            <mat-label>Langue</mat-label>
+
+            <mat-select name="locale" [(ngModel)]="series.locale" value="fr">
+              <mat-option value="fr">Français</mat-option>
+              <mat-option value="us">Anglais</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Code" name="code" [(ngModel)]="series.import_code">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Title" name="name" [(ngModel)]="series.name">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+          <textarea matInput placeholder="Description" name="description" [(ngModel)]="series.description">
+          </textarea>
+
+          </mat-form-field>
+        </mat-card>
+
+      </div>
+      <div class="col-md-6">
+        <img src="{{series.image}}" style="max-width:100%;border-radius:5px;">
+
+        <mat-card class="card">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Image" name="image" [(ngModel)]="series.image">
+          </mat-form-field>
+        </mat-card>
+      </div>
+    </div>
+
+    <hr>
+
+    <div *ngFor="let season of series.seasons; let seasonIndex = index">
+      <mat-card class="season">
+        <h2>#{{seasonIndex+1}} {{season.name}}</h2>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Name" name="season[{{seasonIndex}}]name" [(ngModel)]="season.name">
+        </mat-form-field>
+
+        <div class="episodes-list">
+          <div class="episode" *ngFor="let ep of season.episodes; let epIndex = index">
+            <h3>#{{epIndex+1}} {{ep.name}}</h3>
+
+            <mat-form-field>
+              <input matInput placeholder="Code" name="season[{{seasonIndex}}]episodes[{{epIndex}}]code" [(ngModel)]="ep.code">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Name" name="season[{{seasonIndex}}]episodes[{{epIndex}}]name" [(ngModel)]="ep.name">
+            </mat-form-field>
+          </div>
+
+          <div class="center">
+            <button mat-button (click)="addEpisode(season)">Add episodes</button>
+          </div>
+        </div>
+
+      </mat-card>
+    </div>
+
+    <div class="center">
+      <button mat-button (click)="addSeason()">Add seasons</button>
+    </div>
+  </form>
+</div>

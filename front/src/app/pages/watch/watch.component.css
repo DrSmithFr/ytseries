@@ -5,6 +5,7 @@
 }
 
 .page_divided .page_body {
+    background: #333;
     width: 100%;
     position: relative;
 }
