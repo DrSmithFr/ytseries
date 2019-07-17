@@ -46,4 +46,10 @@
 
 <div class="router-wrapper">
   <router-outlet></router-outlet>
+
+  <div class="back-to-top" [ngClass]="{'show': windowScrolled}">
+    <button mat-mini-fab aria-label="Remonter la page" (click)="scrollToTop()">
+      <mat-icon>keyboard_arrow_up</mat-icon>
+    </button>
+  </div>
 </div>
