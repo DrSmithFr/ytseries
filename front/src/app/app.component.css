@@ -65,11 +65,25 @@ mat-toolbar {
   transition: all .2s ease-in-out;
 }
 
-.back-to-top.show {
+.install-pwa {
+  position: fixed;
+  bottom: 15px;
+  left: 20px;
+  opacity: 0;
+  transition: all .2s ease-in-out;
+}
+
+.back-to-top.show,
+.install-pwa.show
+{
   opacity: 1;
   transition: all .2s ease-in-out;
 }
 
-.back-to-top button {
+.install-pwa button {
   background-color: #dc1a28;
+}
+
+.back-to-top button {
+  background-color: #333333;
 }

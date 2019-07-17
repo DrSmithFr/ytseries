@@ -1,11 +1,11 @@
-import {NgModule}                                                   from '@angular/core';
-import {FormsModule}                                                from '@angular/forms';
-import {BrowserModule}                                              from '@angular/platform-browser';
-import {ReactiveFormsModule}                                        from '@angular/forms';
-import {StorageServiceModule}                                       from 'angular-webstorage-service';
-import {BrowserAnimationsModule}                                    from '@angular/platform-browser/animations';
 import {HttpClientModule, HTTP_INTERCEPTORS, HttpClientJsonpModule} from '@angular/common/http';
 
+import {NgModule}                 from '@angular/core';
+import {FormsModule}              from '@angular/forms';
+import {BrowserModule}            from '@angular/platform-browser';
+import {ReactiveFormsModule}      from '@angular/forms';
+import {StorageServiceModule}     from 'angular-webstorage-service';
+import {BrowserAnimationsModule}  from '@angular/platform-browser/animations';
 import {MatCardModule}            from '@angular/material/card';
 import {MatMenuModule}            from '@angular/material/menu';
 import {MatIconModule}            from '@angular/material/icon';
@@ -24,6 +24,8 @@ import {MatSnackBarModule}        from '@angular/material/snack-bar';
 import {MatFormFieldModule}       from '@angular/material/form-field';
 import {MatButtonToggleModule}    from '@angular/material/button-toggle';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSelectModule}          from '@angular/material';
+import {ServiceWorkerModule}      from '@angular/service-worker';
 
 import {UserService}             from './services/user.service';
 import {AppComponent}            from './app.component';
@@ -32,18 +34,18 @@ import {AppRoutingModule}        from './modules/app-routing.module';
 import {HttpInterceptor}         from './interceptors/http.interceptor';
 import {PasswordResetComponent}  from './pages/password-reset/password-reset.component';
 import {PasswordForgotComponent} from './pages/password-forgot/password-forgot.component';
-import {Page404Component}  from './pages/page404/page404.component';
-import {SearchComponent}   from './pages/search/search.component';
-import {WatchComponent}    from './pages/watch/watch.component';
-import {HistoricComponent} from './pages/historic/historic.component';
-import {RegisterComponent} from './pages/register/register.component';
-import {ManageComponent}   from './pages/manage/manage.component';
-import {SeriesComponent}   from './pages/series/series.component';
-import {MatSelectModule}   from '@angular/material';
+import {Page404Component}        from './pages/page404/page404.component';
+import {SearchComponent}         from './pages/search/search.component';
+import {WatchComponent}          from './pages/watch/watch.component';
+import {HistoricComponent}       from './pages/historic/historic.component';
+import {RegisterComponent}       from './pages/register/register.component';
+import {ManageComponent}         from './pages/manage/manage.component';
+import {SeriesComponent}         from './pages/series/series.component';
+import {environment}             from '../environments/environment';
 
 @NgModule(
   {
-    imports: [
+    imports:      [
       FormsModule,
       BrowserModule,
       MatCardModule,
@@ -70,7 +72,8 @@ import {MatSelectModule}   from '@angular/material';
       HttpClientJsonpModule,
       BrowserAnimationsModule,
       MatProgressSpinnerModule,
-      MatSelectModule
+      MatSelectModule,
+      ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
     ],
     declarations: [
       AppComponent,
