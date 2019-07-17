@@ -37,7 +37,7 @@
 }
 
 .sidebar {
-  z-index: 2;
+  z-index: 15;
 }
 
 @media only screen and (min-width: 600px) {
@@ -49,10 +49,21 @@
 @media only screen and (max-width: 600px) {
   .sidebar {
     width: 100% !important;
-    height: 100% !important;
     position: fixed !important;
     top: 0;
+    bottom: 80px;
+  }
+
+  .sidebar .sidebar_item.back-button {
+    position: fixed !important;
+    background: #333;
     bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .sidebar .filter-container {
+    padding-bottom: 20px;
   }
 }
 

@@ -11,6 +11,15 @@ mat-toolbar {
   background: #141414;
   border-bottom: 1px solid #000;
   color: #fff;
+
+  height: 50px;
+
+  position: fixed;
+  z-index: 10;
+}
+
+.router-wrapper {
+  padding-top: 50px;
 }
 
 .site-title {
