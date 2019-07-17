@@ -21,6 +21,7 @@
     "@angular/material": "^7.3.7",
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
+    "@angular/pwa": "^0.801.1",
     "@angular/router": "^6.1.0",
     "angular-webstorage-service": "^1.0.2",
     "core-js": "^2.6.9",
