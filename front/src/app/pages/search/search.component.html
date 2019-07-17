@@ -56,7 +56,7 @@
 
   </div>
 
-  <div class="page_body">
+  <div class="page_body" [ngClass]="{'blurry': displayFilterMenu}">
     <div class="search-bar">
       <button class="search-filter" mat-flat-button (click)="toogleFilterMenu()">
         <i class="material-icons">filter_list</i>

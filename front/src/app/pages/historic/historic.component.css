@@ -1,3 +1,20 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700';
+
+.title-wrapper {
+  padding: 2em;
+}
+
+.title-wrapper hr {
+  color: #000;
+}
+
+.title-wrapper h1 {
+  font-weight: normal;
+  font-family: Montserrat, sans-serif;
+  letter-spacing: -1px;
+  color: #fff;
+}
+
 .page_body {
   background: #333;
 }

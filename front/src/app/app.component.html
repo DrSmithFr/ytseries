@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <a routerLink="/" class="site-title-container">
+  <a routerLink="/" (click)="scrollToTop()" class="site-title-container">
     <img class="site-title" src="/assets/logo.png">
   </a>
 
@@ -21,18 +21,18 @@
     <button mat-icon-button routerLink="/manage" class="menu-link" routerLinkActive="active" *ngIf="isConnected()">
       <mat-icon>list</mat-icon>
     </button>
-
-    <button mat-icon-button (click)="logout()" class="menu-link important" *ngIf="isConnected()">
-      <mat-icon>settings_power_new</mat-icon>
-    </button>
   </div>
 
   <span class="example-spacer"></span>
 
   <div class="login-menu-icons">
-    <button mat-button (click)="logout()" class="menu-link important" *ngIf="isConnected()">
-      <mat-icon>settings_power_new</mat-icon>
-      <mat-label>Déconnexion</mat-label>
+    <button mat-button (click)="logout()" class="menu-link hide-on-mobile important" *ngIf="isConnected()">
+      <mat-icon>power_settings_new</mat-icon>
+      <mat-label class="">Déconnexion</mat-label>
+    </button>
+
+    <button mat-icon-button (click)="logout()" class="menu-link hide-on-desktop important" *ngIf="isConnected()">
+      <mat-icon>power_settings_new</mat-icon>
     </button>
 
     <div *ngIf="!isConnected()">

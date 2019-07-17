@@ -8,8 +8,8 @@
 }
 
 mat-toolbar {
-  background: #141414;
-  border-bottom: 1px solid #000;
+  background-color: transparent;
+  background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,1));
   color: #fff;
 
   height: 50px;
@@ -54,6 +54,16 @@ mat-toolbar {
 
   .menu-container-mobile {
     display: block;
+  }
+
+  .hide-on-mobile {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .hide-on-desktop {
+    display: none;
   }
 }
 

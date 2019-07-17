@@ -50,8 +50,9 @@
   .sidebar {
     width: 100% !important;
     position: fixed !important;
-    top: 0;
+    top: 50px;
     bottom: 80px;
+    background: rgba(0, 0, 0, 0.5) !important;
   }
 
   .sidebar .sidebar_item.back-button {
@@ -64,6 +65,11 @@
 
   .sidebar .filter-container {
     padding-bottom: 20px;
+  }
+
+  .page_body.blurry {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
   }
 }
 
