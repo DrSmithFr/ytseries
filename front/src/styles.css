@@ -102,3 +102,6 @@ body {
 .mat-radio-outer-circle, .mat-radio-inner-circle {
   border-color: rgba(255, 255, 255, .54);
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
