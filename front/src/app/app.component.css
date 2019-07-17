@@ -34,7 +34,7 @@ mat-toolbar {
   padding-left: 20px;
   font-weight: 100;
   text-decoration: none;
-  color: #b5b5b5;
+  color: #727272;
   font-size: 14px;
 }
 
@@ -86,4 +86,8 @@ mat-toolbar {
 
 .back-to-top button {
   background-color: #333333;
+}
+
+.menu-link.important {
+  color: #dc1a28;
 }

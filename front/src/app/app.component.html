@@ -2,47 +2,47 @@
   <a routerLink="/" class="site-title-container">
     <img class="site-title" src="/assets/logo.png">
   </a>
+
   <div class="menu-container">
     <a class="menu-link" routerLink="/search" routerLinkActive="active">Explorer</a>
     <a class="menu-link" routerLink="/historic" routerLinkActive="active" *ngIf="isConnected()">Historique</a>
+    <a class="menu-link" routerLink="/manage" routerLinkActive="active" *ngIf="isConnected()">Mes séries</a>
   </div>
+
   <div class="menu-container-mobile">
-    <a class="menu-link" [matMenuTriggerFor]="mobilemenu" href="javascript:void(0)">
-      Menu
-    </a>
+    <button mat-icon-button routerLink="/search" class="menu-link" routerLinkActive="active">
+      <mat-icon>home</mat-icon>
+    </button>
+
+    <button mat-icon-button routerLink="/historic" class="menu-link" routerLinkActive="active" *ngIf="isConnected()">
+      <mat-icon>history</mat-icon>
+    </button>
+
+    <button mat-icon-button routerLink="/manage" class="menu-link" routerLinkActive="active" *ngIf="isConnected()">
+      <mat-icon>list</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="logout()" class="menu-link important" *ngIf="isConnected()">
+      <mat-icon>settings_power_new</mat-icon>
+    </button>
   </div>
 
   <span class="example-spacer"></span>
-  <button mat-icon-button [matMenuTriggerFor]="usermenu" *ngIf="isConnected()">
-    <mat-icon>person</mat-icon>
-  </button>
-  <div *ngIf="!isConnected()">
-    <button mat-flat-button routerLink="/login">Connection</button>
+
+  <div class="login-menu-icons">
+    <button mat-button (click)="logout()" class="menu-link important" *ngIf="isConnected()">
+      <mat-icon>settings_power_new</mat-icon>
+      <mat-label>Déconnexion</mat-label>
+    </button>
+
+    <div *ngIf="!isConnected()">
+      <button mat-icon-button routerLink="/login">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </div>
   </div>
+
 </mat-toolbar>
-
-
-<mat-menu #mobilemenu="matMenu">
-  <button mat-menu-item routerLink="/search">
-    <mat-icon>search</mat-icon>
-    <span>Explorer</span>
-  </button>
-  <button mat-menu-item routerLink="/historic" *ngIf="isConnected()">
-    <mat-icon>history</mat-icon>
-    <span>Historique</span>
-  </button>
-</mat-menu>
-
-<mat-menu #usermenu="matMenu">
-  <button mat-menu-item routerLink="/manage">
-    <mat-icon>list</mat-icon>
-    <span>Mes séries</span>
-  </button>
-  <button mat-menu-item (click)="logout()">
-    <mat-icon>settings_power</mat-icon>
-    <span>Déconnection</span>
-  </button>
-</mat-menu>
 
 <div class="router-wrapper">
   <router-outlet></router-outlet>
