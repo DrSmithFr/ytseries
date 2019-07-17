@@ -45,8 +45,19 @@
         width: 100% !important;
         min-height: 200px;
     }
+
     .page_divided {
         display: block;
+    }
+
+    .page_body {
+      position: fixed !important;
+      top: 50px;
+      z-index: 5;
+    }
+
+    .playlist-container {
+      margin-top: calc(50% + 135px);
     }
 }
 
