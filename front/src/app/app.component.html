@@ -9,16 +9,16 @@
     <a class="menu-link" routerLink="/manage" routerLinkActive="active" *ngIf="isConnected()">Mes séries</a>
   </div>
 
-  <div class="menu-container-mobile">
+  <div class="menu-container-mobile" *ngIf="isConnected()">
     <button mat-icon-button routerLink="/search" class="menu-link" routerLinkActive="active">
       <mat-icon>home</mat-icon>
     </button>
 
-    <button mat-icon-button routerLink="/historic" class="menu-link" routerLinkActive="active" *ngIf="isConnected()">
+    <button mat-icon-button routerLink="/historic" class="menu-link" routerLinkActive="active">
       <mat-icon>history</mat-icon>
     </button>
 
-    <button mat-icon-button routerLink="/manage" class="menu-link" routerLinkActive="active" *ngIf="isConnected()">
+    <button mat-icon-button routerLink="/manage" class="menu-link" routerLinkActive="active">
       <mat-icon>list</mat-icon>
     </button>
   </div>

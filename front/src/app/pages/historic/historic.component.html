@@ -1,33 +1,9 @@
 <div class="page_body">
+
   <div class="title-wrapper">
     <h1>Historique</h1>
     <hr>
   </div>
-  <div class="gridViewContainer">
 
-    <div class="gridView-listItem" *ngFor="let row of result" routerLink="/watch/{{row.id}}">
-      <div class="gridView-tile">
-        <div class="gridView-imageSection thumbnailWrap">
-          <div class="gridView-imageSectionMaskTop"></div>
-          <!--<div class="gridView-menu">-->
-            <!--<i class="material-icons">-->
-              <!--playlist_add-->
-            <!--</i>-->
-          <!--</div>-->
-          <div class="gridView-image">
-            <img src="{{row.image}}">
-          </div>
-        </div>
-        <div class="gridView-detailsSection">
-          <div class="gridView-detailsTop">
-            <a class="gridView-title u-link" [innerHtml]="row.name"></a>
-          </div>
-          <div class="gridView-detailsBottom">
-            <div class="gridView-date" [innerHtml]="row.description"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
+  <app-quick-view-list [series]="result"></app-quick-view-list>
 </div>

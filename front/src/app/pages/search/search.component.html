@@ -57,6 +57,7 @@
   </div>
 
   <div class="page_body" [ngClass]="{'blurry': displayFilterMenu}">
+
     <div class="search-bar">
       <button class="search-filter" mat-flat-button (click)="toogleFilterMenu()">
         <i class="material-icons">filter_list</i>
@@ -69,38 +70,7 @@
 
     <mat-divider></mat-divider>
 
-    <div class="gridViewContainer">
-
-      <div class="gridView-listItem" *ngFor="let row of result" routerLink="/watch/{{row.id}}">
-        <div class="gridView-tile">
-          <div class="gridView-imageSection thumbnailWrap">
-            <div class="gridView-imageSectionMaskTop"></div>
-            <!--<div class="gridView-menu">-->
-              <!--<i class="material-icons">-->
-                <!--playlist_add-->
-              <!--</i>-->
-            <!--</div>-->
-            <div class="gridView-image">
-              <img src="{{row.image}}">
-            </div>
-            <div class="gridView-duration" *ngIf="row.seasons > 1">{{row.seasons}} saisons</div>
-            <div class="gridView-duration" *ngIf="row.seasons <= 1 && row.episodes > 1">{{row.episodes}} episodes</div>
-            <div class="gridView-duration" *ngIf="row.seasons <= 1 && row.episodes <= 1">{{row.type}}</div>
-            <div class="gridView-locale"><span class="flag-icon flag-icon-{{row.locale}}"></span></div>
-          </div>
-          <div class="gridView-detailsSection">
-            <div class="gridView-detailsTop">
-              <a class="gridView-title u-link" [innerHtml]="row.name"></a>
-            </div>
-            <div class="gridView-detailsBottom">
-              <div class="gridView-date" [innerHtml]="row.description"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
+    <app-quick-view-list [series]="result"></app-quick-view-list>
   </div>
 
 </section>

@@ -47,9 +47,12 @@ export class AppComponent implements OnInit {
   onWindowScroll() {
     if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 100) {
       this.windowScrolled = true;
+      return;
     }
-    else if (this.windowScrolled && window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop < 10) {
+
+    if (this.windowScrolled && window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop < 10) {
       this.windowScrolled = false;
+      return;
     }
   }
 
@@ -58,8 +61,14 @@ export class AppComponent implements OnInit {
       const currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
 
       if (currentScroll > 0) {
+        let delta = currentScroll / 16;
+
+        if (delta < 0.5) {
+          delta = currentScroll;
+        }
+
         window.requestAnimationFrame(smoothScroll);
-        window.scrollTo(0, currentScroll - (currentScroll / 8));
+        window.scrollTo(0, currentScroll - delta);
       }
     })();
   }

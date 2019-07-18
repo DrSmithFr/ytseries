@@ -1,8 +1,8 @@
 {
   "name": "YtSeries",
   "short_name": "YT",
-  "theme_color": "#141414",
-  "background_color": "#141414",
+  "theme_color": "#000000",
+  "background_color": "#000000",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",

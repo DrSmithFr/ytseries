@@ -101,3 +101,11 @@ mat-toolbar {
 .menu-link.important {
   color: #dc1a28;
 }
+
+.mobile-floating-container {
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  opacity: 0;
+  transition: all .2s ease-in-out;
+}

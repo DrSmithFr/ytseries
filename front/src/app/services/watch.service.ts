@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/index';
-import { environment } from '../../environments/environment';
-import { SeriesModel } from '../models/series.model';
+import { Injectable }    from '@angular/core';
+import { HttpClient }    from '@angular/common/http';
+import { Observable }    from 'rxjs';
+import { environment }   from '../../environments/environment';
+import { SeriesModel }   from '../models/series.model';
 import { HistoricModel } from '../models/historic.model';
 
 const API_URL = environment.apiUrl;

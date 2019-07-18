@@ -42,6 +42,8 @@ import {RegisterComponent}       from './pages/register/register.component';
 import {ManageComponent}         from './pages/manage/manage.component';
 import {SeriesComponent}         from './pages/series/series.component';
 import {environment}             from '../environments/environment';
+import { QuickViewComponent } from './components/quick-view/quick-view.component';
+import { QuickViewListComponent } from './components/quick-view-list/quick-view-list.component';
 
 @NgModule(
   {
@@ -86,7 +88,9 @@ import {environment}             from '../environments/environment';
       HistoricComponent,
       RegisterComponent,
       ManageComponent,
-      SeriesComponent
+      SeriesComponent,
+      QuickViewComponent,
+      QuickViewListComponent
     ],
     providers:    [
       UserService,
