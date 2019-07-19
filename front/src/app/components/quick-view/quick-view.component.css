@@ -127,4 +127,5 @@ mat-card.detail mat-card-content {
 
 .detail .btn-play button {
   background-color: #dc1a28;
+  color: #fff;
 }
