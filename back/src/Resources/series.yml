@@ -3349,8 +3349,7 @@ dead_lands:
   type: series
   image: https://img.youtube.com/vi/sWS5beMd18I/mqdefault.jpg
   description:
-    C'est la fin de l'été à l'Escapade, un petit camping au bord de la faillite au cœur des Landes.
-    Alors qu'une équipe de télévision est venue tourner un reportage sur la fin des vacances,
+    C'est la fin de l'été à l'Escapade, dans un petit camping au bord de la faillite au cœur des Landes
     de mystérieuses catastrophes surviennent...
   categories:
     - scifi
@@ -3464,7 +3463,7 @@ what_the_cut:
           code: _ghgW_tSPAI
 identifier:
   name: 'Ctrl alt del'
-  locale: en
+  locale: us
   type: series
   image: 'https://i.ytimg.com/vi/RJEeTH3gQjU/maxresdefault.jpg'
   description: "Time for a love story reset. The first episode from our first ever web series. Watch and Enjoy."
@@ -3499,7 +3498,7 @@ identifier:
         code: iAvQv7Ew95A
 salade_fingers:
     name: 'Salad fingers'
-    locale: en
+    locale: us
     type: series
     image: 'https://i.ytimg.com/vi/OWBFKL6H7rI/sddefault.jpg'
     description: "Salad Fingers goes on the lookout for the perfect spoon."
@@ -3544,7 +3543,7 @@ salade_fingers:
                 code: qeE-J-GjAyQ
 eighty-sixed:
     name: 'Eighty-sixed'
-    locale: en
+    locale: us
     type: series
     image: 'https://i.ytimg.com/vi/2qNX97CtgSQ/maxresdefault.jpg'
     description: 'Remi gets dumped and her friends attempts to console her only makes things worse.'
