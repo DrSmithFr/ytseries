@@ -1,3 +1,3 @@
 <div class="list">
-  <app-quick-view *ngFor="let item of series" [item]="item" class="list-item"></app-quick-view>
+  <app-quick-view *ngFor="let item of series" [item]="item" class="list-item" (opening)="onSelection($event)"></app-quick-view>
 </div>

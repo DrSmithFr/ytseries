@@ -77,12 +77,28 @@ mat-card mat-card-content {
 
 
   background-color: transparent;
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1));
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,1));
+}
+
+mat-card mat-card-content:before {
+  content: "";
+  display: block;
+  margin: -25px -5px 0;
+  height: 20px;
+  width: calc(100% + 10px);
+  background-color: transparent;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.5));
 }
 
 mat-card-content {
   opacity: 0;
   transition: all .2s ease-in-out;
+}
+
+mat-card-content p {
+  padding: 1em;
+  font-family: monospace;
+  font-size: 14px;
 }
 
 /* detail mode */
@@ -107,4 +123,8 @@ mat-card.detail mat-card-content {
   opacity: 1;
   display: block;
   transition: all .2s ease-in-out;
+}
+
+.detail .btn-play button {
+  background-color: #dc1a28;
 }
