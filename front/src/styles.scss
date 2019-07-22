@@ -1,0 +1,141 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+$dark-primary: mat-palette($mat-red);
+$dark-accent:  mat-palette($mat-orange, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$dark-warn:    mat-palette($mat-deep-orange);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$cdark-theme: mat-light-theme($dark-primary, $dark-accent, $dark-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($cdark-theme);
+
+// Our dark theme
+html {
+  color: $light-primary-text;
+  $dark-primary: mat-palette($mat-red);
+  $dark-accent: mat-palette($mat-amber, A400, A100, A700);
+  $dark-warn: mat-palette($mat-orange);
+  $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+  @include angular-material-theme($dark-theme);
+}
+
+html {
+  background: #141414;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+@media screen and (max-width: 600px) {
+
+  /* .menu_btn {
+    display: none !important;
+  } */
+}
+
+.ol-overviewmap {
+  left: auto;
+  right: 0.5em;
+}
+
+.tooltip {
+  position: relative;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+  color: white;
+  padding: 4px 8px;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.tooltip-measure:before, .tooltip-static:before {
+  border-top: 6px solid rgba(0, 0, 0, 0.8);
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  margin-left: -7px;
+  left: 50%;
+}
+
+.tooltip-measure {
+  opacity: 1;
+  font-weight: bold;
+}
+
+.tooltip-static {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.tooltip-static:before {
+  border-top-color: rgba(0, 0, 0, 0.9);;
+}
+
+.ol-scale-line {
+  background: #3f51b5;
+}
+
+.ol-control button {
+  background: #3f51b5;
+}
+
+.ol-control button:focus {
+  background: #3f51b5;
+}
+
+.ol-control button:hover {
+  background: #3f51b5;
+  cursor: pointer;
+}
+
+/* search related */
+.gridView-title em {
+  background: #272727;
+  border-radius: 3px;
+}
+
+.gridView-detailsBottom em {
+  background: #272727;
+  color: #adadad;
+  border-radius: 3px;
+}
+
+/* youtube player related */
+#yt-video-player {
+  width: 100%;
+  height: 100%;
+}
+
+/* radio btn related */
+.mat-radio-outer-circle, .mat-radio-inner-circle {
+  border-color: rgba(255, 255, 255, .54);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

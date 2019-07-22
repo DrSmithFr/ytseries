@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
     {
       login: ['', Validators.required],
       password: ['', Validators.required],
-      rememberMe: [false],
     }
   );
 
@@ -46,7 +45,7 @@ export class LoginComponent implements OnInit {
       .connect(
         this.loginForm.get('login').value,
         this.loginForm.get('password').value,
-        this.loginForm.get('rememberMe').value
+        true
       )
       .subscribe(
         () => {
