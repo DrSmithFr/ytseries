@@ -6,7 +6,7 @@ import {QuickViewComponent}                                from '../quick-view/q
   {
     selector:    'app-quick-view-list',
     templateUrl: './quick-view-list.component.html',
-    styleUrls:   ['./quick-view-list.component.css']
+    styleUrls:   ['./quick-view-list.component.scss']
   }
 )
 export class QuickViewListComponent implements OnInit {

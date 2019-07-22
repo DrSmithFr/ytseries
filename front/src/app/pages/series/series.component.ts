@@ -9,7 +9,7 @@ import {EpisodeModel}      from '../../models/episode.model';
   {
     selector:    'app-series',
     templateUrl: './series.component.html',
-    styleUrls:   ['./series.component.css']
+    styleUrls:   ['./series.component.scss']
   }
 )
 export class SeriesComponent implements OnInit {

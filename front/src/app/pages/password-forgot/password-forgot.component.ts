@@ -6,7 +6,7 @@ import { UserService } from '../../services/user.service';
   {
     selector: 'app-password-forgot',
     templateUrl: './password-forgot.component.html',
-    styleUrls: ['./password-forgot.component.css']
+    styleUrls: ['./password-forgot.component.scss']
   }
 )
 export class PasswordForgotComponent {

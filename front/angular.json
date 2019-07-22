@@ -24,10 +24,8 @@
               "src/manifest.json"
             ],
             "styles": [
-              "./node_modules/flag-icon-css/css/flag-icon.min.css",
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "./node_modules/ol/ol.css",
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -78,8 +76,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": [],
             "assets": [
@@ -131,5 +128,10 @@
       }
     }
   },
-  "defaultProject": "YtSeries"
+  "defaultProject": "YtSeries",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

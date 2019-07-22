@@ -12,6 +12,7 @@ use Swift_Message;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Templating\EngineInterface;
 
 class WelcomeMailCommand extends Command
 {
@@ -23,14 +24,20 @@ class WelcomeMailCommand extends Command
      * @var Swift_Mailer|null
      */
     private $mailer;
+    /**
+     * @var EngineInterface|null
+     */
+    private $engine;
 
     public function __construct(
         UserRepository $userRepository,
-        Swift_Mailer $mailer
+        Swift_Mailer $mailer,
+        EngineInterface $engine
     ) {
         $this->userRepository = $userRepository;
         $this->mailer         = $mailer;
         parent::__construct();
+        $this->engine = $engine;
     }
 
     protected function configure(): void
@@ -54,10 +61,10 @@ class WelcomeMailCommand extends Command
         foreach ($users as $user) {
             $message = (new Swift_Message())
                 ->setSubject('Password reset')
-                ->setFrom('noreplay@egis-eams.com')
+                ->setFrom('noreplay@ytseries.com')
                 ->setTo($user->getEmail())
                 ->setBody(
-                    $this->renderView(
+                    $this->engine->render(
                         'emails/password_reset.html.twig',
                         [
                             'user' => $user,

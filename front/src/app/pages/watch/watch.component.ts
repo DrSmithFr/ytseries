@@ -6,7 +6,7 @@ import { SeriesModel } from '../../models/series.model';
 import { EpisodeModel } from '../../models/episode.model';
 import { UserService } from '../../services/user.service';
 import { HistoricModel } from '../../models/historic.model';
-import { Subscription } from 'rxjs/index';
+import { Subscription } from 'rxjs';
 
 const HISTORIC_FREQUENCY_IN_SECOND = 3;
 
@@ -14,7 +14,7 @@ const HISTORIC_FREQUENCY_IN_SECOND = 3;
   {
     selector: 'app-watch',
     templateUrl: './watch.component.html',
-    styleUrls: ['./watch.component.css']
+    styleUrls: ['./watch.component.scss']
   }
 )
 export class WatchComponent implements OnInit, OnDestroy {

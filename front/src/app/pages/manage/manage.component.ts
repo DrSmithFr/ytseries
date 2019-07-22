@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchService }     from '../../services/search.service';
 import {SeriesService}       from '../../services/series.service';
 
 @Component(
   {
     selector: 'app-manage',
     templateUrl: './manage.component.html',
-    styleUrls: ['./manage.component.css']
+    styleUrls: ['./manage.component.scss']
   }
 )
 export class ManageComponent implements OnInit {

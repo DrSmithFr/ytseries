@@ -5,7 +5,7 @@ import { SearchService } from '../../services/search.service';
   {
     selector: 'app-historic',
     templateUrl: './historic.component.html',
-    styleUrls: ['./historic.component.css']
+    styleUrls: ['./historic.component.scss']
   }
 )
 export class HistoricComponent implements OnInit {

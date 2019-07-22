@@ -5,7 +5,7 @@ import {AssetModel}                             from '../../models/search/asset.
   {
     selector:    'app-quick-view',
     templateUrl: './quick-view.component.html',
-    styleUrls:   ['./quick-view.component.css']
+    styleUrls:   ['./quick-view.component.scss']
   }
 )
 export class QuickViewComponent {
