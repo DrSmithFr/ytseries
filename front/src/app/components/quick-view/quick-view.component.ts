@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {AssetModel}                             from '../../models/search/asset.model';
+import {Component, ElementRef, EventEmitter, Input, Output, ViewChild} from '@angular/core';
+import {AssetModel}                                                    from '../../models/search/asset.model';
 
 @Component(
   {
@@ -12,6 +12,8 @@ export class QuickViewComponent {
 
   @Input() item: AssetModel;
   @Output() opening = new EventEmitter<QuickViewComponent>();
+
+  @ViewChild('content') content: ElementRef;
 
   public displayDetail: boolean = false;
 

@@ -1,5 +1,5 @@
 <mat-card [ngStyle]="{ 'background-image': 'url(' + item.image + ')'}" [ngClass]="{'detail': displayDetail}">
-  <div class="container" (click)="toggleDetail()">
+  <div #content class="container" (click)="toggleDetail()">
       <div class="title-bar">
         <h1>
           <span class="flag-icon flag-icon-{{item.locale}}"></span> {{item.name}}
