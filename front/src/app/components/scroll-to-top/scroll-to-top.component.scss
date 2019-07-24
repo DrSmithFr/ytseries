@@ -1,0 +1,17 @@
+.back-to-top {
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  opacity: 0;
+  transition: all .2s ease-in-out;
+}
+.back-to-top.show
+{
+  opacity: 1;
+  transition: all .2s ease-in-out;
+}
+
+.back-to-top button {
+  background-color: #404040;
+  color: #fff;
+}

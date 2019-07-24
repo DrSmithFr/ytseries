@@ -38,12 +38,14 @@ import {Page404Component}        from './pages/page404/page404.component';
 import {SearchComponent}         from './pages/search/search.component';
 import {WatchComponent}          from './pages/watch/watch.component';
 import {HistoricComponent}       from './pages/historic/historic.component';
-import {RegisterComponent}       from './pages/register/register.component';
-import {ManageComponent}         from './pages/manage/manage.component';
-import {SeriesComponent}         from './pages/series/series.component';
-import {environment}             from '../environments/environment';
-import { QuickViewComponent } from './components/quick-view/quick-view.component';
+import {RegisterComponent}        from './pages/register/register.component';
+import {ManageComponent}          from './pages/manage/manage.component';
+import {SeriesComponent}          from './pages/series/series.component';
+import {environment}              from '../environments/environment';
+import { QuickViewComponent }     from './components/quick-view/quick-view.component';
 import { QuickViewListComponent } from './components/quick-view-list/quick-view-list.component';
+import { ScrollToTopComponent }   from './components/scroll-to-top/scroll-to-top.component';
+import {InstallPwaComponent}      from './components/install-pwa/install-pwa.component';
 
 @NgModule(
   {
@@ -90,7 +92,9 @@ import { QuickViewListComponent } from './components/quick-view-list/quick-view-
       ManageComponent,
       SeriesComponent,
       QuickViewComponent,
-      QuickViewListComponent
+      QuickViewListComponent,
+      ScrollToTopComponent,
+      InstallPwaComponent
     ],
     providers:    [
       UserService,

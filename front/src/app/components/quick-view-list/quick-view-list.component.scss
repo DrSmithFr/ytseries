@@ -4,6 +4,12 @@
   padding: 10px;
 }
 
+@media (min-width: 500px) {
+  .list {
+    padding: 0 50px;
+  }
+}
+
 .list .list-item {
   display: flex;
   align-self: stretch;

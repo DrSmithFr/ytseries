@@ -110,6 +110,15 @@ mat-card.detail {
   transition: all .2s ease-in-out;
 }
 
+/* on desktop */
+@media (min-width: 500px) {
+  mat-card.detail {
+    margin: -20%;
+    z-index: 50;
+
+  }
+}
+
 mat-card.detail mat-card-content {
   opacity: 1;
   transition: all .2s ease-in-out;

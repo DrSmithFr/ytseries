@@ -1,0 +1,17 @@
+.install-pwa {
+  position: fixed;
+  bottom: 15px;
+  left: 20px;
+  opacity: 0;
+  transition: all .2s ease-in-out;
+}
+
+.install-pwa.show
+{
+  opacity: 1;
+  transition: all .2s ease-in-out;
+}
+
+.install-pwa button {
+  background-color: #dc1a28;
+}
