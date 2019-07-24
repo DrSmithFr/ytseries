@@ -1,7 +1,7 @@
 .back-to-top {
   position: fixed;
-  bottom: 15px;
-  right: 20px;
+  bottom: 80px;
+  right: 10px;
   opacity: 0;
   transition: all .2s ease-in-out;
 }
@@ -14,4 +14,12 @@
 .back-to-top button {
   background-color: #404040;
   color: #fff;
+}
+
+/* on desktop */
+@media (min-width: 500px) {
+  .back-to-top {
+    bottom: 15px;
+    right: 20px;
+  }
 }

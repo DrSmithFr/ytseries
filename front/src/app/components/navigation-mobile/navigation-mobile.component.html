@@ -1,0 +1,9 @@
+<div class="navigation-mobile" [ngClass]="{'open': opened}">
+  <button mat-fab aria-label="Menu" (click)="toggleNavigation()">
+    <mat-icon *ngIf="!opened">filter_list</mat-icon>
+    <mat-icon *ngIf="opened">close</mat-icon>
+  </button>
+  <div class="navigation-bar">
+
+  </div>
+</div>

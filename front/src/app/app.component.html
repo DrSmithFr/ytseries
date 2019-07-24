@@ -1,6 +1,6 @@
 <mat-toolbar>
-  <a routerLink="/" (click)="scrollToTop()" class="site-title-container">
-    <img class="site-title" src="/assets/logo.png">
+  <a routerLink="/" class="site-title-container">
+    <img class="site-title" src="/assets/logo.png" (click)="scrollToTop()">
   </a>
 
   <div class="menu-container">
@@ -46,6 +46,7 @@
 
 <div class="router-wrapper">
   <router-outlet></router-outlet>
+  <app-navigation-mobile></app-navigation-mobile>
   <app-scroll-to-top></app-scroll-to-top>
   <app-install-pwa></app-install-pwa>
 </div>

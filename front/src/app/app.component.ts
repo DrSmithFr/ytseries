@@ -1,8 +1,9 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import { UserService }                           from './services/user.service';
-import { Router }                                from '@angular/router';
-import { StorageService, LOCAL_STORAGE }         from 'angular-webstorage-service';
-import { MatSnackBar }                           from '@angular/material';
+import {Component, Inject, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import { UserService }                   from './services/user.service';
+import { Router }                        from '@angular/router';
+import { StorageService, LOCAL_STORAGE } from 'angular-webstorage-service';
+import { MatSnackBar }                   from '@angular/material';
+import {ScrollToTopComponent}            from './components/scroll-to-top/scroll-to-top.component';
 
 @Component(
   {
@@ -12,8 +13,8 @@ import { MatSnackBar }                           from '@angular/material';
   }
 )
 export class AppComponent implements OnInit {
-  windowScrolled: boolean;
-  promptEvent: any;
+
+  @ViewChild(ScrollToTopComponent) scroller: ScrollToTopComponent;
 
   constructor(
     private router: Router,
@@ -46,5 +47,9 @@ export class AppComponent implements OnInit {
   logout() {
     this.loginService.disconnect();
     this.router.navigate(['/']);
+  }
+
+  scrollToTop() {
+    this.scroller.scrollToTop();
   }
 }

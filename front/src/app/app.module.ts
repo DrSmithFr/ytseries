@@ -46,6 +46,7 @@ import { QuickViewComponent }     from './components/quick-view/quick-view.compo
 import { QuickViewListComponent } from './components/quick-view-list/quick-view-list.component';
 import { ScrollToTopComponent }   from './components/scroll-to-top/scroll-to-top.component';
 import {InstallPwaComponent}      from './components/install-pwa/install-pwa.component';
+import { NavigationMobileComponent } from './components/navigation-mobile/navigation-mobile.component';
 
 @NgModule(
   {
@@ -94,7 +95,8 @@ import {InstallPwaComponent}      from './components/install-pwa/install-pwa.com
       QuickViewComponent,
       QuickViewListComponent,
       ScrollToTopComponent,
-      InstallPwaComponent
+      InstallPwaComponent,
+      NavigationMobileComponent
     ],
     providers:    [
       UserService,

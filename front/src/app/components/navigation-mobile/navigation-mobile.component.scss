@@ -1,0 +1,46 @@
+/* on desktop */
+@media (min-width: 500px) {
+  .navigation-mobile {
+    display: none !important;
+  }
+}
+
+.navigation-mobile {
+  z-index: 10;
+
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+
+  button {
+    z-index: 12;
+    background-color: #404040;
+    color: #fff;
+  }
+
+  .navigation-bar {
+    z-index: 11;
+    position: absolute;
+
+    overflow: hidden;
+
+    right: 45px;
+    top: 10px;
+    bottom: 10px;
+    width: 0;
+
+    background: #000;
+    color: #fff;
+
+    border-radius: 15px 0 0 15px;
+    transition: all .2s ease-in-out;
+  }
+}
+
+.open {
+  .navigation-bar {
+    width: 245px;
+    overflow: auto;
+    transition: all .2s ease-in-out;
+  }
+}
