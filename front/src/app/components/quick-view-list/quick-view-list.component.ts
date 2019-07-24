@@ -28,31 +28,6 @@ export class QuickViewListComponent {
       }
     });
 
-    const rect = selected.content.nativeElement.getBoundingClientRect();
-
-    const node       = rect.top + window.pageYOffset - document.documentElement.clientTop;
-    const nodeHeight = selected.content.nativeElement.offsetHeight || selected.content.nativeElement.clientHeight;
-
-    const target = node;
-
-    console.debug('starting animate to reach ' + target);
-
-    (function smoothScroll() {
-      const currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
-      const todo          = target - currentScroll;
-
-      if (todo === 0) {
-        return;
-      }
-
-      const delta = todo / 16;
-
-      if (delta < 1 && delta > -1) {
-        return;
-      } else {
-        window.requestAnimationFrame(smoothScroll);
-        window.scrollTo(0, currentScroll + delta);
-      }
-    })();
+    selected.content.nativeElement.scrollIntoView({behavior: 'smooth', block: 'center'});
   }
 }
