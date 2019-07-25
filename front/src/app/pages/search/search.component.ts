@@ -65,4 +65,9 @@ export class SearchComponent implements OnInit {
 
     return activeFilter;
   }
+
+  updateQuery(query: string) {
+    this.query = query;
+    this.makeSearch();
+  }
 }

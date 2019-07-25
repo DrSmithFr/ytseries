@@ -30,10 +30,69 @@
     width: 0;
 
     background: #000;
+    border: 3px solid #f44336;
     color: #fff;
 
     border-radius: 15px 0 0 15px;
     transition: all .2s ease-in-out;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: flex-start;
+
+    .search-icon {
+      order: 0;
+      flex: 0 1 auto;
+      align-self: auto;
+
+      height: 100%;
+
+      mat-icon {
+        margin-top: 3px;
+        margin-left: 3px;
+      }
+    }
+
+    .search-input {
+      order: 0;
+      flex: 1 1 auto;
+      align-self: auto;
+
+      height: 100%;
+
+      input {
+        width: 100%;
+        height: 100%;
+
+        border: none;
+
+        background-color: #000000;
+        color: #fff;
+        caret-color: #f44336;
+
+        font-size: 15px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .search-clear {
+      order: 0;
+      flex: 0 1 auto;
+      align-self: auto;
+
+      height: 100%;
+
+      mat-icon {
+        margin-top: 3px;
+        margin-right: 3px;
+      }
+    }
   }
 }
 

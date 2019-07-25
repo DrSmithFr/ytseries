@@ -4,6 +4,15 @@
     <mat-icon *ngIf="opened">close</mat-icon>
   </button>
   <div class="navigation-bar">
-
+    <div class="search-icon">
+      <mat-icon *ngIf="!query">search</mat-icon>
+      <mat-icon *ngIf="query" (click)="clearQuery()">clear</mat-icon>
+    </div>
+    <div class="search-input">
+      <input type="text" (keyup)="sendQuery()" [(ngModel)]="query">
+    </div>
+    <div class="search-clear">
+      &nbsp;&nbsp;&nbsp;
+    </div>
   </div>
 </div>
