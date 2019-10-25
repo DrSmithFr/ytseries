@@ -52,6 +52,7 @@ class WelcomeMailCommand extends Command
      * @param OutputInterface $output
      * @param InputInterface  $input
      * @return int|void|null
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
