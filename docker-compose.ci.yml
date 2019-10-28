@@ -1,18 +1,16 @@
 version: '3'
 
-services:
-  phpfpm:
-    build:
-      context: docker/phpfpm
-      args:
-      - uid=1000
-    volumes:
-    - ./back:/www/
+networks:  # Uncomment on linux for static IP and xdebug
+  dev:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.2.0.0/16  # Ip range for static ip on dev mod
 
-  postgres:
-    image: postgres:11.2-alpine
-    restart: always
-    environment:
-      POSTGRES_DB: symfony
-      POSTGRES_USER: symfony
-      POSTGRES_PASSWORD: passwd
+services:
+  elasticsearch:
+    image: elasticsearch:5-alpine
+    networks:
+      dev:
+        ipv4_address: 10.2.0.1
+      default:
