@@ -12,5 +12,5 @@ services:
     image: elasticsearch:5-alpine
     networks:
       dev:
-        ipv4_address: 10.2.0.1
+        ipv4_address: 10.2.0.2
       default:
