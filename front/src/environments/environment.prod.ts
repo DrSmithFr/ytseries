@@ -1,4 +1,15 @@
+// This file can be replaced during build by using the `fileReplacements` array.
+// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
+// The list of file replacements can be found in `angular.json`.
+
+import {roles} from './security';
+
 export const environment = {
   production: true,
-  apiUrl: 'https://backend.ytseries.com'
+  fake_api:   false,
+  debug:      false,
+  partner:    false,
+  url_api:    'https://ytseries-api',
+  roles:      [roles.user],
 };
+

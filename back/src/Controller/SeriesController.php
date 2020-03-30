@@ -1,27 +1,32 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace App\Controller;
 
+use RuntimeException;
 use App\Entity\Series;
 use App\Form\SeriesType;
 use App\Repository\SeriesRepository;
-use Doctrine\ORM\NonUniqueResultException;
 use JMS\Serializer\SerializerBuilder;
-use RuntimeException;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class SeriesController extends Controller
+/**
+ * @Route("/series", name="series_")
+ */
+class SeriesController extends AbstractController
 {
     /**
-     * @Route("/open/series/{id}", name="api_series_one")
+     * @Route("/{id}", name="get")
      * @throws NonUniqueResultException
+     *
      * @param SeriesRepository $repository
      * @param Request          $request
+     *
      * @return JsonResponse
      */
     public function seriesInformationAction(
@@ -45,8 +50,9 @@ class SeriesController extends Controller
     }
 
     /**
-     * @Route("/api/series/managed", name="api_series_list_all")
+     * @Route("/managed", name="managed")
      * @param SeriesRepository $repository
+     *
      * @return JsonResponse
      */
     public function managedSeriesAction(
@@ -62,8 +68,9 @@ class SeriesController extends Controller
     }
 
     /**
-     * @Route("/api/series", name="api_series_update", methods={"PATCH", "PUT"})
+     * @Route("", name="api_series_update", methods={"PATCH", "PUT"})
      * @param Request $request
+     *
      * @return JsonResponse
      */
     public function seriesUpdateAction(

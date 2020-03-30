@@ -1,62 +1,69 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Entity\Traits;
 
 use DateTime;
+use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as JMS;
+use Gedmo\Mapping\Annotation as Gedmo;
 
+/**
+ * Enable Timestampable fields on entities
+ *
+ * @package App\Entity\Traits
+ * @codeCoverageIgnore
+ */
 trait TimestampableTrait
 {
     /**
-     * @var DateTime $created
-     *
+     * @JMS\Groups({"timestampable"})
+     * @var DateTime|null
      * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime")
      */
-    private $created;
+    private $createdAt;
 
     /**
-     * @var DateTime $updated
-     *
+     * @JMS\Groups({"timestampable"})
+     * @var DateTime|null
      * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime")
      */
-    private $updated;
+    private $updatedAt;
 
     /**
      * @return DateTime
      */
-    public function getCreated(): ?DateTime
+    public function getCreatedAt(): DateTime
     {
-        return $this->created;
+        return $this->createdAt;
     }
 
     /**
-     * @param DateTime $created
+     * @param DateTime $createdAt
      * @return self
      */
-    public function setCreated(?DateTime $created): self
+    public function setCreatedAt(DateTime $createdAt): self
     {
-        $this->created = $created;
+        $this->createdAt = $createdAt;
         return $this;
     }
 
     /**
      * @return DateTime
      */
-    public function getUpdated(): ?DateTime
+    public function getUpdatedAt(): DateTime
     {
-        return $this->updated;
+        return $this->updatedAt;
     }
 
     /**
-     * @param DateTime $updated
+     * @param DateTime $updatedAt
      * @return self
      */
-    public function setUpdated(?DateTime $updated): self
+    public function setUpdatedAt(DateTime $updatedAt): self
     {
-        $this->updated = $updated;
+        $this->updatedAt = $updatedAt;
         return $this;
     }
 }

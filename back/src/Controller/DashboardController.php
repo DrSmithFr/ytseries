@@ -1,15 +1,15 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace App\Controller;
 
 use App\Entity\User;
 use App\Enum\SecurityRoleEnum;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\Common\Collections\ArrayCollection;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController;
 
 class DashboardController extends AdminController
@@ -17,6 +17,7 @@ class DashboardController extends AdminController
     /**
      * @Route("dashboard", name="admin_dashboard")
      * @param EntityManagerInterface $entityManager
+     *
      * @return Response
      */
     public function dashboardAction(EntityManagerInterface $entityManager): Response
@@ -48,12 +49,12 @@ class DashboardController extends AdminController
 
     private function getServerMemoryUsage(): float
     {
-        $free = shell_exec('free');
-        $free = (string)trim($free);
-        $freeArr = explode("\n", $free);
-        $mem = explode(' ', $freeArr[1]);
-        $mem = array_filter($mem);
-        $mem = array_merge($mem);
+        $free        = shell_exec('free');
+        $free        = (string)trim($free);
+        $freeArr     = explode("\n", $free);
+        $mem         = explode(' ', $freeArr[1]);
+        $mem         = array_filter($mem);
+        $mem         = array_merge($mem);
         $memoryUsage = $mem[2] / $mem[1] * 100;
 
         return floor($memoryUsage * 100) / 100;

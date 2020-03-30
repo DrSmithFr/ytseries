@@ -1,0 +1,42 @@
+{% extends 'mail.html.twig' %}
+
+{# @var user \App\Entity\User #}
+
+{% block head %}
+    {{ parent() }}
+
+    <style>
+        .small-icon svg {
+            height: 80px;
+        }
+
+        .spaced {
+            margin: 25px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="section">
+        <h1>HELLO, NOUS SOMMES RAVIS DE FAIRE TA CONNAISSANCE</h1>
+
+        <div class="row center">
+            <div class="xsmall-12 small-4 medium-3 large-2">
+                <div class="small-icon">
+                    {% include 'svg/mail_validated.svg' %}
+                </div>
+            </div>
+            <div class="xsmall-12 small-8 medium-9 large-10">
+                <p class="spaced">
+                    Nous voulions juste nous assurer d’avoir recueilli la bonne adresse e-mail ;)
+                </p>
+            </div>
+        </div>
+
+        <div class="center spaced">
+            <a class="btn alpha" href="{{ front_url }}/accueil/validation/{{ user.validationToken.toString }}">
+                Yes ! C'est la bonne adresse !
+            </a>
+        </div>
+    </div>
+{% endblock %}

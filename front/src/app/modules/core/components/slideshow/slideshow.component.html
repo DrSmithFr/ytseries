@@ -1,0 +1,36 @@
+<div class="ratio-container">
+    <div class="ratio-content">
+        <div class="slideshow">
+            <div class="slideshow-img"
+                 *ngFor="let i of series;"
+                 [ngClass]="{'selected': i === current}">
+                <img src="{{i.image}}"
+                     alt="{{i.name}}">
+            </div>
+
+            <!--</div>-->
+            <div [ngStyle]="{'transform': 'translateY('+ transform + '%' +')', 'transition': '.8s'}">
+                <div class="slideshow-text">
+                    <div class="page-text"
+                         *ngFor="let i of series;"
+                         [ngClass]="{'selected': i === current}">
+                        <h3>{{i.name}}</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="slider">
+            <div class="slide-button-parent-container"
+                 *ngFor="let i of series"
+                 (click)="selected(i)">
+                <div class="select-box">
+                    <div class="slide-button"
+                         [ngClass]="{'slide-button-select': i === current}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

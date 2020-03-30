@@ -1,29 +1,27 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace App\Controller;
 
-use App\Service\SearchService;
-use Elastica\Aggregation\Terms;
+use Elastica\Query;
 use Elastica\Query\Match;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Elastica\Query\BoolQuery;
+use App\Service\SearchService;
+use Elastica\Query\MultiMatch;
+use Elastica\Aggregation\Terms;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Elastica\Query;
-use Elastica\Query\BoolQuery;
-use Elastica\Query\MultiMatch;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-/**
- * @Route("/open")
- */
-class SearchController extends Controller
+class SearchController extends AbstractController
 {
     /**
-     * @Route("/search", name="api_asset_search")
+     * @Route("/search", name="search_series")
      * @param Request       $request
      * @param SearchService $searchService
+     *
      * @return JsonResponse
      */
     public function getBackgroundLayersAction(

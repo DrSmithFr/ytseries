@@ -1,7 +1,7 @@
 services:
-  Elastica\Client:
-    $config:
-      host: '%env(resolve:ELASTIC_SEARCH_URL)%'
+    Elastica\Client:
+        $config:
+            host: '%env(resolve:ELASTIC_SEARCH_URL)%'
 
 
 

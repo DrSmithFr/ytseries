@@ -1,0 +1,142 @@
+@import "variables";
+
+.login-container {
+  max-width: 680px;
+  margin: 0 auto;
+
+  @include mobile() {
+	max-width: 500px;
+  }
+
+  border-radius: 5px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0,0,0,.12);
+}
+
+.login {
+  padding: 0 30px;
+  padding-top: 30px;
+
+  input {
+	color: #fff;
+  }
+
+  .full-width {
+	display: block;
+	margin: 10px auto;
+	padding: 8px 25px 12px;
+
+	border-radius: 50px;
+	background: #141414;
+	box-shadow: inset 20px 20px 60px #111111,
+	inset -20px -20px 60px #171717;
+  }
+
+  .buttons {
+	padding: 10px;
+  }
+
+  .button-container {
+	text-align: right;
+  }
+
+  overflow: hidden;
+  background-color: $black;
+  border-radius: 10px;
+
+  -webkit-transform: translate(0%, 0%);
+  -moz-transform: translate(0%, 0%);
+  -ms-transform: translate(0%, 0%);
+  -o-transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
+
+  &::before, &::after {
+	content: '';
+	position: absolute;
+	width: 600px;
+	height: 600px;
+	border-top-left-radius: 40%;
+	border-top-right-radius: 45%;
+	border-bottom-left-radius: 35%;
+	border-bottom-right-radius: 40%;
+	z-index: -1;
+  }
+
+  &::before {
+	left: 40%;
+	bottom: -40%;
+	background-color: rgba($alpha, 0.5);
+	-webkit-animation: wawes 6s infinite linear;
+	-moz-animation: wawes 6s infinite linear;
+	animation: wawes 6s infinite linear;
+  }
+
+  &::after {
+	left: 35%;
+	bottom: -50%;
+	background-color: rgba($alpha, 0.8);
+	-webkit-animation: wawes 7s infinite;
+	-moz-animation: wawes 7s infinite;
+	animation: wawes 7s infinite;
+  }
+
+  @-webkit-keyframes wawes {
+	from {
+	  -webkit-transform: rotate(0);
+	}
+	to {
+	  -webkit-transform: rotate(360deg);
+	}
+  }
+  @-moz-keyframes wawes {
+	from {
+	  -moz-transform: rotate(0);
+	}
+	to {
+	  -moz-transform: rotate(360deg);
+	}
+  }
+  @keyframes wawes {
+	from {
+	  -webkit-transform: rotate(0);
+	  -moz-transform: rotate(0);
+	  -ms-transform: rotate(0);
+	  -o-transform: rotate(0);
+	  transform: rotate(0);
+	}
+	to {
+	  -webkit-transform: rotate(360deg);
+	  -moz-transform: rotate(360deg);
+	  -ms-transform: rotate(360deg);
+	  -o-transform: rotate(360deg);
+	  transform: rotate(360deg);
+	}
+  }
+}
+
+.shake-on-error {
+  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+
+  /* When the animation is finished, start again */
+  animation-iteration-count: 1;
+}
+
+@keyframes shake {
+  10%, 90% {
+	transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+	transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+	transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+	transform: translate3d(4px, 0, 0);
+  }
+}

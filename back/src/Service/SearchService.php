@@ -1,22 +1,23 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace App\Service;
 
-use Elastica\Client;
 use Elastica\Index;
+use Elastica\Client;
 use Elastica\Request;
 use Elastica\Response;
 
 class SearchService
 {
     private $client;
+
     private $indexName;
 
     public function __construct(Client $client, string $elasticSearchIndexName)
     {
-        $this->client = $client;
+        $this->client    = $client;
         $this->indexName = $elasticSearchIndexName;
     }
 
@@ -24,10 +25,7 @@ class SearchService
     {
         $index = $this->getTempIndex();
 
-        $index->create(
-            $this->makeIndexConfiguration(),
-            true
-        );
+        $index->create($this->makeIndexConfiguration());
 
         return $index;
     }
@@ -43,10 +41,7 @@ class SearchService
     {
         $index = $this->getIndex();
 
-        $index->create(
-            $this->makeIndexConfiguration(),
-            true
-        );
+        $index->create($this->makeIndexConfiguration());
 
         return $index;
     }
@@ -76,9 +71,7 @@ class SearchService
     {
         return [
             'settings' => $this->makeIndexSettings(),
-            'mappings' => [
-                'assets' => $this->makeAssetsMapping(),
-            ],
+            'mappings' => $this->makeAssetsMapping(),
         ];
     }
 
@@ -143,8 +136,9 @@ class SearchService
         ];
 
         return [
-            'dynamic'    => false,
-            'properties' => $properties,
+            'type_name' => [
+                'properties' => $properties
+            ]
         ];
     }
 }

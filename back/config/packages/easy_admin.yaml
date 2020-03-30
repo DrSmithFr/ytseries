@@ -40,7 +40,6 @@ easy_admin:
                               'ROLE_API': 'ROLE_API'
                               'ROLE_USER': 'ROLE_USER'
                               'ROLE_ADMIN': 'ROLE_ADMIN'
-                              'ROLE_SUPER_ADMIN': 'ROLE_SUPER_ADMIN'
                     - groups
                 form_options: { validation_groups: ['Profile'] }
             new:
@@ -62,7 +61,6 @@ easy_admin:
                               'ROLE_API': 'ROLE_API'
                               'ROLE_USER': 'ROLE_USER'
                               'ROLE_ADMIN': 'ROLE_ADMIN'
-                              'ROLE_SUPER_ADMIN': 'ROLE_SUPER_ADMIN'
                     - groups
                 form_options: { validation_groups: ['Registration'] }
         Group:

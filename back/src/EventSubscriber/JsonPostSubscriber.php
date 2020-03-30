@@ -1,24 +1,30 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\EventSubscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
+use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 class JsonPostSubscriber implements EventSubscriberInterface
 {
+    /**
+     * @return array
+     * @codeCoverageIgnore
+     */
     public static function getSubscribedEvents(): array
     {
-        return [
+        return array(
             KernelEvents::CONTROLLER => 'convertJsonStringToArray',
-        ];
+        );
     }
 
-    public function convertJsonStringToArray(FilterControllerEvent $event): void
+    /**
+     * Enable json-body request to be interpreted as request parameters
+     * @param ControllerEvent $event
+     */
+    public function convertJsonStringToArray(ControllerEvent $event): void
     {
         $request = $event->getRequest();
 
@@ -32,6 +38,6 @@ class JsonPostSubscriber implements EventSubscriberInterface
             throw new BadRequestHttpException('invalid json body: ' . json_last_error_msg());
         }
 
-        $request->request->replace(is_array($data) ? $data : []);
+        $request->request->replace(is_array($data) ? $data : array());
     }
 }

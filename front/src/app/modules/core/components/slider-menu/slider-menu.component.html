@@ -1,0 +1,53 @@
+<div class="menu">
+    <div class="logo-container">
+        <img class="logo"
+             src="/assets/logo.png"
+             height="50"
+             alt="YtSeries">
+    </div>
+
+    <!-- 'absorbs' the auto-focus behavior -->
+    <button mat-button
+            style="height: 0; position: absolute;"
+            aria-label="disable-auto-focus"></button>
+
+    <ul class="menu-links-wrapper">
+        <li class="menu-link-card">
+            <a
+                    routerLink="/series/search"
+                    class="menu-link"
+                    (click)="close()"
+                    mat-button>
+                Discover
+            </a>
+        </li>
+        <li class="menu-link-card">
+            <a
+                    routerLink="/series/historic"
+                    class="menu-link"
+                    (click)="close()"
+                    mat-button>
+                Historic
+            </a>
+        </li>
+        <li class="menu-link-card">
+            <a
+                    routerLink="/series/manage"
+                    class="menu-link"
+                    (click)="close()"
+                    mat-button>
+                Managed
+            </a>
+        </li>
+        <li class="menu-link-card"
+            *ngIf="auth.hasSession()">
+            <a
+                    routerLink="/"
+                    class="menu-link"
+                    (click)="auth.clearSession()"
+                    mat-button>
+                Se deconnecter
+            </a>
+        </li>
+    </ul>
+</div>

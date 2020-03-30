@@ -1,5 +1,6 @@
-export class User {
+export class UserModel {
+  uuid: string;
   username: string;
-  email: string;
   roles: string[];
+  validatedAt: Date;
 }

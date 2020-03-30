@@ -1,0 +1,59 @@
+// -------------------- FONT IMPORT --------------------
+//baron NEUE
+@font-face {
+  font-family: 'baron_neue';
+  src: local('baron_neue'), url('/assets/fonts/baron_neue_black_italic-webfont.woff2') format('woff2'),
+  url('/assets/fonts/baron_neue_black_italic-webfont.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'baron_neue';
+  src: local('baron_neue'), url('/assets/fonts/baron_neue_black-webfont.woff2') format('woff2'),
+  url('/assets/fonts/baron_neue_black-webfont.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'baron_neue';
+  src: local('baron_neue'), url('/assets/fonts/baron_neue_bold_italic-webfont.woff2') format('woff2'),
+  url('/assets/fonts/baron_neue_bold_italic-webfont.woff') format('woff');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'baron_neue';
+  src: local('baron_neue'), url('/assets/fonts/baron_neue_bold-webfont.woff2') format('woff2'),
+  url('/assets/fonts/baron_neue_bold-webfont.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'baron_neue';
+  src: local('baron_neue'), url('/assets/fonts/baron_neue_italic-webfont.woff2') format('woff2'),
+  url('/assets/fonts/baron_neue_italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'baron_neue';
+  src: local('baron_neue'), url('/assets/fonts/baron_neue-webfont.woff2') format('woff2'),
+  url('/assets/fonts/baron_neue-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+//nickain
+@font-face {
+  font-family: 'nickainleynormal';
+  src: local('nickainleynormal'), url('/assets/fonts/nickainley-normal-webfont.woff2') format('woff2'),
+  url('/assets/fonts/nickainley-normal-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

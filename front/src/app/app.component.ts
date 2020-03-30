@@ -1,55 +1,72 @@
-import {Component, Inject, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import { UserService }                   from './services/user.service';
-import { Router }                        from '@angular/router';
-import { StorageService, LOCAL_STORAGE } from 'angular-webstorage-service';
-import { MatSnackBar }                   from '@angular/material';
-import {ScrollToTopComponent}            from './components/scroll-to-top/scroll-to-top.component';
+import {AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {NavigationEnd, Router, RouterOutlet} from '@angular/router';
+import {SwPush, SwUpdate} from '@angular/service-worker';
+import {filter} from 'rxjs/operators';
+import {environment} from '../environments/environment';
+import {transition, trigger} from '@angular/animations';
+import {fadeIn} from './animations/animations';
 
 @Component(
   {
-    selector: 'app-root',
+    selector:    'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    styleUrls:   ['./app.component.scss'],
+    animations:  [
+      trigger('routeAnimations', [
+        transition('disconnected <=> connected', fadeIn),
+      ])
+    ]
   }
 )
 export class AppComponent implements OnInit {
 
-  @ViewChild(ScrollToTopComponent) scroller: ScrollToTopComponent;
-
   constructor(
-    private router: Router,
-    private snackBar: MatSnackBar,
-    private loginService: UserService,
-    @Inject(LOCAL_STORAGE) private localStorage: StorageService,
-  ) {}
+    private swPush: SwPush,
+    private swUpdate: SwUpdate,
+    private router: Router
+  ) {
+  }
 
   ngOnInit(): void {
-    if (this.loginService.canReconnect()) {
+    // resetting the scrollbar after navigation
+    // due to the nested router use
+    // + the fixed size of layout (to keep footer away during page transition)
+    // this needed
+    this
+      .router
+      .events
+      .pipe(
+        filter(event => event instanceof NavigationEnd)
+      )
+      .subscribe(() => {
+        window.scrollTo(0, 0);
+      });
 
+    if (environment.production) {
+      // PWA look for update
       this
-        .loginService
-        .reconnect()
-        .subscribe(
-          (user) => {
-            this.snackBar.open('Welcome back ' + user.username, null, {duration: 1500});
-          },
-          () => {
-            this.snackBar.open('Cannot reconnect', null, {duration: 1500});
-          }
-        );
+        .swUpdate
+        .checkForUpdate()
+        .then(() => {
+          console.log('checking for update');
+        });
+
+      // PWA on update available
+      this
+        .swUpdate
+        .available
+        .subscribe(() => {
+          this.onUpdate();
+        });
     }
   }
 
-  isConnected() {
-    return null !== this.loginService.getCurrentUser();
+  onUpdate() {
+    // auto update application
+    window.location.reload();
   }
 
-  logout() {
-    this.loginService.disconnect();
-    this.router.navigate(['/']);
-  }
-
-  scrollToTop() {
-    this.scroller.scrollToTop();
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }
 }

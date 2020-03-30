@@ -1,0 +1,74 @@
+@import "variables";
+
+.menu {
+  min-height: 100%;
+  min-width: 300px;
+
+  @include tablet() {
+	min-width: 400px;
+  }
+
+  @include desktop() {
+	min-width: 500px;
+  }
+
+  background: $black;
+}
+
+
+.logo-container {
+  background: $black;
+  border-bottom: 1px solid rgba(77, 77, 77, .1);
+
+  text-align: center;
+
+  .logo {
+	padding: 20px;
+	margin: 0 auto;
+
+	@include small-mobile() {
+	  height: 30px;
+	}
+  }
+}
+
+
+.my-account {
+  font-size: 16px;
+  color: $alpha;
+
+  margin: 50px auto;
+
+  span {
+	padding-left: 5px;
+  }
+}
+
+.menu-links-wrapper {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+
+  font-family: $font-title;
+  text-transform: uppercase;
+
+  .menu-link-card {
+	width: 100%;
+	position: relative;
+
+	.menu-link {
+	  width: 100%;
+	  border-radius: 0;
+	  padding: 15px 40px;
+
+	  font-size: 14px;
+	  text-align: left;
+	  color: $white;
+
+	  &:hover {
+		color: $alpha;
+		transition: all .25s ease 0s;
+	  }
+	}
+  }
+}

@@ -1,74 +1,56 @@
 <?php
 
-declare(strict_types=1);
 
 namespace App\DataFixtures;
 
-use App\Entity\Group;
-use App\Entity\User;
+use Exception;
+use App\Entity\Role;
+use App\Service\UserService;
+use App\Enum\SecurityRoleEnum;
+use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-/**
- * Class UserFixtures
- *
- * @package App\DataFixtures
- * @codeCoverageIgnore
- */
-class UserFixtures extends Fixture implements DependentFixtureInterface
+class UserFixtures extends Fixture
 {
-    /**
-     * @var UserPasswordEncoderInterface
-     */
-    private $encoder;
+    public const REFERENCE_ADMIN       = 'user-admin';
+    public const REFERENCE_USER        = 'user-user';
 
-    public function __construct(UserPasswordEncoderInterface $encoder)
+    /**
+     * @var UserService
+     */
+    private $userService;
+
+    /**
+     * UserFixtures constructor.
+     *
+     * @param UserService $userService
+     */
+    public function __construct(UserService $userService)
     {
-        $this->encoder = $encoder;
+        $this->userService = $userService;
     }
 
-    public function load(ObjectManager $manager): void
+    /**
+     * Load data fixtures with the passed EntityManager
+     *
+     * @throws Exception
+     *
+     * @param ObjectManager $manager
+     */
+    public function load(ObjectManager $manager)
     {
-        $devUser = $this->makeUser('dev', 'dev', [GroupFixtures::GROUP_DEV]);
-        $commonUser = $this->makeUser('user', 'user', [GroupFixtures::GROUP_USER]);
+        $admin      = $this->userService->createUser('admin', 'admin');
+        $user       = $this->userService->createUser('user', 'user');
 
-        $devUser->setSuperAdmin(true);
+        $this->setReference(self::REFERENCE_ADMIN, $admin);
+        $this->setReference(self::REFERENCE_USER, $user);
 
-        $manager->persist($devUser);
-        $manager->persist($commonUser);
+        $admin->addRole(SecurityRoleEnum::ADMIN);
+
+        $manager->persist($admin);
+        $manager->persist($user);
 
         $manager->flush();
-
-        $this->addReference('user-dev', $devUser);
-        $this->addReference('user-user', $commonUser);
-    }
-
-    private function makeUser(string $name, string $pass, array $groups = []): User
-    {
-        $user = new User();
-        $user
-            ->setUsername($name)
-            ->setEmail(sprintf('%s@local.com', $name))
-            ->setEnabled(true);
-
-        $password = $this->encoder->encodePassword($user, $pass);
-        $user->setPassword($password);
-
-        foreach ($groups as $key) {
-            /** @var Group $group */
-            $group = $this->getReference($key);
-            $user->addGroup($group);
-        }
-
-        return $user;
-    }
-
-    public function getDependencies(): array
-    {
-        return [
-            GroupFixtures::class,
-        ];
     }
 }

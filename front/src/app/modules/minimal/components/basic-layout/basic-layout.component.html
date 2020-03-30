@@ -1,0 +1,12 @@
+<header class="showcase">
+  <div class="showcase-top">
+    <img src="/assets/logo.png" alt="YtSeries" routerLink="/series/search" />
+    <a routerLink="/users/login" mat-flat-button>Sign In</a>
+  </div>
+
+  <div class="showcase-content">
+    <div [@routeAnimations]="prepareRoute(outlet)">
+      <router-outlet #outlet="outlet"></router-outlet>
+    </div>
+  </div>
+</header>

@@ -3,37 +3,35 @@ YOUR_ID=$(id -u)
 DOCKER_GID=$(id -g)
 
 function composer() {
-    docker-compose exec --user="${YOUR_ID}:${DOCKER_GID}" phpfpm /bin/sh -c "composer $*"
+    cd back && symfony composer $* || exit $?
 }
 
 function php() {
-    docker-compose exec --user="${YOUR_ID}:${DOCKER_GID}" phpfpm /bin/sh -c "php $*"
+    cd back && symfony php $* || exit $?
 }
 
 function phpcs() {
-    docker-compose run --rm -T phpfpm /bin/sh -c "php vendor/bin/phpcs --ignore=vendor,bin,src/Migrations,pub $*"
-    exit $?
+    cd back && symfony php vendor/bin/phpcs --ignore=vendor,bin,src/Migrations,pub $* || exit $?
 }
 
 function phpmd() {
-    docker-compose run --rm -T phpfpm /bin/sh -c "php vendor/phpmd/phpmd/src/bin/phpmd src text ruleset.xml --exclude src/Migrations"
-    exit $?
+    cd back && symfony php vendor/phpmd/phpmd/src/bin/phpmd src text ruleset.xml --exclude src/Migrations || exit $?
 }
 
 function phpunit() {
-    docker-compose run --rm -T phpfpm /bin/sh -c "php bin/phpunit $*"
-    exit $?
+    cd back && symfony php bin/phpunit $* || exit $?
 }
+
 function console() {
-    docker-compose exec --user="${YOUR_ID}:${DOCKER_GID}" phpfpm /bin/sh -c "php bin/console $*"
+    cd back && symfony console $* || exit $?
 }
 
 function psql() {
-     docker-compose exec --user="${YOUR_ID}:${DOCKER_GID}" postgres /bin/sh -c "psql --dbname=symfony $*"
+     docker-compose exec --user="${YOUR_ID}:${DOCKER_GID}" postgres /bin/sh -c "psql --dbname=symfony $*" || exit $?
 }
 
 function tslint() {
-    ./front/node_modules/tslint/bin/tslint --project ./front
+    ./front/node_modules/tslint/bin/tslint --project ./front || exit $?
 }
 
 function install() {
@@ -48,7 +46,6 @@ function install() {
     docker-compose kill && \
     docker-compose rm -f && \
     docker volume rm $(basename $(pwd) | awk '{print tolower($0)}')_bdd
-    docker-compose build && \
     docker-compose up -d --remove-orphans && \
 
     sleep 5
@@ -56,17 +53,11 @@ function install() {
     #
     # Symfony init
     #
-    composer install
-    console doctrine:migration:migrate -n
-    console doctrine:fixtures:load -n
-    console app:series:imp
+    composer install && \
+    console doctrine:migration:migrate -n && \
+    console doctrine:fixtures:load -n && \
+    console app:series:imp && \
     console app:series:ind
-
-    #
-    # angular init
-    #
-
-    cd front && npm install && ng serve
 }
 
 function reload() {
@@ -74,15 +65,12 @@ function reload() {
 
     docker-compose kill && \
     docker-compose rm -f && \
-    docker-compose build && \
     docker-compose up --remove-orphans -d && \
 
     sleep 10
 
-    console app:series:imp
+    console app:series:imp && \
     console app:series:ind
-
-    cd front && ng serve
 }
 
 function reset() {

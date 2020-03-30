@@ -1,0 +1,44 @@
+<section
+        class="carousel"
+        *ngIf="series.length > minForDisplay">
+
+    <h1 *ngIf="title"
+        class="title">
+        {{ title }}
+    </h1>
+
+    <ul class="carousel-items">
+        <li class="carousel-item" *ngFor="let item of series">
+            <div class="box">
+                <a (click)="onSelection(item)">
+                    <img src="{{ item.image }}"
+                         alt="{{ item.name }}">
+                </a>
+            </div>
+        </li>
+    </ul>
+</section>
+
+
+<section class="grid-container"
+         *ngIf="series.length > minForDisplay">
+
+    <div class="location">
+        <h1 *ngIf="title"
+            class="title">{{ title }}</h1>
+        <div class="box">
+
+            <a *ngFor="let item of seriesForDisplay"
+               (click)="onSelection(item)">
+                <img src="{{ item.image }}"
+                     alt="{{ item.name }}">
+            </a>
+
+            <a (click)="loadMore()"
+               *ngIf="series.length > maxForDisplay">
+                <img src="/assets/more.png"
+                     alt="Load more">
+            </a>
+        </div>
+    </div>
+</section>

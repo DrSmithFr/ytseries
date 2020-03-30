@@ -1,0 +1,51 @@
+@import "variables";
+
+.series-quickview {
+  border-radius: 3px;
+  position: relative;
+
+  padding-bottom: 20px;
+
+  .box {
+	/* 16:9 ratio */
+	padding-top: 56.25%;
+	overflow: hidden;
+
+	position: relative;
+	transition: transform .3s;
+
+	img {
+	  position: absolute;
+	  height: 100%;
+
+	  top: 0;
+	  bottom: 0;
+	  right: 0;
+	  left: 0;
+	}
+  }
+
+  h1 {
+	font-size: 30px;
+	padding: 10px 30px;
+  }
+
+  p {
+	padding: 10px 30px;
+  }
+
+  button {
+	margin-top: 20px;
+	margin-right: 10px;
+
+	padding: 5px 50px;
+
+	background: rgba($black, 0.5);
+  }
+
+  button:hover {
+	color: $alpha;
+	border-color: $alpha;
+	background: rgba($black, 0.7);
+  }
+}

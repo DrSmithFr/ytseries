@@ -1,7 +1,17 @@
-import { AppComponent } from './app.component';
+import {async} from '@angular/core/testing';
+import {AppComponent} from './app.component';
+import {UserService} from './services/user.service';
 
 describe('AppComponent', () => {
-  it('should be true to allow deploy without tests', function () {
-    expect(true).toBeTruthy();
+  let component: AppComponent;
+  let userService: UserService;
+
+  beforeEach(async(() => {
+    userService = new UserService();
+    component   = new AppComponent(userService);
+  }));
+
+  it('should create the app', () => {
+    expect(component).toBeTruthy();
   });
 });

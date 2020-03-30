@@ -1,13 +1,20 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace App\Enum;
 
 use ReflectionClass;
 use ReflectionException;
+use Doctrine\DBAL\Types\Type;
+use InvalidArgumentException;
+use Doctrine\DBAL\Platforms\SqlitePlatform;
+use SebastianBergmann\Type\RuntimeException;
+use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Doctrine\DBAL\Platforms\SQLServerPlatform;
+use Doctrine\DBAL\Platforms\PostgreSqlPlatform;
 
-abstract class Enum
+abstract class Enum extends Type
 {
     /**
      * @var array
@@ -15,18 +22,7 @@ abstract class Enum
     private static $constCacheArray;
 
     /**
-     * Enum constructor.
-     *
-     * @codeCoverageIgnore
-     */
-    private function __construct()
-    {
-        // disallow Enum creation
-    }
-
-    /**
      * @return array
-     * @throws ReflectionException
      */
     public static function getAll(): array
     {
@@ -34,11 +30,20 @@ abstract class Enum
             self::$constCacheArray = [];
         }
 
-        $calledClass = static::class;
+        $calledClass = get_called_class();
 
         if (!array_key_exists($calledClass, self::$constCacheArray)) {
-            $reflect = new ReflectionClass($calledClass);
-            self::$constCacheArray[$calledClass] = $reflect->getConstants();
+            try {
+                $current = new ReflectionClass($calledClass);
+
+                self::$constCacheArray[$calledClass] = array_diff(
+                    $current->getConstants(),
+                    $current->getParentClass()->getConstants()
+                );
+            } catch (ReflectionException $e) {
+                // avoid throwing reflection exception
+                throw new RuntimeException($e->getMessage(), $e->getCode(), $e);
+            }
         }
 
         return self::$constCacheArray[$calledClass];
@@ -46,8 +51,8 @@ abstract class Enum
 
     /**
      * @param string $name
+     *
      * @return bool
-     * @throws ReflectionException
      */
     public static function isValidName(string $name): bool
     {
@@ -57,12 +62,88 @@ abstract class Enum
 
     /**
      * @param string $value
+     *
      * @return bool
-     * @throws ReflectionException
      */
     public static function isValidValue(string $value): bool
     {
         $values = array_values(self::getAll());
         return in_array($value, $values, true);
+    }
+
+    /**
+     * @param AbstractPlatform $platform
+     * @param array            $fieldDeclaration
+     *
+     * @return string
+     */
+    public function getSqlDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
+    {
+        // wrapping values
+        $values = array_map(function($val) { return "'".$val."'"; }, self::getAll());
+
+        switch (true) {
+            case $platform instanceof SqlitePlatform:
+                $sqlDeclaration = sprintf(
+                    'TEXT CHECK(%s IN (%s))',
+                    $fieldDeclaration['name'],
+                    implode(", ", $values)
+                );
+                break;
+            case $platform instanceof PostgreSqlPlatform:
+            case $platform instanceof SQLServerPlatform:
+                $sqlDeclaration = sprintf(
+                    'VARCHAR(255) CHECK(%s IN (%s))',
+                    $fieldDeclaration['name'],
+                    implode(", ", $values)
+                );
+
+                break;
+            default:
+                $sqlDeclaration = sprintf('ENUM(%s)', implode(", ", $values));
+        }
+
+        return $sqlDeclaration;
+    }
+
+    /**
+     * @param mixed            $value
+     * @param AbstractPlatform $platform
+     *
+     * @return mixed
+     */
+    public function convertToPHPValue($value, AbstractPlatform $platform)
+    {
+        return $value;
+    }
+
+    /**
+     * @param AbstractPlatform $platform
+     * @param mixed            $value
+     *
+     * @return mixed
+     */
+    public function convertToDatabaseValue($value, AbstractPlatform $platform)
+    {
+        if (!in_array($value, self::getAll())) {
+            throw new InvalidArgumentException(sprintf("Invalid '%s' value.", $this->getName()));
+        }
+        return $value;
+    }
+
+    /**
+     * Return the ClassName without namespace prefix
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        try {
+            $refection = new ReflectionClass($this);
+            return $refection->getShortName();
+        } catch (ReflectionException $e) {
+            // avoid throwing reflection exception
+            throw new RuntimeException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 }

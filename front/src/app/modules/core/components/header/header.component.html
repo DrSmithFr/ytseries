@@ -1,0 +1,38 @@
+<div class="hide-overflow">
+    <div class="ratio-container">
+
+        <div class="ratio-content">
+            <img src="{{ asset.image }}"
+                 [ngClass]="{'fadeOut': showVideo}"
+                 alt="{{ asset.name }}">
+        </div>
+
+        <div class="gradien-layer"></div>
+
+        <div class="video-container">
+            <div id="{{ getPlayerId() }}" #player></div>
+        </div>
+
+        <div class="series-details" [ngClass]="{'simplify': !showDescription}" *ngIf="showDetail">
+            <h1>{{ asset.name }}</h1>
+            <p>{{ asset.description }}</p>
+        </div>
+
+        <div class="button-bar" *ngIf="showDetail">
+            <button
+                    routerLink="/series/watch/{{ asset.id }}"
+                    mat-stroked-button
+                    color="primary">
+                <span class="material-icons">play_circle_filled</span>
+                <span class="hide-on-small-mobile hide-on-mobile">Play</span>
+            </button>
+
+            <button
+                    mat-stroked-button
+                    color="primary">
+                <span class="material-icons">favorite_border</span>
+                <span class="hide-on-small-mobile hide-on-mobile">Save</span>
+            </button>
+        </div>
+    </div>
+</div>
