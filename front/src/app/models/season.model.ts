@@ -5,5 +5,6 @@ export class SeasonModel {
   rank: number;
   name: string;
   episodes: EpisodeModel[];
+  // tslint:disable-next-line:variable-name
   created_at: Date;
 }

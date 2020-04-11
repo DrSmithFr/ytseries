@@ -58,7 +58,7 @@ export class AuthService {
         });
     }
 
-    getCurrentUser(): UserModel|null {
+    getCurrentUser(): UserModel | null {
         return this.state.LOGGED_USER.getValue();
     }
 
@@ -69,5 +69,15 @@ export class AuthService {
     clearSession() {
         this.state.TOKEN.next(null);
         this.state.LOGGED_USER.next(null);
+    }
+
+    isGranted(role: string) {
+        const user = this.getCurrentUser();
+
+        if (user) {
+            return user.roles.includes(role);
+        }
+
+        return false;
     }
 }

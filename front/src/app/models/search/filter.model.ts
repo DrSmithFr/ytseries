@@ -1,4 +1,5 @@
 export class FilterModel {
   key: string;
-  doc_count: number
+  // tslint:disable-next-line:variable-name
+  doc_count: number;
 }

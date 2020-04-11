@@ -10,12 +10,13 @@ import {transition, trigger} from '@angular/animations';
         styleUrls:   ['./basic-layout.component.scss'],
         animations:  [
             trigger('routeAnimations', [
-                transition('login => register', slideIn),
-                transition('register => login', slideOut),
-                transition('register => validation', fadeIn),
-                transition('* => home', fallIn),
-                transition('home => register', fallIn),
-                transition('home => validation', fallIn),
+                transition('void => home', fallIn),
+
+                transition('home => register', slideIn),
+                transition('register => home', slideOut),
+
+                transition('home => login', slideOut),
+                transition('login => home', slideIn),
             ])
         ]
     }

@@ -3,5 +3,5 @@ import {UserModel} from './user.model';
 
 export class ReconnectModel {
   token: TokenModel;
-  user: UserModel
+  user: UserModel;
 }

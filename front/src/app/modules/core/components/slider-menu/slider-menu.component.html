@@ -1,9 +1,11 @@
 <div class="menu">
     <div class="logo-container">
-        <img class="logo"
-             src="/assets/logo.png"
-             height="50"
-             alt="YtSeries">
+        <a routerLink="/series/search" (click)="close()">
+            <img class="logo"
+                 src="/assets/logo.png"
+                 height="50"
+                 alt="YtSeries">
+        </a>
     </div>
 
     <!-- 'absorbs' the auto-focus behavior -->
@@ -14,23 +16,14 @@
     <ul class="menu-links-wrapper">
         <li class="menu-link-card">
             <a
-                    routerLink="/series/search"
-                    class="menu-link"
-                    (click)="close()"
-                    mat-button>
-                Discover
-            </a>
-        </li>
-        <li class="menu-link-card">
-            <a
                     routerLink="/series/historic"
                     class="menu-link"
                     (click)="close()"
                     mat-button>
-                Historic
+                My Historic
             </a>
         </li>
-        <li class="menu-link-card">
+        <li class="menu-link-card" *ngIf="auth.isGranted('ROLE_ADMIN')">
             <a
                     routerLink="/series/manage"
                     class="menu-link"

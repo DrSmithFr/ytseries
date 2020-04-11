@@ -24,18 +24,20 @@
 }
 
 .showcase-top {
-  position: relative;
   z-index: 2;
   height: 90px;
+  text-align: center;
+  position: relative;
 }
 
 .showcase-top img {
   width: 170px;
   position: absolute;
+
   top: 50%;
-  left: 15px;
-  transform: translate(0, -50%);
-  margin-left: 0;
+  right: 50%;
+
+  transform: translate(50%, -50%);
 }
 
 .showcase-top a {
@@ -49,8 +51,4 @@
 .showcase-content {
   z-index: 2;
   position: inherit;
-
-  @include small-mobile() {
-	margin-top: 3rem;
-  }
 }

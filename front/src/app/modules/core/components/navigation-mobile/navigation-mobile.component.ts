@@ -9,7 +9,7 @@ export class NavigationMobileComponent implements OnInit {
 
   @Output() searching = new EventEmitter<string>();
 
-  public opened: boolean = false;
+  public opened = false;
   public query: string;
 
   constructor() { }

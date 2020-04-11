@@ -1,13 +1,15 @@
 <mat-toolbar class="toolbar">
-  <mat-toolbar-row>
+  <mat-toolbar-row class="space-between">
     <!-- 'absorbs' the auto-focus behavior -->
     <button mat-button style="height: 0; position: absolute;" aria-label="disable-auto-focus"></button>
 
-<!--    <button mat-button (click)="onMenuClick()" aria-label="Menu">-->
-<!--      <mat-icon>menu</mat-icon>-->
-<!--    </button>-->
+    <a routerLink="/series/search">
+      <img class="logo hide-on-mobile hide-on-small-mobile" src="/assets/logo.png" height="50" alt="YtSeries">
+      <img class="logo hide-on-tablet hide-on-desktop" src="/assets/mini-logo.png" height="50" alt="YtSeries">
+    </a>
 
-    <img class="logo hide-on-mobile hide-on-small-mobile" src="/assets/logo.png" height="50" alt="YtSeries">
-    <img class="logo hide-on-tablet hide-on-desktop" src="/assets/mini-logo.png" height="50" alt="YtSeries">
+    <button mat-button (click)="onMenuClick()" aria-label="Menu">
+      <mat-icon>settings</mat-icon>
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>

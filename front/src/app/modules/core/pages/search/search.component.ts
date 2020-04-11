@@ -1,6 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ApiService} from '../../../../services/api.service';
 import {AssetModel} from '../../../../models/search/asset.model';
+import {QuickViewComponent} from '../../components/quick-view/quick-view.component';
+import {MatDialog} from '@angular/material/dialog';
+import {HeaderComponent} from '../../components/header/header.component';
 
 @Component(
     {
@@ -11,7 +14,11 @@ import {AssetModel} from '../../../../models/search/asset.model';
 )
 export class SearchComponent implements OnInit {
 
-    displayFilterMenu: boolean = false;
+    @ViewChild('headerComponent', {static: true}) private headerComponent: HeaderComponent;
+
+
+    displayFilterMenu = false;
+    blurry            = false;
 
     result: AssetModel[] = [];
 
@@ -37,7 +44,7 @@ export class SearchComponent implements OnInit {
 
     filters: {} = {};
 
-    query: string = '';
+    query = '';
 
     activeFilters = {
         locale:     null,
@@ -46,7 +53,8 @@ export class SearchComponent implements OnInit {
     };
 
     constructor(
-        private api: ApiService
+        private api: ApiService,
+        public dialog: MatDialog
     ) {
         this.types = {
             film:        [],
@@ -77,8 +85,8 @@ export class SearchComponent implements OnInit {
 
     makeSearch(): void {
         this.api.searchSeries(this.query, this.activeFilters).subscribe(data => {
-            this.result  = data['assets'];
-            this.filters = data['filters'];
+            this.result  = data.assets;
+            this.filters = data.filters;
 
             this.recent = this.getRecent(this.result);
 
@@ -144,6 +152,27 @@ export class SearchComponent implements OnInit {
             .filter((a) => a.categories.includes(category))
             .sort((a, b) => {
                 return 0.5 - Math.random();
+            });
+    }
+
+    onSelection(series: AssetModel) {
+        this.blurry = true;
+        this.headerComponent.pause();
+
+        this
+            .dialog
+            .open(
+                QuickViewComponent,
+                {
+                    maxWidth: '800px',
+                    minWidth: '300px',
+                    data:     series
+                }
+            )
+            .afterClosed()
+            .subscribe(() => {
+                this.blurry = false;
+                this.headerComponent.play();
             });
     }
 }

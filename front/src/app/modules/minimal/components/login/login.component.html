@@ -35,33 +35,24 @@
                 </mat-form-field>
 
                 <div class="row buttons">
-                    <div class="xsmall-6 small-6 medium-6 large-6">
-                        <a
-                                mat-stroked-button
+                    <p class="button-container">
+                        <button
+                                *ngIf="!showLoader"
+                                [disabled]="loginForm.invalid"
+                                mat-flat-button
                                 color="primary"
-                                routerLink="/users/register">
-                            Register
-                        </a>
-                    </div>
-                    <div class="xsmall-6 small-6 medium-6 large-6 left">
-                        <p class="button-container">
-                            <button
-                                    *ngIf="!showLoader"
-                                    [disabled]="loginForm.invalid"
-                                    mat-flat-button
-                                    color="primary"
-                                    type="submit">
-                                Login
-                            </button>
-                            <mat-spinner *ngIf="showLoader"
-                                         diameter="37"
-                                         style="margin: 0 auto"></mat-spinner>
-                        </p>
-                    </div>
+                                type="submit">
+                            Login
+                        </button>
+                        <mat-spinner *ngIf="showLoader"
+                                     diameter="37"
+                                     style="margin: 0 auto"></mat-spinner>
+                    </p>
                 </div>
             </form>
         </div>
     </div>
+
 </div>
 
 

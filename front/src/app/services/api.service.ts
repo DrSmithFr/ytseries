@@ -104,7 +104,7 @@ export class ApiService {
             .post<MessageModel>(this.API_URL + '/users/available', {username});
     }
 
-    searchSeries(query: string | null, activeFilter: any): Observable<SearchResponseModel[]> {
+    searchSeries(query: string | null, activeFilter: any): Observable<SearchResponseModel> {
         let params = new HttpParams();
 
         if (query) {
@@ -113,7 +113,7 @@ export class ApiService {
 
         params = params.set('filters', JSON.stringify(activeFilter));
 
-        return this.http.get<SearchResponseModel[]>(this.API_URL + '/search', {params: params});
+        return this.http.get<SearchResponseModel>(this.API_URL + '/search', {params});
     }
 
     getSeriesByCode(code: string): Observable<SeriesModel> {

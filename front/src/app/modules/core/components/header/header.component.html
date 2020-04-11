@@ -2,7 +2,8 @@
     <div class="ratio-container">
 
         <div class="ratio-content">
-            <img src="{{ asset.image }}"
+            <img *ngIf="asset"
+                 src="{{ asset.image }}"
                  [ngClass]="{'fadeOut': showVideo}"
                  alt="{{ asset.name }}">
         </div>
@@ -10,28 +11,24 @@
         <div class="gradien-layer"></div>
 
         <div class="video-container">
-            <div id="{{ getPlayerId() }}" #player></div>
+            <div id="{{ getPlayerId() }}"
+                 #player></div>
         </div>
 
-        <div class="series-details" [ngClass]="{'simplify': !showDescription}" *ngIf="showDetail">
+        <div class="series-details"
+             [ngClass]="{'simplify': !showDescription}"
+             *ngIf="asset && showDetail">
             <h1>{{ asset.name }}</h1>
-            <p>{{ asset.description }}</p>
+            <p class="hide-on-small-mobile">{{ asset.description }}</p>
         </div>
 
-        <div class="button-bar" *ngIf="showDetail">
+        <div class="button-bar"
+             *ngIf="showDetail">
             <button
-                    routerLink="/series/watch/{{ asset.id }}"
-                    mat-stroked-button
-                    color="primary">
-                <span class="material-icons">play_circle_filled</span>
-                <span class="hide-on-small-mobile hide-on-mobile">Play</span>
-            </button>
-
-            <button
-                    mat-stroked-button
-                    color="primary">
-                <span class="material-icons">favorite_border</span>
-                <span class="hide-on-small-mobile hide-on-mobile">Save</span>
+                    (click)="selected.emit(asset)"
+                    mat-mini-fab>
+                <span class="material-icons">info</span>
+                <span class="hide-on-small-mobile hide-on-mobile">Info</span>
             </button>
         </div>
     </div>

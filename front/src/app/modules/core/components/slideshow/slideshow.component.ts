@@ -10,15 +10,16 @@ import {AssetModel} from '../../../../models/search/asset.model';
 )
 export class SlideshowComponent implements OnInit {
 
-    transform: number = 0;
-
+    transform = 0;
     current: AssetModel;
+
+    // tslint:disable-next-line:variable-name
     _series: AssetModel[];
 
     @Input() set series(series: AssetModel[]) {
         this._series = series.slice(0, 5);
         this.current = series[0] ?? null;
-    };
+    }
 
     get series(): AssetModel[] {
         return this._series;

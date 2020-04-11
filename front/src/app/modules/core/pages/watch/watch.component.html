@@ -1,50 +1,52 @@
 <section class="page page_divided">
 
   <div class="page_body">
-    <div class="stretchy-wrapper">
-      <div>
-        <div id="yt-video-player"></div>
-      </div>
-    </div>
-
-    <div class="video-info" *ngIf="currentEpisode">
-      <h1>{{series.name}} - {{currentEpisode.name}}</h1>
-      <h2 *ngIf="isMovie()">{{getSeasonName(currentEpisode)}}</h2>
-      <h2 *ngIf="!isMovie()">{{getSeasonName(currentEpisode)}} - Episode {{currentEpisode.rank + 1}}</h2>
-    </div>
-
-  </div>
-
-  <div class="sidebar">
-    <div class="video-info-large-screen" *ngIf="currentEpisode">
-      <h1>{{series.name}} - {{currentEpisode.name}}</h1>
-      <h2 *ngIf="isMovie()">{{getSeasonName(currentEpisode)}}</h2>
-      <h2 *ngIf="!isMovie()">{{getSeasonName(currentEpisode)}} - Episode {{currentEpisode.rank + 1}}</h2>
-    </div>
-
-    <div *ngIf="video.currentTime && canShowNextEpisodeButton()">
-      <button mat-flat-button class="new-episode-btn" (click)="loadNextEpisode()">
-        Episode suivant
-        <span *ngIf="countDownActive">({{countDown}}s)</span>
-      </button>
-    </div>
-
-    <div class="playlist-container" *ngIf="series">
-
-      <div *ngFor="let season of series.seasons">
-        <h1>{{ season.name }}</h1>
-
-        <div class="playlist-item" *ngFor="let episode of season.episodes" [class.active]="episode.code === video.code">
-          <img src="https://img.youtube.com/vi/{{ episode.code }}/mqdefault.jpg">
-          <p>{{ episode.name }}</p>
-          <button mat-icon-button (click)="loadEpisode(episode)">
-            <i class="material-icons">play_arrow</i>
-          </button>
+    <div class="player-container">
+      <div class="stretchy-wrapper">
+        <div>
+          <div id="yt-video-player"></div>
         </div>
       </div>
 
+      <div class="video-info" *ngIf="currentEpisode">
+        <h1>{{series.name}}</h1>
+        <h2 *ngIf="isMovie()">{{getSeasonName(currentEpisode)}}</h2>
+        <h2 *ngIf="!isMovie()">{{getSeasonName(currentEpisode)}} - Episode {{currentEpisode.rank + 1}}</h2>
+        <p>{{ series.description }}</p>
+      </div>
     </div>
-    <mat-divider></mat-divider>
   </div>
+
+<!--  <div class="sidebar">-->
+<!--    <div class="video-info-large-screen" *ngIf="currentEpisode">-->
+<!--      <h1>{{series.name}} - {{currentEpisode.name}}</h1>-->
+<!--      <h2 *ngIf="isMovie()">{{getSeasonName(currentEpisode)}}</h2>-->
+<!--      <h2 *ngIf="!isMovie()">{{getSeasonName(currentEpisode)}} - Episode {{currentEpisode.rank + 1}}</h2>-->
+<!--    </div>-->
+
+<!--    <div *ngIf="video.currentTime && canShowNextEpisodeButton()">-->
+<!--      <button mat-flat-button class="new-episode-btn" (click)="loadNextEpisode()">-->
+<!--        Episode suivant-->
+<!--        <span *ngIf="countDownActive">({{countDown}}s)</span>-->
+<!--      </button>-->
+<!--    </div>-->
+
+<!--    <div class="playlist-container" *ngIf="series">-->
+
+<!--      <div *ngFor="let season of series.seasons">-->
+<!--        <h1>{{ season.name }}</h1>-->
+
+<!--        <div class="playlist-item" *ngFor="let episode of season.episodes" [class.active]="episode.code === video.code">-->
+<!--          <img src="https://img.youtube.com/vi/{{ episode.code }}/mqdefault.jpg">-->
+<!--          <p>{{ episode.name }}</p>-->
+<!--          <button mat-icon-button (click)="loadEpisode(episode)">-->
+<!--            <i class="material-icons">play_arrow</i>-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--    </div>-->
+<!--    <mat-divider></mat-divider>-->
+<!--  </div>-->
 
 </section>

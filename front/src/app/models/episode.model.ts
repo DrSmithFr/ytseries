@@ -4,5 +4,6 @@ export class EpisodeModel {
   code: string;
   name: string;
   duration: number;
+  // tslint:disable-next-line:variable-name
   created_at: Date;
 }

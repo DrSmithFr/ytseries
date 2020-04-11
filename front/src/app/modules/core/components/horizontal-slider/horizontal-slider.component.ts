@@ -1,7 +1,6 @@
-import {Component, Input, QueryList, ViewChildren} from '@angular/core';
+import {Component, EventEmitter, Input, Output, QueryList, ViewChildren} from '@angular/core';
 import {QuickViewComponent} from '../quick-view/quick-view.component';
 import {AssetModel} from '../../../../models/search/asset.model';
-import {MatDialog} from '@angular/material/dialog';
 
 @Component(
     {
@@ -24,26 +23,20 @@ export class HorizontalSliderComponent {
         return this._series;
     }
 
+    // tslint:disable-next-line:variable-name
     _series: AssetModel[];
     seriesForDisplay: AssetModel[] = [];
     maxForDisplay                  = 5;
 
     @ViewChildren(QuickViewComponent) quickViews: QueryList<QuickViewComponent>;
 
-    constructor(
-        public dialog: MatDialog
-    ) {
+    @Output() selected = new EventEmitter<AssetModel>();
+
+    constructor() {
     }
 
     onSelection(series: AssetModel) {
-        this.dialog.open(
-            QuickViewComponent,
-            {
-                maxWidth: '800px',
-                minWidth: '300px',
-                data:  series
-            }
-        );
+        this.selected.emit(series);
     }
 
     updateSeriesToDisplay() {

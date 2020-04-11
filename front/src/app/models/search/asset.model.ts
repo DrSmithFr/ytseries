@@ -9,6 +9,7 @@ export class AssetModel {
     tags: string[];
     seasons: number;
     episodes: number;
+    // tslint:disable-next-line:variable-name
     import_date: number;
 
     get isMovie(): boolean {

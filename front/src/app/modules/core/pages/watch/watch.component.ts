@@ -56,18 +56,45 @@ export class WatchComponent implements OnInit, OnDestroy {
             .getSeriesByCode(id)
             .subscribe((data: SeriesModel) => {
                 this.series = data;
-                this.loadEpisode(data.seasons[0].episodes[0]);
 
-                this.userConnectionSubscription = this.state.LOGGED_USER.subscribe(user => {
-                    this.loadHistoric();
-                });
+                const user = this.state.LOGGED_USER.getValue();
+
+                if (user) {
+                    this
+                        .api
+                        .getHistoricOfSeries(this.series.import_code)
+                        .subscribe(
+                            historic => {
+                                const playlist = [];
+
+                                for (const season of this.series.seasons) {
+                                    for (const e of season.episodes) {
+                                        playlist.push(e);
+                                    }
+                                }
+
+                                const episode = playlist.filter(ep => {
+                                    return ep.id === historic.episode_id;
+                                });
+
+                                if (episode.length) {
+                                    this.loadEpisode(episode[0], true);
+                                    this.historic = historic;
+                                }
+                            },
+                            () => {
+                                this.loadEpisode(data.seasons[0].episodes[0], true);
+                            }
+                        );
+                } else {
+                    this.loadEpisode(data.seasons[0].episodes[0], true);
+                }
             });
 
         this.player = YouTubePlayer(
             'yt-video-player'
         );
 
-        this.player.on('ready', () => this.onPlayerReady());
         this.player.on('stateChange', (e) => this.onPlayerStateChange(e));
     }
 
@@ -83,10 +110,6 @@ export class WatchComponent implements OnInit, OnDestroy {
         if (this.userConnectionSubscription) {
             this.userConnectionSubscription.unsubscribe();
         }
-    }
-
-    onPlayerReady() {
-        // this.loadVideo('M7lc1UVf-VE');
     }
 
     onPlayerStateChange(e) {
@@ -151,7 +174,8 @@ export class WatchComponent implements OnInit, OnDestroy {
                 this.currentEpisode.id,
                 this.video.currentTime
             )
-            .subscribe(() => {});
+            .subscribe(() => {
+            });
     }
 
     checkTime() {

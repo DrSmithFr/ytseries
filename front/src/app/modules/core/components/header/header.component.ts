@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 import {AssetModel} from '../../../../models/search/asset.model';
 import YouTubePlayer from 'youtube-player';
 import {SeriesModel} from '../../../../models/series.model';
@@ -20,6 +20,9 @@ export class HeaderComponent implements AfterViewInit {
 
     @Input() asset: AssetModel;
     @Input() showDetail = true;
+    @Input() autoMute   = false;
+
+    @Output() selected = new EventEmitter<AssetModel>();
 
     @ViewChild('player', {static: true}) playerElement: ElementRef<HTMLInputElement>;
 
@@ -81,7 +84,10 @@ export class HeaderComponent implements AfterViewInit {
 
         switch (state) {
             case 1: // playing
-                this.player.setVolume(0);
+                if (this.autoMute) {
+                    this.player.setVolume(0);
+                }
+
                 setTimeout(() => {
                     this.showVideo = true;
                     setTimeout(() => this.showDescription = false, 3000);
@@ -92,5 +98,13 @@ export class HeaderComponent implements AfterViewInit {
                 this.showDescription = true;
                 break;
         }
+    }
+
+    pause() {
+        this.player.pauseVideo();
+    }
+
+    play() {
+        this.player.playVideo();
     }
 }

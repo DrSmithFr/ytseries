@@ -1,12 +1,35 @@
 <div class="showcase-content">
-    <h1>Films, séries et documentaire gratuits</h1>
+    <h1>Films, séries, documentaire et émissions cultes</h1>
     <p>
         Le meilleur de youtube, déjà trié pour vous.<br>
-        <small>(oui, j'ai pas de vie)</small>
     </p>
 
-    <button mat-flat-button color="primary" routerLink="/users/register">
-        Je m'inscript maintenant
-    </button>
+    <br><br>
+
+    <div class="row">
+        <div class="xsmall-6 small-6 medium-6 large-6">
+
+            <button
+                    mat-flat-button
+                    routerLink="/users/login"
+                    style="border-radius: 4px 0 0 4px;"
+                    class="full">
+                Login
+            </button>
+
+        </div>
+        <div class="xsmall-6 small-6 medium-6 large-6">
+
+            <button
+                    mat-flat-button
+                    color="primary"
+                    routerLink="/users/register"
+                    style="border-radius: 0 4px 4px 0;"
+                    class="full">
+                Register
+            </button>
+
+        </div>
+    </div>
 
 </div>
