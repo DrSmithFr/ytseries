@@ -11,7 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
-class loginType extends AbstractType
+class LoginType extends AbstractType
 {
     /**
      * $option parameter is mandatory but not used

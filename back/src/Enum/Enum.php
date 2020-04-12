@@ -5,11 +5,11 @@ declare(strict_types = 1);
 namespace App\Enum;
 
 use ReflectionClass;
+use RuntimeException;
 use ReflectionException;
 use Doctrine\DBAL\Types\Type;
 use InvalidArgumentException;
 use Doctrine\DBAL\Platforms\SqlitePlatform;
-use SebastianBergmann\Type\RuntimeException;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Platforms\SQLServerPlatform;
 use Doctrine\DBAL\Platforms\PostgreSqlPlatform;
@@ -80,14 +80,16 @@ abstract class Enum extends Type
     public function getSqlDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {
         // wrapping values
-        $values = array_map(function($val) { return "'".$val."'"; }, self::getAll());
+        $values = array_map(function ($val) {
+            return "'" . $val . "'";
+        }, self::getAll());
 
         switch (true) {
             case $platform instanceof SqlitePlatform:
                 $sqlDeclaration = sprintf(
                     'TEXT CHECK(%s IN (%s))',
                     $fieldDeclaration['name'],
-                    implode(", ", $values)
+                    implode(', ', $values)
                 );
                 break;
             case $platform instanceof PostgreSqlPlatform:
@@ -95,7 +97,7 @@ abstract class Enum extends Type
                 $sqlDeclaration = sprintf(
                     'VARCHAR(255) CHECK(%s IN (%s))',
                     $fieldDeclaration['name'],
-                    implode(", ", $values)
+                    implode(', ', $values)
                 );
 
                 break;
@@ -125,7 +127,7 @@ abstract class Enum extends Type
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
-        if (!in_array($value, self::getAll())) {
+        if (!in_array($value, self::getAll(), true)) {
             throw new InvalidArgumentException(sprintf("Invalid '%s' value.", $this->getName()));
         }
         return $value;

@@ -11,7 +11,7 @@ function php() {
 }
 
 function phpcs() {
-    cd back && symfony php vendor/bin/phpcs --ignore=vendor,bin,src/Migrations,pub $* || exit $?
+    cd back && symfony php vendor/bin/phpcs --ignore=vendor,bin,src/Migrations,pub,config $* || exit $?
 }
 
 function phpmd() {
