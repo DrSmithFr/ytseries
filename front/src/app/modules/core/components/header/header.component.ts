@@ -6,104 +6,105 @@ import {ApiService} from '../../../../services/api.service';
 import {EpisodeModel} from '../../../../models/episode.model';
 
 @Component(
-    {
-        selector:    'app-header',
-        templateUrl: './header.component.html',
-        styleUrls:   ['./header.component.scss']
-    }
+  {
+    selector:    'app-header',
+    templateUrl: './header.component.html',
+    styleUrls:   ['./header.component.scss']
+  }
 )
 export class HeaderComponent implements AfterViewInit {
 
-    // allowing multiple player in the same page
-    static instances = 0;
-    public instance: number;
+  // allowing multiple player in the same page
+  static instances = 0;
+  public instance: number;
 
-    @Input() asset: AssetModel;
-    @Input() showDetail = true;
-    @Input() autoMute   = false;
+  @Input() asset: AssetModel;
+  @Input() showDetail = true;
+  @Input() autoMute   = false;
 
-    @Output() selected = new EventEmitter<AssetModel>();
+  @Output() selected = new EventEmitter<AssetModel>();
 
-    @ViewChild('player', {static: true}) playerElement: ElementRef<HTMLInputElement>;
+  @ViewChild('player', {static: true}) playerElement: ElementRef<HTMLInputElement>;
 
-    showVideo             = false;
-    showDescription       = true;
-    series: SeriesModel   = null;
-    player: YouTubePlayer = null;
+  showVideo             = false;
+  showDescription       = true;
+  series: SeriesModel   = null;
+  player: YouTubePlayer = null;
 
-    constructor(
-        private api: ApiService
-    ) {
-        this.instance = HeaderComponent.instances++;
+  constructor(
+    private api: ApiService
+  ) {
+    this.instance = HeaderComponent.instances++;
+  }
+
+  ngAfterViewInit(): void {
+    this.player = YouTubePlayer(
+      this.playerElement.nativeElement.id,
+      {
+        height:    '100%',
+        width:     '100%',
+        mute:      true,
+        controls:  false,
+        disablekb: true,
+        host:      'https://www.youtube.com',
+      }
+    );
+
+    this.player.on('ready', () => this.loadVideo());
+    this.player.on('stateChange', (e) => this.onPlayerStateChange(e));
+  }
+
+  getPlayerId() {
+    return 'yt-video-player-' + this.instance;
+  }
+
+  loadVideo(): void {
+    this
+      .api
+      .getSeriesByCode(this.asset.id)
+      .subscribe((data: SeriesModel) => {
+        this.series = data;
+        this.loadEpisode(data.seasons[0].episodes[0]);
+      });
+  }
+
+
+  loadEpisode(episode: EpisodeModel): void {
+    if (!this.series) {
+      this.player.stopVideo();
+      return;
     }
 
-    ngAfterViewInit(): void {
-        this.player = YouTubePlayer(
-            this.playerElement.nativeElement.id,
-            {
-                height:    '100%',
-                width:     '100%',
-                mute:      true,
-                controls:  false,
-                disablekb: true,
-            }
-        );
+    this.player.loadVideoById(episode.code);
+    this.player.playVideo();
+  }
 
-        this.player.on('ready', () => this.loadVideo());
-        this.player.on('stateChange', (e) => this.onPlayerStateChange(e));
-    }
+  onPlayerStateChange(e) {
+    const state = e.data;
 
-    getPlayerId() {
-        return 'yt-video-player-' + this.instance;
-    }
-
-    loadVideo(): void {
-        this
-            .api
-            .getSeriesByCode(this.asset.id)
-            .subscribe((data: SeriesModel) => {
-                this.series = data;
-                this.loadEpisode(data.seasons[0].episodes[0]);
-            });
-    }
-
-
-    loadEpisode(episode: EpisodeModel): void {
-        if (!this.series) {
-            this.player.stopVideo();
-            return;
+    switch (state) {
+      case 1: // playing
+        if (this.autoMute) {
+          this.player.setVolume(0);
         }
 
-        this.player.loadVideoById(episode.code);
-        this.player.playVideo();
+        setTimeout(() => {
+          this.showVideo = true;
+          setTimeout(() => this.showDescription = false, 3000);
+        }, 500);
+        break;
+      case 0: // ended
+        this.showVideo       = false;
+        this.showDescription = true;
+        break;
     }
+  }
 
-    onPlayerStateChange(e) {
-        const state = e.data;
+  pause() {
+    this.player.pauseVideo();
+  }
 
-        switch (state) {
-            case 1: // playing
-                if (this.autoMute) {
-                    this.player.setVolume(0);
-                }
-
-                setTimeout(() => {
-                    this.showVideo = true;
-                    setTimeout(() => this.showDescription = false, 3000);
-                }, 500);
-                break;
-            case 0: // ended
-                this.showVideo       = false;
-                this.showDescription = true;
-                break;
-        }
-    }
-
-    pause() {
-        this.player.pauseVideo();
-    }
-
-    play() {
-        this.player.playVideo();
-    }
+  play() {
+    this.player.playVideo();
+  }
 }

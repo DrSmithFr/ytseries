@@ -98,7 +98,8 @@ export class WatchComponent implements OnInit, OnDestroy {
       'yt-video-player',
       {
         controls: 0,
-        ref:      0
+        ref:      0,
+        host:     'https://www.youtube.com',
       }
     );
 
@@ -338,7 +339,7 @@ export class WatchComponent implements OnInit, OnDestroy {
           minWidth: '300px',
           data:     {
             series: this.series,
-            video: this.currentEpisode
+            video:  this.currentEpisode
           }
         }
       )
