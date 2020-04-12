@@ -92,7 +92,7 @@ export class SearchComponent implements OnInit {
       this.recent = this.getRecent(this.result);
 
       if (this.heading === undefined) {
-        this.heading = this.recent[3];
+        this.heading = this.recent[0];
       }
 
       this.types.series      = this.getByType(this.result, 'Séries');

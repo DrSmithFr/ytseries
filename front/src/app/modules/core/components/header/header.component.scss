@@ -28,9 +28,11 @@ $max-height: 70vh;
     position: relative;
   }
 
-    img {
+  img {
     z-index: 1;
     position: absolute;
+
+    width: 100%;
 
     top: 50%;
     right: 50%;
@@ -43,7 +45,7 @@ $max-height: 70vh;
     margin: auto 0;
 
     opacity: 1;
-    animation: autoZoom 12s ease-in ;
+    animation: autoZoom 12s ease-in;
 
     &.fadeOut {
       opacity: 0;
