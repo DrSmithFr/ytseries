@@ -20,6 +20,11 @@
   top: 0;
 
   padding: 0;
+
+  &.hide {
+    opacity: 0;
+    transition: all 2s ease-in-out;
+  }
 }
 
 .space-between{
