@@ -25,6 +25,10 @@ class SearchService
     {
         $index = $this->getTempIndex();
 
+        if ($index->exists()) {
+            $index->delete();
+        }
+
         $index->create($this->makeIndexConfiguration());
 
         return $index;
@@ -40,6 +44,10 @@ class SearchService
     public function createIndex(): Index
     {
         $index = $this->getIndex();
+
+        if ($index->exists()) {
+            $index->delete();
+        }
 
         $index->create($this->makeIndexConfiguration());
 
@@ -137,8 +145,8 @@ class SearchService
 
         return [
             'type_name' => [
-                'properties' => $properties
-            ]
+                'properties' => $properties,
+            ],
         ];
     }
 }
