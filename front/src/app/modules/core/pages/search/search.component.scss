@@ -1,5 +1,9 @@
 @import "variables";
 
+.page {
+  min-height: 100vh;
+}
+
 .page_divided {
   margin-top: 15px;
   position: relative;
@@ -161,7 +165,7 @@
 }
 
 
-$green: #43CB9D;
+$green: #dc1a28;
 
 $p: 12px;
 $f: "brandon-grotesque", "Brandon Grotesque", "Source Sans Pro", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;

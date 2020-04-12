@@ -24,7 +24,8 @@
             placeholder="Recherche">
         </mat-form-field>
 
-        <div [ngClass]="{'hide': query === ''}" style="margin-left: 20px;">
+        <div [ngClass]="{'hide': query === ''}"
+             style="margin-left: 20px;">
           <button class="search-button"
                   mat-mini-fab
                   (click)="clearActiveFilters()"
@@ -58,10 +59,10 @@
               <div>
                 <span>Désolé !</span>
                 <span>
-                                <a (click)="query = ''; clearActiveFilters()">
-                                  <b>Vider la recherche ?</b>
-                                </a>
-                              </span>
+                  <a (click)="query = ''; clearActiveFilters()">
+                    <b>Vider la recherche ?</b>
+                  </a>
+                </span>
               </div>
             </div>
           </main>
@@ -154,4 +155,11 @@
 
     <app-navigation-mobile (searching)="updateQuery($event)"></app-navigation-mobile>
   </section>
+</div>
+
+<mat-divider style="margin: 50px 0"></mat-divider>
+
+<div class="center" style="margin-bottom: 20px">
+  <img src="/assets/logo.png" alt="YtSeries"><br>
+  <small>DrSmithFr © 2020</small>
 </div>

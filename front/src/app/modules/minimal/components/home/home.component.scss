@@ -45,3 +45,14 @@
 	font-size: 0.9rem;
   }
 }
+
+a.skip-link {
+  font-size: 15px;
+  text-decoration: underline;
+
+  color: #fff;
+
+  &:active {
+    color: #fff;
+  }
+}
