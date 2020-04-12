@@ -9,7 +9,7 @@ export const environment = {
   fake_api:   false,
   debug:      false,
   partner:    false,
-  url_api:    'https://ytseries-api',
+  url_api:    'https://backend.ytseries.com',
   roles:      [roles.user],
 };
 

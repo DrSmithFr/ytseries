@@ -45,8 +45,7 @@ export class HeaderComponent implements AfterViewInit {
         width:     '100%',
         mute:      true,
         controls:  false,
-        disablekb: true,
-        host:      'https://www.youtube.com',
+        disablekb: true
       }
     );
 
