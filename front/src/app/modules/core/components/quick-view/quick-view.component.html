@@ -10,13 +10,13 @@
 
   <div class="row">
     <div class="xsmall-9 small-8 medium-8 large-8 quickview-info">
-      <h1>{{ item.name }}</h1>
+      <h1 [innerHTML]="item.name"></h1>
 
       <h2 *ngIf="item.seasons == 1 && item.episodes == 1">{{ item.type }}</h2>
       <h2 *ngIf="item.seasons == 1 && item.episodes > 1">{{ item.episodes }} Episodes</h2>
       <h2 *ngIf="item.seasons > 1">{{ item.seasons }} Saisons</h2>
 
-      <p>{{ item.description }}</p>
+      <p [innerHTML]="item.description"></p>
     </div>
     <div class="xsmall-3 small-4 medium-4 large-4 center quickview-action">
       <button

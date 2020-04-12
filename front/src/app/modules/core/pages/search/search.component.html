@@ -1,151 +1,157 @@
-<div class="blurry" [ngClass]="{'enabled': blurry}">
-    <app-header
-            #headerComponent
-            [asset]="recent[0]"
-            [autoMute]="true"
-            (selected)="onSelection($event)"
-            [ngClass]="{'hide': query !== ''}">
-    </app-header>
+<div class="blurry"
+     [ngClass]="{'enabled': blurry}">
+  <app-header
+    #headerComponent
+    [asset]="heading"
+    [autoMute]="true"
+    (selected)="onSelection($event)">
+  </app-header>
 
-    <section class="page page_divided" *ngIf="result">
-        <div class="page_body">
+  <section class="page page_divided"
+           *ngIf="result">
+    <div class="page_body">
 
-            <!--        <div class="search-bar">-->
-            <!--            <button class="search-filter"-->
-            <!--                    mat-flat-button-->
-            <!--                    (click)="toogleFilterMenu()">-->
-            <!--                <i class="material-icons">filter_list</i>-->
-            <!--            </button>-->
-            <!--            <input class="search-input"-->
-            <!--                   type="text"-->
-            <!--                   (keyup)="makeSearch()"-->
-            <!--                   [(ngModel)]="query">-->
-            <!--            <button class="search-button"-->
-            <!--                    mat-flat-button-->
-            <!--                    color="primary">-->
-            <!--                <i class="material-icons">search</i>-->
-            <!--            </button>-->
-            <!--        </div>-->
+      <div class="search-bar">
 
-            <!--        <mat-divider></mat-divider>-->
+        <mat-form-field class="full">
+          <mat-label>Recherche</mat-label>
+          <input
+            matInput
+            (keyup)="makeSearch()"
+            [(ngModel)]="query"
+            type="text"
+            autocomplete="off"
+            placeholder="Recherche">
+        </mat-form-field>
 
-            <div *ngIf="query !== ''">
-                <div *ngIf="result.length === 0">
-                    <main>
-                        <div>
-                            <div>
-                                <span>Nothing found</span>
-                                <span>Matching your request</span>
-                            </div>
-                            <svg viewBox='0 0 200 600'>
-                                <polygon points='118.302698 8 59.5369448 66.7657528 186.487016 193.715824 14 366.202839 153.491505 505.694344 68.1413353 591.044514 200 591.044514 200 8'></polygon>
-                            </svg>
-                        </div>
-                        <svg class='crack'
-                             viewBox='0 0 200 600'>
-                            <polyline points='118.302698 8 59.5369448 66.7657528 186.487016 193.715824 14 366.202839 153.491505 505.694344 68.1413353 591.044514'></polyline>
-                        </svg>
-                        <div>
-                            <svg viewBox='0 0 200 600'>
-                                <polygon points='118.302698 8 59.5369448 66.7657528 186.487016 193.715824 14 366.202839 153.491505 505.694344 68.1413353 591.044514 0 591.044514 0 8'></polygon>
-                            </svg>
-                            <div>
-                                <span>sorry about that!</span>
-                                <span>
-                                <a (click)="query = ''; clearActiveFilters()">
-                                  <b>clear filters ?</b>
-                                </a>
-                              </span>
-                            </div>
-                        </div>
-                    </main>
-
-                </div>
-                <app-horizontal-slider
-                        title="Séries"
-                        [minForDisplay]="0"
-                        [series]="types.series"
-                        (selected)="onSelection($event)">
-                </app-horizontal-slider>
-
-                <app-horizontal-slider
-                        title="Films"
-                        [minForDisplay]="0"
-                        [series]="types.film"
-                        (selected)="onSelection($event)">
-                </app-horizontal-slider>
-
-                <app-horizontal-slider
-                        title="Court métrages"
-                        [minForDisplay]="0"
-                        [series]="types.shortFilm"
-                        (selected)="onSelection($event)">
-                </app-horizontal-slider>
-
-                <app-horizontal-slider
-                        title="Documentaires"
-                        [minForDisplay]="0"
-                        [series]="types.documentary"
-                        (selected)="onSelection($event)">
-                </app-horizontal-slider>
-            </div>
-            <div *ngIf="query === ''">
-                <app-horizontal-slider
-                        title="Nouveau"
-                        [series]="recent"
-                        (selected)="onSelection($event)">
-                </app-horizontal-slider>
-
-                <app-horizontal-slider
-                        title="Humour"
-                        [series]="categories.humour"
-                        (selected)="onSelection($event)">
-                </app-horizontal-slider>
-
-                <app-horizontal-slider
-                        title="Aventure"
-                        [series]="categories.aventure"
-                        (selected)="onSelection($event)">
-                </app-horizontal-slider>
-
-                <app-horizontal-slider
-                        title="Thriller"
-                        [series]="categories.thriller"
-                        (selected)="onSelection($event)">
-                </app-horizontal-slider>
-
-                <app-horizontal-slider
-                        title="Drames"
-                        [series]="categories.drames"
-                        (selected)="onSelection($event)">
-                </app-horizontal-slider>
-
-                <app-horizontal-slider
-                        title="Science fiction"
-                        [series]="categories.scienceFiction"
-                        (selected)="onSelection($event)">
-                </app-horizontal-slider>
-
-                <app-horizontal-slider
-                        title="Rommantique"
-                        [series]="categories.rommantique"
-                        (selected)="onSelection($event)">
-                </app-horizontal-slider>
-
-                <app-horizontal-slider
-                        title="Action"
-                        [series]="categories.action"
-                        (selected)="onSelection($event)">
-                </app-horizontal-slider>
-
-                <app-horizontal-slider
-                        title="Horreur"
-                        [series]="categories.horreur"
-                        (selected)="onSelection($event)">
-                </app-horizontal-slider>
-            </div>
+        <div [ngClass]="{'hide': query === ''}" style="margin-left: 20px;">
+          <button class="search-button"
+                  mat-mini-fab
+                  (click)="clearActiveFilters()"
+                  color="primary">
+            <i class="material-icons">close</i>
+          </button>
         </div>
 
-        <app-navigation-mobile (searching)="updateQuery($event)"></app-navigation-mobile>
-    </section>
+      </div>
+
+      <div *ngIf="query !== ''">
+        <div *ngIf="result.length === 0">
+          <main>
+            <div>
+              <div>
+                <span>Aucun résultat</span>
+                <span>Pour votre recherche</span>
+              </div>
+              <svg viewBox='0 0 200 600'>
+                <polygon points='118.302698 8 59.5369448 66.7657528 186.487016 193.715824 14 366.202839 153.491505 505.694344 68.1413353 591.044514 200 591.044514 200 8'></polygon>
+              </svg>
+            </div>
+            <svg class='crack'
+                 viewBox='0 0 200 600'>
+              <polyline points='118.302698 8 59.5369448 66.7657528 186.487016 193.715824 14 366.202839 153.491505 505.694344 68.1413353 591.044514'></polyline>
+            </svg>
+            <div>
+              <svg viewBox='0 0 200 600'>
+                <polygon points='118.302698 8 59.5369448 66.7657528 186.487016 193.715824 14 366.202839 153.491505 505.694344 68.1413353 591.044514 0 591.044514 0 8'></polygon>
+              </svg>
+              <div>
+                <span>Désolé !</span>
+                <span>
+                                <a (click)="query = ''; clearActiveFilters()">
+                                  <b>Vider la recherche ?</b>
+                                </a>
+                              </span>
+              </div>
+            </div>
+          </main>
+
+        </div>
+        <app-horizontal-slider
+          title="Séries"
+          [minForDisplay]="0"
+          [series]="types.series"
+          (selected)="onSelection($event)">
+        </app-horizontal-slider>
+
+        <app-horizontal-slider
+          title="Films"
+          [minForDisplay]="0"
+          [series]="types.film"
+          (selected)="onSelection($event)">
+        </app-horizontal-slider>
+
+        <app-horizontal-slider
+          title="Court métrages"
+          [minForDisplay]="0"
+          [series]="types.shortFilm"
+          (selected)="onSelection($event)">
+        </app-horizontal-slider>
+
+        <app-horizontal-slider
+          title="Documentaires"
+          [minForDisplay]="0"
+          [series]="types.documentary"
+          (selected)="onSelection($event)">
+        </app-horizontal-slider>
+      </div>
+      <div *ngIf="query === ''">
+        <app-horizontal-slider
+          title="Nouveau"
+          [series]="recent"
+          (selected)="onSelection($event)">
+        </app-horizontal-slider>
+
+        <app-horizontal-slider
+          title="Humour"
+          [series]="categories.humour"
+          (selected)="onSelection($event)">
+        </app-horizontal-slider>
+
+        <app-horizontal-slider
+          title="Aventure"
+          [series]="categories.aventure"
+          (selected)="onSelection($event)">
+        </app-horizontal-slider>
+
+        <app-horizontal-slider
+          title="Thriller"
+          [series]="categories.thriller"
+          (selected)="onSelection($event)">
+        </app-horizontal-slider>
+
+        <app-horizontal-slider
+          title="Drames"
+          [series]="categories.drames"
+          (selected)="onSelection($event)">
+        </app-horizontal-slider>
+
+        <app-horizontal-slider
+          title="Science fiction"
+          [series]="categories.scienceFiction"
+          (selected)="onSelection($event)">
+        </app-horizontal-slider>
+
+        <app-horizontal-slider
+          title="Rommantique"
+          [series]="categories.rommantique"
+          (selected)="onSelection($event)">
+        </app-horizontal-slider>
+
+        <app-horizontal-slider
+          title="Action"
+          [series]="categories.action"
+          (selected)="onSelection($event)">
+        </app-horizontal-slider>
+
+        <app-horizontal-slider
+          title="Horreur"
+          [series]="categories.horreur"
+          (selected)="onSelection($event)">
+        </app-horizontal-slider>
+      </div>
+    </div>
+
+    <app-navigation-mobile (searching)="updateQuery($event)"></app-navigation-mobile>
+  </section>
 </div>

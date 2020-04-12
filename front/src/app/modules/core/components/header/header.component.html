@@ -17,8 +17,8 @@
     <div class="series-details"
          [ngClass]="{'simplify': !showDescription}"
          *ngIf="asset && showDetail">
-      <h1>{{ asset.name }}</h1>
-      <p class="hide-on-small-mobile">{{ asset.description }}</p>
+      <h1 [innerHTML]="asset.name"></h1>
+      <p class="hide-on-small-mobile" [innerHTML]="asset.description"></p>
     </div>
 
     <div class="button-bar"
