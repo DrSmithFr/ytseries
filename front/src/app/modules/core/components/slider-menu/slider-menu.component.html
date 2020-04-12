@@ -1,46 +1,111 @@
 <div class="menu">
-    <div class="logo-container">
-        <a routerLink="/series/search" (click)="close()">
-            <img class="logo"
-                 src="/assets/logo.png"
-                 height="50"
-                 alt="YtSeries">
-        </a>
+  <div class="logo-container">
+    <a routerLink="/series/search"
+       (click)="close()">
+      <img class="logo"
+           src="/assets/logo.png"
+           height="50"
+           alt="YtSeries">
+    </a>
+  </div>
+
+  <!-- 'absorbs' the auto-focus behavior -->
+  <button mat-button
+          style="height: 0; position: absolute;"
+          aria-label="disable-auto-focus"></button>
+
+  <div class="row"
+       *ngIf="!auth.hasSession()"
+       style="margin: 25px 0">
+    <div class="xsmall-6 small-6 medium-6 large-6 right">
+
+      <button
+        mat-flat-button
+        routerLink="/users/login"
+        style="border-radius: 4px 0 0 4px">
+        Connection
+      </button>
+
     </div>
+    <div class="xsmall-6 small-6 medium-6 large-6 left">
 
-    <!-- 'absorbs' the auto-focus behavior -->
-    <button mat-button
-            style="height: 0; position: absolute;"
-            aria-label="disable-auto-focus"></button>
+      <button
+        mat-flat-button
+        color="primary"
+        routerLink="/users/register"
+        style="border-radius: 0 4px 4px 0">
+        Inscription
+      </button>
 
-    <ul class="menu-links-wrapper">
-        <li class="menu-link-card">
-            <a
-                    routerLink="/series/historic"
-                    class="menu-link"
-                    (click)="close()"
-                    mat-button>
-                My Historic
-            </a>
-        </li>
-        <li class="menu-link-card" *ngIf="auth.isGranted('ROLE_ADMIN')">
-            <a
-                    routerLink="/series/manage"
-                    class="menu-link"
-                    (click)="close()"
-                    mat-button>
-                Managed
-            </a>
-        </li>
-        <li class="menu-link-card"
-            *ngIf="auth.hasSession()">
-            <a
-                    routerLink="/"
-                    class="menu-link"
-                    (click)="auth.clearSession()"
-                    mat-button>
-                Se deconnecter
-            </a>
-        </li>
-    </ul>
+    </div>
+  </div>
+
+  <ul class="menu-links-wrapper">
+    <li class="menu-link-card" *ngIf="!auth.hasSession()">
+      <a
+        routerLink="/users/about"
+        class="menu-link"
+        (click)="close()"
+        mat-button>
+        Pourquoi s'inscrire ?
+      </a>
+    </li>
+    <li class="menu-link-card" *ngIf="auth.hasSession()">
+      <a
+        routerLink="/series/historic"
+        class="menu-link"
+        (click)="close()"
+        mat-button>
+        Mon compte
+      </a>
+    </li>
+    <li class="menu-link-card">
+      <a
+        href="http://teepee.fr/"
+        target="_blank"
+        class="menu-link"
+        (click)="close()"
+        mat-button>
+        Nous soutenir sur Teepee
+      </a>
+    </li>
+    <li class="menu-link-card">
+      <a
+        href="https://www.patreon.com/"
+        target="_blank"
+        class="menu-link"
+        (click)="close()"
+        mat-button>
+        Nous soutenir sur Patreon
+      </a>
+    </li>
+    <li class="menu-link-card">
+      <a
+        href="mailto:ytseries@gmail.com"
+        class="menu-link"
+        (click)="close()"
+        mat-button>
+        Nous contacter
+      </a>
+    </li>
+    <li class="menu-link-card"
+        *ngIf="auth.isGranted('ROLE_ADMIN')">
+      <a
+        routerLink="/series/manage"
+        class="menu-link"
+        (click)="close()"
+        mat-button>
+        Manager
+      </a>
+    </li>
+    <li class="menu-link-card" *ngIf="auth.hasSession()">
+      <a
+        routerLink="/"
+        class="menu-link"
+        (click)="auth.clearSession()"
+        mat-button>
+        Se deconnecter
+      </a>
+    </li>
+  </ul>
 </div>

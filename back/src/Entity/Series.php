@@ -1,12 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMS;
+use Doctrine\Common\Collections\Collection;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
@@ -73,7 +73,7 @@ class Series
     protected $type;
 
     /**
-     * @var Collection|Season[]
+     * @var Collection<Season>
      * @ORM\OneToMany(targetEntity="App\Entity\Season", mappedBy="series", cascade={"persist", "remove"})
      * @JMS\Type("ArrayCollection<App\Entity\Season>")
      */
@@ -104,9 +104,9 @@ class Series
 
     public function __construct()
     {
-        $this->seasons = new ArrayCollection();
+        $this->seasons    = new ArrayCollection();
         $this->categories = new ArrayCollection();
-        $this->tags = [];
+        $this->tags       = [];
     }
 
     /**
@@ -119,6 +119,7 @@ class Series
 
     /**
      * @param int|null $id
+     *
      * @return self
      */
     public function setId(?int $id): self
@@ -137,6 +138,7 @@ class Series
 
     /**
      * @param string|null $name
+     *
      * @return self
      */
     public function setName(?string $name): self
@@ -155,6 +157,7 @@ class Series
 
     /**
      * @param string|null $locale
+     *
      * @return self
      */
     public function setLocale(?string $locale): self
@@ -173,6 +176,7 @@ class Series
 
     /**
      * @param string|null $image
+     *
      * @return self
      */
     public function setImage(?string $image): self
@@ -191,6 +195,7 @@ class Series
 
     /**
      * @param string|null $description
+     *
      * @return self
      */
     public function setDescription(?string $description): self
@@ -209,6 +214,7 @@ class Series
 
     /**
      * @param string|null $importCode
+     *
      * @return self
      */
     public function setImportCode(?string $importCode): self
@@ -227,6 +233,7 @@ class Series
 
     /**
      * @param SeriesType|null $type
+     *
      * @return self
      */
     public function setType(?SeriesType $type): self
@@ -245,6 +252,7 @@ class Series
 
     /**
      * @param Season[]|Collection $seasons
+     *
      * @return self
      */
     public function setSeasons($seasons)
@@ -263,6 +271,7 @@ class Series
 
     /**
      * @param Category[]|Collection $categories
+     *
      * @return self
      */
     public function setCategories($categories)
@@ -281,6 +290,7 @@ class Series
 
     /**
      * @param array|null $tags
+     *
      * @return self
      */
     public function setTags(?array $tags): self
@@ -291,6 +301,7 @@ class Series
 
     /**
      * @param Season $season
+     *
      * @return self
      */
     public function addSeason(Season $season): self
@@ -302,6 +313,7 @@ class Series
 
     /**
      * @param Season $season
+     *
      * @return self
      */
     public function removeSeason(Season $season): self
@@ -313,6 +325,7 @@ class Series
 
     /**
      * @param Category $category
+     *
      * @return self
      */
     public function addCategory(Category $category): self
@@ -326,6 +339,7 @@ class Series
 
     /**
      * @param Category $category
+     *
      * @return self
      */
     public function removeCategory(Category $category): self
@@ -336,6 +350,7 @@ class Series
 
     /**
      * @param mixed $tag
+     *
      * @return self
      */
     public function addTag($tag): self
@@ -346,6 +361,7 @@ class Series
 
     /**
      * @param mixed $tag
+     *
      * @return self
      */
     public function removeTag($tag): self
@@ -357,6 +373,33 @@ class Series
         return $this;
     }
 
+    /**
+     * @return bool
+     */
+    public function isMovie(): bool
+    {
+        if ($this->seasons->count() === 1) {
+            /** @var Season $seasons */
+            $seasons = $this->seasons->first();
+
+            return $seasons->getEpisodes()->count() === 1;
+        }
+
+        return false;
+    }
+
+    public function isLastEpisode(Episode $last): bool
+    {
+        /** @var Season|null $seasons */
+        if ($seasons = $this->seasons->last()) {
+            /** @var Episode|null $episode */
+            if ($episode = $seasons->getEpisodes()->last()) {
+                return $episode === $last;
+            }
+        }
+
+        return false;
+    }
 
     public function __toString()
     {

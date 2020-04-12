@@ -1,4 +1,6 @@
 import {AfterViewInit, Component, EventEmitter, Output} from '@angular/core';
+import {NavigationEnd, Router} from '@angular/router';
+import {filter} from 'rxjs/operators';
 
 @Component(
   {
@@ -14,7 +16,9 @@ export class NavigationComponent implements AfterViewInit {
 
   @Output() opening = new EventEmitter<true>();
 
-  constructor() {
+  constructor(
+    private router: Router
+  ) {
   }
 
   onMenuClick() {
@@ -31,6 +35,17 @@ export class NavigationComponent implements AfterViewInit {
     document.body.ontouchmove = () => {
       this.resetInactivity();
     };
+
+    // resetting the scrollbar after navigation
+    this
+      .router
+      .events
+      .pipe(
+        filter(event => event instanceof NavigationEnd)
+      )
+      .subscribe(() => {
+        this.resetInactivity();
+      });
   }
 
   resetInactivity() {

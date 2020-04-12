@@ -11,6 +11,7 @@ import {ReconnectModel} from '../models/reconnect.model';
 import {MessageModel} from '../models/message.model';
 import {SeriesModel} from '../models/series.model';
 import {HistoricModel} from '../models/historic.model';
+import {AssetModel} from '../models/search/asset.model';
 
 // contain every api call to be easily fake using angular provider mechanism
 @Injectable(
@@ -124,8 +125,8 @@ export class ApiService {
         return this.http.patch<SeriesModel>(this.API_URL + '/series', series);
     }
 
-    getSeriesWatched(): Observable<any[]> {
-        return this.http.get<any[]>(this.API_URL + '/historic');
+    getSeriesWatched(): Observable<{continue: AssetModel[], watched: AssetModel[]}> {
+        return this.http.get<{continue: AssetModel[], watched: AssetModel[]}>(this.API_URL + '/historic');
     }
 
     getHistoricOfSeries(seriesId: string): Observable<HistoricModel> {

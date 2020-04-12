@@ -1,9 +1,33 @@
-<div class="page_body">
+<div class="page_body"
+     [ngClass]="{'blurry': blurry}">
 
   <div class="title-wrapper">
-    <h1>Historique</h1>
-    <hr>
+    <h1>Username: <b>{{ user.username }}</b></h1>
   </div>
 
-  <app-horizontal-slider [series]="result"></app-horizontal-slider>
+  <app-horizontal-slider
+    title="Continuer"
+    [minForDisplay]="0"
+    [series]="continue"
+    (selected)="onSelection($event)">
+  </app-horizontal-slider>
+
+  <app-horizontal-slider
+    title="Revoir"
+    [minForDisplay]="0"
+    [series]="watched"
+    (selected)="onSelection($event)">
+  </app-horizontal-slider>
+
+  <br><br>
+
+  <div class="center">
+    <button
+      mat-stroked-button
+      color="warn"
+      (click)="auth.clearSession()"
+      routerLink="/home">
+      Se déconnecter
+    </button>
+  </div>
 </div>

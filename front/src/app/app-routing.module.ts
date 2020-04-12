@@ -1,14 +1,12 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {IsConnectedGuard} from './guards/is-connected-guard.service';
-import {IsValidatedGuard} from './guards/is-validated-guard.service';
 import {IsDisconnectedGuard} from './guards/is-disconnected-guard.service';
 
 
 const routes: Routes = [
   {
     path:             'series',
-    canActivateChild: [IsConnectedGuard, IsValidatedGuard],
     data:             {
       animation: 'connected'
     },
@@ -24,13 +22,13 @@ const routes: Routes = [
   {
     path:        '',
     pathMatch:   'full',
-    redirectTo:  'users/home'
+    redirectTo:  'series/search'
   },
 ];
 
 @NgModule(
   {
-    providers: [IsConnectedGuard, IsDisconnectedGuard, IsValidatedGuard],
+    providers: [IsConnectedGuard, IsDisconnectedGuard],
     imports:   [RouterModule.forRoot(routes)],
     exports:   [RouterModule]
   }

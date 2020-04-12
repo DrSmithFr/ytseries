@@ -29,7 +29,7 @@ const routes: Routes = [
         }
       },
       {
-        path:        'home',
+        path:        'about',
         canActivate: [IsDisconnectedGuard],
         component:   HomeComponent,
         data:        {

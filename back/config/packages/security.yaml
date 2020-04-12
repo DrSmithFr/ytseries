@@ -16,6 +16,9 @@ security:
         public:
             pattern: ^/users/(register|available)$
             security: false
+        search:
+            pattern: ^/(series|search)
+            security: false
         login:
             pattern:  ^/users/login$
             stateless: true

@@ -9,27 +9,27 @@ import {HistoricComponent} from './pages/historic/historic.component';
 import {IsConnectedGuard} from '../../guards/is-connected-guard.service';
 
 const routes: Routes = [
-    {
-        path:      '',
-        component: AppLayoutComponent,
-        children:  [
-            {path: 'search', component: SearchComponent},
-            {path: 'manage', component: ManageComponent},
-            {path: 'edit/:code', component: SeriesComponent},
-            {path: 'watch/:id', component: WatchComponent},
-            {path: 'historic', component: HistoricComponent, canActivate: [IsConnectedGuard]},
+  {
+    path:      '',
+    component: AppLayoutComponent,
+    children:  [
+      {path: 'search', component: SearchComponent},
+      {path: 'watch/:id', component: WatchComponent},
+      {path: 'historic', component: HistoricComponent, canActivate: [IsConnectedGuard]},
+      {path: 'manage', component: ManageComponent, canActivate: [IsConnectedGuard]},
+      {path: 'edit/:code', component: SeriesComponent, canActivate: [IsConnectedGuard]},
 
-            {path: '', redirectTo: 'search', pathMatch: 'full'},
-            {path: '**', redirectTo: '/404'}
-        ]
-    },
+      {path: '', redirectTo: 'search', pathMatch: 'full'},
+      {path: '**', redirectTo: '/404'}
+    ]
+  },
 ];
 
 @NgModule(
-    {
-        imports: [RouterModule.forChild(routes)],
-        exports: [RouterModule]
-    }
+  {
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule]
+  }
 )
 export class CoreRoutingModule {
 }

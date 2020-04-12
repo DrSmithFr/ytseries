@@ -131,7 +131,10 @@ class HistoricController extends AbstractController
         $user         = $this->getUser();
         $historicList = $repository->findAllByUser($user);
 
-        $result = [];
+        $result = [
+            'continue' => [],
+            'watched'  => [],
+        ];
 
         /** @var Historic $historic */
         foreach ($historicList as $historic) {
@@ -141,12 +144,21 @@ class HistoricController extends AbstractController
                 continue;
             }
 
-            $result[] = [
-                'id'          => $series->getImportCode(),
-                'name'        => $series->getName(),
-                'image'       => $series->getImage(),
-                'description' => $series->getDescription(),
-            ];
+            if ($series->isMovie() || $series->isLastEpisode($historic->getEpisode())) {
+                $result['watched'][] = [
+                    'id'          => $series->getImportCode(),
+                    'name'        => $series->getName(),
+                    'image'       => $series->getImage(),
+                    'description' => $series->getDescription(),
+                ];
+            } else {
+                $result['continue'][] = [
+                    'id'          => $series->getImportCode(),
+                    'name'        => $series->getName(),
+                    'image'       => $series->getImage(),
+                    'description' => $series->getDescription(),
+                ];
+            }
         }
 
         return new JsonResponse($result);
