@@ -24,7 +24,7 @@ export class HistoricComponent implements OnInit {
   constructor(
     private api: ApiService,
     private dialog: MatDialog,
-    private auth: AuthService
+    public auth: AuthService
   ) {
   }
 

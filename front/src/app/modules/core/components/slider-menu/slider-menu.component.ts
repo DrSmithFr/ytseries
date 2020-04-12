@@ -1,5 +1,7 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, HostListener, Inject, Output} from '@angular/core';
 import {AuthService} from '../../../../services/auth.service';
+import {SwUpdate} from '@angular/service-worker';
+import {DOCUMENT} from '@angular/common';
 
 @Component(
   {
@@ -10,14 +12,36 @@ import {AuthService} from '../../../../services/auth.service';
 )
 export class SliderMenuComponent {
 
+  promptEvent: any;
+
   @Output() closed = new EventEmitter<true>();
 
   constructor(
     public auth: AuthService,
+    private swUpdate: SwUpdate,
+    @Inject(DOCUMENT) private document: Document,
   ) {
+    // install button display
+    window.addEventListener('beforeinstallprompt', event => {
+      this.promptEvent = event;
+    });
+
+    // force update if needed
+    swUpdate.available.subscribe(() => {
+      window.location.reload();
+    });
   }
 
   close() {
     this.closed.emit(true);
+  }
+
+  @HostListener('window:beforeinstallprompt', [])
+  onWindowBeforeInstallPrompt() {
+
+  }
+
+  installApplication() {
+    this.promptEvent.prompt();
   }
 }

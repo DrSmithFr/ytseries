@@ -98,6 +98,11 @@
         Manager
       </a>
     </li>
+    <li *ngIf>
+        <a (click)="installApplication()">
+          <mat-icon>mobile_friendly</mat-icon> Installer l'application
+        </a>
+    </li>
     <li class="menu-link-card" *ngIf="auth.hasSession()">
       <a
         routerLink="/"

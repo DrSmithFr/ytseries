@@ -23,7 +23,6 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {FooterComponent} from './components/footer/footer.component';
-import {InstallPwaComponent} from './components/install-pwa/install-pwa.component';
 import {NavigationMobileComponent} from './components/navigation-mobile/navigation-mobile.component';
 import {QuickViewComponent} from './components/quick-view/quick-view.component';
 import {ScrollToTopComponent} from './components/scroll-to-top/scroll-to-top.component';
@@ -45,7 +44,6 @@ import { PlaylistComponent } from './components/playlist/playlist.component';
             SeriesComponent,
             WatchComponent,
             FooterComponent,
-            InstallPwaComponent,
             NavigationMobileComponent,
             QuickViewComponent,
             HorizontalSliderComponent,
