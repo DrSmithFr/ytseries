@@ -14,4 +14,4 @@ services:
         image: tophfr/mailcatcher
 
     elasticsearch:
-        image: elasticsearch:alpine
+        image: elasticsearch:5-alpine
