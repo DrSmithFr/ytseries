@@ -58,7 +58,6 @@ export class HeaderComponent implements AfterViewInit {
     }
 
     loadVideo(): void {
-
         this
             .api
             .getSeriesByCode(this.asset.id)

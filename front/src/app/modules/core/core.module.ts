@@ -31,6 +31,7 @@ import {HorizontalSliderComponent} from './components/horizontal-slider/horizont
 import { SlideshowComponent } from './components/slideshow/slideshow.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HeaderComponent } from './components/header/header.component';
+import { PlaylistComponent } from './components/playlist/playlist.component';
 
 @NgModule(
     {
@@ -50,7 +51,8 @@ import { HeaderComponent } from './components/header/header.component';
             HorizontalSliderComponent,
             ScrollToTopComponent,
             SlideshowComponent,
-            HeaderComponent
+            HeaderComponent,
+            PlaylistComponent
         ],
         exports:      [
             AppLayoutComponent

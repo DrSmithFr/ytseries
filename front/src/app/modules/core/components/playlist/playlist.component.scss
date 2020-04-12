@@ -1,0 +1,94 @@
+@import "variables";
+
+.box {
+  /* 16:9 ratio */
+  padding-top: 56.25%;
+  overflow: hidden;
+
+  position: relative;
+  transition: transform .3s;
+
+  img {
+    position: absolute;
+    height: 100%;
+
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+}
+
+.playlist-container {
+  max-height: 80vh;
+  padding: 5px;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  h1 {
+    margin: 0 10px;
+    line-height: 30px;
+
+    width: 80vw;
+    max-width: 600px;
+
+    font-size: 18px;
+
+    @include mobile() {
+      font-size: 15px;
+    }
+  }
+
+  .playlist-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    background: #000;
+    border-top: 5px solid $black;
+
+    padding: 1px;
+
+    .episode-image {
+      flex: 3;
+      width: 20%;
+    }
+
+    .episode-detail {
+      flex: 5;
+      align-self: center;
+
+      padding: 0 10px;
+
+      h2 {
+        margin: 0;
+
+        font-size: 16px;
+        line-height: 16px;
+
+        @include small-mobile() {
+          font-size: 12px;
+          line-height: 12px;
+        }
+      }
+
+      p {
+        margin: 0;
+        font-size: 14px;
+
+        color: $border-dark;
+
+        @include small-mobile() {
+          font-size: 10px;
+        }
+      }
+    }
+
+    .episode-button {
+      flex: 1;
+      align-self: center;
+      margin-right: 10px;
+    }
+  }
+}

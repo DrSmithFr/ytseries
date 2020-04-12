@@ -4,56 +4,63 @@
   border-radius: 3px;
   position: relative;
 
+  max-height: 90vh;
+  overflow-y: auto;
+
   padding-bottom: 20px;
 
   .box {
-	/* 16:9 ratio */
-	padding-top: 56.25%;
-	overflow: hidden;
+    /* 16:9 ratio */
+    padding-top: 56.25%;
+    overflow: hidden;
 
-	position: relative;
-	transition: transform .3s;
+    position: relative;
+    transition: transform .3s;
 
-	img {
-	  position: absolute;
-	  height: 100%;
+    img {
+      position: absolute;
+      height: 100%;
 
-	  top: 0;
-	  bottom: 0;
-	  right: 0;
-	  left: 0;
-	}
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
   }
 
   h1 {
-	font-size: 30px;
-	padding: 10px 30px 0;
-	line-height: 20px;
-	margin-bottom: 0;
+    font-size: 30px;
+    padding: 10px 30px 0;
+    line-height: 20px;
+    margin-bottom: 0;
   }
 
   h2 {
-	font-size: 15px;
-	padding: 0 30px;
-	line-height: 20px;
+    font-size: 15px;
+    padding: 0 30px;
+    line-height: 20px;
   }
 
   p {
-	padding: 0 30px;
+    padding: 0 30px;
   }
 
   button {
-	margin-top: 20px;
-	margin-right: 10px;
+    margin-top: 20px;
+    margin-right: 10px;
 
-	padding: 5px 50px;
+    padding: 5px 50px;
 
-	background: rgba($black, 0.5);
+    @include mobile() {
+      padding: 0;
+    }
+
+    background: rgba($black, 0.5);
   }
 
   button:hover {
-	color: $alpha;
-	border-color: $alpha;
-	background: rgba($black, 0.7);
+    color: $alpha;
+    border-color: $alpha;
+    background: rgba($black, 0.7);
   }
 }

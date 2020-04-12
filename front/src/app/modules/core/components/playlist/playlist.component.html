@@ -1,0 +1,33 @@
+<!-- 'absorbs' the auto-focus behavior -->
+<button mat-button style="height: 0; position: absolute;" aria-label="disable-auto-focus"></button>
+
+<div class="playlist-container"
+     *ngIf="series">
+
+  <div *ngFor="let season of series.seasons">
+    <h1>{{ season.name }}</h1>
+
+    <div class="playlist-item" *ngFor="let episode of season.episodes">
+
+      <div class="episode-image">
+        <div class="box">
+          <img src="https://img.youtube.com/vi/{{ episode.code }}/mqdefault.jpg">
+        </div>
+      </div>
+
+      <div class="episode-detail">
+        <h2>Episode {{ season.episodes.indexOf(episode) }}</h2>
+        <p>{{ episode.name }}</p>
+      </div>
+
+      <div class="episode-button">
+        <button mat-icon-button
+                (click)="selectEpisode(episode)">
+          <i class="material-icons alpha" *ngIf="episode.code === video.code">play_circle_filled</i>
+          <i class="material-icons" *ngIf="episode.code !== video.code">play_circle_outline</i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>

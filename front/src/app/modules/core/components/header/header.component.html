@@ -1,35 +1,34 @@
 <div class="hide-overflow">
-    <div class="ratio-container">
+  <div class="header-container">
 
-        <div class="ratio-content">
-            <img *ngIf="asset"
-                 src="{{ asset.image }}"
-                 [ngClass]="{'fadeOut': showVideo}"
-                 alt="{{ asset.name }}">
-        </div>
+    <img *ngIf="asset"
+         src="{{ asset.image }}"
+         [ngClass]="{'fadeOut': showVideo, 'zoom-effect': true}"
+         alt="{{ asset.name }}">
 
-        <div class="gradien-layer"></div>
+    <div class="ratio-container"></div>
+    <div class="gradien-layer"></div>
 
-        <div class="video-container">
-            <div id="{{ getPlayerId() }}"
-                 #player></div>
-        </div>
-
-        <div class="series-details"
-             [ngClass]="{'simplify': !showDescription}"
-             *ngIf="asset && showDetail">
-            <h1>{{ asset.name }}</h1>
-            <p class="hide-on-small-mobile">{{ asset.description }}</p>
-        </div>
-
-        <div class="button-bar"
-             *ngIf="showDetail">
-            <button
-                    (click)="selected.emit(asset)"
-                    mat-mini-fab>
-                <span class="material-icons">info</span>
-                <span class="hide-on-small-mobile hide-on-mobile">Info</span>
-            </button>
-        </div>
+    <div class="video-container">
+      <div id="{{ getPlayerId() }}"
+           #player></div>
     </div>
+
+    <div class="series-details"
+         [ngClass]="{'simplify': !showDescription}"
+         *ngIf="asset && showDetail">
+      <h1>{{ asset.name }}</h1>
+      <p class="hide-on-small-mobile">{{ asset.description }}</p>
+    </div>
+
+    <div class="button-bar"
+         *ngIf="showDetail">
+      <button
+        (click)="selected.emit(asset)"
+        mat-mini-fab>
+        <span class="material-icons">info</span>
+      </button>
+    </div>
+  </div>
+
 </div>
