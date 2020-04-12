@@ -17,7 +17,6 @@ easy_admin:
             icon: 'shield'
             children:
               - User
-              - Group
     entities:
         User:
             class: App\Entity\User
@@ -63,17 +62,6 @@ easy_admin:
                               'ROLE_ADMIN': 'ROLE_ADMIN'
                     - groups
                 form_options: { validation_groups: ['Registration'] }
-        Group:
-            class: App\Entity\Group
-            disabled_actions: ['new', 'delete']
-            list:
-                fields:
-                  - name
-                  - roles
-            form:
-                fields:
-                  - name
-                  - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
         Series:
             class: App\Entity\Series
             list:
