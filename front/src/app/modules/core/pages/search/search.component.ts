@@ -5,6 +5,8 @@ import {QuickViewComponent} from '../../components/quick-view/quick-view.compone
 import {MatDialog} from '@angular/material/dialog';
 import {HeaderComponent} from '../../components/header/header.component';
 import {FiltersService} from '../../../../services/filters.service';
+import {AuthService} from '../../../../services/auth.service';
+import {StateService} from '../../../../services/state.service';
 
 @Component(
   {
@@ -23,6 +25,9 @@ export class SearchComponent implements OnInit {
 
   heading: AssetModel;
   recent: AssetModel[] = [];
+
+  continue: AssetModel[];
+  watched: AssetModel[];
 
   types: {
     film: AssetModel[],
@@ -46,6 +51,7 @@ export class SearchComponent implements OnInit {
 
   constructor(
     private api: ApiService,
+    private state: StateService,
     public dialog: MatDialog,
     public filterNav: FiltersService,
     private filterService: FiltersService
@@ -70,6 +76,18 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.state.LOGGED_USER.subscribe(user => {
+      if (user) {
+        this
+          .api
+          .getSeriesWatched()
+          .subscribe(result => {
+            this.continue = result.continue;
+            this.watched  = result.watched;
+          });
+      }
+    });
+
     this
       .filterService
       .updated

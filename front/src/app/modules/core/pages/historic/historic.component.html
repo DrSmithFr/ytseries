@@ -6,13 +6,15 @@
   </div>
 
   <app-horizontal-slider
-    title="Continuer"
+    *ngIf="continue.length"
+    title="Reprendre"
     [minForDisplay]="0"
     [series]="continue"
     (selected)="onSelection($event)">
   </app-horizontal-slider>
 
   <app-horizontal-slider
+    *ngIf="watched.length"
     title="Revoir"
     [minForDisplay]="0"
     [series]="watched"
