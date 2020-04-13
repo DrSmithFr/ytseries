@@ -1,7 +1,7 @@
 @import "variables";
 
 .page {
-  min-height: 100vh;
+  min-height: 60vh;
 }
 
 .page_divided {
@@ -78,6 +78,11 @@
   display: flex;
 
   padding: 0 50px;
+
+  @include mobile() {
+    padding: 0 10px;
+  }
+
   max-width: 1200px;
   margin: 0 auto;
 }

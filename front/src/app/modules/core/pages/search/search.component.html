@@ -13,6 +13,15 @@
 
       <div class="search-bar">
 
+        <div style="margin-right: 20px;">
+          <button class="search-button"
+                  mat-mini-fab
+                  (click)="clearActiveFilters()"
+                  color="primary">
+            <i class="material-icons">filter_list</i>
+          </button>
+        </div>
+
         <mat-form-field class="full">
           <mat-label>Recherche</mat-label>
           <input
