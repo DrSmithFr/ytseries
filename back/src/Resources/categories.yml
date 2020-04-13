@@ -3,9 +3,9 @@ thriller:
 scifi:
   name: 'Science fiction'
 romantic:
-  name: 'Rommantique'
+  name: 'Romantique'
 drame:
-  name: 'Drames'
+  name: 'Drame'
 action:
   name: 'Action'
 adventure:

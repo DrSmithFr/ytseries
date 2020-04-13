@@ -87,7 +87,7 @@ export class LoginComponent {
                     this.showLoader = false;
 
                     if (error.status === 401) {
-                        this.snackBar.open('Les identifiants de connection sont incorrect');
+                        this.snackBar.open('Les identifiants de connexion sont incorrects');
 
                         this.passwordField.nativeElement.focus();
                         this.getPassword().setValue('');

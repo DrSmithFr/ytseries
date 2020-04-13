@@ -28,7 +28,7 @@
                             type="password"
                             formControlName="password"
                             autocomplete="password"
-                            placeholder="password">
+                            placeholder="Mot de passe">
                     <mat-error *ngIf="hasError(getPassword())">
                         Entre ton mot de passe !
                     </mat-error>
@@ -42,7 +42,7 @@
                                 mat-flat-button
                                 color="primary"
                                 type="submit">
-                            Login
+                            Connexion
                         </button>
                         <mat-spinner *ngIf="showLoader"
                                      diameter="37"
