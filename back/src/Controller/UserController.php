@@ -63,7 +63,7 @@ class UserController extends AbstractController
 
         $user = $entityManager
             ->getRepository(User::class)
-            ->findOneBy(['username' => $reg->getUsername()]);
+            ->findOneBy(['username' => strtolower($reg->getUsername())]);
 
         if ($user !== null) {
             return $this->messageResponse(
@@ -113,7 +113,7 @@ class UserController extends AbstractController
 
         $user = $entityManager
             ->getRepository(User::class)
-            ->findOneBy(['username' => $username]);
+            ->findOneBy(['username' => strtolower($username)]);
 
         if ($user !== null) {
             return $this->messageResponse(
