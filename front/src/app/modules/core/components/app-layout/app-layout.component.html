@@ -1,9 +1,15 @@
 <mat-sidenav-container (backdropClick)="sidenav.close()">
   <mat-sidenav
+    #filternav
+    (keydown.escape)="filternav.close()"
+    class="sider-menu">
+    <app-filter-slider-menu></app-filter-slider-menu>
+  </mat-sidenav>
+
+  <mat-sidenav
       position="end"
       #sidenav
       (keydown.escape)="sidenav.close()"
-      disableClose
       class="sider-menu">
     <app-slider-menu (closed)="sidenav.close()"></app-slider-menu>
   </mat-sidenav>

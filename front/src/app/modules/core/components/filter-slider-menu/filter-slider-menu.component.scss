@@ -1,0 +1,50 @@
+@import "variables";
+
+.menu {
+  min-height: 100%;
+  min-width: 300px;
+
+  @include tablet() {
+    min-width: 400px;
+  }
+
+  @include desktop() {
+    min-width: 500px;
+  }
+
+  background: $black;
+}
+
+
+.logo-container {
+  background: $black;
+  border-bottom: 1px solid rgba(77, 77, 77, .1);
+
+  text-align: center;
+
+  .logo {
+    padding: 20px;
+    margin: 0 auto;
+
+    @include xsmobile() {
+      height: 30px;
+    }
+  }
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+
+  text-align: left;
+
+  .filter-button {
+    margin: 5px;
+  }
+}
+
+.marged {
+  margin: 30px;
+}
+

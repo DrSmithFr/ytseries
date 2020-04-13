@@ -4,6 +4,7 @@ import {AssetModel} from '../../../../models/search/asset.model';
 import {QuickViewComponent} from '../../components/quick-view/quick-view.component';
 import {MatDialog} from '@angular/material/dialog';
 import {HeaderComponent} from '../../components/header/header.component';
+import {FiltersService} from '../../../../services/filters.service';
 
 @Component(
   {
@@ -16,8 +17,6 @@ export class SearchComponent implements OnInit {
 
   @ViewChild('headerComponent', {static: true}) private headerComponent: HeaderComponent;
 
-
-  displayFilterMenu = false;
   blurry            = false;
 
   result: AssetModel[] = [];
@@ -43,19 +42,13 @@ export class SearchComponent implements OnInit {
     horreur: AssetModel[]
   };
 
-  filters: {} = {};
-
   query = '';
-
-  activeFilters = {
-    locale:     null,
-    type:       null,
-    categories: null,
-  };
 
   constructor(
     private api: ApiService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public filterNav: FiltersService,
+    private filterService: FiltersService
   ) {
     this.types = {
       film:        [],
@@ -77,62 +70,61 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.makeSearch();
-  }
+    this
+      .filterService
+      .updated
+      .subscribe(() => {
+        this.makeSearch();
+      });
 
-  toogleFilterMenu() {
-    this.displayFilterMenu = !this.displayFilterMenu;
+    this.makeSearch();
   }
 
   makeSearch(): void {
-    this.api.searchSeries(this.query, this.activeFilters).subscribe(data => {
-      this.result  = data.assets;
-      this.filters = data.filters;
+    this
+      .api
+      .searchSeries(
+        this.query,
+        this.filterService.hasActiveFilters() ? this.filterService.activeFilters : null
+      )
+      .subscribe(data => {
+        this.result                         = data.assets;
+        this.filterService.availableFilters = data.filters;
 
-      this.recent = this.getRecent(this.result);
+        this.recent = this.getRecent(this.result);
 
-      if (this.heading === undefined) {
-        this.heading = this.recent[0];
-      }
+        if (!this.heading && data.assets.length && this.heading !== data.assets[0]) {
+          this.heading = data.assets[0];
+        }
 
-      this.types.series      = this.getByType(this.result, 'Séries');
-      this.types.film        = this.getByType(this.result, 'Film');
-      this.types.shortFilm   = this.getByType(this.result, 'Court métrage');
-      this.types.documentary = this.getByType(this.result, 'Documentaire');
+        this.types.series      = this.getByType(this.result, 'Séries');
+        this.types.film        = this.getByType(this.result, 'Film');
+        this.types.shortFilm   = this.getByType(this.result, 'Court métrage');
+        this.types.documentary = this.getByType(this.result, 'Documentaire');
 
-      this.categories.humour         = this.getByCategories(this.result, 'Humour');
-      this.categories.aventure       = this.getByCategories(this.result, 'Aventure');
-      this.categories.thriller       = this.getByCategories(this.result, 'Thriller');
-      this.categories.drames         = this.getByCategories(this.result, 'Drames');
-      this.categories.scienceFiction = this.getByCategories(this.result, 'Science fiction');
-      this.categories.rommantique    = this.getByCategories(this.result, 'Rommantique');
-      this.categories.action         = this.getByCategories(this.result, 'Action');
-      this.categories.horreur        = this.getByCategories(this.result, 'Horreur');
-    });
-  }
-
-  onFiltersChange(): void {
-    this.makeSearch();
+        this.categories.humour         = this.getByCategories(this.result, 'Humour');
+        this.categories.aventure       = this.getByCategories(this.result, 'Aventure');
+        this.categories.thriller       = this.getByCategories(this.result, 'Thriller');
+        this.categories.drames         = this.getByCategories(this.result, 'Drames');
+        this.categories.scienceFiction = this.getByCategories(this.result, 'Science fiction');
+        this.categories.rommantique    = this.getByCategories(this.result, 'Rommantique');
+        this.categories.action         = this.getByCategories(this.result, 'Action');
+        this.categories.horreur        = this.getByCategories(this.result, 'Horreur');
+      });
   }
 
   clearActiveFilters(): void {
-    this.activeFilters.locale     = null;
-    this.activeFilters.type       = null;
-    this.activeFilters.categories = null;
-    this.query                    = '';
+    this.query = '';
+    this.filterService.clearActiveFilters();
     this.makeSearch();
   }
 
   hasActiveFilters(): boolean {
-    let activeFilter = false;
-
-    for (const [, value] of Object.entries(this.activeFilters)) {
-      if (value) {
-        activeFilter = true;
-      }
+    if (this.query && this.query !== '') {
+      return false;
     }
 
-    return activeFilter;
+    return this.filterService.hasActiveFilters();
   }
 
   updateQuery(query: string) {

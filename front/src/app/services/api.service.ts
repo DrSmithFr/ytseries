@@ -112,7 +112,9 @@ export class ApiService {
             params = params.set('query', query);
         }
 
-        params = params.set('filters', JSON.stringify(activeFilter));
+        if (activeFilter) {
+          params = params.set('filters', JSON.stringify(activeFilter));
+        }
 
         return this.http.get<SearchResponseModel>(this.API_URL + '/search', {params});
     }

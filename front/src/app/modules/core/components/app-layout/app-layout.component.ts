@@ -1,4 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {FiltersService} from '../../../../services/filters.service';
+import {MatSidenav} from '@angular/material/sidenav';
 
 @Component(
   {
@@ -7,6 +9,15 @@ import {Component} from '@angular/core';
     styleUrls:   ['./app-layout.component.scss']
   }
 )
-export class AppLayoutComponent {
+export class AppLayoutComponent implements OnInit {
+  @ViewChild('filternav', {static: true}) private filternav: MatSidenav;
 
+  constructor(private filters: FiltersService) {
+  }
+
+  ngOnInit(): void {
+    this.filters.openFilter.subscribe(() => {
+      this.filternav.open();
+    });
+  }
 }

@@ -31,6 +31,8 @@ import { SlideshowComponent } from './components/slideshow/slideshow.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HeaderComponent } from './components/header/header.component';
 import { PlaylistComponent } from './components/playlist/playlist.component';
+import { FilterSliderMenuComponent } from './components/filter-slider-menu/filter-slider-menu.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule(
     {
@@ -50,7 +52,8 @@ import { PlaylistComponent } from './components/playlist/playlist.component';
             ScrollToTopComponent,
             SlideshowComponent,
             HeaderComponent,
-            PlaylistComponent
+            PlaylistComponent,
+            FilterSliderMenuComponent
         ],
         exports:      [
             AppLayoutComponent
@@ -78,6 +81,7 @@ import { PlaylistComponent } from './components/playlist/playlist.component';
             MatInputModule,
             MatSelectModule,
             MatDialogModule,
+            MatCheckboxModule,
         ],
         bootstrap:    [
             AppLayoutComponent

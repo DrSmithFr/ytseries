@@ -16,7 +16,7 @@
         <div style="margin-right: 20px;">
           <button class="search-button"
                   mat-mini-fab
-                  (click)="clearActiveFilters()"
+                  (click)="filterNav.open()"
                   color="primary">
             <i class="material-icons">filter_list</i>
           </button>
@@ -33,7 +33,7 @@
             placeholder="Recherche">
         </mat-form-field>
 
-        <div [ngClass]="{'hide': query === ''}"
+        <div [ngClass]="{'hide': hasActiveFilters()}"
              style="margin-left: 20px;">
           <button class="search-button"
                   mat-mini-fab
@@ -45,7 +45,7 @@
 
       </div>
 
-      <div *ngIf="query !== ''">
+      <div *ngIf="hasActiveFilters()">
         <div *ngIf="result.length === 0">
           <main>
             <div>
@@ -105,7 +105,7 @@
           (selected)="onSelection($event)">
         </app-horizontal-slider>
       </div>
-      <div *ngIf="query === ''">
+      <div *ngIf="!hasActiveFilters()">
         <app-horizontal-slider
           title="Nouveau"
           [series]="recent"

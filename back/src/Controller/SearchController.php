@@ -28,42 +28,27 @@ class SearchController extends AbstractController
         Request $request,
         SearchService $searchService
     ): JsonResponse {
-        $filters = json_decode($request->get('filters'), true);
+        $query        = new Query();
+        $customSearch = new BoolQuery();
 
-        $query = new Query();
 
-        if ($q = $request->get('query')) {
+        if ($search = $request->get('query')) {
             // add exact match query
             $match = new MultiMatch();
-            $match->setQuery($q);
+
+            $match->setQuery($search);
             $match->setFields(['name']);
             $match->setAnalyzer('standard');
 
             // add miss spell query
             $fuzzy = new Query\Fuzzy();
-            $fuzzy->setField('name', $q);
+            $fuzzy->setField('name', $search);
 
-            $textQuery = new BoolQuery();
-
-            $textQuery->addShould($match);
-            $textQuery->addShould($fuzzy);
-
-            $filterQuery = new BoolQuery();
-
-            foreach ($filters as $field => $value) {
-                if (null !== $value) {
-                    $filterMatch = new Match();
-                    $filterMatch->setFieldQuery($field, $value);
-                    $filterQuery->addShould($filterMatch);
-                }
-            }
-
-            $bool = new BoolQuery();
-
-            $bool->addMust($textQuery);
-            $bool->addMust($filterQuery);
-
-            $query->setQuery($bool);
+            $customSearch->addMust(
+                (new BoolQuery())
+                    ->addShould($match)
+                    ->addShould($fuzzy)
+            );
 
             $query->setHighlight(
                 [
@@ -75,20 +60,31 @@ class SearchController extends AbstractController
                 ]
             );
         } else {
-            $bool = new BoolQuery();
+            $customSearch->addMust(new Query\MatchAll());
+        }
 
-            $bool->addShould(new Query\MatchAll());
-
+        if ($jsonFilters = $request->get('filters')) {
+            $filters     = json_decode($jsonFilters, true);
             foreach ($filters as $field => $value) {
-                if (null !== $value) {
+                if ($value === null) {
+                    continue;
+                }
+
+                if (is_array($value)) {
+                    foreach ($value as $v) {
+                        $filterMatch = new Match();
+                        $filterMatch->setFieldQuery($field, $v);
+                        $customSearch->addMust($filterMatch);
+                    }
+                } else {
                     $filterMatch = new Match();
                     $filterMatch->setFieldQuery($field, $value);
-                    $bool->addFilter($filterMatch);
+                    $customSearch->addMust($filterMatch);
                 }
             }
-
-            $query->setQuery($bool);
         }
+
+        $query->setQuery($customSearch);
 
         $query->setSize(96);
         $query->setSort(

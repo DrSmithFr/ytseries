@@ -14,6 +14,10 @@
           style="height: 0; position: absolute;"
           aria-label="disable-auto-focus"></button>
 
+  <div class="center" style="margin: 20px">
+    <small>Sauvez des vies, restez chez vous.</small>
+  </div>
+
   <div class="row"
        *ngIf="!auth.hasSession()"
        style="margin: 25px 0">
@@ -64,6 +68,7 @@
         href="https://fr.tipeee.com/ytseries/"
         target="_blank"
         class="menu-link"
+        style="margin-left: 20px"
         (click)="close()"
         mat-button>
         Nous soutenir sur Tipeee
@@ -74,6 +79,7 @@
         href="https://www.patreon.com/ytseries"
         target="_blank"
         class="menu-link"
+        style="margin-left: 20px"
         (click)="close()"
         mat-button>
         Nous soutenir sur Patreon
