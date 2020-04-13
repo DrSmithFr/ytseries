@@ -67,7 +67,7 @@
         font-size: 16px;
         line-height: 16px;
 
-        @include small-mobile() {
+        @include xsmobile() {
           font-size: 12px;
           line-height: 12px;
         }
@@ -79,7 +79,7 @@
 
         color: $border-dark;
 
-        @include small-mobile() {
+        @include xsmobile() {
           font-size: 10px;
         }
       }

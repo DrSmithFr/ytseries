@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import YouTubePlayer from 'youtube-player';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {SeriesModel} from '../../../../models/series.model';
 import {HistoricModel} from '../../../../models/historic.model';
@@ -10,6 +10,8 @@ import {AuthService} from '../../../../services/auth.service';
 import {StateService} from '../../../../services/state.service';
 import {MatDialog} from '@angular/material/dialog';
 import {PlaylistComponent} from '../../components/playlist/playlist.component';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {NavigationService} from '../../../../services/navigation.service';
 
 const HISTORIC_FREQUENCY_IN_SECOND = 3;
 
@@ -31,7 +33,9 @@ export class WatchComponent implements OnInit, OnDestroy {
   currentTimeCheckInterval = null;
   timeInterval: number;
 
-  blurry = false;
+  blurry        = false;
+  hideDetails   = false;
+  removeDetails = false;
 
   countDownActive   = false;
   countDown         = 3;
@@ -44,10 +48,13 @@ export class WatchComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private api: ApiService,
     private auth: AuthService,
     private state: StateService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar,
+    private navigation: NavigationService
   ) {
   }
 
@@ -61,6 +68,22 @@ export class WatchComponent implements OnInit, OnDestroy {
         this.series = data;
 
         const user = this.state.LOGGED_USER.getValue();
+
+        if (!user) {
+          this
+            .snackBar
+            .open(
+              'Créé un compte pour repprendre la leture, là où vous la laissée !',
+              'Créer',
+              {
+                duration: 5000
+              }
+            )
+            .onAction()
+            .subscribe(() => {
+              this.router.navigateByUrl('/users/register');
+            });
+        }
 
         if (user && !this.isMovie()) {
           this
@@ -124,6 +147,8 @@ export class WatchComponent implements OnInit, OnDestroy {
 
     switch (state) {
       case 1: // playing
+        this.hideDetail();
+
         if (this.historic) {
           this.player.seekTo(this.historic.time_code, true);
           this.historic = null;
@@ -132,11 +157,13 @@ export class WatchComponent implements OnInit, OnDestroy {
         this.startDuractionChecker();
         break;
       case -1: // not started
+        this.showDetail();
       // falls through
       case 0: // ended
         this.videoAutoSwitch();
       // falls through
       case 2: // pause
+        this.showDetail();
       // falls through
       case 3: // buffering
         this.stopTimeChecker();
@@ -144,6 +171,18 @@ export class WatchComponent implements OnInit, OnDestroy {
       case 5: // video cued
         break;
     }
+  }
+
+  showDetail() {
+    this.removeDetails = false;
+    this.hideDetails   = false;
+    this.navigation.show();
+  }
+
+  hideDetail() {
+    this.hideDetails = true;
+    this.navigation.hide();
+    setTimeout(() => this.removeDetails = true, 3000);
   }
 
   loadHistoric() {

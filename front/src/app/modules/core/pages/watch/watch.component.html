@@ -12,10 +12,12 @@
 
         <div class="video-info"
              *ngIf="currentEpisode">
-          <div class="video-description">
-            <h1>{{series.name}}</h1>
-            <h2 *ngIf="isMovie()">{{getSeasonName(currentEpisode)}}</h2>
-            <h2 *ngIf="!isMovie()">{{getSeasonName(currentEpisode)}} - Episode {{currentEpisode.rank + 1}}</h2>
+          <div class="video-description" [ngClass]="{'fadeOut': hideDetails, 'remove': removeDetails}">
+            <div>
+              <h1>{{series.name}}</h1>
+              <h2 *ngIf="isMovie()">{{getSeasonName(currentEpisode)}}</h2>
+              <h2 *ngIf="!isMovie()">{{getSeasonName(currentEpisode)}} - Episode {{currentEpisode.rank + 1}}</h2>
+            </div>
             <p>{{ series.description }}</p>
           </div>
 

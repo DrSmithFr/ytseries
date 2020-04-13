@@ -6,12 +6,16 @@ $desktop-break: 1200;
   @media screen and (max-width: #{$tablet-break}px) { @content; }
 }
 
-@mixin small-mobile {
+@mixin xsmobile {
   @media screen and (max-width: #{$mobile-break}px) { @content; }
 }
 
-@mixin large-mobile {
+@mixin xsmobile {
   @media screen and (min-width: #{$mobile-break}px) and (max-width: #{$tablet-break}px) { @content; }
+}
+
+@mixin not-mobile() {
+  @media screen and (min-width: #{$tablet-break}px) { @content; }
 }
 
 @mixin tablet {
@@ -21,3 +25,5 @@ $desktop-break: 1200;
 @mixin desktop {
   @media screen and (min-width: #{$desktop-break}px) { @content; }
 }
+
+

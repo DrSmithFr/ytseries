@@ -53,7 +53,7 @@
 .only-small-mobile {
   display: none;
 
-  @include small-mobile {
+  @include xsmobile {
     display: block;
   }
 }
@@ -83,7 +83,7 @@
 }
 
 .hide-on-small-mobile {
-  @include small-mobile {
+  @include xsmobile {
     display: none;
   }
 }

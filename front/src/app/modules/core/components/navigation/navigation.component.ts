@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, EventEmitter, Output} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
 import {filter} from 'rxjs/operators';
+import {NavigationService} from '../../../../services/navigation.service';
 
 @Component(
   {
@@ -12,13 +13,16 @@ import {filter} from 'rxjs/operators';
 export class NavigationComponent implements AfterViewInit {
 
   hide = false;
-  private timeout;
 
   @Output() opening = new EventEmitter<true>();
 
   constructor(
-    private router: Router
+    private router: Router,
+    private navigation: NavigationService
   ) {
+    this.navigation.showNavigation.subscribe(show => {
+      this.hide = !show;
+    });
   }
 
   onMenuClick() {
@@ -26,14 +30,12 @@ export class NavigationComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.resetInactivity();
-
     document.body.onscroll = () => {
-      this.resetInactivity();
+      this.navigation.show();
     };
 
     document.body.ontouchmove = () => {
-      this.resetInactivity();
+      this.navigation.show();
     };
 
     // resetting the scrollbar after navigation
@@ -44,19 +46,7 @@ export class NavigationComponent implements AfterViewInit {
         filter(event => event instanceof NavigationEnd)
       )
       .subscribe(() => {
-        this.resetInactivity();
+        this.navigation.show();
       });
-  }
-
-  resetInactivity() {
-    this.hide = false;
-
-    if (this.timeout) {
-      clearTimeout(this.timeout);
-    }
-
-    this.timeout = setTimeout(() => {
-      this.hide = true;
-    }, 10000);
   }
 }

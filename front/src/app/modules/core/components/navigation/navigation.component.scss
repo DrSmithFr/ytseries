@@ -21,9 +21,9 @@
 
   padding: 0;
 
-  &.hide {
+  &.fadeOut {
     opacity: 0;
-    transition: all 2s ease-in-out;
+    transition: all 3s ease-in-out;
   }
 }
 

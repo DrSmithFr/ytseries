@@ -7,15 +7,14 @@
   background: #000;
 
   position: relative;
+
+  overflow: hidden;
 }
 
 /* player related */
 .player-container {
   max-width: 1550px;
   margin: 0 auto;
-
-  max-height: 100vh;
-  overflow: hidden;
 }
 
 div.stretchy-wrapper {
@@ -48,7 +47,33 @@ div.stretchy-wrapper > div {
     width: 70%;
 
     @include mobile() {
-      width: 100%;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    @include not-mobile() {
+      max-width: 500px;
+
+      padding: 50px;
+      margin:  50px;
+
+      position: fixed;
+
+      top: 200px;
+      left: 0;
+
+      background: rgba(#000, 0.7);
+
+      opacity: 1;
+
+      &.fadeOut {
+        opacity: 0;
+        transition: opacity 3s ease-in-out;
+      }
+
+      &.remove {
+        display: none;
+      }
     }
 
     h1 {
