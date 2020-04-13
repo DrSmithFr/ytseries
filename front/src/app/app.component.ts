@@ -40,9 +40,18 @@ export class AppComponent implements OnInit {
       .pipe(
         filter(event => event instanceof NavigationEnd)
       )
-      .subscribe(() => {
+      .subscribe((event) => {
+        if (event instanceof NavigationEnd) {
+          (window as any).ga('set', 'page', event.urlAfterRedirects);
+          (window as any).ga('send', 'pageview');
+        }
+
         window.scrollTo(0, 0);
       });
+
+    this.router.events.subscribe(event => {
+
+    });
 
     if (environment.production) {
       // PWA notification clicked
