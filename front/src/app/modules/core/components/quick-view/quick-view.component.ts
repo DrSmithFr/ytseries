@@ -4,6 +4,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {AuthService} from '../../../../services/auth.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Router} from '@angular/router';
+import {GoogleAnalyticsService} from '../../../../services/google-analytics.service';
 
 @Component(
     {
@@ -19,7 +20,8 @@ export class QuickViewComponent {
         @Inject(MAT_DIALOG_DATA) public item: AssetModel,
         private auth: AuthService,
         private snackBar: MatSnackBar,
-        private router: Router
+        private router: Router,
+        private ga: GoogleAnalyticsService
     ) {
     }
 
@@ -29,6 +31,12 @@ export class QuickViewComponent {
 
     save() {
       if (this.auth.hasSession()) {
+        this.ga.eventEmitter(
+          'save',
+          'series',
+          this.item.name,
+          'Saving ' + this.item.name
+        );
         this
           .snackBar
           .open(

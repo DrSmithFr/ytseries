@@ -7,6 +7,8 @@ import {transition, trigger} from '@angular/animations';
 import {fadeIn} from './animations/animations';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
+declare let gtag: any;
+
 @Component(
   {
     selector:    'app-root',
@@ -42,8 +44,16 @@ export class AppComponent implements OnInit {
       )
       .subscribe((event) => {
         if (event instanceof NavigationEnd) {
-          (window as any).ga('set', 'page', event.urlAfterRedirects);
-          (window as any).ga('send', 'pageview');
+          gtag('js', new Date());
+          gtag(
+            'config',
+            'UA-132202996-1',
+            {
+              page_path: event.urlAfterRedirects
+            }
+          );
+
+          gtag('send', 'pageview');
         }
 
         window.scrollTo(0, 0);
