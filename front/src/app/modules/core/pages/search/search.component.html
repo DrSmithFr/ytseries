@@ -33,7 +33,7 @@
             placeholder="Recherche">
         </mat-form-field>
 
-        <div [ngClass]="{'hide': hasActiveFilters()}"
+        <div [ngClass]="{'hide': !hasActiveFilters()}"
              style="margin-left: 20px;">
           <button class="search-button"
                   mat-mini-fab

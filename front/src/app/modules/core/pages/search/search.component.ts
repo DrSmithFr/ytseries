@@ -121,7 +121,7 @@ export class SearchComponent implements OnInit {
 
   hasActiveFilters(): boolean {
     if (this.query && this.query !== '') {
-      return false;
+      return true;
     }
 
     return this.filterService.hasActiveFilters();
