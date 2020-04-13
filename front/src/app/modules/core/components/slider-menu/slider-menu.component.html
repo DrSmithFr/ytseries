@@ -68,7 +68,7 @@
         href="https://fr.tipeee.com/ytseries/"
         target="_blank"
         class="menu-link"
-        style="margin-left: 20px"
+        style="padding-left: 60px"
         (click)="close()"
         mat-button>
         Nous soutenir sur Tipeee
@@ -79,7 +79,7 @@
         href="https://www.patreon.com/ytseries"
         target="_blank"
         class="menu-link"
-        style="margin-left: 20px"
+        style="padding-left: 60px"
         (click)="close()"
         mat-button>
         Nous soutenir sur Patreon
@@ -104,7 +104,7 @@
         Manager
       </a>
     </li>
-    <li *ngIf>
+    <li *ngIf="showButton">
         <a (click)="installApplication()">
           <mat-icon>mobile_friendly</mat-icon> Installer l'application
         </a>

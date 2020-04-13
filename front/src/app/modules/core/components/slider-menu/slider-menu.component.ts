@@ -1,47 +1,52 @@
-import {Component, EventEmitter, HostListener, Inject, Output} from '@angular/core';
+import {Component, EventEmitter, HostListener, Output} from '@angular/core';
 import {AuthService} from '../../../../services/auth.service';
-import {SwUpdate} from '@angular/service-worker';
-import {DOCUMENT} from '@angular/common';
 
 @Component(
-  {
-    selector:    'app-slider-menu',
-    templateUrl: './slider-menu.component.html',
-    styleUrls:   ['./slider-menu.component.scss']
-  }
+    {
+        selector:    'app-slider-menu',
+        templateUrl: './slider-menu.component.html',
+        styleUrls:   ['./slider-menu.component.scss']
+    }
 )
 export class SliderMenuComponent {
 
-  promptEvent: any;
+    deferredPrompt: any;
+    showButton = false;
 
-  @Output() closed = new EventEmitter<true>();
+    @Output() closed = new EventEmitter<true>();
 
-  constructor(
-    public auth: AuthService,
-    private swUpdate: SwUpdate,
-    @Inject(DOCUMENT) private document: Document,
-  ) {
-    // install button display
-    window.addEventListener('beforeinstallprompt', event => {
-      this.promptEvent = event;
-    });
+    constructor(
+        public auth: AuthService,
+    ) {
+    }
 
-    // force update if needed
-    swUpdate.available.subscribe(() => {
-      window.location.reload();
-    });
-  }
+    close() {
+        this.closed.emit(true);
+    }
 
-  close() {
-    this.closed.emit(true);
-  }
+    @HostListener('window:beforeinstallprompt', ['$event'])
+    onbeforeinstallprompt(e) {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
 
-  @HostListener('window:beforeinstallprompt', [])
-  onWindowBeforeInstallPrompt() {
+        // Stash the event so it can be triggered later.
+        this.deferredPrompt = e;
+        this.showButton     = true;
+    }
 
-  }
 
-  installApplication() {
-    this.promptEvent.prompt();
-  }
+    installApplication() {
+        // hide our user interface that shows our A2HS button
+        this.showButton = false;
+        // Show the prompt
+        this.deferredPrompt.prompt();
+        // Wait for the user to respond to the prompt
+        this.deferredPrompt.userChoice
+            .then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    this.showButton     = false;
+                    this.deferredPrompt = null;
+                }
+            });
+    }
 }

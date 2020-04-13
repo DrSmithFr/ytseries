@@ -1,10 +1,11 @@
-import {AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavigationEnd, Router, RouterOutlet} from '@angular/router';
 import {SwPush, SwUpdate} from '@angular/service-worker';
 import {filter} from 'rxjs/operators';
 import {environment} from '../environments/environment';
 import {transition, trigger} from '@angular/animations';
 import {fadeIn} from './animations/animations';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component(
   {
@@ -23,7 +24,8 @@ export class AppComponent implements OnInit {
   constructor(
     private swPush: SwPush,
     private swUpdate: SwUpdate,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {
   }
 
@@ -43,6 +45,14 @@ export class AppComponent implements OnInit {
       });
 
     if (environment.production) {
+      // PWA notification clicked
+      this
+        .swPush
+        .notificationClicks
+        .subscribe(event => {
+          this.showUpdateBanner();
+        });
+
       // PWA look for update
       this
         .swUpdate
@@ -56,14 +66,27 @@ export class AppComponent implements OnInit {
         .swUpdate
         .available
         .subscribe(() => {
-          this.onUpdate();
+          this.showUpdateBanner();
         });
     }
   }
 
-  onUpdate() {
-    // auto update application
-    window.location.reload();
+  showUpdateBanner() {
+    this
+      .snackBar
+      .open(
+        'Mise à jour disponible !',
+        'Appliquer',
+      )
+      .onAction()
+      .subscribe(() => {
+        this
+          .swUpdate
+          .activateUpdate()
+          .then(() => {
+            document.location.reload();
+          });
+      });
   }
 
   prepareRoute(outlet: RouterOutlet) {
