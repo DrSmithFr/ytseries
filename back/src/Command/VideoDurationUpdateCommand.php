@@ -1,16 +1,17 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace App\Command;
 
-use App\Repository\EpisodeRepository;
+use App\Entity\Episode;
 use App\Service\YoutubeService;
+use App\Repository\EpisodeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
 
 class VideoDurationUpdateCommand extends Command
 {
@@ -18,10 +19,12 @@ class VideoDurationUpdateCommand extends Command
      * @var YoutubeService
      */
     private $youtubeService;
+
     /**
      * @var EpisodeRepository
      */
     private $episodeRepository;
+
     /**
      * @var EntityManagerInterface
      */
@@ -33,8 +36,8 @@ class VideoDurationUpdateCommand extends Command
         EntityManagerInterface $entityManager
     ) {
         parent::__construct();
-        $this->entityManager = $entityManager;
-        $this->youtubeService = $youtubeService;
+        $this->entityManager     = $entityManager;
+        $this->youtubeService    = $youtubeService;
         $this->episodeRepository = $episodeRepository;
     }
 
@@ -52,24 +55,52 @@ class VideoDurationUpdateCommand extends Command
         $io->section('Loading Episode to update');
         $episodes = $this->episodeRepository->findAllWithoutDuration();
 
+        $io->section('Loading Episode duration');
+        $io->progressStart(count($episodes) / 50);
+        $durations = $this->getEpisodeDurations($episodes, $io);
+
+        $io->section('Updating Episode duration');
         $io->progressStart(count($episodes));
-
         foreach ($episodes as $episode) {
-            $duration = $this->youtubeService->getVideoDuration($episode);
-
-            if (null === $duration) {
-                $io->error(sprintf('Cannot load %s infos', $episode->getName()));
+            if ($duration = $durations[$episode->getCode()] ?? null) {
+                $episode->setDuration($duration);
             }
-
-            $episode->setDuration($duration);
-
-            $this->entityManager->flush();
-            $this->entityManager->detach($episode);
 
             $io->progressAdvance();
         }
         $io->progressFinish();
 
+        $this->entityManager->flush();
+
         $io->success(sprintf('%d entities updated.', count($episodes)));
+    }
+
+    /**
+     * @throws \Exception
+     *
+     * @param SymfonyStyle    $io
+     * @param array|Episode[] $episodes
+     *
+     * @return array<string, int>
+     */
+    private function getEpisodeDurations(array $episodes, \Symfony\Component\Console\Style\SymfonyStyle $io): array
+    {
+        $result = [];
+
+        do {
+            $subdivision = array_slice($episodes, 0, 50);
+            $episodes    = array_slice($episodes, 50);
+            $durations   = $this->youtubeService->getVideoDuration($subdivision);
+
+            foreach ($durations as $code => $duration) {
+                $result[$code] = $duration;
+            }
+
+            $io->progressAdvance();
+        } while (count($episodes));
+
+        $io->progressFinish();
+
+        return $result;
     }
 }

@@ -1,13 +1,15 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace App\Service;
 
+use RuntimeException;
 use App\Entity\Episode;
 use DateInterval;
 use Exception;
 use Madcoda\Youtube\Youtube;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class YoutubeService
 {
@@ -20,6 +22,7 @@ class YoutubeService
      * YoutubeService constructor.
      *
      * @throws Exception
+     *
      * @param string $apiKey
      */
     public function __construct(string $apiKey)
@@ -29,8 +32,10 @@ class YoutubeService
 
     /**
      * @throws Exception
+     *
      * @param string|null $page
      * @param string      $code
+     *
      * @return array
      */
     public function getPlaylistInfo(string $code, string $page = null): array
@@ -78,40 +83,60 @@ class YoutubeService
             'image'       => $thumb,
             'description' => $firstEp->snippet->description,
             'categories'  => [],
-            'seasons'      => [
+            'seasons'     => [
                 [
                     'name'     => 'Saison 1',
                     'episodes' => $data,
-                ]
+                ],
             ],
         ];
     }
 
     /**
      * @throws Exception
-     * @param Episode $episode
-     * @return int|null
+     *
+     * @param array|Episode[] $episodes
+     *
+     * @return array<string, int>
      */
-    public function getVideoDuration(Episode $episode): ?int
+    public function getVideoDuration(array $episodes): array
     {
+        if (count($episodes) === 0) {
+            throw new RuntimeException('cannot process without id');
+        }
+
+        if (count($episodes) > 50) {
+            throw new RuntimeException('cannot process more than 50 episodes');
+        }
+
         $API_URL = $this->youtube->getApi('videos.list');
+
+        $codes = array_map(
+            static function (Episode $ep) {
+                return $ep->getCode();
+            },
+            $episodes
+        );
+
         $params  = [
-            'id'   => $episode->getCode(),
+            'id'   => implode(',', $codes),
             'part' => 'contentDetails',
         ];
 
         $apiData = $this->youtube->api_get($API_URL, $params);
-        $data    = $this->youtube->decodeSingle($apiData);
+        $datas    = $this->youtube->decodeList($apiData);
 
-        if (!$data) {
-            return null;
+        $result = [];
+
+        foreach ($datas as $data) {
+            $duration = $data->contentDetails->duration;
+            $hours    = (new DateInterval($duration))->h;
+            $minutes  = (new DateInterval($duration))->i;
+            $seconds  = (new DateInterval($duration))->s;
+
+            $result[$data->id] = $hours * 3600 + $minutes * 60 + $seconds;
         }
 
-        $duration = $data->contentDetails->duration;
-        $hours    = (new DateInterval($duration))->h;
-        $minutes  = (new DateInterval($duration))->i;
-        $seconds  = (new DateInterval($duration))->s;
-
-        return $hours * 3600 + $minutes * 60 + $seconds;
+        return $result;
     }
 }
