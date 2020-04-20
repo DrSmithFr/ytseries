@@ -1,14 +1,15 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace App\Form;
 
 use App\Entity\Episode;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 class EpisodeType extends AbstractType
 {
@@ -28,6 +29,13 @@ class EpisodeType extends AbstractType
                 [
                     'required'      => false,
                     'property_path' => 'importCode',
+                ]
+            )
+            ->add(
+                'rank',
+                NumberType::class,
+                [
+                    'required' => true,
                 ]
             )
             ->add(

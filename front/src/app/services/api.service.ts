@@ -124,7 +124,7 @@ export class ApiService {
     }
 
     updateSeries(series: SeriesModel) {
-        return this.http.patch<SeriesModel>(this.API_URL + '/series', series);
+        return this.http.patch<SeriesModel>(this.API_URL + '/management/series', series);
     }
 
     getSeriesWatched(): Observable<{continue: AssetModel[], watched: AssetModel[]}> {
@@ -146,6 +146,6 @@ export class ApiService {
     }
 
     getManagedSeries(): Observable<any[]> {
-        return this.http.get<any[]>(this.API_URL + '/series/managed');
+        return this.http.get<any[]>(this.API_URL + '/management/series');
     }
 }
