@@ -5,6 +5,14 @@
           style="height: 0; position: absolute;"
           aria-label="disable-auto-focus"></button>
 
+  <!-- 'absorbs' the auto-focus behavior -->
+  <button mat-icon-button
+          class="dialog-close-btn"
+          color="primary"
+          (click)="close()">
+    <span class="material-icons">highlight_off</span>
+  </button>
+
   <app-header [asset]="item"
               [showDetail]="false"></app-header>
 
@@ -23,6 +31,7 @@
         (click)="close()"
         routerLink="/series/watch/{{ item.id }}"
         mat-stroked-button
+        class="action"
         color="primary">
         <span class="material-icons">play_circle_filled</span>
         <span class="hide-on-small-mobile hide-on-mobile">Play</span>
@@ -30,6 +39,7 @@
 
       <button
         mat-stroked-button
+        class="action"
         color="primary">
         <span class="material-icons">bookmark_border</span>
         <span class="hide-on-small-mobile hide-on-mobile">Save</span>

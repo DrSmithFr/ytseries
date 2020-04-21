@@ -355,7 +355,6 @@ main {
 /* blurry */
 .blurry {
   filter: blur(0);
-  transition: all 150ms ease-in-out;
 
   &.enabled {
 	filter: blur(4px);

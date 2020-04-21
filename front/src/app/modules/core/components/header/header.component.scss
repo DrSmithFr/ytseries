@@ -76,23 +76,33 @@ $max-height: 70vh;
   }
 
   .series-details {
-    position: absolute;
+    max-width: 500px;
+    padding: 50px;
 
-    left: 2%;
-    bottom: 5%;
+    position: fixed;
 
-    border-radius: 10px;
-    padding: 10px;
+    top: 10%;
+    left: 50px;
+
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 1;
 
     z-index: 1;
 
-    text-shadow: 0 0 8px #141414;
-
-    @include xsmobile() {
-      width: 75%;
-    }
-
     @include mobile() {
+      background: none;
+      position: absolute;
+
+      text-shadow: 5px 5px #000;
+
+      top: unset;
+      left: 0;
+      bottom: -5px;
+
+      border-radius: 10px;
+      padding: 10px;
+      margin: 0;
+
       width: 75%;
     }
 
@@ -100,7 +110,7 @@ $max-height: 70vh;
       font-size: 70px;
       z-index: 2;
 
-      line-height: 30px;
+      line-height: 45px;
 
       @include mobile() {
         line-height: 30px;
@@ -130,20 +140,20 @@ $max-height: 70vh;
 
       padding: 5px;
       border-radius: 3px;
-
-      background: rgba($black, 0.8);
     }
 
     &.simplify {
-      bottom: -30px;
+      top: 20%;
+      left: 1%;
       z-index: 1;
 
-      @include xsmobile() {
-        bottom: 0;
+      @include mobile() {
+        top: unset;
+        bottom: -10px;
       }
 
       background: transparent;
-      transition: left 500ms ease-in, bottom 500ms ease-in, background-color 4s ease-in-out;
+      transition: left 4s ease-in, top 4s ease-in, background-color 2s ease-in-out;
 
       p {
         opacity: 0;

@@ -5,7 +5,6 @@ import {QuickViewComponent} from '../../components/quick-view/quick-view.compone
 import {MatDialog} from '@angular/material/dialog';
 import {HeaderComponent} from '../../components/header/header.component';
 import {FiltersService} from '../../../../services/filters.service';
-import {AuthService} from '../../../../services/auth.service';
 import {StateService} from '../../../../services/state.service';
 
 @Component(
@@ -19,7 +18,7 @@ export class SearchComponent implements OnInit {
 
   @ViewChild('headerComponent', {static: true}) private headerComponent: HeaderComponent;
 
-  blurry            = false;
+  blurry = false;
 
   result: AssetModel[] = [];
 
@@ -182,6 +181,7 @@ export class SearchComponent implements OnInit {
         {
           maxWidth: '800px',
           minWidth: '300px',
+          panelClass: 'quick-view-dialog',
           data:     series
         }
       )
