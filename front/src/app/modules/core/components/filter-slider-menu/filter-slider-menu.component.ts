@@ -78,4 +78,21 @@ export class FilterSliderMenuComponent implements OnInit {
            this.filters.activeFilters.categories &&
            this.filters.activeFilters.categories.includes(filter.key);
   }
+
+  setLocaleFilter(filter: FilterModel) {
+    this.filters.activeFilters.locale = filter.key;
+    this.updated();
+  }
+
+  isLocaleFilter(filter: FilterModel) {
+    return this.filters.activeFilters.locale === filter.key;
+  }
+
+  getLocaleName(key: string) {
+    if (key === 'fr') {
+      return 'Français';
+    }
+
+    return 'English';
+  }
 }

@@ -122,7 +122,7 @@
 
 // Fonts
 @import 'https://fonts.googleapis.com/css?family=Material+Icons';
-@import url('https://fonts.googleapis.com/css?family=Kanit:300,400,500');
+@import 'https://fonts.googleapis.com/css?family=Kanit:300,400,500';
 
 $fontConfig: (
 		display-4: mat-typography-level(112px, 112px, 500, 'Kanit', -0.0134em),
@@ -266,9 +266,9 @@ body {
 }
 
 $mat-primary: (
-		main: #ffffff,
+		main: #eee,
 		lighter: #ffffff,
-		darker: #ffffff,
+		darker: #ddd,
 		200: #ffffff, // For slide toggle,
 		contrast : (
 				main: $dark-primary-text,

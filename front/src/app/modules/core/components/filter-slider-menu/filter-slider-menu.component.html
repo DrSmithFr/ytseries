@@ -1,8 +1,9 @@
 <div class="menu" *ngIf="filters && filters.activeFilters && filters.availableFilters">
   <div class="logo-container">
-    <div class="center" style="margin: 20px">
-      <small>Sauvez des vies, restez chez vous.</small>
-    </div>
+      <img class="logo"
+           src="/assets/logo.png"
+           height="50"
+           alt="YtSeries">
   </div>
 
   <!-- 'absorbs' the auto-focus behavior -->
@@ -10,45 +11,19 @@
           style="height: 0; position: absolute;"
           aria-label="disable-auto-focus"></button>
 
-  <div class="row" *ngIf="filters.activeFilters.locale || numberOfLocale('fr') && numberOfLocale('us')">
-    <div class="xsmall-12 small-12 medium-12 large-12 center">
-      <div class="marged">
-        <h1 class="right">Langues</h1>
-        <mat-radio-group
-          class="filter-group"
-          [(ngModel)]="filters.activeFilters.locale">
-          <mat-radio-button
-            *ngIf="numberOfLocale('fr')"
-            (click)="updated()"
-            class="filter-button"
-            value="fr">
-            Français
-            <small>
-              ({{ numberOfLocale('fr') }})
-            </small>
-          </mat-radio-button>
-
-          <mat-radio-button
-            *ngIf="numberOfLocale('us')"
-            (click)="updated()"
-            class="filter-button"
-            value="us">
-            Anglais
-            <small>
-              ({{ numberOfLocale('us') }})
-            </small>
-          </mat-radio-button>
-        </mat-radio-group>
-      </div>
-    </div>
-  </div>
-
   <div class="row">
     <div class="xsmall-12 small-12 medium-12 large-12 center">
       <div class="marged">
-        <h1 class="right">Categories</h1>
-
         <div class="filter-group">
+          <mat-checkbox
+            class="filter-button"
+            *ngFor="let filter of filters.availableFilters.locales"
+            (click)="setLocaleFilter(filter)"
+            [checked]="isLocaleFilter(filter)">
+            {{ getLocaleName(filter.key) }}
+            <small>({{filter.doc_count}})</small>
+          </mat-checkbox>
+          <hr>
           <mat-checkbox
             class="filter-button"
             *ngFor="let filter of filters.availableFilters.types"
@@ -57,6 +32,7 @@
             {{ filter.key|titlecase }}
             <small>({{filter.doc_count}})</small>
           </mat-checkbox>
+          <hr>
           <mat-checkbox
             class="filter-button"
             *ngFor="let filter of filters.availableFilters.categories"
