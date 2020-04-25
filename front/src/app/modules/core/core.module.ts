@@ -27,73 +27,77 @@ import {NavigationMobileComponent} from './components/navigation-mobile/navigati
 import {QuickViewComponent} from './components/quick-view/quick-view.component';
 import {ScrollToTopComponent} from './components/scroll-to-top/scroll-to-top.component';
 import {HorizontalSliderComponent} from './components/horizontal-slider/horizontal-slider.component';
-import { SlideshowComponent } from './components/slideshow/slideshow.component';
+import {SlideshowComponent} from './components/slideshow/slideshow.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import { HeaderComponent } from './components/header/header.component';
-import { PlaylistComponent } from './components/playlist/playlist.component';
-import { FilterSliderMenuComponent } from './components/filter-slider-menu/filter-slider-menu.component';
+import {HeaderComponent} from './components/header/header.component';
+import {PlaylistComponent} from './components/playlist/playlist.component';
+import {FilterSliderMenuComponent} from './components/filter-slider-menu/filter-slider-menu.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule(
-    {
-        declarations: [
-            AppLayoutComponent,
-            NavigationComponent,
-            SliderMenuComponent,
-            HistoricComponent,
-            ManageComponent,
-            SearchComponent,
-            SeriesComponent,
-            WatchComponent,
-            FooterComponent,
-            NavigationMobileComponent,
-            QuickViewComponent,
-            HorizontalSliderComponent,
-            ScrollToTopComponent,
-            SlideshowComponent,
-            HeaderComponent,
-            PlaylistComponent,
-            FilterSliderMenuComponent
-        ],
-        exports:      [
-            AppLayoutComponent
-        ],
-        imports: [
-            // minimal import
-            CommonModule,
+  {
+    declarations: [
+      AppLayoutComponent,
+      NavigationComponent,
+      SliderMenuComponent,
+      HistoricComponent,
+      ManageComponent,
+      SearchComponent,
+      SeriesComponent,
+      WatchComponent,
+      FooterComponent,
+      NavigationMobileComponent,
+      QuickViewComponent,
+      HorizontalSliderComponent,
+      ScrollToTopComponent,
+      SlideshowComponent,
+      HeaderComponent,
+      PlaylistComponent,
+      FilterSliderMenuComponent
+    ],
+    exports:      [
+      AppLayoutComponent
+    ],
+    imports:      [
+      // minimal import
+      CommonModule,
 
-            // importing reactive form
-            FormsModule,
-            ReactiveFormsModule,
+      // importing reactive form
+      FormsModule,
+      ReactiveFormsModule,
 
-            // loading material and shared components
-            SharedModule,
+      // loading material and shared components
+      SharedModule,
 
-            // routing
-            CoreRoutingModule,
-            MatSidenavModule,
-            MatToolbarModule,
-            MatButtonModule,
-            MatIconModule,
-            MatDividerModule,
-            MatRadioModule,
-            MatCardModule,
-            MatInputModule,
-            MatSelectModule,
-            MatDialogModule,
-            MatCheckboxModule,
-        ],
-        bootstrap:    [
-            AppLayoutComponent
-        ],
-        providers:    [
-            {
-                provide:  HTTP_INTERCEPTORS,
-                useClass: InterceptorService,
-                multi:    true
-            },
-        ]
-    }
+      // routing
+      CoreRoutingModule,
+      MatSidenavModule,
+      MatToolbarModule,
+      MatButtonModule,
+      MatIconModule,
+      MatDividerModule,
+      MatRadioModule,
+      MatCardModule,
+      MatInputModule,
+      MatSelectModule,
+      MatDialogModule,
+      MatCheckboxModule,
+      MatTabsModule,
+      MatTableModule
+    ],
+    bootstrap:    [
+      AppLayoutComponent
+    ],
+    providers:    [
+      {
+        provide:  HTTP_INTERCEPTORS,
+        useClass: InterceptorService,
+        multi:    true
+      },
+    ]
+  }
 )
 export class CoreModule {
 }

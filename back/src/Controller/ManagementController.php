@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use RuntimeException;
 use App\Form\SeriesType;
+use App\Service\YoutubeService;
 use App\Repository\SeriesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -72,5 +73,39 @@ class ManagementController extends AbstractController
         $entityManager->flush();
 
         return $this->json(['message' => 'series updated']);
+    }
+
+    /**
+     * @Route("/episodes-form-playlist", name="series_from_playlis", methods={"POST"})
+     * @param Request        $request
+     * @param YoutubeService $youtubeService
+     *
+     * @return JsonResponse
+     */
+    public function loadSeasonPlaylist(
+        Request $request,
+        YoutubeService $youtubeService
+    ): JsonResponse {
+        $playlistCode = $request->get('playlistId');
+        $data         = $youtubeService->getEpisodesFormPlaylist($playlistCode);
+
+        return $this->json($data);
+    }
+
+    /**
+     * @Route("/series-form-playlist", name="season-from-playlist", methods={"POST"})
+     * @param Request        $request
+     * @param YoutubeService $youtubeService
+     *
+     * @return JsonResponse
+     */
+    public function loadSeriesPlaylist(
+        Request $request,
+        YoutubeService $youtubeService
+    ): JsonResponse {
+        $playlistCode = $request->get('playlistId');
+        $data         = $youtubeService->getSeriesFromPlaylist($playlistCode);
+
+        return $this->json($data);
     }
 }

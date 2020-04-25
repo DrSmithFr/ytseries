@@ -4,12 +4,11 @@ declare(strict_types = 1);
 
 namespace App\Service;
 
+use Exception;
+use DateInterval;
 use RuntimeException;
 use App\Entity\Episode;
-use DateInterval;
-use Exception;
 use Madcoda\Youtube\Youtube;
-use Doctrine\Common\Collections\ArrayCollection;
 
 class YoutubeService
 {
@@ -33,16 +32,36 @@ class YoutubeService
     /**
      * @throws Exception
      *
-     * @param string|null $page
      * @param string      $code
      *
      * @return array
      */
-    public function getPlaylistInfo(string $code, string $page = null): array
+    public function getSeriesFromPlaylist(string $code): array
+    {
+        $infos   = $this->getEpisodesFormPlaylist($code);
+
+        return [
+            'name'        => $infos[0]['name'],
+            'locale'      => 'fr',
+            'type'        => 'series',
+            'image'       => $infos[0]['thumb'],
+            'description' => $infos[0]['description'],
+            'categories'  => [],
+            'seasons'     => [
+                [
+                    'name'     => 'Saison 1',
+                    'episodes' => $infos,
+                ],
+            ],
+        ];
+    }
+
+
+    public function getEpisodesFormPlaylist(string $code, string $page = null): array
     {
         $params = [
             'playlistId' => $code,
-            'part'       => 'id, snippet',
+            'part'       => 'snippet',
             'maxResults' => 50,
         ];
 
@@ -60,36 +79,24 @@ class YoutubeService
                 $firstEp = $info;
             }
 
+            $thumb = $firstEp->snippet->thumbnails->standard->url;
+
+            if (isset($firstEp->snippet->thumbnails->maxres)) {
+                $thumb = $firstEp->snippet->thumbnails->maxres->url;
+            }
             $data[] = [
-                'name' => ucfirst(strtolower($info->snippet->title)),
-                'code' => $info->snippet->resourceId->videoId,
+                'name'        => ucfirst(strtolower($info->snippet->title)),
+                'code'        => $info->snippet->resourceId->videoId,
+                'thumb'       => $thumb,
+                'description' => $firstEp->snippet->description
             ];
         }
 
         if ($token = $infos['info']['nextPageToken']) {
-            $data = array_merge($data, $this->getPlaylistInfo($code, $token));
+            $data = array_merge($data, $this->getEpisodesFormPlaylist($code, $token));
         }
 
-        $thumb = $firstEp->snippet->thumbnails->standard->url;
-
-        if (isset($firstEp->snippet->thumbnails->maxres)) {
-            $thumb = $firstEp->snippet->thumbnails->maxres->url;
-        }
-
-        return [
-            'name'        => ucfirst(strtolower($firstEp->snippet->title)),
-            'locale'      => 'fr',
-            'type'        => 'series',
-            'image'       => $thumb,
-            'description' => $firstEp->snippet->description,
-            'categories'  => [],
-            'seasons'     => [
-                [
-                    'name'     => 'Saison 1',
-                    'episodes' => $data,
-                ],
-            ],
-        ];
+        return $data;
     }
 
     /**
@@ -118,13 +125,13 @@ class YoutubeService
             $episodes
         );
 
-        $params  = [
+        $params = [
             'id'   => implode(',', $codes),
             'part' => 'contentDetails',
         ];
 
         $apiData = $this->youtube->api_get($API_URL, $params);
-        $datas    = $this->youtube->decodeList($apiData);
+        $datas   = $this->youtube->decodeList($apiData);
 
         $result = [];
 

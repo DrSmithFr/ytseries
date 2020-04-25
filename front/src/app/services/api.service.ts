@@ -148,4 +148,12 @@ export class ApiService {
     getManagedSeries(): Observable<any[]> {
         return this.http.get<any[]>(this.API_URL + '/management/series');
     }
+
+  getSeriesFromPlaylist(code: string): Observable<any[]> {
+    return this.http.post<any[]>(this.API_URL + '/management/series-form-playlist', {playlistId: code});
+  }
+
+  getEpisodesFormPlaylist(code: string): Observable<any[]> {
+    return this.http.post<any[]>(this.API_URL + '/management/episodes-form-playlist', {playlistId: code});
+  }
 }

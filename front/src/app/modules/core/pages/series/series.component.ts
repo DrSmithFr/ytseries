@@ -6,53 +6,82 @@ import {SeasonModel} from '../../../../models/season.model';
 import {EpisodeModel} from '../../../../models/episode.model';
 
 @Component(
-    {
-        selector:    'app-series',
-        templateUrl: './series.component.html',
-        styleUrls:   ['./series.component.scss']
-    }
+  {
+    selector:    'app-series',
+    templateUrl: './series.component.html',
+    styleUrls:   ['./series.component.scss']
+  }
 )
 export class SeriesComponent implements OnInit {
 
-    series: SeriesModel = null;
+  series: SeriesModel = null;
 
-    constructor(
-        private route: ActivatedRoute,
-        private api: ApiService
-    ) {
+  constructor(
+    private route: ActivatedRoute,
+    private api: ApiService
+  ) {
+  }
+
+  ngOnInit() {
+    const code = this.route.snapshot.params.code;
+
+    this
+      .api
+      .getSeriesByCode(code)
+      .subscribe(data => {
+        this.series = data;
+      });
+  }
+
+  save() {
+    this
+      .api
+      .updateSeries(this.series)
+      .subscribe(data => {
+        console.log(data);
+      });
+  }
+
+  addSeason() {
+    if (this.series) {
+        this.series.seasons.push(new SeasonModel());
+    }
+  }
+
+  addEpisode(season: SeasonModel) {
+    if (season.episodes === undefined) {
+      season.episodes = [];
     }
 
-    ngOnInit() {
-        const code = this.route.snapshot.params.code;
+    season.episodes.push(new EpisodeModel());
+  }
 
-        this
-            .api
-            .getSeriesByCode(code)
-            .subscribe(data => {
-                this.series = data;
-            });
-    }
+  reverseEpisodes(season: SeasonModel) {
+    season.episodes = season.episodes.reverse();
+  }
 
-    save() {
-        this
-            .api
-            .updateSeries(this.series)
-            .subscribe(data => {
-                console.log(data);
-            });
-    }
+  ImportEpisodesFromPlaylist(season: SeasonModel) {
+    this
+      .api
+      .getEpisodesFormPlaylist('PLX0ZsrQ2Qh5lmpwhB2tqiCsRDoVj6yli1')
+      .subscribe(eps => {
+        season.episodes.push(...eps);
+      });
+  }
 
-    addSeason() {
-        if (this.series) {
-            this.series.seasons.push(new SeasonModel());
-        }
-    }
+  ImportSeasonFromPlaylist() {
+    this
+      .api
+      .getEpisodesFormPlaylist('PLX0ZsrQ2Qh5lmpwhB2tqiCsRDoVj6yli1')
+      .subscribe(eps => {
+        const index  = this.series.seasons.length + 1;
+        const season = new SeasonModel();
 
-    addEpisode(season: SeasonModel) {
-        if (season.episodes === undefined) {
-            season.episodes = [];
-        }
+        season.name     = 'Season ' + index;
+        season.rank     = index;
+        season.episodes = eps;
 
-        season.episodes.push(new EpisodeModel());
-    }
+        this.series.seasons.push(season);
+      });
+  }
 }

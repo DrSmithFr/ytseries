@@ -49,7 +49,7 @@ class PlaylistReaderCommand extends Command
         $io = new SymfonyStyle($input, $output);
 
         $io->section('Reading playlist information');
-        $data = $this->youtubeService->getPlaylistInfo($playlistCode);
+        $data = $this->youtubeService->getSeriesFromPlaylist($playlistCode);
 
         $reverse = $input->getOption('reverse');
 
