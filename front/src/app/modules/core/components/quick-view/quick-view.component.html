@@ -13,8 +13,13 @@
     <span class="material-icons">highlight_off</span>
   </button>
 
-  <app-header [asset]="item"
-              [showDetail]="false"></app-header>
+  <div class="box">
+    <img *ngIf="item"
+         src="{{ item.image }}"
+         alt="{{ item.name }}">
+  </div>
+
+  <br>
 
   <div class="row">
     <div class="xsmall-9 small-8 medium-8 large-8 quickview-info">

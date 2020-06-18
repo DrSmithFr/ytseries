@@ -3,10 +3,10 @@ import {RouterModule, Routes} from '@angular/router';
 import {AppLayoutComponent} from './components/app-layout/app-layout.component';
 import {SearchComponent} from './pages/search/search.component';
 import {ManageComponent} from './pages/manage/manage.component';
-import {SeriesComponent} from './pages/series/series.component';
 import {WatchComponent} from './pages/watch/watch.component';
 import {HistoricComponent} from './pages/historic/historic.component';
 import {IsConnectedGuard} from '../../guards/is-connected-guard.service';
+import {EditionComponent} from '../series-form/components/edition/edition.component';
 
 const routes: Routes = [
   {
@@ -17,7 +17,7 @@ const routes: Routes = [
       {path: 'watch/:id', component: WatchComponent},
       {path: 'historic', component: HistoricComponent, canActivate: [IsConnectedGuard]},
       {path: 'manage', component: ManageComponent, canActivate: [IsConnectedGuard]},
-      {path: 'edit/:code', component: SeriesComponent, canActivate: [IsConnectedGuard]},
+      {path: 'edit/:code', component: EditionComponent, canActivate: [IsConnectedGuard]},
 
       {path: '', redirectTo: 'search', pathMatch: 'full'},
       {path: '**', redirectTo: '/404'}

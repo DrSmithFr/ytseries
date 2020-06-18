@@ -1,0 +1,135 @@
+<div class="page_body" *ngIf="series !== null">
+  <form class="form">
+    <div style="text-align:right">
+      <button mat-raised-button
+              type="submit"
+              color="warn"
+              (click)="save()">Save
+      </button>
+    </div>
+
+    <br><br>
+
+    <div class="row">
+      <div class="xsmall-12 small-12 medium-6 large-6">
+
+        <mat-card class="card">
+
+          <mat-form-field>
+            <mat-label>Langue</mat-label>
+
+            <mat-select name="locale"
+                        [(ngModel)]="series.locale"
+                        value="fr">
+              <mat-option value="fr">Français</mat-option>
+              <mat-option value="us">Anglais</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <input matInput
+                   placeholder="Code"
+                   name="code"
+                   [(ngModel)]="series.import_code">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <input matInput
+                   placeholder="Title"
+                   name="name"
+                   [(ngModel)]="series.name">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <textarea matInput
+                      placeholder="Description"
+                      name="description"
+                      [(ngModel)]="series.description">
+            </textarea>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <input matInput
+                   placeholder="Image"
+                   name="image"
+                   [(ngModel)]="series.image">
+          </mat-form-field>
+        </mat-card>
+
+      </div>
+      <div class="xsmall-12 small-12 medium-6 large-6">
+        <img src="{{series.image}}"
+             style="max-width:100%;border-radius:5px;" alt="{{series.name}}">
+      </div>
+    </div>
+
+    <br><br>
+
+    <mat-card class="season">
+      <mat-tab-group>
+        <mat-tab
+          *ngFor="let season of series.seasons; let seasonIndex = index"
+          label="#{{seasonIndex + 1}} : {{season.name}}">
+
+          <mat-card class="episodes-list">
+            <div class="row">
+              <div class="xsmall-12 small-12 medium-6 large-6">
+                <mat-form-field class="full-width">
+                  <input matInput
+                         placeholder="Name"
+                         name="season[{{seasonIndex}}]name"
+                         [(ngModel)]="season.name">
+                </mat-form-field>
+              </div>
+              <div class="xsmall-12 small-12 medium-6 large-6 center">
+                <button (click)="reverseEpisodes(season)" mat-flat-button>
+                  Inverse episodes
+                </button>
+              </div>
+            </div>
+          </mat-card>
+
+
+          <mat-card *ngFor="let ep of season.episodes; let epIndex = index"
+                    class="episodes-list">
+            <h3>#{{epIndex + 1}} {{ep.name}}</h3>
+
+            <mat-form-field>
+              <input matInput
+                     placeholder="Code"
+                     name="season[{{seasonIndex}}]episodes[{{epIndex}}]code"
+                     [(ngModel)]="ep.code">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput
+                     placeholder="Name"
+                     name="season[{{seasonIndex}}]episodes[{{epIndex}}]name"
+                     [(ngModel)]="ep.name">
+            </mat-form-field>
+          </mat-card>
+
+          <div class="center">
+            <button mat-button
+                    (click)="addEpisode(season)">
+              Add episodes
+            </button>
+            <button mat-button
+                    (click)="ImportEpisodesFromPlaylist(season)">
+              Import from playlist
+            </button>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card>
+
+    <div class="center">
+      <button mat-button
+              (click)="addSeason()">Add seasons
+      </button>
+      <button mat-button
+              (click)="ImportSeasonFromPlaylist()">Add seasons
+      </button>
+    </div>
+  </form>
+</div>
