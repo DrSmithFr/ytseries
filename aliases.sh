@@ -3,33 +3,33 @@ YOUR_ID=$(id -u)
 DOCKER_GID=$(id -g)
 
 function composer() {
-    docker-compose exec --user="${YOUR_ID}:${DOCKER_GID}" phpfpm /bin/sh -c "composer $*"
+    docker compose exec --user="${YOUR_ID}:${DOCKER_GID}" phpfpm /bin/sh -c "composer $*"
 }
 
 function php() {
-    docker-compose exec --user="${YOUR_ID}:${DOCKER_GID}" phpfpm /bin/sh -c "php $*"
+    docker compose exec --user="${YOUR_ID}:${DOCKER_GID}" phpfpm /bin/sh -c "php $*"
 }
 
 function phpcs() {
-    docker-compose run --rm -T phpfpm /bin/sh -c "php vendor/bin/phpcs --ignore=vendor,bin,src/Migrations,pub $*"
+    docker compose run --rm -T phpfpm /bin/sh -c "php vendor/bin/phpcs --ignore=vendor,bin,src/Migrations,pub $*"
     exit $?
 }
 
 function phpmd() {
-    docker-compose run --rm -T phpfpm /bin/sh -c "php vendor/phpmd/phpmd/src/bin/phpmd src text ruleset.xml --exclude src/Migrations"
+    docker compose run --rm -T phpfpm /bin/sh -c "php vendor/phpmd/phpmd/src/bin/phpmd src text ruleset.xml --exclude src/Migrations"
     exit $?
 }
 
 function phpunit() {
-    docker-compose run --rm -T phpfpm /bin/sh -c "php bin/phpunit $*"
+    docker compose run --rm -T phpfpm /bin/sh -c "php bin/phpunit $*"
     exit $?
 }
 function console() {
-    docker-compose exec --user="${YOUR_ID}:${DOCKER_GID}" phpfpm /bin/sh -c "php bin/console $*"
+    docker compose exec --user="${YOUR_ID}:${DOCKER_GID}" phpfpm /bin/sh -c "php bin/console $*"
 }
 
 function psql() {
-     docker-compose exec --user="${YOUR_ID}:${DOCKER_GID}" postgres /bin/sh -c "psql --dbname=symfony $*"
+     docker compose exec --user="${YOUR_ID}:${DOCKER_GID}" postgres /bin/sh -c "psql --dbname=symfony $*"
 }
 
 function tslint() {
@@ -45,11 +45,11 @@ function install() {
     #
     # starting docker containers
     #
-    docker-compose kill && \
-    docker-compose rm -f && \
+    docker compose kill && \
+    docker compose rm -f && \
     docker volume rm $(basename $(pwd) | awk '{print tolower($0)}')_bdd
-    docker-compose build && \
-    docker-compose up -d --remove-orphans && \
+    docker compose build && \
+    docker compose up -d --remove-orphans && \
 
     sleep 5
 
@@ -72,10 +72,10 @@ function install() {
 function reload() {
     ln -sf $(pwd)/hooks/pre-commit .git/hooks/pre-commit
 
-    docker-compose kill && \
-    docker-compose rm -f && \
-    docker-compose build && \
-    docker-compose up --remove-orphans -d && \
+    docker compose kill && \
+    docker compose rm -f && \
+    docker compose build && \
+    docker compose up --remove-orphans -d && \
 
     sleep 10
 
