@@ -17,6 +17,7 @@ RUN docker-php-ext-enable xdebug
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+    composer self-update --1 && \
     mkdir -p /.composer/cache && \
     chmod 777 /.composer/cache
 
