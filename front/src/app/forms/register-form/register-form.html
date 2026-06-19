@@ -1,0 +1,83 @@
+<form
+  class="register-form"
+  [ngClass]="{'shake-on-error form-error': shaking && hasErrorInForm()}"
+  [formGroup]="registerForm"
+  (ngSubmit)="onSubmit()">
+
+  <mat-form-field class="full-width">
+    <mat-label>Name</mat-label>
+    <input
+      autofocus
+      matInput
+      required
+      formControlName="name"
+      placeholder="John Doe"
+      tabindex="1">
+    @if (hasError(getName())) {
+      <mat-error>Please enter your name</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Email address</mat-label>
+    <input
+      matInput
+      required
+      type="text"
+      formControlName="email"
+      autocomplete="email"
+      placeholder="hello@your-website.com"
+      tabindex="2">
+    @if (hasError(getEmail())) {
+      <mat-error>
+        @if (getEmail()?.errors?.['required']) {
+          Please enter your email address
+        } @else if (getEmail()?.errors?.['email']) {
+          Please enter a valid email address
+        } @else if (getEmail()?.errors?.['used']) {
+          Email address already used.
+          <a routerLink="/login" [queryParams]="{username: getEmail()?.value}" class="forgot-password">try to login</a>
+        }
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Phone number</mat-label>
+    <input
+      matInput
+      required
+      type="text"
+      formControlName="phone"
+      placeholder="+33 6 12 34 56 78"
+
+      mask="+00 0 00 00 00 00"
+      [specialCharacters]="['+', ' ']"
+
+      tabindex="3">
+    @if (hasError(getPhone())) {
+      <mat-error>
+        Please provide a valid Phone number
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <div class="center">
+    @if (!showLoader) {
+      <button
+        [disabled]="registerForm.invalid"
+        mat-flat-button
+        color="primary"
+        type="submit"
+        tabindex="4">
+        S'inscrire
+      </button>
+    }
+    @if (showLoader) {
+      <mat-spinner
+        diameter="37"
+        style="margin: 0 auto">
+      </mat-spinner>
+    }
+  </div>
+</form>

@@ -1,55 +1,43 @@
 <?php
 
-
 namespace App\DataFixtures;
 
-use Exception;
-use App\Entity\Role;
+use App\Enum\RoleEnum;
 use App\Service\UserService;
-use App\Enum\SecurityRoleEnum;
-use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\DataFixtures\DependentFixtureInterface;
+use Doctrine\Persistence\ObjectManager;
 
 class UserFixtures extends Fixture
 {
-    public const REFERENCE_ADMIN       = 'user-admin';
-    public const REFERENCE_USER        = 'user-user';
+    final public const REFERENCE_ADMIN = 'app-admin';
+    final public const REFERENCE_USER = 'app-common';
+    final public const REFERENCE_DISABLED = 'app-user-disabled';
 
-    /**
-     * @var UserService
-     */
-    private $userService;
-
-    /**
-     * UserFixtures constructor.
-     *
-     * @param UserService $userService
-     */
-    public function __construct(UserService $userService)
+    public function __construct(private readonly UserService $userService)
     {
-        $this->userService = $userService;
     }
 
-    /**
-     * Load data fixtures with the passed EntityManager
-     *
-     * @throws Exception
-     *
-     * @param ObjectManager $manager
-     */
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager): void
     {
-        $admin      = $this->userService->createUser('admin', 'admin');
-        $user       = $this->userService->createUser('user', 'user');
+        $admin = $this->userService->createUser('admin@mail.com', 'password');
+        $user = $this->userService->createUser('user@mail.com', 'password');
+        $disabled = $this->userService->createUser('disable@mail.com', 'password');
 
         $this->setReference(self::REFERENCE_ADMIN, $admin);
         $this->setReference(self::REFERENCE_USER, $user);
+        $this->setReference(self::REFERENCE_DISABLED, $disabled);
 
-        $admin->addRole(SecurityRoleEnum::ADMIN);
+        $admin->setEnable(true);
+        $user->setEnable(true);
+        $disabled->setEnable(false);
+
+        $admin->addRole(RoleEnum::ADMIN);
+        $user->addRole(RoleEnum::USER);
+        $disabled->addRole(RoleEnum::USER);
 
         $manager->persist($admin);
         $manager->persist($user);
+        $manager->persist($disabled);
 
         $manager->flush();
     }

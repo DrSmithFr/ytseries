@@ -1,112 +1,118 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use JMS\Serializer\Annotation as JMS;
-use Doctrine\Common\Collections\Collection;
-use Gedmo\Blameable\Traits\BlameableEntity;
+use App\Repository\SeriesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use JMS\Serializer\Annotation as JMS;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\SeriesRepository")
- * @ORM\Table(name="series")
- */
+#[ORM\Entity(repositoryClass: SeriesRepository::class)]
+#[ORM\Table(name: 'series')]
 class Series
 {
     use BlameableEntity;
     use TimestampableEntity;
 
-    /**
-     * @var int|null
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @JMS\Type("integer")
-     */
-    protected $id;
 
-    /**
-     * @var string|null
-     * @ORM\Column(type="string")
-     * @JMS\Type("string")
-     */
-    protected $name;
+    #[
+        JMS\Expose,
+        JMS\Type('integer')
+    ]
+    #[
+        ORM\Id,
+        ORM\Column(type: 'integer'),
+        ORM\GeneratedValue(strategy: 'AUTO')
+    ]
+    protected ?int $id;
 
-    /**
-     * @var string|null
-     * @ORM\Column(type="string")
-     * @JMS\Type("string")
-     */
-    protected $locale;
+    #[JMS\Type('string')]
+    #[ORM\Column(type: 'string')]
+    protected ?string $name;
 
-    /**
-     * @var string|null
-     * @ORM\Column(type="string", nullable=true)
-     * @JMS\Type("string")
-     */
-    protected $image;
+    #[JMS\Type('string')]
+    #[ORM\Column(type: 'string')]
+    protected ?string $locale;
 
-    /**
-     * @var string|null
-     * @ORM\Column(type="string")
-     * @JMS\Type("string")
-     */
-    protected $description;
+    #[JMS\Type('string')]
+    #[ORM\Column(
+        type: 'string',
+        nullable: true
+    )]
+    protected ?string $image;
 
-    /**
-     * @var string|null
-     * @ORM\Column(type="string", nullable=true)
-     * @JMS\Type("string")
-     */
-    protected $importCode;
+    #[JMS\Type('string')]
+    #[ORM\Column(type: 'string')]
+    protected ?string $description;
 
-    /**
-     * @var SeriesType|null
-     * @ORM\ManyToOne(targetEntity="App\Entity\SeriesType", inversedBy="series", cascade={"persist"})
-     * @ORM\JoinColumn(name="series_type_id", referencedColumnName="id", nullable=true)
-     * @JMS\Type("App\Entity\SeriesType")
-     */
-    protected $type;
+    #[JMS\Type('string')]
+    #[ORM\Column(
+        type: 'string',
+        nullable: true
+    )]
+    protected ?string $importCode;
 
-    /**
-     * @var Collection<Season>
-     * @ORM\OneToMany(targetEntity="App\Entity\Season", mappedBy="series", cascade={"persist", "remove"})
-     * @JMS\Type("ArrayCollection<App\Entity\Season>")
-     */
-    protected $seasons;
+    #[JMS\Type('App\Entity\SeriesType')]
+    #[
+        ORM\ManyToOne(
+            targetEntity: SeriesType::class,
+            cascade: ['persist'],
+            inversedBy: 'series'
+        ),
+        ORM\JoinColumn(
+            name: 'series_type_id',
+            referencedColumnName: 'id',
+            nullable: true
+        )
+    ]
+    protected ?SeriesType $type = null;
 
-    /**
-     * @var Collection|Category[]
-     * @ORM\ManyToMany(targetEntity="Category", inversedBy="series")
-     * @ORM\JoinTable(
-     *  name="mtm_series_to_categories",
-     *  joinColumns={
-     *      @ORM\JoinColumn(name="series_id", referencedColumnName="id")
-     *  },
-     *  inverseJoinColumns={
-     *     @ORM\JoinColumn(name="category_id", referencedColumnName="id")
-     *  }
-     * )
-     * @JMS\Type("ArrayCollection<App\Entity\Category>")
-     */
-    protected $categories;
+    #[JMS\Type('ArrayCollection<App\Entity\Season>')]
+    #[ORM\OneToMany(
+        targetEntity: Season::class,
+        mappedBy: 'series',
+        cascade: ['persist', 'remove']
+    )]
+    protected Collection $seasons;
 
-    /**
-     * @var array|null
-     * @ORM\Column(type="simple_array", nullable=true)
-     * @JMS\Type("array<string>")
-     */
-    protected $tags;
+    #[
+        ORM\ManyToMany(
+            targetEntity: Category::class,
+            inversedBy: 'series'
+        ),
+        ORM\JoinTable(
+            name: 'mtm_series_to_categories',
+            joinColumns: [
+                new ORM\JoinColumn(
+                    name: 'series_id',
+                    referencedColumnName: 'id'
+                ),
+            ],
+            inverseJoinColumns: [
+                new ORM\JoinColumn(
+                    name: 'category_id',
+                    referencedColumnName: 'id'
+                ),
+            ]
+        )
+    ]
+    #[JMS\Type('ArrayCollection<App\Entity\Category>')]
+    protected Collection $categories;
+
+    #[ORM\Column(type: 'simple_array', nullable: true)]
+    #[JMS\Type('array<string>')]
+    protected array $tags = [];
 
     public function __construct()
     {
-        $this->seasons    = new ArrayCollection();
+        $this->seasons = new ArrayCollection();
         $this->categories = new ArrayCollection();
-        $this->tags       = [];
+        $this->tags = [];
     }
 
     /**
@@ -125,6 +131,7 @@ class Series
     public function setId(?int $id): self
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -144,6 +151,7 @@ class Series
     public function setName(?string $name): self
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -163,6 +171,7 @@ class Series
     public function setLocale(?string $locale): self
     {
         $this->locale = $locale;
+
         return $this;
     }
 
@@ -182,6 +191,7 @@ class Series
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
         return $this;
     }
 
@@ -201,6 +211,7 @@ class Series
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -220,6 +231,7 @@ class Series
     public function setImportCode(?string $importCode): self
     {
         $this->importCode = $importCode;
+
         return $this;
     }
 
@@ -239,44 +251,47 @@ class Series
     public function setType(?SeriesType $type): self
     {
         $this->type = $type;
+
         return $this;
     }
 
     /**
-     * @return Season[]|Collection
+     * @return Collection<Season>
      */
-    public function getSeasons()
+    public function getSeasons(): Collection
     {
         return $this->seasons;
     }
 
     /**
-     * @param Season[]|Collection $seasons
+     * @param Collection<Season> $seasons
      *
      * @return self
      */
-    public function setSeasons($seasons)
+    public function setSeasons(Collection $seasons)
     {
         $this->seasons = $seasons;
+
         return $this;
     }
 
     /**
-     * @return Category[]|Collection
+     * @return Collection<Category>
      */
-    public function getCategories()
+    public function getCategories(): Collection
     {
         return $this->categories;
     }
 
     /**
-     * @param Category[]|Collection $categories
+     * @param Collection<Category> $categories
      *
      * @return self
      */
-    public function setCategories($categories)
+    public function setCategories(Collection $categories)
     {
         $this->categories = $categories;
+
         return $this;
     }
 
@@ -289,13 +304,14 @@ class Series
     }
 
     /**
-     * @param array|null $tags
+     * @param array $tags
      *
      * @return self
      */
-    public function setTags(?array $tags): self
+    public function setTags(array $tags): self
     {
         $this->tags = $tags;
+
         return $this;
     }
 
@@ -308,6 +324,7 @@ class Series
     {
         $this->seasons->add($season);
         $season->setSeries($this);
+
         return $this;
     }
 
@@ -320,6 +337,7 @@ class Series
     {
         $this->seasons->removeElement($season);
         $season->setSeries(null);
+
         return $this;
     }
 
@@ -345,26 +363,28 @@ class Series
     public function removeCategory(Category $category): self
     {
         $this->categories->removeElement($category);
+
         return $this;
     }
 
     /**
-     * @param mixed $tag
+     * @param string $tag
      *
      * @return self
      */
-    public function addTag($tag): self
+    public function addTag(string $tag): self
     {
         $this->tags[] = $tag;
+
         return $this;
     }
 
     /**
-     * @param mixed $tag
+     * @param string $tag
      *
      * @return self
      */
-    public function removeTag($tag): self
+    public function removeTag(string $tag): self
     {
         if (false !== $key = array_search($tag, $this->tags, true)) {
             array_splice($this->tags, $key, 1);

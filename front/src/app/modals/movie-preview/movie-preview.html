@@ -1,0 +1,67 @@
+<mat-dialog-content>
+  <div #content>
+    <div class="player-shadow bg">
+      <app-player-preview
+        format="16:9"
+        videoId="eaHYgSCgUnw"
+        [offsetPlayer]="true"
+      >
+      </app-player-preview>
+    </div>
+
+    <div class="movie-modal-container">
+      <div class="movie-modal-content">
+
+
+        <div class="movie-modal-padding">
+
+          <div class="button-bar">
+            <button class="play" matMiniFab>
+              <mat-icon>play_arrow</mat-icon>
+            </button>
+            <button matMiniFab matTooltipPosition="above" matTooltip="Agregar a mi lista">
+              <mat-icon>add</mat-icon>
+            </button>
+            <button matMiniFab matTooltipPosition="above" matTooltip="Me gusta!">
+              <mat-icon>thumb_up</mat-icon>
+            </button>
+            <button matMiniFab matTooltipPosition="above" matTooltip="No es para mí.">
+              <mat-icon>thumb_down</mat-icon>
+            </button>
+
+            <button matMiniFab matTooltipPosition="above" matTooltip="Mas informatións">
+              <mat-icon>info</mat-icon>
+            </button>
+          </div>
+
+          <div class="movie-modal-title">
+            <div>
+              <h2>{{ movie.name }}</h2>
+
+              <div class="tags">
+                <div class="tag">Psicológico</div>
+                <div class="tag">Siniestro</div>
+                <div class="tag">De suspenso</div>
+              </div>
+            </div>
+
+            <div class="duration-infos">
+              <div class="movie-duration">1 h 38 min</div>
+              <div class="movie-type">4 Seasons</div>
+            </div>
+          </div>
+
+
+          <p class="movie-description">{{ movie.description }}</p>
+
+          <div class="datos">
+            @if (movie.isRecent()) {
+              <div class="match">Nuevo</div>
+            }
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

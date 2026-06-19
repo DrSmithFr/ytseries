@@ -25,30 +25,12 @@ use Symfony\Component\Yaml\Yaml;
 
 class SeriesImportCommand extends Command
 {
-    /**
-     * @var EntityManagerInterface
-     */
-    private $entityManager;
-    /**
-     * @var SeriesTypeRepository
-     */
-    private $seriesTypeRepository;
-    /**
-     * @var SeriesRepository
-     */
-    private $seriesRepository;
-    /**
-     * @var SeasonRepository
-     */
-    private $seasonRepository;
-    /**
-     * @var EpisodeRepository
-     */
-    private $episodeRepository;
-    /**
-     * @var CategoryRepository
-     */
-    private $categoryRepository;
+    private EntityManagerInterface $entityManager;
+    private SeriesTypeRepository $seriesTypeRepository;
+    private SeriesRepository $seriesRepository;
+    private SeasonRepository $seasonRepository;
+    private EpisodeRepository $episodeRepository;
+    private CategoryRepository $categoryRepository;
 
     public function __construct(
         EntityManagerInterface $entityManager,
@@ -74,12 +56,11 @@ class SeriesImportCommand extends Command
             ->setDescription('Rebuild the Index and populate it.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
 
         $series = $this->getYmlSeriesData('series.yml');
-
         $movies = $this->getYmlSeriesData('movies.yml');
         $types = $this->getYmlSeriesData('types.yml');
         $categories = $this->getYmlSeriesData('categories.yml');
@@ -122,6 +103,8 @@ class SeriesImportCommand extends Command
 
         $io->progressFinish();
         $io->success(sprintf('%d movies imported', count($movies)));
+
+        return Command::SUCCESS;
     }
 
     private function getYmlSeriesData(string $filename)
@@ -204,7 +187,7 @@ class SeriesImportCommand extends Command
             ->setImage($data['image'])
             ->setDescription($data['description'])
             ->setType($seriesTypesMap[$typeId])
-            ->setTags($data['tags'] ?? null);
+            ->setTags($data['tags'] ?? []);
 
         foreach ($data['categories'] ?? [] as $category) {
             $series->addCategory($categoriesMap[$category]);
@@ -248,7 +231,7 @@ class SeriesImportCommand extends Command
             ->setImage($data['image'])
             ->setDescription($data['description'])
             ->setType($seriesTypesMap[$typeId])
-            ->setTags($data['tags'] ?? null);
+            ->setTags($data['tags'] ?? []);
 
         foreach ($data['categories'] ?? [] as $category) {
             $series->addCategory($categoriesMap[$category]);

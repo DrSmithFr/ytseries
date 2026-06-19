@@ -1,0 +1,34 @@
+[
+  {
+    "key": "Humour",
+    "doc_count": 35
+  },
+  {
+    "key": "Aventure",
+    "doc_count": 29
+  },
+  {
+    "key": "Thriller",
+    "doc_count": 22
+  },
+  {
+    "key": "Drame",
+    "doc_count": 16
+  },
+  {
+    "key": "Science fiction",
+    "doc_count": 11
+  },
+  {
+    "key": "Romantique",
+    "doc_count": 10
+  },
+  {
+    "key": "Action",
+    "doc_count": 7
+  },
+  {
+    "key": "Horreur",
+    "doc_count": 1
+  }
+]

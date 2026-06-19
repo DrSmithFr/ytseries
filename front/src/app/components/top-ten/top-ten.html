@@ -1,0 +1,54 @@
+<section id="top10-carousel">
+  <div class="flex_container">
+    <div class="outer_container">
+      <div class="inner_container">
+        <ul
+          class="ul_container"
+          (mouseenter)="hoverContainer()"
+          (mouseleave)="leaveContainer()"
+        >
+          @for (movie of movies()|slice:0:10; track movie.import_code) {
+            <div
+              id="item-{{ $index + 1 }}"
+              class="item_container"
+              [class.expanded]="$index === 0"
+              style="z-index: {{ 10 - $index }}"
+              (click)="clickItem($event)"
+              #items
+            >
+              <div class="item_number"></div>
+              <div class="image_info_container">
+                <div class="info_container">
+                  <div class="info_container_inner">
+                    <div class="info_number"></div>
+                    <div class="info_bottom_container">
+                      <div class="info_bottom_text">
+                        Watched for <strong>148.72 million hours</strong> this week.
+                        <a href="#" (click)="showDetailModal($event, movie)">Watch now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="image">
+                  <picture>
+                    <img
+                      alt="The Guilty"
+                      class="preload"
+                      fetchpriority="high"
+                      ngSrc="https://assets.codepen.io/1890963/AAAABeyXW3mUTPqrK4NtKn2vJlcYmKVJU5XCn6Zeis_EdNEjMmhs5rRudqWRYo2Pj7R2_pYwHviXeOrP1GKgaC4flMu_QndVSRQ8Fk-B_al3ZGz5JOXyZ28ZK7I49UdxrQ.jpg?format=auto"
+                      fill/>
+                  </picture>
+                  <div class="bottom_title">
+                    <div class="bottom_title_text">
+                      Red notice
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

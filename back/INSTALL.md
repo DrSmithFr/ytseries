@@ -1,28 +1,27 @@
+# Working on project
+
+   - Run `make` to reload containers
+
 # Installation
 
+  - Install [docker](https://docs.docker.com/get-docker/)
+  - Install [docker-compose](https://docs.docker.com/compose/install/)
   - Install [Symfony Local Web Server](https://symfony.com/doc/current/setup/symfony_server.html)
-  - Intall PHP and needed library `make install`
-  - Enable hooks using `git_hooks`
+  - Install [PhpStorm URL Handler](https://github.com/sanduhrs/phpstorm-url-handler)
+  - Add [PHP-PPA repository](ppa:ondrej/php) with add-apt-repository
+  - Install everything with `make install`
 
-# Generate your JWT keys
+## If auto-install fails
+  - Install PHP and needed library with `make env`, (see [Makefile](Makefile) for more details)
+  - Install Git Hooks `make hooks`
+  - Install Composer dependencies with `make dependencies`
+  - Then run `make` to reload containers
 
-YtSeries need public/private key to generate JWT tokens. 
-Those tokens are used by API for authentication and reconnection mechanisms.
-
-Execute the following commands:
-
-    mkdir -p config/jwt
-    
-    openssl genrsa -out config/jwt/private.pem -aes256 4096
-    openssl rsa -pubout -in config/jwt/private.pem -out config/jwt/public.pem
-    openssl rsa -in config/jwt/private.pem -out config/jwt/private2.pem
-    
-    mv config/jwt/private2.pem config/jwt/private.pem
-    chmod 700 config/jwt/*
-    
 # Create nginx vHost
 
-## Avoid permission issues
+## fix permission issues
+
+ - Add your USER to the www-data group
 
  - Edit `/etc/php/7.4/fpm/pool.d/www.conf` and replace :
  
@@ -34,13 +33,8 @@ Execute the following commands:
        user = {YOUR_LINUX_USERNAME}
        group = {YOUR_LINUX_USERNAME}
 
-## Create self signed certificate
-
- - Generate cert using `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt`
- - Copy configuration using `sudo cp config/nginx/snippets /etc/nginx/snippets`
-
 ## Create vHost
 
-- Create the file `/etc/nginx/sites-available/mpp-gateway` according to the template `config/vhost.conf`
-- Enable the vHost using `ls -s /etc/nginx/sites-available/mpp-gateway /etc/nginx/sites-enabled/mpp-gateway`
+- Create the file `/etc/nginx/sites-available/name-of-project` according to the template `config/nginx/vhost.conf` or `config/nginx/vhost-with-xdebug.conf`
+- Enable the vHost using `ls -s /etc/nginx/sites-available/ms-base /etc/nginx/sites-enabled/ms-base`
 - Reload nginx to apply configuration : `sudo service nginx reload`

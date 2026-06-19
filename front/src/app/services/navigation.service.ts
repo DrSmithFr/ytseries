@@ -8,17 +8,18 @@ import {BehaviorSubject} from 'rxjs';
 )
 export class NavigationService {
 
-  public showNavigation: BehaviorSubject<boolean>;
+  public isNavigationVisible: BehaviorSubject<boolean>;
 
   constructor() {
-    this.showNavigation = new BehaviorSubject<boolean>(true);
+    this.isNavigationVisible = new BehaviorSubject<boolean>(false);
   }
 
-  hide() {
-    this.showNavigation.next(false);
+  // navigation visibility
+  isNavigationVisibleSubject() {
+    return this.isNavigationVisible;
   }
 
-  show() {
-    this.showNavigation.next(true);
+  setNavigationVisibility(value: boolean) {
+    this.isNavigationVisibleSubject().next(value);
   }
 }

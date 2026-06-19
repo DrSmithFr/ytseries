@@ -1,0 +1,24 @@
+<mat-card class="info color-{{type}}">
+  <div class="info-container">
+    <div class="icon-container hide-on-small-mobile">
+      <mat-icon class="icon">{{icon ?? MatIconMap[type]}}_outlined</mat-icon>
+    </div>
+
+    <div class="disclaimer" [class.pending]="type === 'pending'">
+      <div class="container info-content">
+        <ng-content></ng-content>
+      </div>
+      <div class="spinner-container hide-on-mobile">
+        @if (type === 'pending') {
+        <mat-spinner style="height: 15px; width: 15px"></mat-spinner>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="only-mobile">
+    @if (type === 'pending') {
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    }
+  </div>
+</mat-card>

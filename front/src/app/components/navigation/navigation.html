@@ -1,0 +1,74 @@
+<nav id="app-navbar" [class.is-opaque]="isOpaque()">
+  <div class="navbar-container">
+
+    <a class="navbar-icon" href="/">
+      <picture>
+        <source srcset="/images/logo.png" type="image/webp">
+        <source srcset="/images/logo.png" type="image/png">
+        <img src="/images/logo.png" width="92" height="30" alt="YtSeries Logo">
+      </picture>
+    </a>
+
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/">Accueil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Séries</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Films</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Courts Métrages</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Nouveautés</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Explorer par langue</a>
+      </li>
+    </ul>
+
+    <div class="navbar-menu">
+      <mat-form-field appearance="outline">
+        <mat-label>Search</mat-label>
+        <input matInput placeholder="Titres, personnes, genres...">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+
+      <button class="navbar-submenu-btn" matMiniFab [matMenuTriggerFor]="menu">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>lock_open</mat-icon>
+    Login
+  </button>
+  <button mat-menu-item>
+    <mat-icon>person_add</mat-icon>
+    Register
+  </button>
+  <hr>
+  <button mat-menu-item>
+    <mat-icon>history_2</mat-icon>
+    Historique
+  </button>
+  <button mat-menu-item>
+    <mat-icon>playlist_add_check</mat-icon>
+    Ma Liste
+  </button>
+  <button mat-menu-item>
+    <mat-icon>favorite</mat-icon>
+    Mes Favoris
+  </button>
+  <hr>
+  <button mat-menu-item>
+    <mat-icon>exit_to_app</mat-icon>
+    Se Déconnecter
+  </button>
+</mat-menu>

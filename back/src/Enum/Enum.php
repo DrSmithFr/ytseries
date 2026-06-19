@@ -1,35 +1,25 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Enum;
 
+use App\Exception\InvalidEnumNameException;
+use App\Exception\InvalidEnumValueException;
 use ReflectionClass;
-use RuntimeException;
 use ReflectionException;
-use InvalidArgumentException;
-use Doctrine\DBAL\Platforms\SqlitePlatform;
-use Doctrine\DBAL\Platforms\AbstractPlatform;
-use Doctrine\DBAL\Platforms\SQLServerPlatform;
-use Doctrine\DBAL\Platforms\PostgreSqlPlatform;
+use RuntimeException;
 
 abstract class Enum
 {
     /**
-     * @var array
+     * keep in memory constant discovered (optimisation)
      */
-    private static $constCacheArray;
+    private static ?array $constCacheArray = [];
 
-    /**
-     * @return array
-     */
     public static function getAll(): array
     {
-        if (self::$constCacheArray === null) {
-            self::$constCacheArray = [];
-        }
-
-        $calledClass = get_called_class();
+        $calledClass = static::class;
 
         if (!array_key_exists($calledClass, self::$constCacheArray)) {
             try {
@@ -48,25 +38,35 @@ abstract class Enum
         return self::$constCacheArray[$calledClass];
     }
 
-    /**
-     * @param string $name
-     *
-     * @return bool
-     */
     public static function isValidName(string $name): bool
     {
         $constants = self::getAll();
         return array_key_exists($name, $constants);
     }
 
-    /**
-     * @param string $value
-     *
-     * @return bool
-     */
     public static function isValidValue(string $value): bool
     {
         $values = array_values(self::getAll());
         return in_array($value, $values, true);
+    }
+
+    /**
+     * @throws InvalidEnumNameException
+     */
+    public static function validateName(string $name): void
+    {
+        if (!self::isValidName($name)) {
+            throw new InvalidEnumNameException($name, static::class);
+        }
+    }
+
+    /**
+     * @throws InvalidEnumValueException
+     */
+    public static function validateValue(string $value): void
+    {
+        if (!self::isValidValue($value)) {
+            throw new InvalidEnumValueException($value, static::class);
+        }
     }
 }

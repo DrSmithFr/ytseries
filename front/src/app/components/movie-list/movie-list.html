@@ -1,0 +1,43 @@
+<section class="movies" [class.top10]="isTopDisplay()">
+  <div class="movies-container">
+    <h1 class="movies-title">{{ title() }}</h1>
+    <div class="movies-list">
+      @for (movie of movies(); track movie.import_code) {
+        <div
+          class="movie main"
+          data-controller="popover"
+          data-popover-target="wrapper"
+          data-action="mouseenter->popover#scheduleShow mouseleave->popover#cancelShow"
+          [PopOverPreview]="movie"
+          (click)="openPreviewModal($event, movie)"
+        >
+          <div class="thumb">
+
+            @if (isTopDisplay()) {
+              <picture class="vertical">
+                <img class="preload" fetchpriority="low" ngSrc="{{ movie.image }}" width="110" height="160" alt="">
+              </picture>
+            } @else {
+              <picture class="horizontal">
+                <img class="preload" fetchpriority="low" ngSrc="{{ movie.image }}" width="212" height="120" alt="">
+              </picture>
+            }
+
+            <div class="tags">
+              @if (movie.isRecent()) {
+                <span class="important">Ajout récent</span>
+              }
+
+              @for (tag of movie.tags; track tag) {
+                <span>{{ tag }}</span>
+              }
+            </div>
+          </div>
+
+        </div>
+      }
+
+
+    </div>
+  </div>
+</section>

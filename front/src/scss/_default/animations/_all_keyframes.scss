@@ -1,0 +1,4 @@
+@import "shake";
+
+// Only load keyframes globally (optimisation)
+@include shake-keyframes();

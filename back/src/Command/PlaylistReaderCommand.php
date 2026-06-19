@@ -16,10 +16,7 @@ use Symfony\Component\Yaml\Yaml;
 
 class PlaylistReaderCommand extends Command
 {
-    /**
-     * @var YoutubeService
-     */
-    private $youtubeService;
+    private YoutubeService $youtubeService;
 
     public function __construct(
         YoutubeService $youtubeService
@@ -40,10 +37,10 @@ class PlaylistReaderCommand extends Command
     /**
      * @param InputInterface  $input
      * @param OutputInterface $output
-     * @return int|void|null
+     * @return int
      * @throws Exception
      */
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $playlistCode = $input->getArgument('playlistId');
         $io = new SymfonyStyle($input, $output);
@@ -59,5 +56,7 @@ class PlaylistReaderCommand extends Command
 
         $yaml = Yaml::dump(['id' => $data], 5);
         $io->writeln($yaml);
+
+        return Command::SUCCESS;
     }
 }

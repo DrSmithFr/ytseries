@@ -1,0 +1,17 @@
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1rem;
+
+  width: 100%;
+  max-width: 100%;
+
+  &.center {
+    justify-content: center;
+  }
+
+  &.right {
+    justify-content: flex-end;
+  }
+}

@@ -1,61 +1,78 @@
 <?php
 
-declare(strict_types = 1);
-
 namespace App\Command;
 
-use App\Entity\User;
-use RuntimeException;
-use App\Enum\SecurityRoleEnum;
+use App\Enum\RoleEnum;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
+use App\Exception\UserNotFoundException;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 class PromoteUserCommand extends Command
 {
-    /**
-     * @var EntityManagerInterface
-     */
-    private $entityManager;
-
     public function __construct(
-        EntityManagerInterface $entityManager
+        private readonly UserRepository $repository,
+        private readonly EntityManagerInterface $entityManager
     ) {
-        $this->entityManager = $entityManager;
         parent::__construct();
     }
 
-    protected function configure()
+    public function configure(): void
     {
         $this
-            ->setName('security:user:promote')
-            ->setDescription('Update episode durations')
-            ->addArgument('username', InputArgument::REQUIRED);
+            ->setName('app:user:promote')
+            ->addArgument('email', InputArgument::REQUIRED, 'Email of user')
+            ->addOption('user', 'u', InputOption::VALUE_NONE, 'Add role user')
+            ->addOption('admin', 'a', InputOption::VALUE_NONE, 'Add role admin')
+            ->addOption('super-admin', 's', InputOption::VALUE_NONE, 'Add role super-admin');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    /**
+     * @throws Exception
+     */
+    public function execute(InputInterface $input, OutputInterface $output): int
     {
+        $email = $input->getArgument('email');
         $io = new SymfonyStyle($input, $output);
 
-        $io->section('Loading User to update');
+        $io->title('Promoting ' . $email);
 
-        /** @var User|null $user */
         $user = $this
-            ->entityManager
-            ->getRepository(User::class)
-            ->findOneBy(['username' => strtolower($input->getArgument('username'))]);
+            ->repository
+            ->findOneByEmail($email);
 
         if (!$user) {
-            throw new RuntimeException('cannot find user');
+            throw new UserNotFoundException('email', $email);
         }
 
-        $user->addRole(SecurityRoleEnum::ADMIN);
+        if ($input->getOption('user')) {
+            $user->addRole(RoleEnum::USER);
+        }
+
+        if ($input->getOption('admin')) {
+            $user->addRole(RoleEnum::ADMIN);
+        }
+
+        if ($input->getOption('super-admin')) {
+            $user->addRole(RoleEnum::SUPER_ADMIN);
+        }
 
         $this->entityManager->flush();
 
-        $io->success('DONE');
+        $io->success(
+            sprintf(
+                '%s updated with roles : %s',
+                $email,
+                implode(', ', $user->getRoles())
+            )
+        );
+
+        return Command::SUCCESS;
     }
 }

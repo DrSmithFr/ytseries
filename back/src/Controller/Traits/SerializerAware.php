@@ -2,37 +2,37 @@
 
 namespace App\Controller\Traits;
 
-use Symfony\Component\Form\FormInterface;
-use App\Entity\Interfaces\SerializableEntity;
-use InvalidArgumentException;
+use App\Entity\Serializable;
+use App\Model\Form\FormErrorDetailModel;
+use App\Model\Form\FormErrorModel;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ReadableCollection;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerInterface;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 trait SerializerAware
 {
     /**
      * @var SerializerInterface|null
      */
-    private $serializer;
+    private ?SerializerInterface $serializer;
 
-    /**
-     * @param SerializerInterface $serializer
-     * @return $this
-     */
-    private function setSerializer(SerializerInterface $serializer): self
+    private function setSerializer(SerializerInterface $serializer): void
     {
         $this->serializer = $serializer;
-        return $this;
+    }
+
+    private function getSerializer(): SerializerInterface
+    {
+        return $this->serializer;
     }
 
     /**
      * Create serialization context for specifics groups
      * with serialize null field enable
-     *
-     * @param array $group
-     * @return SerializationContext
      */
     private function getSerializationContext(array $group = ['Default']): SerializationContext
     {
@@ -43,22 +43,29 @@ trait SerializerAware
     }
 
     /**
-     * @return SerializerInterface
+     * Return the array version of the data, serialize for specifics groups
      */
-    private function getSerializer(): SerializerInterface
+    protected function toArray(Serializable $data, array $group = ['Default']): array
     {
-        return $this->serializer;
+        $json = $this
+            ->getSerializer()
+            ->serialize($data, 'json', $this->getSerializationContext($group));
+
+        return json_decode($json, true);
     }
 
     /**
      * Return the json string of the data, serialize for specifics groups
      *
-     * @param SerializableEntity $data
-     * @param array              $group
+     * @param Serializable|Collection|ReadableCollection|array $data
+     * @param string[]                                         $group
+     *
      * @return string
      */
-    private function serialize($data, array $group = ['Default']): string
-    {
+    protected function serialize(
+        Serializable|Collection|ReadableCollection|array $data,
+        array $group = ['Default']
+    ): string {
         return $this
             ->getSerializer()
             ->serialize(
@@ -71,101 +78,74 @@ trait SerializerAware
     /**
      * Return the JsonResponse of the data, serialize for specifics groups
      *
-     * @param mixed $data
-     * @param array $group
+     * @param Serializable|Collection|ReadableCollection|array $data
+     * @param String[]                                         $group
+     * @param int                                              $status
+     *
      * @return JsonResponse
      */
-    private function serializeResponse($data, array $group = ['Default']): JsonResponse
-    {
-        $response = new JsonResponse([], JsonResponse::HTTP_OK);
-        $json     = $this->serialize($data, $group);
+    protected function serializeResponse(
+        Serializable|Collection|ReadableCollection|array $data,
+        array $group = ['Default'],
+        int $status = Response::HTTP_OK
+    ): JsonResponse {
+        $response = new JsonResponse([], $status);
+        $json = $this->serialize($data, $group);
         return $response->setJson($json);
     }
 
     /**
      * Simple JsonResponse use to transmit a message
-     *
-     * @param string $message
-     * @param int    $code
-     * @return JsonResponse
      */
-    private function messageResponse(string $message, int $code = JsonResponse::HTTP_OK): JsonResponse
+    protected function messageResponse(string $message, int $status = Response::HTTP_OK): JsonResponse
     {
-        $response = new JsonResponse(
+        return new JsonResponse(
             [
-                'code'    => $code,
                 'message' => $message,
             ],
-            $code
+            $status
         );
-
-        return $response;
     }
 
     /**
      * Simple JsonResponse use to transmit a message
-     *
-     * @param FormInterface $form
-     * @param bool          $showReason
-     * @return JsonResponse
      */
-    private function formErrorResponse(FormInterface $form, bool $showReason = true): JsonResponse
-    {
+    protected function formErrorResponse(
+        FormInterface $form,
+        int $status
+    ): JsonResponse {
+        $formError = (new FormErrorModel())
+            ->setCode($status)
+            ->setReason($this->getFormErrorDetail($form));
         return new JsonResponse(
-            [
-                'code'    => Response::HTTP_NOT_ACCEPTABLE,
-                'message' => 'Invalid form',
-                'reason'  => $showReason ? $this->getFormErrorArray($form) : 'hidden',
-            ],
-            Response::HTTP_NOT_ACCEPTABLE
+            $this->toArray($formError),
+            $status
         );
     }
 
-    /**
-     * @param FormInterface $form
-     * @return array
-     */
-    private function getFormErrorArray(FormInterface $form): array
+    private function getFormErrorDetail(FormInterface $data): FormErrorDetailModel
     {
+        $reason = new FormErrorDetailModel();
         $errors = [];
 
-        // Global
-        foreach ($form->getErrors() as $error) {
-            $errors[$form->getName()][$error->getOrigin()->getName()][] = $error->getMessage();
+        foreach ($data->getErrors(true) as $error) {
+            $path = $this->getFormPath($error->getOrigin());
+            $errors[$path] = $error->getMessage();
         }
 
-        // Fields
-        foreach ($form as $child) {
-            if (!$child->isValid()) {
-                foreach ($child->getErrors() as $error) {
-                    $errors[$form->getName()][$child->getName()][] = $error->getMessage();
-                }
-            }
-        }
+        $reason->setErrors($errors);
 
-        return $errors;
+        return $reason;
     }
 
-    /**
-     * Simple JsonResponse use to transmit the new id of the created entity
-     *
-     * @param mixed  $entity
-     * @param string $message
-     * @return JsonResponse
-     */
-    private function createResponse(SerializableEntity $entity, string $message): JsonResponse
+    private function getFormPath(FormInterface $form): string
     {
-        if (!method_exists($entity, 'getId')) {
-            throw new InvalidArgumentException('Entity must have a getId() method');
+        $parent = $form->getParent();
+
+        if ($parent && $parent->getParent()) {
+            return $this->getFormPath($parent) . '.' . $form->getName();
         }
 
-        return new JsonResponse(
-            [
-                'code'    => JsonResponse::HTTP_ACCEPTED,
-                'message' => $message,
-                'id'      => $entity->getIdentifier(),
-            ],
-            JsonResponse::HTTP_ACCEPTED
-        );
+        return $form->getName();
     }
 }

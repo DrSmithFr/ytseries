@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use App\Repository\SeriesTypeRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMS;
@@ -11,44 +12,46 @@ use Gedmo\Blameable\Traits\BlameableEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\SeriesTypeRepository")
- * @ORM\Table(name="series_type")
- */
+#[ORM\Entity(repositoryClass: SeriesTypeRepository::class)]
+#[ORM\Table(name: 'series_type')]
 class SeriesType
 {
     use BlameableEntity;
     use TimestampableEntity;
 
-    /**
-     * @var int|null
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @JMS\Type("integer")
-     */
-    protected $id;
+    #[
+        JMS\Expose,
+        JMS\Type('integer')
+    ]
+    #[
+        ORM\Id,
+        ORM\Column(type: 'integer'),
+        ORM\GeneratedValue(strategy: 'AUTO')
+    ]
+    protected ?int $id;
+
+    #[JMS\Type('string')]
+    #[ORM\Column(type: 'string')]
+    protected ?string $name;
+
+    #[JMS\Type('string')]
+    #[ORM\Column(
+        type: 'string',
+        nullable: true
+    )]
+    protected ?string $importCode;
 
     /**
-     * @var string|null
-     * @ORM\Column(type="string")
-     * @JMS\Type("string")
+     * @var Collection<Series[]>
      */
-    protected $name;
-
-    /**
-     * @var string|null
-     * @ORM\Column(type="string", nullable=true)
-     * @JMS\Type("string")
-     */
-    protected $importCode;
-
-    /**
-     * @var Collection|Series[]
-     * @ORM\OneToMany(targetEntity="App\Entity\Series", mappedBy="type")
-     * @JMS\Exclude()
-     */
-    protected $series;
+    #[JMS\Exclude]
+    #[
+        ORM\OneToMany(
+            targetEntity: Series::class,
+            mappedBy: 'type'
+        )
+    ]
+    protected Collection $series;
 
     public function __construct()
     {
@@ -110,7 +113,7 @@ class SeriesType
     }
 
     /**
-     * @return Series[]|Collection
+     * @return Collection<Series>
      */
     public function getSeries(): Collection
     {
@@ -118,7 +121,7 @@ class SeriesType
     }
 
     /**
-     * @param Series[]|Collection $series
+     * @param Collection<Series> $series
      * @return self
      */
     public function setSeries(Collection $series): self

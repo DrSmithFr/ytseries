@@ -1,0 +1,45 @@
+<div class="player-preview"  [ngClass]="getRatioCssClass(format())">
+  <div
+    class="video-wrapper-up"
+    [class.crop-black-lines]="offsetPlayer()"
+  >
+    <div
+      class="video-wrapper"
+      [ngClass]="getRatioCssClass(format())"
+    >
+      <div
+        class="video-layer"
+        [class.displayed]="playing()"
+        #playerWrapper>
+        <div class="video-player" #playerElement></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="player-layer">
+    <img
+      class="preload video-layer hidden"
+      [class.show]="!playing()"
+      alt="Aperçu vidéo"
+      fetchpriority="high"
+      ngSrc="https://www.radiofrance.fr/s3/cruiser-production/2022/08/4f863cbc-b6d9-4ae9-9867-799069cfa294/1200x680_visiteurdufutur.jpg"
+      priority
+      fill/>
+  </div>
+
+  <div class="player-layer">
+    <img
+      class="preload video-layer hidden"
+      [class.show]="finished() && !playing()"
+      alt="Aperçu vidéo"
+      fetchpriority="low"
+      ngSrc="https://www.levisiteurdufutur.com/img/galerie/large/le-visiteur-du-futur-9.jpg"
+      fill/>
+  </div>
+
+  <div class="player-layer">
+    <div class="video-overlay">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

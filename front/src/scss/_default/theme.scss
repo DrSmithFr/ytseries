@@ -1,0 +1,7 @@
+@mixin theme-light() {
+  @content;
+}
+
+@mixin theme-dark() {
+  [data-theme="dark"] { @content; }
+}

@@ -1,0 +1,217 @@
+Given a typescript model generate a reusable Angular code structure for a entity, including:
+1. A DTO interface with optional properties (snake_case if coming from REST).
+2. A Model class with required camelCase properties, fully typed and **retaining any existing comments from the input model**.
+3. A Mapper class extending AbstractMapper to convert between DTO and Model.
+4. Ensure **no new comments are added** in the generated code unless they were explicitly present in the input model.
+
+Requirements:
+- Use `@Injectable` and Angular’s `inject()` for nested entities.
+- Handle arrays (e.g., `tags: string[]`) via `mapArray<T>()` and nested models via `mapModels()`.
+- Target Angular 17, TypeScript 5.3, strict mode.
+- Place generated files under `src/app/models/`.
+- Ensure `AbstractMapper` methods (mapNumber, mapString, mapDate, mapArray, mapModels, toDtos) are used correctly.
+- For date fields, convert ISO strings to `Date` in `fromDto`, and back to ISO in `toDto`.
+
+Examples:
+  - `SeriesModel` includes nested `SeasonModel`.
+  - `EpisodeModel` referenced inside `SeasonModel`.
+  - Provide a sample `HistoricModel` as you did.
+
+---
+
+> **User** :
+> ```typescript
+> export class SeriesModel {
+>   constructor(
+>     public id: number,
+>     public import_code: string,
+>     public name: string,
+>     public image: string,
+>     public locale: string,
+>     public tags: string[],
+>     public description: string,
+>     public seasons: SeasonModel[],
+>     public created_at: Date
+>   ) {
+>   }
+> }
+> ```
+> **Assistant** :
+> ```typescript
+> // series.model.ts
+> import { SeasonDto, SeasonMapper, SeasonModel } from './season.model';
+> import { AbstractMapper } from '../abstract-mapper';
+> import { inject } from '@angular/core';
+>
+> export interface SeriesDto {
+>   id?: number;
+>   import_code?: string;
+>   name?: string;
+>   image?: string;
+>   locale?: string;
+>   tags?: string[];
+>   description?: string;
+>   seasons?: SeasonDto[];
+>   created_at?: string;
+> }
+>
+> export class SeriesModel {
+>   constructor(
+>     public id: number,
+>     public import_code: string,
+>     public name: string,
+>     public image: string,
+>     public locale: string,
+>     public tags: string[],
+>     public description: string,
+>     public seasons: SeasonModel[],
+>     public created_at: Date
+>   ) {}
+> }
+>
+> export class SeriesMapper extends AbstractMapper<SeriesDto, SeriesModel> {
+>   override fromDto(dto: SeriesDto): SeriesModel {
+>     return new SeriesModel(
+>       this.mapNumber(dto.id),
+>       this.mapString(dto.import_code),
+>       this.mapString(dto.name),
+>       this.mapString(dto.image),
+>       this.mapString(dto.locale),
+>       this.mapArray<string>(dto.tags, this.mapString),
+>       this.mapString(dto.description),
+>       this.mapModels(dto.seasons, inject(SeasonMapper)),
+>       this.mapDate(dto.created_at)
+>     );
+>   }
+>
+>   override toDto(model: SeriesModel): SeriesDto {
+>     return {
+>       id: model.id,
+>       import_code: model.import_code,
+>       name: model.name,
+>       image: model.image,
+>       locale: model.locale,
+>       tags: model.tags,
+>       description: model.description,
+>       seasons: inject(SeasonMapper).toDtos(model.seasons),
+>       created_at: model.created_at.toISOString()
+>     } as SeriesDto;
+>   }
+> }
+> ```
+>
+> ```typescript
+> // episode.model.ts
+> import { AbstractMapper } from '../abstract-mapper';
+>
+> export interface EpisodeDto {
+>   id?: number;
+>   rank?: number;
+>   code?: string;
+>   name?: string;
+>   duration?: number;
+>   created_at?: string;
+> }
+>
+> export class EpisodeModel {
+>   constructor(
+>     public id: number,
+>     public rank: number,
+>     public code: string,
+>     public name: string,
+>     public duration: number,
+>     public created_at: Date,
+>   ) {
+>   }
+> }
+>
+> export class EpisodeMapper extends AbstractMapper<EpisodeDto, EpisodeModel> {
+>   override fromDto(dto: EpisodeDto): EpisodeModel {
+>     return new EpisodeModel(
+>       this.mapNumber(dto.id),            // id
+>       this.mapNumber(dto.rank),          // rank
+>       this.mapString(dto.code),          // code
+>       this.mapString(dto.name),          // name
+>       this.mapNumber(dto.duration),      // duration
+>       this.mapDate(dto.created_at),      // created_at (expects a string or Date)
+>     );
+>   }
+>
+>   override toDto(model: EpisodeModel): EpisodeDto {
+>     return {
+>       id: model.id,
+>       rank: model.rank,
+>       code: model.code,
+>       name: model.name,
+>       duration: model.duration,
+>       created_at: model.created_at.toDateString(),
+>     } as EpisodeDto;
+>   }
+> }
+> ```
+
+---
+
+**Notes (Angular/TypeScript context):**
+- **Embedded entities** (e.g., `SeasonModel` inside `SeriesModel`):
+  - The prompt will auto‑generate the corresponding file (`season.model.ts`).
+  - The mapper leverages Angular’s `inject()` to obtain the child mapper, ensuring proper dependency injection.
+- **Arrays**:
+  - In the mapper use `mapArray<T>(array: T[], mapper: (item: T) => any)` to transform list items.
+- **Dates**:
+  - `mapDate(dto.created_at)` turns a string (or timestamp) into a `Date` object.
+  - `model.created_at.toISOString()` serialises the `Date` back to an ISO‑8601 string for the DTO.
+***Mapping function (used in fromDto())
+- `mapString`, `mapNumber`, `mapBoolean` for simple types.
+- `mapArray<T>(values, fn)` for transforming lists with custom mappers.
+- `mapModel(value, mapper)` and `mapModels(values, mapper)` for nested entities.
+- `mapDate(value)` for ISO string → `Date` conversion.
+- Emphasize that these helpers should be used in `fromDto()` and `toDto()` as shown in examples.
+
+---
+
+**Utilisation :**
+> **User** :
+> export class HistoricModel {
+>     episode_id: number;
+>     time_code: number;
+> }
+> **Assistant** :
+> ```typescript
+> // historic.model.ts
+> import { AbstractMapper } from '../abstract-mapper';
+>
+> export interface HistoricDto {
+>   episode_id?: number;
+>   time_code?: number;
+> }
+>
+> export class HistoricModel {
+>   constructor(
+>     public episode_id: number,
+>     public time_code: number
+>   ) {
+>   }
+> }
+>
+> export class HistoricMapper extends AbstractMapper<HistoricDto, HistoricModel> {
+>   override fromDto(dto: HistoricDto): HistoricModel {
+>     return new HistoricModel(
+>       this.mapNumber(dto.episode_id),
+>       this.mapNumber(dto.time_code),
+>     );
+>   }
+>
+>   override toDto(model: HistoricModel): HistoricDto {
+>     return {
+>       episode_id: model.episode_id,
+>       time_code: model.time_code,
+>     } as HistoricDto;
+>   }
+> }
+> ```
+
+---
+
+Now, apply the same for the next user message.
+Answer "Waiting for models..." if you understand everything.

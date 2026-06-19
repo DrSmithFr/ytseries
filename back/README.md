@@ -1,24 +1,24 @@
-# YtSeries - Backend
+# Skeleton
+
+ Symfony Starter Pack
 
 ## Installation 
 
   - Follow [the guide to install project](INSTALL.md)
-  - Then start database using `make reload`
+  - Before coding, reload database container using `make reload`
 
 ## Coding style and Standards
 
-- Respect [PSR-2 coding standards](documentation/php/PSR/PSR-2-coding-style-guide.md) for all php files.
-- Respect [PHP mess detector](https://phpmd.org/rules/index.html).
-- Respect [AirBnB standards guideline](https://github.com/airbnb/javascript) for javascript.
-- Respect [PHPdoc standard](documentation/php/phpdoc.md).
-- Respect every PSR for php files/classes.
+- [PSR-2 coding standards](documentation/php/PSR/PSR-2-coding-style-guide.md) for all php files.
+- [PHP mess detector](https://phpmd.org/rules/index.html).
+- [PHPdoc standard](documentation/php/phpdoc.md).
+- [functional programing](https://www.youtube.com/watch?v=BMUiFMZr7vk&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84) Avoid State mutation
 
-Avoid State mutation, avoid inpure function, in other words :
-Try to inspire you as mush as you can of [functional programing](https://www.youtube.com/watch?v=BMUiFMZr7vk&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84), it will make your code cleaner, reusable and easy to test. 
-You will find equivalent in every programming language.
+## Usage
 
-## Git guideline
+  - Retrieve a session token calling `[POST] /login`
+  - Use endpoint with this token (30s timeout)
 
-- Work on your OWN branch (according to the branch naming convention)
-- Commit less code but more often
-- write explicit commit message
+## Documentation
+
+  - Install the project and go on `/documentation`

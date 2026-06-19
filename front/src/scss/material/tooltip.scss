@@ -1,0 +1,15 @@
+@use "sass:map";
+@use '@angular/material' as mat;
+
+@mixin load() {
+  @include mat.tooltip-overrides((
+    container-color: #fff,
+    supporting-text-color: #000,
+    supporting-text-font: 14px,
+    //supporting-text-line-height: ,
+    //supporting-text-size: ,
+    //supporting-text-tracking: ,
+    supporting-text-weight: 600,
+  ));
+}
+

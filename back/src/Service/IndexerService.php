@@ -11,10 +11,7 @@ use Elastica\Document;
 
 class IndexerService
 {
-    /**
-     * @var SeriesRepository
-     */
-    private $repository;
+    private SeriesRepository $repository;
 
     public function __construct(SeriesRepository $repository)
     {

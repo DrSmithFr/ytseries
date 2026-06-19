@@ -7,7 +7,7 @@ namespace App\Repository;
 use App\Entity\SeriesType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * Class SeriesTypeRepository
@@ -20,9 +20,9 @@ class SeriesTypeRepository extends ServiceEntityRepository
     /**
      * UserRepository constructor.
      *
-     * @param RegistryInterface $registry
+     * @param ManagerRegistry $registry
      */
-    public function __construct(RegistryInterface $registry)
+    public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, SeriesType::class);
     }

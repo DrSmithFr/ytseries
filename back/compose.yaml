@@ -1,0 +1,62 @@
+
+services:
+###> doctrine/doctrine-bundle ###
+  database:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-app}
+      # You should definitely change the password in production
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      POSTGRES_USER: ${POSTGRES_USER:-symfony}
+    healthcheck:
+      test: ["CMD", "pg_isready", "-d", "${POSTGRES_DB:-app}", "-U", "${POSTGRES_USER:-app}"]
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+    volumes:
+      - database_data:/var/lib/postgresql/data
+###< doctrine/doctrine-bundle ###
+
+###> symfony/redis-bundle ###
+  redis:
+    image: redis:7-alpine
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    volumes:
+      - redis_data:/data:rw
+###< symfony/redis-bundle ###
+
+###> ruflin/elastica ###
+  elasticsearch:
+    image: elasticsearch:8.19.3
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - cluster.name=ytseries
+      - node.name=es01
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data:rw
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -fsSL https://localhost:9200/_cluster/health | grep -q '\"status\":\"green\"'" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+###< ruflin/elastica ###
+
+volumes:
+###> doctrine/doctrine-bundle ###
+  database_data:
+###< doctrine/doctrine-bundle ###
+
+###> symfony/redis-bundle ###
+  redis_data:
+###< symfony/redis-bundle ###
+
+###> ruflin/elastica ###
+  elasticsearch_data:
+###< ruflin/elastica ###

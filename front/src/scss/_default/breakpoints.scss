@@ -1,0 +1,92 @@
+@use "sass:map";
+
+$breakpoints: (
+  mobile: 500,
+  tablet: 900,
+  desktop: 1200,
+);
+
+@mixin mobile-xs {
+  @media screen and (max-width: #{map.get($breakpoints, mobile)-1}px) { @content; }
+}
+
+@mixin mobile-xl {
+  @media screen and (min-width: #{map.get($breakpoints, mobile)}px) and (max-width: #{map.get($breakpoints, tablet)-1}px) { @content; }
+}
+
+@mixin mobile-all {
+  @media screen and (max-width: #{map.get($breakpoints, tablet)-1}px) { @content; }
+}
+
+@mixin tablet {
+  @media screen and (min-width: #{map.get($breakpoints, tablet)}px) and (max-width: #{map.get($breakpoints, desktop)-1}px){ @content; }
+}
+
+@mixin mobile-and-tablet() {
+  @media screen and (max-width: #{map.get($breakpoints, desktop)-1}px) { @content; }
+}
+
+@mixin desktop {
+  @media screen and (min-width: #{map.get($breakpoints, desktop)}px) { @content; }
+}
+
+@mixin tablet-and-desktop() {
+  @media screen and (min-width: #{map.get($breakpoints, tablet)}px) { @content; }
+}
+
+// CSS Helpers
+.only-small-mobile {
+  display: none;
+
+  @include mobile-xs {
+    display: block;
+  }
+}
+
+.only-mobile {
+  display: none;
+
+  @include mobile-all {
+    display: block;
+  }
+}
+
+.only-tablet {
+  display: none;
+
+  @include tablet {
+    display: block;
+  }
+}
+
+.only-desktop {
+  display: none;
+
+  @include desktop {
+    display: block;
+  }
+}
+
+.hide-on-small-mobile {
+  @include mobile-xs {
+    display: none;
+  }
+}
+
+.hide-on-mobile {
+  @include mobile-all {
+    display: none;
+  }
+}
+
+.hide-on-tablet {
+  @include tablet {
+    display: none;
+  }
+}
+
+.hide-on-desktop {
+  @include desktop {
+    display: none !important;
+  }
+}

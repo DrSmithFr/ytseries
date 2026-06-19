@@ -1,16 +1,29 @@
-version: '3'
-
-networks:  # Uncomment on linux for static IP and xdebug
-  dev:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 10.2.0.0/16  # Ip range for static ip on dev mod
-
 services:
+###> doctrine/doctrine-bundle ###
+  database:
+    ports:
+      - "5432:5432"
+###< doctrine/doctrine-bundle ###
+
+###> symfony/mailer ###
+  mailer:
+    image: axllent/mailpit
+    ports:
+      - "1025"
+      - "8025"
+    environment:
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+###< symfony/mailer ###
+
+###> symfony/redis-bundle ###
+  redis:
+    ports:
+      - 6379:6379
+###< symfony/redis-bundle ###
+
+###> ruflin/elastica ###
   elasticsearch:
-    image: elasticsearch:5-alpine
-    networks:
-      dev:
-        ipv4_address: 10.2.0.2
-      default:
+    ports:
+      - 9200:9200
+###< ruflin/elastica ###

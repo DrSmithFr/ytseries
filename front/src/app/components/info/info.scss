@@ -1,0 +1,107 @@
+@use "breakpoints" as device;
+
+.mat-card, .mat-mdc-card, .mdc-card {
+  background-color: var(--background);
+  box-shadow: 0 3px 20px rgba(70,94,119,.153);
+}
+
+.info {
+  padding: 20px;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  .icon-container {
+    text-align: center;
+    width: 64px;
+
+    @include device.mobile-xs() {
+      width: 40px;
+    }
+  }
+
+  .spinner-container {
+    text-align: center;
+    width: 54px;
+
+    @include device.mobile-xs() {
+      width: 30px;
+    }
+  }
+
+  mat-spinner {
+    display: inline-block;
+
+    height: 15px;
+    width: 15px;
+  }
+
+  .disclaimer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .info-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    @include device.mobile-xs() {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.color-info {
+  .disclaimer,
+  .icon {
+    color: var(--text-light);
+  }
+}
+
+.color-warning {
+  .disclaimer,
+  .icon {
+    color: var(--primary);
+  }
+}
+
+
+.color-error {
+  .disclaimer,
+  .icon {
+    color: var(--warn-dark);
+  }
+}
+
+.color-pending {
+  .disclaimer {
+    color: var(--text-light);
+  }
+
+  .icon {
+    color: var(--text-light);
+  }
+}
+
+.color-success {
+  .disclaimer,
+  .icon,
+  p,
+  h1,h2,h3,h4,h5,h6 {
+    color: var(--primary);
+  }
+}
+
+

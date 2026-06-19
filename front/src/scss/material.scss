@@ -1,0 +1,52 @@
+// src/styles/theme.scss
+@use '@angular/material' as mat;
+@use 'material/_all' as all;
+
+// - Include core resets & base mixins
+@include mat.core();
+
+// - Define a modern M3 theme (v19+ / v20)
+$my-theme: mat.define-theme((
+  color: (
+    theme-type: "dark",                              // - "light" or "dark"
+    primary: mat.$orange-palette,
+    //secondary: mat.$green-palette,
+    //tertiary: mat.$spring-green-palette,
+    use-system-variables: true,                    // - generate CSS custom properties (optional)
+  ),
+  typography: (
+    // - Provide typography as a map for M3. These keys are supported in v19+ / v20.
+    plain-family: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+    brand-family: 'Inter, system-ui, -apple-system, sans-serif',
+    regular-weight: 400,
+    medium-weight: 500,
+    bold-weight: 700,
+    use-system-variables: true,                    // - make typography available as CSS variables
+  ),
+  density: (
+    scale: -3                                       // - optional spacing density
+  ),
+));
+
+// - Emit component styles & tokens globally (default theme)
+html {
+  color-scheme: dark;
+
+  @include mat.all-component-themes($my-theme);    // - colors, density, components
+  @include mat.typography-hierarchy($my-theme);    // - generates typography classes / tokens
+
+
+  --mat-sys-background: #141414;
+  --mat-sys-on-background: #9b9b9b;
+
+  --mat-sys-surface-container: #141414;
+  --mat-sys-on-surface: #9b9b9b;
+
+  --mat-sys-primary-container: #141414;
+  --mat-sys-on-primary-container: #9b9b9b;
+
+
+  // Loading overrides
+  @include all.load();
+}
+

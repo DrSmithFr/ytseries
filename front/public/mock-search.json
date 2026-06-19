@@ -1,0 +1,1305 @@
+{
+  "assets": [
+    {
+      "id": "real_cops",
+      "locale": "fr",
+      "name": "Real Cops",
+      "image": "https:\/\/img.youtube.com\/vi\/J9tAYZeKCRM\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "La vie de policier est parfois bien difficile !",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 7,
+      "import_date": 1758879966
+    },
+    {
+      "id": "dead_floor",
+      "locale": "fr",
+      "name": "DEAD FLOOR",
+      "image": "https:\/\/img.youtube.com\/vi\/j-4Cbv71nuw\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Apr\u00e8s une nuit de f\u00eate, c\u2019est l\u2019heure de l\u2019after \u00e0 l\u2019Armagedance. Mais pour les acharn\u00e9s qui refusent de quitter le dance floor, le pire est \u00e0 venir...",
+      "categories": [
+        "Thriller",
+        "Drame",
+        "Action",
+        "Aventure"
+      ],
+      "tags": [
+        "zombie",
+        "musique"
+      ],
+      "seasons": 1,
+      "episodes": 5,
+      "import_date": 1758879966
+    },
+    {
+      "id": "dead_lands",
+      "locale": "fr",
+      "name": "Dead Landes",
+      "image": "https:\/\/img.youtube.com\/vi\/sWS5beMd18I\/mqdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "C\u0027est la fin de l\u0027\u00e9t\u00e9 \u00e0 l\u0027Escapade, dans un petit camping au bord de la faillite au c\u0153ur des Landes de myst\u00e9rieuses catastrophes surviennent...",
+      "categories": [
+        "Thriller",
+        "Science fiction",
+        "Drame",
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 10,
+      "import_date": 1758879966
+    },
+    {
+      "id": "what_the_cut",
+      "locale": "fr",
+      "name": "WHAT THE CUT",
+      "image": "https:\/\/img.youtube.com\/vi\/OsAT9DPNC4Q\/mqdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "L\u0027emition d\u0027antoine daniel,  Review de vid\u00e9os du net.",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 35,
+      "import_date": 1758879966
+    },
+    {
+      "id": "identifier",
+      "locale": "us",
+      "name": "Ctrl alt del",
+      "image": "https:\/\/i.ytimg.com\/vi\/RJEeTH3gQjU\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Time for a love story reset. The first episode from our first ever web series. Watch and Enjoy.",
+      "categories": [
+        "Romantique"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 8,
+      "import_date": 1758879966
+    },
+    {
+      "id": "salade_fingers",
+      "locale": "us",
+      "name": "Salad fingers",
+      "image": "https:\/\/i.ytimg.com\/vi\/OWBFKL6H7rI\/sddefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Salad Fingers goes on the lookout for the perfect spoon.",
+      "categories": [
+        "Humour",
+        "Horreur"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 11,
+      "import_date": 1758879966
+    },
+    {
+      "id": "eighty-sixed",
+      "locale": "us",
+      "name": "Eighty-sixed",
+      "image": "https:\/\/i.ytimg.com\/vi\/2qNX97CtgSQ\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Remi gets dumped and her friends attempts to console her only makes things worse.",
+      "categories": [],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 8,
+      "import_date": 1758879966
+    },
+    {
+      "id": "les_dissocies",
+      "locale": "fr",
+      "name": "Les Dissoci\u00e9s",
+      "image": "https:\/\/img.youtube.com\/vi\/5lUBlW72qBQ\/maxresdefault.jpg",
+      "type": "Film",
+      "description": "Apr\u00e8s s\u2019\u00eatre fait voler leur corps, Lily et Ben vont explorer un monde o\u00f9 le corps ne compte plus et dans lequel leur \u00e2me sera mise \u00e0 l\u2019\u00e9preuve.",
+      "categories": [
+        "Thriller",
+        "Aventure",
+        "Humour"
+      ],
+      "tags": [
+        "preview",
+        "youtube"
+      ],
+      "seasons": 1,
+      "episodes": 1,
+      "import_date": 1758879966
+    },
+    {
+      "id": "lunar",
+      "locale": "fr",
+      "name": "Lunar",
+      "image": "https:\/\/img.youtube.com\/vi\/9qvNtzr0nqU\/maxresdefault.jpg",
+      "type": "Court m\u00e9trage",
+      "description": "Un homme braque la mauvaise famille...",
+      "categories": [
+        "Thriller"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 1,
+      "import_date": 1758879966
+    },
+    {
+      "id": "respire",
+      "locale": "fr",
+      "name": "Respire",
+      "image": "https:\/\/img.youtube.com\/vi\/Rwvmimo2z-s\/maxresdefault.jpg",
+      "type": "Court m\u00e9trage",
+      "description": "Antoine aime courir, mais il souffre de fibrose kystique. \u00c0 l\u0027h\u00f4pital, il fait la connaissance de Juliette, une vieille dame cingl\u00e9e.",
+      "categories": [
+        "Aventure",
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 1,
+      "import_date": 1758879966
+    },
+    {
+      "id": "dessine_moi_un_alien",
+      "locale": "fr",
+      "name": "Dessine-moi un Alien",
+      "image": "https:\/\/img.youtube.com\/vi\/SU_2bRmIswc\/maxresdefault.jpg",
+      "type": "Court m\u00e9trage",
+      "description": "Un court m\u00e9trage sur le dessin et les extraterrestres.",
+      "categories": [
+        "Thriller",
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 1,
+      "import_date": 1758879966
+    },
+    {
+      "id": "la_science_de_lamour",
+      "locale": "fr",
+      "name": "La science de l\u0027amour",
+      "image": "https:\/\/img.youtube.com\/vi\/pmqvuh87WTo\/maxresdefault.jpg",
+      "type": "Court m\u00e9trage",
+      "description": "Du jour au lendemain, l\u2019amour devient quantifiable gr\u00e2ce \u00e0 une r\u00e9volution scientifique appel\u00e9e Lovecount.",
+      "categories": [
+        "Romantique",
+        "Drame"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 1,
+      "import_date": 1758879966
+    },
+    {
+      "id": "destiny",
+      "locale": "fr",
+      "name": "Les Minions - La Comp\u00e9tition",
+      "image": "https:\/\/img.youtube.com\/vi\/E-znxPIeTOE\/maxresdefault.jpg",
+      "type": "Court m\u00e9trage",
+      "description": "Un match de boxe au sommet, une comp\u00e9tition ENRAG\u00c9E ! Les Minions vont, encore, trop loin !",
+      "categories": [
+        "Action",
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 1,
+      "import_date": 1758879966
+    },
+    {
+      "id": "sweet_cocoon",
+      "locale": "fr",
+      "name": "Sweet Cocoon",
+      "image": "https:\/\/img.youtube.com\/vi\/VMyQkfHr9a0\/maxresdefault.jpg",
+      "type": "Court m\u00e9trage",
+      "description": "Deux insectes aident une chenille dans sa m\u00e9tamorphose...",
+      "categories": [],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 1,
+      "import_date": 1758879966
+    },
+    {
+      "id": "somnambule",
+      "locale": "fr",
+      "name": "Somnambule",
+      "image": "https:\/\/img.youtube.com\/vi\/aSy03qaL99U\/mqdefault.jpg",
+      "type": "Court m\u00e9trage",
+      "description": "Quand vous dormez, vous ne contr\u00f4lez plus rien ... D\u00e9couvrez \u0022Somnambule\u0022, le nouveau court-m\u00e9trage de Studio Movie. Inspir\u00e9 de faits r\u00e9els",
+      "categories": [
+        "Thriller"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 1,
+      "import_date": 1758879966
+    },
+    {
+      "id": "la_boucherie_ethique",
+      "locale": "fr",
+      "name": "La Boucherie \u00c9thique",
+      "image": "https:\/\/img.youtube.com\/vi\/vwZee0r_ICs\/maxresdefault.jpg",
+      "type": "Film",
+      "description": "La Boucherie \u00e9thique est une avanc\u00e9e pour la cause animale et une r\u00e9volution alimentaire qui nous a pos\u00e9 beaucoup de questions et auxquelles nous avons essay\u00e9 de r\u00e9pondre \u00e0 travers ce documentaire.",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 1,
+      "import_date": 1758879966
+    },
+    {
+      "id": "petit_monstre",
+      "locale": "fr",
+      "name": "Le petit Monstre",
+      "image": "https:\/\/img.youtube.com\/vi\/HwmAt01cjMU\/maxresdefault.jpg",
+      "type": "Court m\u00e9trage",
+      "description": "Un jeune livreur tombe sous le charme d\u2019une myst\u00e9rieuse jeune femme qui vit clo\u00eetr\u00e9e dans son appartement. Lorsqu\u2019il r\u00e9ussit enfin \u00e0 avoir un rendez-vous chez elle, celle-ci lui r\u00e9v\u00e8le son secret\u2026",
+      "categories": [
+        "Romantique",
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 1,
+      "import_date": 1758879966
+    },
+    {
+      "id": "serge_le_mytho",
+      "locale": "fr",
+      "name": "Serge Le Mytho",
+      "image": "https:\/\/img.youtube.com\/vi\/lIkYYGwp1y4\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "L\u0027histoire d\u0027un mec qui raconte des histoires.",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 29,
+      "import_date": 1758879965
+    },
+    {
+      "id": "visiteur_du_future",
+      "locale": "fr",
+      "name": "Le Visiteur du Futur",
+      "image": "http:\/\/idata.over-blog.com\/2\/43\/97\/50\/New2\/Affiches\/VDF-Saison3-Action-pour-Web.jpg",
+      "type": "S\u00e9ries",
+      "description": "Il vient du futur pour nous rendre visite, c\u0027est le Visiteur du Futur.",
+      "categories": [
+        "Thriller",
+        "Science fiction",
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 4,
+      "episodes": 57,
+      "import_date": 1758879965
+    },
+    {
+      "id": "les_parasites",
+      "locale": "fr",
+      "name": "Les Parasites",
+      "image": "https:\/\/en.tipeee.com\/api\/v1.0\/images\/1063091?width=1200\u0026height=630",
+      "type": "S\u00e9ries",
+      "description": "Les Parasites vous racontent des histoires...",
+      "categories": [],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 15,
+      "import_date": 1758879965
+    },
+    {
+      "id": "noob",
+      "locale": "fr",
+      "name": "NOOB",
+      "image": "https:\/\/levarois.com\/wp-content\/uploads\/2016\/07\/noob-couverture.jpg",
+      "type": "S\u00e9ries",
+      "description": "NOOB est la premi\u00e8re web-s\u00e9rie sur le th\u00e8me des mmorpg ! Elle est num\u00e9ro 1 au box office fran\u00e7ais depuis 2009 et pr\u00e9sente les aventures d\u00e9jant\u00e9es de la pire guilde de tous les temps !",
+      "categories": [
+        "Action",
+        "Science fiction",
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 9,
+      "episodes": 128,
+      "import_date": 1758879965
+    },
+    {
+      "id": "damned",
+      "locale": "fr",
+      "name": "Damned",
+      "image": "https:\/\/img.youtube.com\/vi\/vtUyBDpplh0\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Sinji Sam et Johan sont exorcistes \u00e0 Grenoble. Leur petite entreprise ne connait pas la crise mais leur position de  monopole va \u00eatre quelque peu malmen\u00e9e...",
+      "categories": [
+        "Thriller",
+        "Action"
+      ],
+      "tags": [],
+      "seasons": 3,
+      "episodes": 19,
+      "import_date": 1758879965
+    },
+    {
+      "id": "derriere_youtube",
+      "locale": "fr",
+      "name": "Derri\u00e8re Youtube",
+      "image": "https:\/\/img.youtube.com\/vi\/9kQ__KUK2bw\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Un aper\u00e7u de la vie difficile des youtubers",
+      "categories": [
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 3,
+      "episodes": 19,
+      "import_date": 1758879965
+    },
+    {
+      "id": "crash_zoom",
+      "locale": "us",
+      "name": "CRASH ZOOM",
+      "image": "https:\/\/img.youtube.com\/vi\/Ii4Rbbk8zAs\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "CONTENT WARNINGS: Demons, explosions, violence... Honestly it\u0027s got everything but swearing and blasphemy.",
+      "categories": [
+        "Action",
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 6,
+      "import_date": 1758879965
+    },
+    {
+      "id": "asdf",
+      "locale": "us",
+      "name": "ASDF Movie",
+      "image": "https:\/\/img.youtube.com\/vi\/IYnsfV5N2n8\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "nothing more than internet.",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 11,
+      "import_date": 1758879965
+    },
+    {
+      "id": "histoire_chausette",
+      "locale": "fr",
+      "name": "L\u0027Histoire racont\u00e9e par des Chaussettes",
+      "image": "https:\/\/img.youtube.com\/vi\/8JedMH7URdM\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Les d\u00e9couvertes \u00e9tranges d\u0027apr\u00e8s des chaussettes. Par Yacine et Dedo.",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 11,
+      "import_date": 1758879965
+    },
+    {
+      "id": "ferdinand",
+      "locale": "fr",
+      "name": "Ferdinand",
+      "image": "https:\/\/img.youtube.com\/vi\/jJy3abklXeQ\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Ferdinand n\u0027avait pas d\u0027amis... Mais Ferdinand avait un plan !",
+      "categories": [
+        "Aventure",
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 3,
+      "import_date": 1758879965
+    },
+    {
+      "id": "croc_love",
+      "locale": "fr",
+      "name": "CROC LOVE",
+      "image": "https:\/\/img.youtube.com\/vi\/pjYl1TQbj1c\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Hector et H\u00e9l\u00e9na assiste \u00e9bahis \u00e0 une r\u00e9volution technologique majeure : une journaliste annonce l\u2019invention d\u2019un Test de l\u2019Amour, permettant de mesurer vos sentiments.",
+      "categories": [
+        "Romantique",
+        "Drame"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 10,
+      "import_date": 1758879965
+    },
+    {
+      "id": "terreur_404",
+      "locale": "fr",
+      "name": "TERREUR 404",
+      "image": "https:\/\/img.youtube.com\/vi\/JtJ4OJImJ5Q\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "La soir\u00e9e s\u2019annon\u00e7ait parfaite, jusqu\u2019\u00e0 ce que Maxime accepte, sans r\u00e9fl\u00e9chir sur Facebook, une demande d\u2019amis envoy\u00e9e par\u2026 lui-m\u00eame.",
+      "categories": [
+        "Thriller"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 8,
+      "import_date": 1758879965
+    },
+    {
+      "id": "bitmuch",
+      "locale": "fr",
+      "name": "BITMUCH",
+      "image": "https:\/\/img.youtube.com\/vi\/V6DCYtAKL1s\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Multinationale gigantesque, la soci\u00e9t\u00e9 Bitmuch est dirig\u00e9e par des hommes d\u2019affaires extr\u00eamement ambitieux mais compl\u00e8tement incomp\u00e9tents.",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 5,
+      "import_date": 1758879965
+    },
+    {
+      "id": "monsieur_flap",
+      "locale": "fr",
+      "name": "Monsieur Flap",
+      "image": "https:\/\/img.youtube.com\/vi\/GHR21HB4cZ8\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "C\u2019est l\u2019histoire d\u2019un homme avec une t\u00eate de cul qui tombe amoureux.",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 11,
+      "import_date": 1758879965
+    },
+    {
+      "id": "la_petite_mort",
+      "locale": "fr",
+      "name": "La Petite Mort",
+      "image": "https:\/\/img.youtube.com\/vi\/XiY0AdNd79s\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "D\u00e9m\u00e9nager quand on est gosse ce n\u0027est jamais facile, mais quand en plus il faut faucher le voisinage...",
+      "categories": [
+        "Drame",
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 10,
+      "import_date": 1758879965
+    },
+    {
+      "id": "the_cell",
+      "locale": "fr",
+      "name": "The Cell",
+      "image": "https:\/\/img.youtube.com\/vi\/B-HEy0JloAs\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Gaspard, il est comme toi et moi, une petite vie tranquille mais un peu chiante quand m\u00eame... jusqu\u0027\u00e0 ... la journ\u00e9e de merde de trop.",
+      "categories": [
+        "Thriller",
+        "Action"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 10,
+      "import_date": 1758879965
+    },
+    {
+      "id": "monsieur_carton",
+      "locale": "fr",
+      "name": "Monsieur Carton",
+      "image": "https:\/\/img.youtube.com\/vi\/PGazJej-QK8\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "La candeur et la douce folie de Mr. Carton, son inconscience aussi parfois, f\u00e9d\u00e8rent le spectateur \u00e0 sa cause, aussi futile soit-elle.",
+      "categories": [
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 13,
+      "import_date": 1758879965
+    },
+    {
+      "id": "reboot",
+      "locale": "fr",
+      "name": "Reboot",
+      "image": "https:\/\/img.youtube.com\/vi\/kouJTXPp5U4\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Oscar a tout pour \u00eatre heureux : une femme enceinte, une maison en banlieue et un Kangoo. Tout est parfait\u2026 sauf lorsqu\u2019il se rend compte que tous ses coll\u00e8gues de travail sont des robots.",
+      "categories": [
+        "Thriller",
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 2,
+      "episodes": 14,
+      "import_date": 1758879965
+    },
+    {
+      "id": "tout_le_monde_sen_fou",
+      "locale": "fr",
+      "name": "Et tout le monde s\u0027en fout",
+      "image": "https:\/\/img.youtube.com\/vi\/EDDxAIhHt08\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Notre monde est stup\u00e9fiant. Et si on arr\u00eatait de s\u2019en foutre ?",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 2,
+      "episodes": 37,
+      "import_date": 1758879965
+    },
+    {
+      "id": "durty_biologie",
+      "locale": "fr",
+      "name": "DirtyBiology",
+      "image": "https:\/\/img.youtube.com\/vi\/JyQqFZHJWTA\/maxresdefault.jpg",
+      "type": "Documentaire",
+      "description": "Des vid\u00e9os de science sur des sujets mindfuck, crades, ou juste rigolos. Parfois on parle de biologie aussi.",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 51,
+      "import_date": 1758879965
+    },
+    {
+      "id": "jaime_mon_job",
+      "locale": "fr",
+      "name": "J\u0027aime mon Job",
+      "image": "https:\/\/img.youtube.com\/vi\/cqhA5hpu2KE\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "A chaque \u00e9pisode un personnage nous fait d\u00e9couvrir avec s\u00e9rieux son m\u00e9tier nous pr\u00e9sentant ses avantages et ses inconv\u00e9nients, avec mise en situation, la cam\u00e9ra le suivant sur ses lieux d\u0027exercic",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 17,
+      "import_date": 1758879965
+    },
+    {
+      "id": "the_system",
+      "locale": "fr",
+      "name": "The System",
+      "image": "https:\/\/img.youtube.com\/vi\/OOwFCinUA9s\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "La terreur s\u2019intensifie en France depuis l\u2019arriv\u00e9e au pouvoir du nouveau pr\u00e9sident. En cette ann\u00e9e 2032, le pays se d\u00e9truit, et l\u2019\u00e9tat met tout en place pour \u00e9viter toute r\u00e9bellion.",
+      "categories": [
+        "Thriller",
+        "Drame"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 6,
+      "import_date": 1758879965
+    },
+    {
+      "id": "seltsam",
+      "locale": "fr",
+      "name": "SELTSAM",
+      "image": "https:\/\/img.youtube.com\/vi\/QhoCszDhOuM\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Par une belle nuit, Emilien s\u2019endormit de nouveau dans son canap\u00e9 devant son t\u00e9l\u00e9viseur. Mais cette fois une myst\u00e9rieuse dame a frapp\u00e9 \u00e0 sa porte ...",
+      "categories": [
+        "Thriller"
+      ],
+      "tags": [],
+      "seasons": 2,
+      "episodes": 12,
+      "import_date": 1758879965
+    },
+    {
+      "id": "machine_et_machinette",
+      "locale": "fr",
+      "name": "Machine \u0026 Machinette",
+      "image": "https:\/\/img.youtube.com\/vi\/zt091zLYYLk\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Ce jour o\u00f9, bien p\u00e9p\u00e8re au taf, on t\u2019apprend que ton nouvel adjoint n\u2019est autre qu\u2019un robot.",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 12,
+      "import_date": 1758879965
+    },
+    {
+      "id": "face_au_diable",
+      "locale": "fr",
+      "name": "Face au Diable",
+      "image": "https:\/\/img.youtube.com\/vi\/6M1OAbeefp4\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "En plein bras de fer avec la direction de son usine, Hugo Bernal est l\u00e2ch\u00e9 par la CFT, son syndicat. C\u2019est la chute libre. Heureusement son ami Stan l\u2019emm\u00e8ne en boite, o\u00f9 il va faire une rencontre.",
+      "categories": [
+        "Drame",
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 10,
+      "import_date": 1758879965
+    },
+    {
+      "id": "hashtag_32",
+      "locale": "fr",
+      "name": "#32",
+      "image": "https:\/\/img.youtube.com\/vi\/OwocNb-UftA\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Dans le Gers, cinq amis ins\u00e9parables d\u00e9couvrent les r\u00e9sultats du bac. Si certains l\u2019ont, et vont partir poursuivre leurs \u00e9tudes hors du d\u00e9partement, d\u2019autres ont \u00e9chou\u00e9, et vont devoir rester une ann\u00e9e de plus au lyc\u00e9e.",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 6,
+      "import_date": 1758879965
+    },
+    {
+      "id": "la_theorie_du_y",
+      "locale": "fr",
+      "name": "La th\u00e9orie du Y",
+      "image": "https:\/\/img.youtube.com\/vi\/GBWfB_lgZT4\/mqdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Anna s\u2019ennuie dans son couple. Sur un coup de t\u00eate, elle plante Matteo, son copain. Elle se retrouve dans un bar o\u00f9 elle fait la connaissance de Malik et de Claire...",
+      "categories": [
+        "Romantique",
+        "Drame"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 11,
+      "import_date": 1758879965
+    },
+    {
+      "id": "osef",
+      "locale": "fr",
+      "name": "OSEF",
+      "image": "https:\/\/img.youtube.com\/vi\/lNdsEaCwttI\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Dans cette web s\u00e9rie, vous suivrez 7 adolescents aux personnalit\u00e9s diff\u00e9rentes au cours d\u0027une ann\u00e9e scolaire. Des professeurs compl\u00e9tement d\u00e9jant\u00e9s viendront \u00e9galement mettre leurs grain de sel.",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 2,
+      "episodes": 13,
+      "import_date": 1758879965
+    },
+    {
+      "id": "tu_mourras_moins_bete",
+      "locale": "fr",
+      "name": "Tu mourras moins b\u00eate",
+      "image": "https:\/\/img.youtube.com\/vi\/GYjiQYkFG-A\/maxresdefault.jpg",
+      "type": "Documentaire",
+      "description": "Le Professeur Moustache et son assistant Nathana\u00ebl expliquent les ph\u00e9nom\u00e8nes scientifiques du quotidien.",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 2,
+      "episodes": 64,
+      "import_date": 1758879965
+    },
+    {
+      "id": "univers_aurelien_bareau",
+      "locale": "fr",
+      "name": "L\u0027Univers par Aur\u00e9lien Barrau",
+      "image": "https:\/\/img.youtube.com\/vi\/zjIC6jIQRKQ\/maxresdefault.jpg",
+      "type": "Documentaire",
+      "description": "L\u2019enjeu de ce cours est \u00e0 la fois de constituer une introduction \u00e9l\u00e9mentaire \u00e0 la cosmologie et de proposer un lieu d\u2019\u00e9change et de r\u00e9flexion sur la nature de la pens\u00e9e scientifique.",
+      "categories": [],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 11,
+      "import_date": 1758879965
+    },
+    {
+      "id": "swerve",
+      "locale": "us",
+      "name": "Swerve",
+      "image": "https:\/\/img.youtube.com\/vi\/vnl93IPAZUc\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Elise is a young woman who decides to leave her dead-end job and dead-end life behind and try to hitchhike her way to something better. Along the way she meets two women who will leave a permanent mark on who she is.",
+      "categories": [
+        "Romantique",
+        "Drame"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 21,
+      "import_date": 1758879965
+    },
+    {
+      "id": "olympe_project",
+      "locale": "fr",
+      "name": "Olympe Project",
+      "image": "https:\/\/img.youtube.com\/vi\/EDEuETlJ8Jc\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Web S\u00e9rie humoristique, portant sur la vie palpitante et rocambolesque des dieux de l\u0027Olympe au 21\u00e9me si\u00e8cle !",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 11,
+      "import_date": 1758879965
+    },
+    {
+      "id": "tea_time",
+      "locale": "fr",
+      "name": "Tea Time",
+      "image": "https:\/\/img.youtube.com\/vi\/VXpY_LUfOTs\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Au d\u00e9but du XX\u00e8me si\u00e8cle, cinq bourgeoises aiment se retrouver \u00e0 l\u2019heure du th\u00e9 pour discuter de faits divers meurtriers. Celles-ci vont un jour se mettre au d\u00e9fi de r\u00e9aliser le meurtre parfait.",
+      "categories": [
+        "Thriller"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 8,
+      "import_date": 1758879965
+    },
+    {
+      "id": "la_muscule",
+      "locale": "fr",
+      "name": "La Muscule",
+      "image": "https:\/\/img.youtube.com\/vi\/JIF5BKyMlac\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Fitness , Lifestyle, Motivation, D\u00e9fis, Challenge, vlogs... QUE DU SALE",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 10,
+      "import_date": 1758879965
+    },
+    {
+      "id": "survie",
+      "locale": "fr",
+      "name": "Survie",
+      "image": "https:\/\/img.youtube.com\/vi\/HF6mbxYu3k4\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Survie est une webs\u00e9rie post-apocalyptique qui met en sc\u00e8ne un groupe de survivants dans leur vie quotidienne, sur fond d\u0027attaque d\u0027infect\u00e9s.",
+      "categories": [
+        "Thriller",
+        "Drame",
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 7,
+      "import_date": 1758879965
+    },
+    {
+      "id": "racines",
+      "locale": "fr",
+      "name": "Racines",
+      "image": "https:\/\/img.youtube.com\/vi\/6XqMDBWFCxU\/mqdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "S\u00e9rie ou le G.I.R.P ( groupe d\u0027intervention et de recherche du paranormal ), enqu\u00eate sur les menaces humaines et non humaines.",
+      "categories": [
+        "Thriller",
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 2,
+      "episodes": 25,
+      "import_date": 1758879965
+    },
+    {
+      "id": "steampirate_chronicles",
+      "locale": "fr",
+      "name": "Steampirate Chronicles",
+      "image": "https:\/\/img.youtube.com\/vi\/nzYl9NERsbw\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Nous suivons les aventures du Capitaine Nikolas et de son \u00e9quipage, poursuivit par le Gouverneur et son fid\u00e8le et redout\u00e9 Capitaine : Erick le Sanglant.",
+      "categories": [
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 8,
+      "import_date": 1758879965
+    },
+    {
+      "id": "kerith",
+      "locale": "fr",
+      "name": "KERITH",
+      "image": "https:\/\/img.youtube.com\/vi\/LKausHCyf1E\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Un monast\u00e8re \u00e9clair\u00e9 \u00e0 la bougie. Un moine et cinq moniales habill\u00e9s d\u2019une longue robe blanche d\u00e9ambulent. Mara s\u2019\u00e9croule, envahie par les larmes, accusant le moine Isidore.",
+      "categories": [
+        "Thriller",
+        "Drame"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 10,
+      "import_date": 1758879965
+    },
+    {
+      "id": "thug_life",
+      "locale": "fr",
+      "name": "Thug Life",
+      "image": "https:\/\/img.youtube.com\/vi\/TixO9Opy6QY\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Micka\u00ebl et Dylan, deux fausses racailles qui r\u00eavent de devenir des rappeurs.",
+      "categories": [
+        "Aventure",
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 6,
+      "import_date": 1758879965
+    },
+    {
+      "id": "utk",
+      "locale": "fr",
+      "name": "UTK",
+      "image": "https:\/\/img.youtube.com\/vi\/u4ZIa5bIcN8\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Dans un monde d\u00e9vast\u00e9 par un virus, des personnes tentent de survivre dans un quartier prot\u00e9g\u00e9. Parmi ces rescap\u00e9s, un scientifique brillant du nom de Ferdinand Houlache.",
+      "categories": [
+        "Thriller",
+        "Science fiction",
+        "Drame",
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 6,
+      "import_date": 1758879965
+    },
+    {
+      "id": "unthinkable",
+      "locale": "fr",
+      "name": "Unthinkable",
+      "image": "https:\/\/img.youtube.com\/vi\/ZUoONgPfrag\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Dans un monde o\u00f9 certaines personnes sont dot\u00e9es de capacit\u00e9s hors du commun, une soci\u00e9t\u00e9 secr\u00e8te tente de les \u00e9liminer et de garder leurs existences cach\u00e9es.",
+      "categories": [
+        "Thriller",
+        "Science fiction",
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 6,
+      "import_date": 1758879965
+    },
+    {
+      "id": "preview",
+      "locale": "fr",
+      "name": "Preview",
+      "image": "https:\/\/img.youtube.com\/vi\/5bMOgK4SXH4\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Arthur est un Youtubeur c\u00e9l\u00e8bre sous pression qui n\u0027arrive plus \u00e0 sortir de vid\u00e9o. Preview, une \u00e9trange fonctionnalit\u00e9 de la plateforme de vid\u00e9o, se propose de le relancer.",
+      "categories": [
+        "Aventure",
+        "Humour"
+      ],
+      "tags": [
+        "preview",
+        "youtube"
+      ],
+      "seasons": 1,
+      "episodes": 6,
+      "import_date": 1758879964
+    },
+    {
+      "id": "stranded_deep",
+      "locale": "fr",
+      "name": "Stranded Deep - Joueur Du Grenier",
+      "image": "https:\/\/img.youtube.com\/vi\/00vLSHLXr1U\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Let\u0027s play Narratif de Stranded Deep par Joueur Du Genier. La plage le soleil et les crustac\u00e9s !",
+      "categories": [
+        "Drame",
+        "Aventure",
+        "Humour"
+      ],
+      "tags": [
+        "let\u0027s play"
+      ],
+      "seasons": 1,
+      "episodes": 8,
+      "import_date": 1758879964
+    },
+    {
+      "id": "les_breves_de_petard",
+      "locale": "fr",
+      "name": "Br\u00e8ves de P\u00e9tard",
+      "image": "https:\/\/img.youtube.com\/vi\/iYF7hj6YYxw\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "L\u0027herbe \u00e7a fait r\u00e9fl\u00e9chir, mais tu choisis pas la r\u00e9flexion.",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [
+        "weed",
+        "420"
+      ],
+      "seasons": 1,
+      "episodes": 9,
+      "import_date": 1758879964
+    },
+    {
+      "id": "jai_jamais_su_dire_non",
+      "locale": "fr",
+      "name": "J\u0027ai jamais su dire non",
+      "image": "https:\/\/img.youtube.com\/vi\/aPmY05b_YYg\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Dans la vie, ne pas savoir dire non peut entrainer beaucoup d\u0027emmerdes. Mais heureusement pour lui, Tom va tester une m\u00e9thode exp\u00e9rimentale pour lui donner un peu de charisme.",
+      "categories": [
+        "Drame",
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 19,
+      "import_date": 1758879964
+    },
+    {
+      "id": "le_theorie_des_balls",
+      "locale": "fr",
+      "name": "La th\u00e9orie des Balls",
+      "image": "https:\/\/img.youtube.com\/vi\/7qvdWI3d10E\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Dans la vie, ne pas savoir dire non peut entrainer beaucoup d\u0027emmerdes. Mais heureusement pour lui, Tom va tester m\u00e9thode exp\u00e9rimentale pour lui donner un peu de charisme.",
+      "categories": [
+        "Romantique",
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 2,
+      "episodes": 20,
+      "import_date": 1758879964
+    },
+    {
+      "id": "relationship",
+      "locale": "fr",
+      "name": "Relationship",
+      "image": "https:\/\/img.youtube.com\/vi\/5FrsDJXb9b8\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "la web-s\u00e9rie Relationship raconte l\u0027histoire d\u0027amour entre Marc et Alice, deux jeunes d\u0027une vingtaine d\u0027ann\u00e9es.",
+      "categories": [
+        "Romantique",
+        "Drame"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 8,
+      "import_date": 1758879964
+    },
+    {
+      "id": "nightwing",
+      "locale": "us",
+      "name": "Nightwing",
+      "image": "https:\/\/img.youtube.com\/vi\/o297A1wmys0\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Nightwing follows the story of Batman\u0027s former sidekick, Dick Grayson aka Robin. After a falling out with his mentor, Dick abandons Gotham and everyone in it.",
+      "categories": [
+        "Thriller",
+        "Science fiction",
+        "Action",
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 5,
+      "import_date": 1758879964
+    },
+    {
+      "id": "realer",
+      "locale": "fr",
+      "name": "RealEr",
+      "image": "https:\/\/img.youtube.com\/vi\/dxg87ECe9qw\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Un myst\u00e9rieux personnage prend contact avec Koss...",
+      "categories": [
+        "Science fiction",
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 9,
+      "import_date": 1758879964
+    },
+    {
+      "id": "en_passant_pecho",
+      "locale": "fr",
+      "name": "En Passant P\u00e9cho",
+      "image": "https:\/\/img.youtube.com\/vi\/YBcwG9G6oHU\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Une serie d\u00e9jent\u00e9 sur la vie de cit\u00e9",
+      "categories": [
+        "Aventure",
+        "Humour"
+      ],
+      "tags": [
+        "weed",
+        "coke",
+        "420"
+      ],
+      "seasons": 1,
+      "episodes": 8,
+      "import_date": 1758879964
+    },
+    {
+      "id": "ulysse",
+      "locale": "fr",
+      "name": "Ulysse",
+      "image": "https:\/\/img.youtube.com\/vi\/yQBKEwvsdtE\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "2038. 14 ans apr\u00e8s la fin d\u0027une guerre mondiale aussi d\u00e9vastatrice que myst\u00e9rieuse, une jeune orpheline - Elena - re\u00e7oit un carnet qui pourrait bien tout expliquer.",
+      "categories": [
+        "Thriller",
+        "Science fiction",
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 2,
+      "episodes": 20,
+      "import_date": 1758879964
+    },
+    {
+      "id": "donjon_legacy",
+      "locale": "fr",
+      "name": "Donjon Legacy",
+      "image": "https:\/\/img.youtube.com\/vi\/Miaq_E5gmlk\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Jon s\u0027en vient d\u00e9couvrir dans des ruines l\u0027h\u00e9ritage d\u0027un p\u00e8re qu\u0027il n\u0027a pas connu.",
+      "categories": [
+        "Science fiction",
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 2,
+      "episodes": 10,
+      "import_date": 1758879964
+    },
+    {
+      "id": "la_web_series",
+      "locale": "us",
+      "name": "LA Web Series",
+      "image": "https:\/\/img.youtube.com\/vi\/SQzK9-39tWY\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "LA Web Series is a love story between two young women who start as strangers and forge a lasting bond filled with past stories and future questions.",
+      "categories": [
+        "Romantique",
+        "Drame"
+      ],
+      "tags": [],
+      "seasons": 2,
+      "episodes": 27,
+      "import_date": 1758879964
+    },
+    {
+      "id": "eden",
+      "locale": "fr",
+      "name": "Eden",
+      "image": "https:\/\/img.youtube.com\/vi\/oED3bdk8vRw\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Le conseil d\u0027Eden condamne Nora \u00e0 l\u0027effacement de sa m\u00e9moire suit \u00e0 la mort du jeune Data.",
+      "categories": [
+        "Science fiction",
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 8,
+      "import_date": 1758879964
+    },
+    {
+      "id": "io",
+      "locale": "fr",
+      "name": "IO",
+      "image": "https:\/\/img.youtube.com\/vi\/Gf4r8dTwEj8\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "MOI, un \u00e9tudiant comme les autres, se r\u00e9veille brutalement d\u0027un cauchemar. Il d\u00e9cide de tout avouer \u00e0 sa copine SOPHIA...",
+      "categories": [
+        "Science fiction",
+        "Aventure"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 12,
+      "import_date": 1758879964
+    },
+    {
+      "id": "random",
+      "locale": "fr",
+      "name": "Random",
+      "image": "https:\/\/img.youtube.com\/vi\/d5R-Wn2UHQs\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Six amis confront\u00e9s \u00e0 l\u2019inexplicable dans un huis-clos infernal. Bloqu\u00e9s dans leur appartement, face \u00e0 un myst\u00e8re qui bouleverse leur existence",
+      "categories": [
+        "Thriller"
+      ],
+      "tags": [],
+      "seasons": 2,
+      "episodes": 25,
+      "import_date": 1758879964
+    },
+    {
+      "id": "supa_supa",
+      "locale": "fr",
+      "name": "Supa Supa",
+      "image": "https:\/\/img.youtube.com\/vi\/JjZA57fodWI\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Supa Supa et son pote sont pos\u00e9s chez eux et jouent aux jeux vid\u00e9os, lorsque Supa d\u00e9tecte la pr\u00e9sence d\u0027une Fille, ce qui ne le laisse pas insensible.",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 12,
+      "import_date": 1758879964
+    },
+    {
+      "id": "le_departement",
+      "locale": "fr",
+      "name": "Le D\u00e9partement",
+      "image": "https:\/\/img.youtube.com\/vi\/3b_vTuxEL-I\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Le D\u00e9partement d\u00e9cline toute responsabilit\u00e9 en cas de digestion douloureuse lors du visionnage.",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 2,
+      "episodes": 23,
+      "import_date": 1758879964
+    },
+    {
+      "id": "hello_geekette",
+      "locale": "fr",
+      "name": "Hello Geekette",
+      "image": "https:\/\/img.youtube.com\/vi\/WQM6bwyuq-s\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Val\u00e9rie est une geekette qui vit dans son univers imaginaire. Alors que Greg est un gar\u00e7on pas du tout geek et plut\u00f4t dragueur. Colocataires, c\u2019est dans leur appartement que vont s\u2019affronter leurs amis respectifs",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 2,
+      "episodes": 29,
+      "import_date": 1758879964
+    },
+    {
+      "id": "bloques",
+      "locale": "fr",
+      "name": "Bloqu\u00e9s",
+      "image": "https:\/\/img.youtube.com\/vi\/WjsXFY_tGx4\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "En attendant qu\u2019il se passe quelque chose, ils ont d\u00e9cid\u00e9 de ne rien faire.",
+      "categories": [
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 120,
+      "import_date": 1758879964
+    },
+    {
+      "id": "bref",
+      "locale": "fr",
+      "name": "Bref",
+      "image": "https:\/\/img.youtube.com\/vi\/UO8tcf3U0dY\/maxresdefault.jpg",
+      "type": "S\u00e9ries",
+      "description": "Les chroniques extraordinaires d\u2019un homme ordinaire. Dans la vie, au d\u00e9but on na\u00eet, \u00e0 la fin on meurt, pendant ce temps l\u00e0, il se passe des trucs. Bref, c\u0027est la vie d\u0027un mec pendant ce temps l\u00e0.",
+      "categories": [
+        "Romantique",
+        "Humour"
+      ],
+      "tags": [],
+      "seasons": 1,
+      "episodes": 82,
+      "import_date": 1758879964
+    }
+  ],
+  "filters": {
+    "locales": [
+      {
+        "key": "fr",
+        "doc_count": 70
+      },
+      {
+        "key": "us",
+        "doc_count": 8
+      }
+    ],
+    "types": [
+      {
+        "key": "S\u00e9ries",
+        "doc_count": 65
+      },
+      {
+        "key": "Court m\u00e9trage",
+        "doc_count": 8
+      },
+      {
+        "key": "Documentaire",
+        "doc_count": 3
+      },
+      {
+        "key": "Film",
+        "doc_count": 2
+      }
+    ],
+    "categories": [
+      {
+        "key": "Humour",
+        "doc_count": 35
+      },
+      {
+        "key": "Aventure",
+        "doc_count": 29
+      },
+      {
+        "key": "Thriller",
+        "doc_count": 22
+      },
+      {
+        "key": "Drame",
+        "doc_count": 16
+      },
+      {
+        "key": "Science fiction",
+        "doc_count": 11
+      },
+      {
+        "key": "Romantique",
+        "doc_count": 10
+      },
+      {
+        "key": "Action",
+        "doc_count": 7
+      },
+      {
+        "key": "Horreur",
+        "doc_count": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+@use "sass:map";
+@use '@angular/material' as mat;
+
+@mixin load() {
+  // override dialog
+  @include mat.dialog-overrides((
+    //actions-alignment:,
+    //actions-padding:,
+    container-color: #000,
+    container-shape: 5px,
+    //container-elevation-shadow:,
+    //container-max-width:,
+    //container-small-max-width:,
+    //container-min-width:,
+    content-padding: 5px,
+    //headline-padding:,
+    //with-actions-content-padding:,
+    subhead-color: #9b9b9b,
+    subhead-font: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
+    subhead-size: 2rem,
+    //subhead-line-height:,
+    subhead-weight: 600,
+    //subhead-tracking:,
+    supporting-text-color: #9b9b9b,
+    supporting-text-font: #9b9b9b,
+    //supporting-text-line-height:,
+    //supporting-text-size:,
+    //supporting-text-tracking:,
+    //supporting-text-weight:,
+  ));
+}
+

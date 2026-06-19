@@ -1,0 +1,65 @@
+<form
+  class="login-form"
+  [ngClass]="{'shake-on-error form-error': shaking && loginForm.invalid}"
+  [formGroup]="loginForm"
+  (ngSubmit)="onSubmit()">
+
+  <mat-form-field class="full-width">
+    <mat-label i18n="email|login form email field">Email</mat-label>
+    <input
+      matInput
+      autofocus
+      type="email"
+      formControlName="username"
+      autocomplete="email">
+    @if (hasError(getUsername())) {
+      <mat-error i18n>
+      Enter your email!
+    </mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field class="full-width password-field">
+    <mat-label i18n>Password</mat-label>
+    <input
+      matInput
+      #password
+      [type]="hidePassword ? 'password' : 'text'"
+      formControlName="password"
+      autocomplete="password">
+    <mat-icon
+      matSuffix
+      (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'">
+      {{hidePassword ? 'visibility_off' : 'visibility'}}
+    </mat-icon>
+    @if (hasError(getPassword())) {
+      <mat-error i18n>
+      Enter your password!
+    </mat-error>
+    }
+  </mat-form-field>
+
+  <div class="center">
+    @if (!showLoader) {
+      <button
+        [disabled]="loginForm.invalid"
+        mat-flat-button
+        color="primary"
+        type="submit"
+        i18n>
+      Login
+    </button>
+    }
+    @if (showLoader) {
+      <mat-spinner
+        diameter="37"
+        style="margin: 0 auto">
+      </mat-spinner>
+    }
+  </div>
+
+  <p class="left">
+    <a class="accent extra-link" (click)="openPasswordResetRequestDialog()" i18n>Forgot your password ?</a>
+  </p>
+
+</form>

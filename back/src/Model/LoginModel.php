@@ -4,53 +4,35 @@ declare(strict_types=1);
 
 namespace App\Model;
 
+use OpenApi\Attributes as OA;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class LoginModel
 {
-    /**
-     * @var string|null
-     * @Assert\Email()
-     */
-    private $username;
+    #[Assert\Email]
+    #[OA\Property(description: 'Email of user', type: 'string', example: 'user@mail.com')]
+    private ?string $username = null;
 
-    /**
-     * @var string|null
-     * @Assert\Length(min="4")
-     */
-    private $password;
+    #[Assert\Length(min: 4)]
+    #[OA\Property(description: 'Plaintext password', type: 'string', example: 'password')]
+    private ?string $password = null;
 
-    /**
-     * @return string|null
-     */
     public function getUsername(): ?string
     {
         return $this->username;
     }
 
-    /**
-     * @param string|null $username
-     *
-     * @return self
-     */
     public function setUsername(?string $username): self
     {
         $this->username = $username;
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getPassword(): ?string
     {
         return $this->password;
     }
 
-    /**
-     * @param string|null $password
-     * @return self
-     */
     public function setPassword(?string $password): self
     {
         $this->password = $password;

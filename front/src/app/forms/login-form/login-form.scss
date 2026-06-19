@@ -1,0 +1,9 @@
+form.login-form {
+  mat-error {
+    font-size: 12px;
+  }
+
+  & > * {
+    margin: 10px 0;
+  }
+}

@@ -4,66 +4,68 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use App\Repository\SeasonRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use JMS\Serializer\Annotation as JMS;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use JMS\Serializer\Annotation as JMS;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\SeasonRepository")
- * @ORM\Table(name="seasons")
- */
+#[ORM\Entity(repositoryClass: SeasonRepository::class)]
+#[ORM\Table(name: 'seasons')]
 class Season
 {
     use BlameableEntity;
     use TimestampableEntity;
 
-    /**
-     * @var int|null
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @JMS\Type("integer")
-     */
-    protected $id;
+    #[
+        JMS\Expose,
+        JMS\Type('integer')
+    ]
+    #[
+        ORM\Id,
+        ORM\Column(type: 'integer'),
+        ORM\GeneratedValue(strategy: 'AUTO')
+    ]
+    protected ?int $id = null;
 
-    /**
-     * @var int|null
-     * @ORM\Column(type="integer")
-     * @JMS\Type("integer")
-     */
-    protected $rank;
+    #[JMS\Type('integer')]
+    #[ORM\Column(type: 'integer')]
+    protected ?int $rank = null;
 
-    /**
-     * @var string|null
-     * @ORM\Column(type="string")
-     * @JMS\Type("string")
-     */
-    protected $name;
+    #[JMS\Type('string')]
+    #[ORM\Column(type: 'string')]
+    protected ?string $name = null;
 
-    /**
-     * @var string|null
-     * @ORM\Column(type="string", nullable=true)
-     * @JMS\Type("string")
-     */
-    protected $importCode;
+    #[JMS\Type('string')]
+    #[ORM\Column(
+        type: 'string',
+        nullable: true
+    )]
+    protected ?string $importCode = null;
 
-    /**
-     * @var Series|null
-     * @JMS\Exclude()
-     * @ORM\ManyToOne(targetEntity="App\Entity\Series", inversedBy="seasons", cascade={"persist"})
-     * @ORM\JoinColumn(name="series_id", referencedColumnName="id")
-     */
-    protected $series;
+    #[JMS\Exclude]
+    #[
+        ORM\ManyToOne(
+            targetEntity: Series::class,
+            cascade: ['persist'],
+            inversedBy: 'seasons'
+        ),
+        ORM\JoinColumn(
+            name: 'series_id',
+            referencedColumnName: 'id'
+        )
+    ]
+    protected ?Series $series = null;
 
-    /**
-     * @var Collection|Episode[]
-     * @ORM\OneToMany(targetEntity="App\Entity\Episode", mappedBy="season", cascade={"persist", "remove"})
-     * @JMS\Type("ArrayCollection<App\Entity\Episode>")
-     */
-    protected $episodes;
+    #[JMS\Type('ArrayCollection<App\Entity\Episode>')]
+    #[ORM\OneToMany(
+        targetEntity: Episode::class,
+        mappedBy: 'season',
+        cascade: ['persist', 'remove']
+    )]
+    protected Collection $episodes;
 
     public function __construct()
     {
@@ -85,6 +87,7 @@ class Season
     public function setId(?int $id): self
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -103,6 +106,7 @@ class Season
     public function setRank(?int $rank): self
     {
         $this->rank = $rank;
+
         return $this;
     }
 
@@ -121,6 +125,7 @@ class Season
     public function setName(?string $name): self
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -139,6 +144,7 @@ class Season
     public function setImportCode(?string $importCode): self
     {
         $this->importCode = $importCode;
+
         return $this;
     }
 
@@ -157,11 +163,12 @@ class Season
     public function setSeries(?Series $series): self
     {
         $this->series = $series;
+
         return $this;
     }
 
     /**
-     * @return Episode[]|Collection
+     * @return Collection<Episode>
      */
     public function getEpisodes(): Collection
     {
@@ -169,12 +176,13 @@ class Season
     }
 
     /**
-     * @param Episode[]|Collection $episodes
+     * @param Collection<Episode> $episodes
      * @return self
      */
     public function setEpisodes(Collection $episodes): self
     {
         $this->episodes = $episodes;
+
         return $this;
     }
 

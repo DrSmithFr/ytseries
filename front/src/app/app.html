@@ -1,0 +1,7 @@
+<div class="app-wrapper">
+  <div class="app-router-wrapper" [animate.enter]="'route-fade-in'" [animate.leave]="'route-fade-out'">
+    <app-page>
+      <router-outlet #outlet="outlet"></router-outlet>
+    </app-page>
+  </div>
+</div>

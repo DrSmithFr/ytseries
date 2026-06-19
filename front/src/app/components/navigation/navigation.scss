@@ -1,0 +1,124 @@
+@use "colors" as color;
+@use "breakpoints" as device;
+
+// Navigation: error field disabled on search input (in /src/styles.scss)
+// search for "#app-navbar .mat-mdc-form-field-subscript-wrapper"
+
+#app-navbar {
+  z-index: 100;
+  color: #9b9b9b;
+
+  background-color: transparent;
+  background-image: linear-gradient(to top,rgba(0,0,0,0),#000);
+
+  position: fixed;
+
+  top: 0;
+  right: 0;
+  left: 0;
+
+  padding: 0 52px;
+  transition: background-color 0.25s;
+
+  &.is-opaque {
+    background-color: #000;
+    background-image: none;
+  }
+
+  .navbar-container {
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 16px;
+    margin: 0 auto;
+
+    font-size: 16px;
+    line-height: 24px;
+
+    text-align: start;
+  }
+
+  .navbar-icon {
+    cursor: pointer;
+    box-sizing: border-box;
+
+    padding: 5px 0;
+    margin-right: 16px;
+
+    line-height: 30px;
+    text-align: start;
+
+    picture {
+      height: auto;
+      line-height: 30px;
+      padding: 0 14px;
+
+      img {
+        vertical-align: middle;
+        height: 30px;
+      }
+    }
+  }
+
+  .navbar-nav {
+    display: flex !important;
+    flex-basis: auto;
+    align-items: center;
+  }
+
+  ul.navbar-nav{
+    box-sizing: border-box;
+    list-style: none;
+
+    display: flex;
+    flex-direction: row;
+
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+
+    margin-right: auto !important;
+    line-height: 24px;
+
+    .nav-item {
+      font-weight: 400;
+      font-size: 13px;
+
+      .nav-link {
+        text-decoration: none;
+
+        color: #9b9b9b;
+        font-weight: 600;
+        padding: 0.5rem;
+
+        &:hover,
+        &.active {
+          color: white;
+
+        }
+      }
+    }
+  }
+
+  .navbar-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px 0;
+
+    .navbar-submenu-btn {
+      margin-left: 10px;
+    }
+  }
+
+  .mat-focused,
+  button:hover {
+    transition: color 0.25s;
+    color: #fff;
+  }
+}
+
+

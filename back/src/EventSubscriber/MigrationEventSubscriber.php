@@ -1,32 +1,29 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\EventSubscriber;
 
 use Doctrine\Common\EventSubscriber;
 use Doctrine\DBAL\Schema\SchemaException;
 use Doctrine\ORM\Tools\Event\GenerateSchemaEventArgs;
+use Doctrine\ORM\Tools\ToolEvents;
 
 class MigrationEventSubscriber implements EventSubscriber
 {
     public function getSubscribedEvents(): array
     {
-        return [
-            'postGenerateSchema',
-        ];
+        return [ToolEvents::postGenerateSchema];
     }
 
     /**
-     * @param GenerateSchemaEventArgs $Args
+     * Avoid public schema creation on doctrine:migration:diff
      * @throws SchemaException
      */
-    public function postGenerateSchema(GenerateSchemaEventArgs $Args): void
+    public function postGenerateSchema(GenerateSchemaEventArgs $args): void
     {
-        $Schema = $Args->getSchema();
+        $schema = $args->getSchema();
 
-        if (!$Schema->hasNamespace('public')) {
-            $Schema->createNamespace('public');
+        if (!$schema->hasNamespace('public')) {
+            $schema->createNamespace('public');
         }
     }
 }

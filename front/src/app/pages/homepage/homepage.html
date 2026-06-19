@@ -1,0 +1,59 @@
+<app-navigation></app-navigation>
+
+<app-hero-banner #heroBanner></app-hero-banner>
+
+<app-blob-background
+  [offset]="true"
+  [blob_one]="{color: 'pink', vertical: 'bottom', horizontal: 'right'}"
+  [blob_two]="{color: 'blue', vertical: 'top', horizontal: 'left'}">
+
+  <app-movie-list
+    [title]="'Nouveautés'"
+    [movies]="mock_movies">
+  </app-movie-list>
+
+  @defer (on immediate) {
+    <app-movie-list
+      [isTopDisplay]="true"
+      [title]="'Top 10 des séries aujourd\'hui'"
+      [movies]="mock_movies">
+    </app-movie-list>
+
+    <app-movie-list
+      [title]="'Séries policières primées'"
+      [movies]="mock_movies">
+    </app-movie-list>
+  }
+
+</app-blob-background>
+
+@defer (on immediate) {
+  <app-top-ten
+    [movies]="mock_movies"
+  ></app-top-ten>
+}
+
+@defer (on immediate) {
+  <app-blob-background
+    [blob_one]="{color: 'yellow', vertical: 'top', horizontal: 'left'}"
+    [blob_two]="{color: 'green', vertical: 'bottom', horizontal: 'right'}">
+
+      <app-movie-list
+        [title]="'Thrillers SF'"
+        [movies]="mock_movies">
+      </app-movie-list>
+
+      <app-movie-list
+        [isTopDisplay]="true"
+        [title]="'Saluées par la critique'"
+        [movies]="mock_movies">
+      </app-movie-list>
+
+      <app-movie-list
+        [title]="'On pense que vous allez adorer...'"
+        [movies]="mock_movies">
+      </app-movie-list>
+  </app-blob-background>
+}
+
+<app-footer></app-footer>

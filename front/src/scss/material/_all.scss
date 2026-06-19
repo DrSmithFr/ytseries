@@ -1,0 +1,10 @@
+@use "button" as button;
+@use "tooltip" as tooltip;
+@use "dialog" as dialog;
+
+
+@mixin load() {
+  @include button.load();
+  @include tooltip.load();
+  @include dialog.load();
+}

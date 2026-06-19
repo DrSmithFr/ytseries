@@ -13,4 +13,24 @@ describe('NavigationService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should hide navigation by default', () => {
+    expect(service.isNavigationVisible.getValue()).toBeFalse();
+  });
+
+  it('should dispatch navigation opening when calling .show()', (done) => {
+    service.setNavigationVisibility(true);
+    service.isNavigationVisible.subscribe((value) => {
+      expect(value).toBeTrue();
+      done();
+    });
+  });
+
+  it('should dispatch navigation closing when calling .hide()', (done) => {
+    service.setNavigationVisibility(false);
+    service.isNavigationVisible.subscribe((value) => {
+      expect(value).toBeFalse();
+      done();
+    });
+  });
 });

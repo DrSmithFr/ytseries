@@ -1,361 +1,292 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Entity;
 
+use App\Entity\Traits\EnableTrait;
+use App\Entity\Traits\UuidTrait;
+use App\Entity\User\Identity;
+use App\Enum\RoleEnum;
+use App\Repository\UserRepository;
 use DateTime;
-use InvalidArgumentException;
-use Ramsey\Uuid\UuidInterface;
-use App\Enum\SecurityRoleEnum;
+use Deprecated;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Embedded;
+use Gedmo\Blameable\Traits\BlameableEntity;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
+use InvalidArgumentException;
 use JMS\Serializer\Annotation as JMS;
-use App\Entity\Traits\BlameableTrait;
-use App\Entity\Traits\TimestampableTrait;
-use Doctrine\ORM\Mapping\UniqueConstraint;
-use Doctrine\Common\Collections\Collection;
-use App\Entity\Interfaces\SerializableEntity;
-use Doctrine\Common\Collections\ArrayCollection;
+use OpenApi\Attributes as OA;
+use Scheb\TwoFactorBundle\Model\Email\TwoFactorInterface;
+use Symfony\Component\PasswordHasher\Hasher\PasswordHasherAwareInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
-/**
- * @JMS\ExclusionPolicy("all")
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @ORM\Table(
- *     uniqueConstraints={
- *        @UniqueConstraint(
- *            columns={"validation_token"},
- *            options={"where": "validation_token IS NOT NULL"}
- *        ),
- *     }
- * )
- */
-class User implements UserInterface, SerializableEntity
+#[
+    ORM\Entity(repositoryClass: UserRepository::class),
+    ORM\Table(name: 'users')
+]
+#[JMS\ExclusionPolicy('all')]
+class User implements
+    UserInterface,
+    TwoFactorInterface,
+    PasswordAuthenticatedUserInterface,
+    PasswordHasherAwareInterface,
+    Serializable
 {
-    use TimestampableTrait;
-    use BlameableTrait;
+    use UuidTrait;
+
+    use EnableTrait;
+    use TimestampableEntity;
+    use BlameableEntity;
+    use SoftDeleteableEntity;
+
+    #[Assert\Email]
+    #[JMS\Type('string')]
+    #[ORM\Column(unique: true)]
+    private ?string $email = null;
+
+    #[ORM\Column]
+    #[JMS\Groups(['Default', 'Login'])]
+    private ?string $password = null;
 
     /**
-     * @var int|null
-     * @ORM\Id
-     * @ORM\Column(type="integer", unique=true)
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * Used internally for login form
      */
-    private $id;
+    private ?string $plainPassword = null;
 
-    /**
-     * @var UuidInterface|null
-     * @JMS\Type("string")
-     * @ORM\Column(type="uuid", unique=true)
-     */
-    private $uuid;
+    #[ORM\Column(nullable: true)]
+    private ?string $salt = null;
 
-    /**
-     * @var string|null
-     * @JMS\Expose()
-     * @JMS\Type("string")
-     * @ORM\Column(type="string", unique=true)
-     */
-    private $username;
+    #[JMS\Expose]
+    #[JMS\MaxDepth(1)]
+    #[ORM\Column(name: 'roles', type: Types::SIMPLE_ARRAY)]
+    #[JMS\Type('array<string>')]
+    #[OA\Property(
+        type: 'string[]',
+        example: '["ROLE_USER", "ROLE_ADMIN"]',
+    )]
+    private array $roles = [];
 
-    /**
-     * @var UuidInterface|null
-     * @ORM\Column(type="uuid", nullable=true)
-     */
-    private $validationToken;
+    #[ORM\Column(type: 'string', nullable: true)]
+    private ?string $authCode = null;
 
-    /**
-     * @var DateTime|null
-     * @JMS\Expose()
-     * @JMS\Type("datetime<'Y-m-d H:i:s'>")
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $validatedAt;
+    #[ORM\Column(nullable: true)]
+    private ?string $passwordResetToken = null;
 
-    /**
-     * @var string|null
-     * @ORM\Column(type="string", name="password")
-     */
-    private $password;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?DateTime $passwordResetTokenValidUntil = null;
 
-    /**
-     * @var string|null
-     * @ORM\Column(type="string", name="salt", nullable=true)
-     */
-    private $salt;
+    #[JMS\Expose]
+    #[Embedded(class: Identity::class)]
+    private Identity $identity;
 
-    /**
-     * Used internally for login and register form
-     *
-     * @var string|null
-     */
-    private $plainPassword;
-
-    /**
-     * @var string[]
-     * @JMS\Expose()
-     * @JMS\Type("array<string>")
-     * @ORM\Column(type="json_array", name="roles")
-     */
-    private $roles = [];
-
-    /**
-     * @var Collection|Historic[]
-     * @ORM\OneToMany(targetEntity="App\Entity\Historic", mappedBy="user", cascade={"remove"})
-     */
-    private $historics;
-
-    /**
-     * User constructor.
-     */
     public function __construct()
     {
-        $this->historics = new ArrayCollection();
+        $this->identity = new Identity();
     }
 
-    /**
-     * @return string
-     */
-    public function getIdentifier(): string
+    public function getUserIdentifier(): string
     {
-        if ($uuid = $this->getUuid()) {
-            return $uuid->toString();
-        }
-
-        return 'undefined';
+        return $this->getEmail();
     }
 
-    /**
-     * @JMS\Expose()
-     * @JMS\VirtualProperty()
-     * @JMS\SerializedName("uuid")
-     * @JMS\Type("string")
-     * @return string
-     */
-    public function getUuidString(): ?string
+    public function getPasswordHasherName(): ?string
     {
-        if ($uuid = $this->getUuid()) {
-            return $uuid->toString();
-        }
-
-        return null;
+        return "harsh";
     }
-
-    /**
-     * @return string|null
-     */
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
-    public function setId(?string $id): self
-    {
-        $this->id = $id;
-        return $this;
-    }
-
-    /**
-     * @return UuidInterface|null
-     */
-    public function getUuid(): ?UuidInterface
-    {
-        return $this->uuid;
-    }
-
-    /**
-     * @param UuidInterface|null $uuid
-     *
-     * @return self
-     */
-    public function setUuid(?UuidInterface $uuid): self
-    {
-        $this->uuid = $uuid;
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getUsername(): ?string
-    {
-        return $this->username;
-    }
-
-    /**
-     * @param string|null $username
-     *
-     * @return self
-     */
-    public function setUsername(?string $username): self
-    {
-        $this->username = strtolower($username);
-        return $this;
-    }
-
-    /**
-     * @return UuidInterface|null
-     */
-    public function getValidationToken(): ?UuidInterface
-    {
-        return $this->validationToken;
-    }
-
-    /**
-     * @param UuidInterface|null $validationToken
-     *
-     * @return self
-     */
-    public function setValidationToken(?UuidInterface $validationToken): self
-    {
-        $this->validationToken = $validationToken;
-        return $this;
-    }
-
-    /**
-     * @return DateTime|null
-     */
-    public function getValidatedAt(): ?DateTime
-    {
-        return $this->validatedAt;
-    }
-
-    /**
-     * @param DateTime|null $validatedAt
-     *
-     * @return self
-     */
-    public function setValidatedAt(?DateTime $validatedAt): self
-    {
-        $this->validatedAt = $validatedAt;
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    /**
-     * @param string|null $password
-     *
-     * @return self
-     */
-    public function setPassword(?string $password): self
-    {
-        $this->password = $password;
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getPlainPassword(): ?string
-    {
-        return $this->plainPassword;
-    }
-
-    /**
-     * @param string|null $plainPassword
-     *
-     * @return self
-     */
-    public function setPlainPassword(?string $plainPassword): self
-    {
-        $this->plainPassword = $plainPassword;
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getSalt(): ?string
-    {
-        return $this->salt;
-    }
-
-    /**
-     * @param string|null $salt
-     *
-     * @return self
-     */
-    public function setSalt(?string $salt): self
-    {
-        $this->salt = $salt;
-        return $this;
-    }
-
-    /**
-     * @return array
-     */
-    public function getRoles(): array
-    {
-        return $this->roles;
-    }
-
-    /**
-     * @param array $roles
-     *
-     * @return self
-     */
-    public function setRoles(array $roles): self
-    {
-        $this->roles = $roles;
-        return $this;
-    }
-
-    /**
-     * @param string $role
-     *
-     * @return self
-     */
-    public function addRole(string $role): self
-    {
-        if (!SecurityRoleEnum::isValidValue($role)) {
-            throw new InvalidArgumentException('invalid role');
-        }
-
-        if (!in_array($role, $this->roles)) {
-            $this->roles[] = $role;
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param string $role
-     *
-     * @return self
-     */
-    public function removeRole(string $role): self
-    {
-        if (!SecurityRoleEnum::isValidValue($role)) {
-            throw new InvalidArgumentException('invalid role');
-        }
-
-        if (($key = array_search($role, $this->roles, true)) !== false) {
-            array_splice($this->roles, $key, 1);
-        }
-
-        return $this;
-    }
-
 
     /**
      * Removes sensitive data from the user.
      * This is important if, at any given point, sensitive information like
      * the plain-text password is stored on this object.
      */
+    #[Deprecated('This method is no longer needed. The logic was moved or is empty.', since: '7.3')]
     public function eraseCredentials(): void
     {
         $this->setPlainPassword(null);
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        // ensure email is lowercase
+        $this->email = strtolower($email);
+
+        return $this;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(?string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    public function getPlainPassword(): ?string
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword(?string $plainPassword): self
+    {
+        $this->plainPassword = $plainPassword;
+
+        return $this;
+    }
+
+    public function getSalt(): ?string
+    {
+        return $this->salt;
+    }
+
+    public function setSalt(?string $salt): self
+    {
+        $this->salt = $salt;
+
+        return $this;
+    }
+
+    public function getRoles(): array
+    {
+        return $this->roles;
+    }
+
+    /**
+     * @param string[]|RoleEnum[] $roles
+     * @return $this
+     */
+    public function setRoles(array $roles): self
+    {
+        $this->roles = [];
+
+        foreach ($roles as $role) {
+            $this->addRole($role);
+        }
+
+        return $this;
+    }
+
+    public function addRole(string | RoleEnum $role): self
+    {
+        if (is_string($role) && !RoleEnum::tryFrom($role)) {
+            throw new InvalidArgumentException('invalid role');
+        }
+
+        if ($role instanceof RoleEnum) {
+            $role = $role->value;
+        }
+
+        if (!in_array($role, $this->roles, true)) {
+            $this->roles[] = $role;
+        }
+
+        return $this;
+    }
+
+    public function removeRole(string | RoleEnum $role): self
+    {
+        if (is_string($role) && !RoleEnum::tryFrom($role)) {
+            throw new InvalidArgumentException('invalid role');
+        }
+
+        if ($role instanceof RoleEnum) {
+            $role = $role->value;
+        }
+
+        $key = array_search($role, $this->roles, true);
+
+        if ($key !== false) {
+            array_splice($this->roles, $key, 1);
+        }
+
+        return $this;
+    }
+
+    public function hasRole(string | RoleEnum $role): bool
+    {
+        if (is_string($role) && !RoleEnum::tryFrom($role)) {
+            throw new InvalidArgumentException('invalid role');
+        }
+
+        if ($role instanceof RoleEnum) {
+            $role = $role->value;
+        }
+
+        return in_array($role, $this->roles, true);
+    }
+
+    public function getPasswordResetToken(): ?string
+    {
+        return $this->passwordResetToken;
+    }
+
+    public function setPasswordResetToken(?string $passwordResetToken): self
+    {
+        $this->passwordResetToken = $passwordResetToken;
+
+        return $this;
+    }
+
+    public function getPasswordResetTokenValidUntil(): ?DateTime
+    {
+        return $this->passwordResetTokenValidUntil;
+    }
+
+    public function setPasswordResetTokenValidUntil(?DateTime $passwordResetTokenValidUntil): self
+    {
+        $this->passwordResetTokenValidUntil = $passwordResetTokenValidUntil;
+
+        return $this;
+    }
+
+    public function getIdentity(): Identity
+    {
+        return $this->identity;
+    }
+
+    public function setIdentity(Identity $identity): self
+    {
+        $this->identity = $identity;
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->getEmail();
+    }
+
+    public function isEmailAuthEnabled(): bool
+    {
+        return true;
+    }
+
+    public function getEmailAuthRecipient(): string
+    {
+        return $this->getEmail();
+    }
+
+    public function getEmailAuthCode(): string | null
+    {
+        return $this->authCode;
+    }
+
+    public function setEmailAuthCode(string $authCode): void
+    {
+        $this->authCode = $authCode;
     }
 }

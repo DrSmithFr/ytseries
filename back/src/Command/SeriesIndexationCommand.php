@@ -8,7 +8,9 @@ use App\Entity\Series;
 use App\Repository\SeriesRepository;
 use App\Service\IndexerService;
 use App\Service\SearchService;
-use Doctrine\ORM\NonUniqueResultException;
+use Elastic\Elasticsearch\Exception\ClientResponseException;
+use Elastic\Elasticsearch\Exception\MissingParameterException;
+use Elastic\Elasticsearch\Exception\ServerResponseException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -16,20 +18,9 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 class SeriesIndexationCommand extends Command
 {
-    /**
-     * @var SearchService
-     */
-    private $elasticSearchService;
-
-    /**
-     * @var IndexerService
-     */
-    private $indexer;
-
-    /**
-     * @var SeriesRepository
-     */
-    private $repository;
+    private SearchService $elasticSearchService;
+    private IndexerService $indexer;
+    private SeriesRepository $repository;
 
     /**
      * SeriesIndexationCommand constructor.
@@ -50,7 +41,7 @@ class SeriesIndexationCommand extends Command
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('app:series:indexation')
@@ -58,12 +49,14 @@ class SeriesIndexationCommand extends Command
     }
 
     /**
-     * @throws NonUniqueResultException
-     * @param OutputInterface $output
      * @param InputInterface  $input
-     * @return int|void|null
+     * @param OutputInterface $output
+     * @return int
+     * @throws ClientResponseException
+     * @throws MissingParameterException
+     * @throws ServerResponseException
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
 
@@ -105,5 +98,7 @@ class SeriesIndexationCommand extends Command
         } else {
             $io->error('Index cannot switch');
         }
+
+        return Command::SUCCESS;
     }
 }

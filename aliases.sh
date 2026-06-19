@@ -43,10 +43,10 @@ function install() {
     #
     # starting docker containers
     #
-    docker-compose kill && \
-    docker-compose rm -f && \
+    docker compose kill && \
+    docker compose rm -f && \
     docker volume rm $(basename $(pwd) | awk '{print tolower($0)}')_bdd
-    docker-compose up -d --remove-orphans && \
+    docker compose up -d --remove-orphans && \
 
     sleep 5
 
@@ -63,9 +63,9 @@ function install() {
 function reload() {
     ln -sf $(pwd)/hooks/pre-commit .git/hooks/pre-commit
 
-    docker-compose kill && \
-    docker-compose rm -f && \
-    docker-compose up --remove-orphans -d && \
+    docker compose kill && \
+    docker compose rm -f && \
+    docker compose up --remove-orphans -d && \
 
     sleep 10
 

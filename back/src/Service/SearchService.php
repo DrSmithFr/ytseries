@@ -1,23 +1,27 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Service;
 
-use Elastica\Index;
+use Elastic\Elasticsearch\Exception\ClientResponseException;
+use Elastic\Elasticsearch\Exception\MissingParameterException;
+use Elastic\Elasticsearch\Exception\ServerResponseException;
 use Elastica\Client;
+use Elastica\Index;
+use Elastica\Reindex;
 use Elastica\Request;
 use Elastica\Response;
 
 class SearchService
 {
-    private $client;
+    private Client $client;
 
-    private $indexName;
+    private string $indexName;
 
     public function __construct(Client $client, string $elasticSearchIndexName)
     {
-        $this->client    = $client;
+        $this->client = $client;
         $this->indexName = $elasticSearchIndexName;
     }
 
@@ -59,20 +63,26 @@ class SearchService
         return $this->client->getIndex($this->indexName);
     }
 
+    /**
+     * @throws ClientResponseException
+     * @throws ServerResponseException
+     * @throws MissingParameterException
+     */
     public function switchTempIndexWithProduction(): Response
     {
-        return $this->client->request(
-            '_reindex',
-            Request::POST,
-            [
-                'source' => [
-                    'index' => sprintf('%s_temp', $this->indexName),
-                ],
-                'dest'   => [
-                    'index' => $this->indexName,
-                ],
-            ]
-        );
+        $indexTemp = $this
+            ->client
+            ->getIndex(sprintf('%s_temp', $this->indexName));
+
+        $indexDest = $this
+            ->client
+            ->getIndex($this->indexName);
+
+        $reindex = new Reindex($indexTemp, $indexDest);
+        $reindex->setParam('refresh', true);
+        $reindex->setParam('requests_per_second', -1);
+
+        return $reindex->run();
     }
 
     private function makeIndexConfiguration(): array
@@ -144,9 +154,7 @@ class SearchService
         ];
 
         return [
-            'type_name' => [
-                'properties' => $properties,
-            ],
+            'properties' => $properties,
         ];
     }
 }
