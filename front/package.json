@@ -35,7 +35,7 @@
     "@angular/platform-server": "^20.3.0",
     "@angular/router": "^20.3.0",
     "@angular/ssr": "^20.3.2",
-    "angular-google-tag-manager": "^1.11.0",
+    "angular-google-tag-manager": "1.12.0",
     "angular-gtag": "^1.0.4",
     "express": "^5.1.0",
     "humanize-plus": "^1.8.2",
