@@ -1,87 +1,115 @@
 #!/usr/bin/env bash
-YOUR_ID=$(id -u)
-DOCKER_GID=$(id -g)
+#
+# Every PHP tool now runs inside the php container (see back/Dockerfile):
+# no PHP, no Symfony Local Server on the host anymore.
+#
+# The compose stack lives in back/ (compose.yaml + compose.override.yaml).
+export UID GID
+
+# docker compose, always run from back/ so the override file is picked up
+dc() {
+    (cd back && docker compose "$@")
+}
+
+# Run anything inside the php service.
+# -T: no TTY, required for pipes, redirections and git hooks.
+php_run() {
+    (cd back && docker compose up -d --wait php >/dev/null && docker compose exec -T php "$@")
+}
 
 function composer() {
-    cd back && symfony composer $* || exit $?
+    php_run composer "$@" || exit $?
 }
 
 function php() {
-    cd back && symfony php $* || exit $?
-}
-
-function phpcs() {
-    cd back && symfony php vendor/bin/phpcs --ignore=vendor,bin,src/Migrations,pub,config $* || exit $?
-}
-
-function phpmd() {
-    cd back && symfony php vendor/phpmd/phpmd/src/bin/phpmd src text ruleset.xml --exclude src/Migrations || exit $?
-}
-
-function phpunit() {
-    cd back && symfony php bin/phpunit $* || exit $?
+    php_run php "$@" || exit $?
 }
 
 function console() {
-    cd back && symfony console $* || exit $?
+    php_run php bin/console "$@" || exit $?
+}
+
+function phpunit() {
+    php_run php bin/phpunit "$@" || exit $?
+}
+
+function phpcs() {
+    # paths given to phpcs are relative to back/ (the container workdir)
+    php_run php vendor/bin/phpcs --ignore=vendor,bin,src/Migrations,pub,config "$@" || exit $?
+}
+
+function phpmd() {
+    php_run php vendor/phpmd/phpmd/src/bin/phpmd src text ruleset.xml --exclude src/Migrations || exit $?
 }
 
 function psql() {
-     docker-compose exec --user="${YOUR_ID}:${DOCKER_GID}" postgres /bin/sh -c "psql --dbname=symfony $*" || exit $?
+    dc exec -T database psql -U symfony -d symfony "$@" || exit $?
 }
 
 function tslint() {
     ./front/node_modules/tslint/bin/tslint --project ./front || exit $?
 }
 
+# Wait until postgres answers (no arbitrary sleep).
+function wait_for_database() {
+    local tries=60
+
+    while [ "$tries" -gt 0 ]; do
+        dc exec -T database pg_isready -U symfony -d symfony >/dev/null 2>&1 && return 0
+        tries=$((tries - 1))
+        sleep 1
+    done
+
+    echo "timeout waiting for database" >&2
+    return 1
+}
+
 function install() {
     #
     # Adding git hook
     #
-    ln -sf $(pwd)/hooks/pre-commit .git/hooks/pre-commit
+    ln -sf "$(pwd)/hooks/pre-commit" .git/hooks/pre-commit
 
     #
-    # starting docker containers
+    # Building and starting docker containers
     #
-    docker compose kill && \
-    docker compose rm -f && \
-    docker volume rm $(basename $(pwd) | awk '{print tolower($0)}')_bdd
-    docker compose up -d --remove-orphans && \
-
-    sleep 5
+    dc build && \
+    dc up -d --remove-orphans && \
+    wait_for_database && \
 
     #
     # Symfony init
     #
     composer install && \
+    ([ -f back/config/jwt/private.pem ] || console lexik:jwt:generate-keypair) && \
     console doctrine:migration:migrate -n && \
     console doctrine:fixtures:load -n && \
-    console app:series:imp && \
-    console app:series:ind
+    console app:series:import && \
+    console app:series:indexation
 }
 
 function reload() {
-    ln -sf $(pwd)/hooks/pre-commit .git/hooks/pre-commit
+    ln -sf "$(pwd)/hooks/pre-commit" .git/hooks/pre-commit
 
-    docker compose kill && \
-    docker compose rm -f && \
-    docker compose up --remove-orphans -d && \
+    dc up -d --remove-orphans && \
+    wait_for_database && \
 
-    sleep 10
-
-    console app:series:imp && \
-    console app:series:ind
+    console app:series:import && \
+    console app:series:indexation
 }
 
 function reset() {
+    dc up -d --remove-orphans && \
+    wait_for_database
+
     console doctrine:database:drop --force
     console doctrine:database:create
 
     console doctrine:migration:migrate -n
     console doctrine:fixtures:load -n
 
-    console app:series:imp
-    console app:series:ind
+    console app:series:import
+    console app:series:indexation
 }
 
 $@

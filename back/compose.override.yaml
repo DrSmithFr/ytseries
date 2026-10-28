@@ -1,5 +1,17 @@
 
 services:
+###> php-fpm ###
+  php:
+    user: "${UID:-1000}:${GID:-1000}"
+    environment:
+      # Set to 1 (or `make xdebug`) to start a debugging session
+      XDEBUG_TRIGGER: "0"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./:/var/www/back
+###< php-fpm ###
+
 ###> doctrine/doctrine-bundle ###
   database:
     ports:

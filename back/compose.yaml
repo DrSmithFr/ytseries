@@ -1,15 +1,35 @@
 
 services:
+###> php-fpm ###
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ytseries-php:8.4
+    env_file: .env.docker
+    working_dir: /var/www/back
+    depends_on:
+      database:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+    volumes:
+      - composer_cache:/usr/local/composer
+    # No "ports:": php-fpm (9000) stays internal, nginx (ticket #2) joins it.
+###< php-fpm ###
+
 ###> doctrine/doctrine-bundle ###
   database:
     image: postgres:16-alpine
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-app}
+      POSTGRES_DB: ${POSTGRES_DB:-symfony}
       # You should definitely change the password in production
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
       POSTGRES_USER: ${POSTGRES_USER:-symfony}
     healthcheck:
-      test: ["CMD", "pg_isready", "-d", "${POSTGRES_DB:-app}", "-U", "${POSTGRES_USER:-app}"]
+      test: ["CMD", "pg_isready", "-d", "${POSTGRES_DB:-symfony}", "-U", "${POSTGRES_USER:-symfony}"]
       timeout: 5s
       retries: 5
       start_period: 60s
@@ -41,7 +61,7 @@ services:
     volumes:
       - elasticsearch_data:/usr/share/elasticsearch/data:rw
     healthcheck:
-      test: [ "CMD-SHELL", "curl -fsSL https://localhost:9200/_cluster/health | grep -q '\"status\":\"green\"'" ]
+      test: [ "CMD-SHELL", "curl -fsSL http://localhost:9200/_cluster/health | grep -q '\"status\":\"green\"'" ]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -49,6 +69,10 @@ services:
 ###< ruflin/elastica ###
 
 volumes:
+###> php-fpm ###
+  composer_cache:
+###< php-fpm ###
+
 ###> doctrine/doctrine-bundle ###
   database_data:
 ###< doctrine/doctrine-bundle ###

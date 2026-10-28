@@ -1,46 +1,61 @@
-.PHONY: hooks assets build install reload dependencies start kill database fixtures migration test mock jwt
+.PHONY: build install reload up down logs sh dependencies assets database fixtures migration test jwt series xdebug
 
-build: reload
-install: hooks dependencies assets start build start database
-reload: kill start
+# All the PHP side runs in the php container (back/Dockerfile).
+# npm/node stay on the host.
 
-env:
-	sudo apt install php8.4-cli php8.4-fpm php8.4-common php8.4-curl php8.4-pgsql php8.4-xml php8.4-mbstring php8.4-intl php8.4-zip php8.4-redis php8.4-gd php-sqlite3 php-xdebug
-	sudo apt install nginx
+build: reload dependencies assets database fixtures series
+
+install: hooks build
+
+reload: up
+
+up:
+	docker compose up -d --remove-orphans
+
+down:
+	docker compose down
+
+logs:
+	docker compose logs -f php
+
+sh:
+	docker compose exec php sh
+
+# Run a command with Xdebug enabled: make xdebug CMD="php bin/console ..."
+xdebug:
+	XDEBUG_TRIGGER=1 docker compose exec -T php $(CMD)
 
 dependencies:
-	symfony composer self-update --2
-	symfony composer install
+	docker compose exec -T php composer install
+
+assets:
+	docker compose exec -T php php bin/console assets:install --symlink
+	. ${NVM_DIR}/nvm.sh && nvm use $(cat .nvmrc) && npm install && npm run build
 
 nvm:
 	. ${NVM_DIR}/nvm.sh && nvm install $(cat .nvmrc)
 
-assets:
-	symfony console assets:install --symlink
-	. ${NVM_DIR}/nvm.sh && nvm use $(cat .nvmrc) && npm install && npm run build
-
-
-start:
-	symfony local:server:start
-
-kill:
-	symfony local:server:stop
-	docker compose kill
-	docker compose rm -f
-
 database:
-	-symfony console doctrine:database:drop --force
-	symfony console doctrine:database:create
-	symfony console doctrine:migration:migrate -n
+	-docker compose exec -T php php bin/console doctrine:database:drop --force
+	docker compose exec -T php php bin/console doctrine:database:create
+	docker compose exec -T php php bin/console doctrine:migration:migrate -n
 
 fixtures:
-	symfony console doctrine:fixtures:load -n
+	docker compose exec -T php php bin/console doctrine:fixtures:load -n
 
 migration:
-	symfony console doctrine:migration:diff
+	docker compose exec -T php php bin/console doctrine:migration:diff
 
 test:
-	symfony php bin/phpunit --stop-on-failure
+	docker compose exec -T php php bin/phpunit --stop-on-failure
+
+jwt:
+	docker compose exec -T php php bin/console lexik:jwt:generate-keypair
+
+series:
+	docker compose exec -T php php bin/console app:series:import
+	docker compose exec -T php php bin/console app:series:indexation
+	docker compose exec -T php php bin/console app:series:cache-images
 
 hooks:
 	chmod +x hooks/pre-commit.sh
@@ -49,11 +64,3 @@ hooks:
 	rm -f .git/hooks/pre-push
 	ln -s -f ../../hooks/pre-commit.sh .git/hooks/pre-commit
 	ln -s -f ../../hooks/pre-push.sh .git/hooks/pre-push
-
-jwt:
-	symfony console lexik:jwt:generate-keypair
-
-series:
-	symfony console app:series:import
-	symfony console app:series:indexation
-	symfony console app:series:cache-images

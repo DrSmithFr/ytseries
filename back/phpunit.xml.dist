@@ -32,6 +32,5 @@
 
     <extensions>
         <bootstrap class="Symfony\Component\Panther\ServerExtension" />
-        <bootstrap class="Symfony\Component\Panther\ServerExtension"/>
     </extensions>
 </phpunit>

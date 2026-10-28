@@ -1,0 +1,15 @@
+# The code is mounted at runtime, nothing of it belongs to the image.
+.git
+.gitignore
+vendor/
+node_modules/
+var/
+public/build/
+public/bundles/
+public/media/cache/
+public/assets/download/
+.phpunit.cache/
+.phpcs-cache
+drivers/
+npm-debug.log
+yarn-error.log
