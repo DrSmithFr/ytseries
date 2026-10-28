@@ -27,6 +27,7 @@ PHPs=$(git_modified_files_by_ext "php")
 PHPs=$(str_remove_prefix "back/" ${PHPs})
 
 PHPCS=0
+PHPMD=0
 if [[ "$PHPs" != "" ]]
 then
     # check php syntax
@@ -35,6 +36,13 @@ then
     display success "PSR-2 Syntax checked"
 
     PHPCS=$?
+
+    # mess detector, on the committed files only
+    display phpmd && \
+    ./aliases.sh phpmd ${PHPs} && \
+    display success "Mess detector checked"
+
+    PHPMD=$?
 fi
 
 Ts=$(git_modified_files_by_ext "ts")
@@ -49,7 +57,7 @@ then
     TSLINT=$?
 fi
 
-if [[ $(( $PHPCS + $TSLINT )) -ne 0 ]]
+if [[ $(( $PHPCS + $PHPMD + $TSLINT )) -ne 0 ]]
 then
     # display fix your code smile
     exit 1

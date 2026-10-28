@@ -6,11 +6,25 @@ services:
     environment:
       # Set to 1 (or `make xdebug`) to start a debugging session
       XDEBUG_TRIGGER: "0"
+      # Panther runs chromium as root inside the container: no sandbox.
+      PANTHER_NO_SANDBOX: "1"
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
       - ./:/var/www/back
 ###< php-fpm ###
+
+###> symfony/messenger ###
+  worker:
+    user: "${UID:-1000}:${GID:-1000}"
+    environment:
+      XDEBUG_TRIGGER: "0"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      # The code only comes from this mount in dev (the image holds no code).
+      - ./:/var/www/back
+###< symfony/messenger ###
 
 ###> doctrine/doctrine-bundle ###
   database:

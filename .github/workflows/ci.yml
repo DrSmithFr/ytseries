@@ -1,0 +1,81 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  back:
+    name: Back (phpunit, phpcs, phpmd)
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: back
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            back/vendor
+            back/var
+          key: composer-${{ runner.os }}-${{ hashFiles('back/composer.lock') }}
+          restore-keys: composer-${{ runner.os }}-
+
+      # Build the php image (chromium + chromium-driver included) and start
+      # the services only: no published port (compose.ci.yaml).
+      - name: Start services
+        run: docker compose -f compose.yaml -f compose.ci.yaml up -d --wait database redis elasticsearch
+
+      - name: Install dependencies
+        run: docker compose -f compose.yaml -f compose.ci.yaml run --rm php composer install --no-interaction --prefer-dist
+
+      - name: PHPCS (PSR-12)
+        run: docker compose -f compose.yaml -f compose.ci.yaml run --rm php vendor/bin/phpcs --ignore=vendor,bin,src/Migrations,pub,config src
+
+      - name: PHPMD (mess detector)
+        run: docker compose -f compose.yaml -f compose.ci.yaml run --rm php vendor/phpmd/phpmd/src/bin/phpmd src text ruleset.xml --exclude src/Migrations
+
+      # Test keys, same passphrase as phpunit.xml.dist (never committed).
+      - name: JWT test keys
+        run: |
+          docker compose -f compose.yaml -f compose.ci.yaml run --rm php env \
+            JWT_SECRET_KEY=%kernel.project_dir%/config/jwt-test/private.pem \
+            JWT_PUBLIC_KEY=%kernel.project_dir%/config/jwt-test/public.pem \
+            JWT_PASSPHRASE=extzh99p6xfc6u9g2ucrzsqg89rffqcu \
+            php bin/console lexik:jwt:generate-keypair --skip-if-exists -n
+
+      # Full suite, Panther tests included (chromium is in the image,
+      # PANTHER_NO_SANDBOX=1 and HOME=/tmp come from compose.ci.yaml).
+      - name: PHPUnit
+        run: docker compose -f compose.yaml -f compose.ci.yaml run --rm php php bin/phpunit
+
+      - name: Clean up
+        if: always()
+        run: docker compose -f compose.yaml -f compose.ci.yaml down -v
+
+  front:
+    name: Front (build)
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: front
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: front/.nvmrc
+          cache: npm
+          cache-dependency-path: front/package-lock.json
+
+      - name: npm ci
+        run: npm ci
+
+      - name: Build
+        run: npm run build

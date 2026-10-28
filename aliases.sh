@@ -39,7 +39,13 @@ function phpcs() {
 }
 
 function phpmd() {
-    php_run php vendor/phpmd/phpmd/src/bin/phpmd src text ruleset.xml --exclude src/Migrations || exit $?
+    # Without argument: the whole src/. With arguments (relative to back/, the
+    # container workdir): only those files, so a git hook does not rescan src/.
+    if [ "$#" -eq 0 ]; then
+        php_run php vendor/phpmd/phpmd/src/bin/phpmd src text ruleset.xml --exclude src/Migrations || exit $?
+    else
+        php_run php vendor/phpmd/phpmd/src/bin/phpmd "$@" text ruleset.xml || exit $?
+    fi
 }
 
 function psql() {

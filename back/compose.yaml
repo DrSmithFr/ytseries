@@ -27,6 +27,26 @@ services:
       start_period: 10s
 ###< php-fpm ###
 
+###> symfony/messenger ###
+  # Messenger consumer: same image as php, no port, no mount of its own
+  # (the code comes from the bind mount declared in compose.override.yaml).
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ytseries-php:8.4
+    command: ["php", "bin/console", "messenger:consume", "async",
+              "--time-limit=3600", "--memory-limit=512M", "-vvv"]
+    restart: unless-stopped
+    env_file: .env.docker
+    working_dir: /var/www/back
+    depends_on:
+      database:
+        condition: service_healthy
+      php:
+        condition: service_started
+###< symfony/messenger ###
+
 ###> nginx ###
   nginx:
     image: nginx:1.29-alpine

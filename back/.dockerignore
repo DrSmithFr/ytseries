@@ -10,6 +10,5 @@ public/media/cache/
 public/assets/download/
 .phpunit.cache/
 .phpcs-cache
-drivers/
 npm-debug.log
 yarn-error.log

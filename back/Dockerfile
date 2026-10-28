@@ -21,7 +21,11 @@ RUN set -eux; \
         libxml2-dev \
         libxslt1-dev \
         zlib1g-dev \
-        libsqlite3-dev; \
+        libsqlite3-dev \
+        # Browser for the Panther tests (tests/Functional): Debian ships
+        # chromium and chromium-driver from the same source, so they match.
+        chromium \
+        chromium-driver; \
     rm -rf /var/lib/apt/lists/*
 
 # --- PHP extensions -----------------------------------------------------------
@@ -65,5 +69,9 @@ RUN set -eux; \
     chmod 777 "$COMPOSER_HOME"
 
 WORKDIR /var/www/back
+
+# The container HOME is "/" which is not writable: chromium (Panther) needs a
+# writable place for its "headless user data directory".
+ENV HOME=/tmp
 
 CMD ["php-fpm"]

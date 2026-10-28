@@ -1,1 +1,23 @@
-#!/bin/sh
+#!/bin/bash
+
+# Push checkup: the whole phpunit suite, inside the php container
+# (Panther tests included: chromium lives in the image).
+#
+# Skip it in a hurry with:  git push --no-verify
+
+source ./hooks/bin/loader.sh
+
+display inspect
+display phpunit
+
+./aliases.sh phpunit
+STATUS=$?
+
+if [[ $STATUS -ne 0 ]]
+then
+    display error "Tests failed, push aborted. Fix them, or use: git push --no-verify"
+    exit 1
+fi
+
+display success "Tests passed"
+exit 0

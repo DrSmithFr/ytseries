@@ -1,0 +1,35 @@
+# CI stack: the same services as development, but
+#   - the code comes from the checkout (bind mount), not from a dev mount,
+#   - no port is published (nginx, 5432, 6379, 9200 stay internal),
+#   - nothing is daemonised: `docker compose run --rm php ...` does the work.
+#
+#   docker compose -f compose.yaml -f compose.ci.yaml run --rm php php bin/phpunit
+#   (or `make ci`)
+include:
+  - compose.yaml
+
+services:
+###> php-fpm ###
+  php:
+    # The checkout is mounted where the image expects the code.
+    volumes:
+      - ./:/var/www/back
+    environment:
+      # Panther: chromium runs as root in the container, HOME must be writable.
+      PANTHER_NO_SANDBOX: "1"
+      HOME: /tmp
+###< php-fpm ###
+
+###> symfony/messenger ###
+  worker:
+    volumes:
+      - ./:/var/www/back
+    environment:
+      HOME: /tmp
+###< symfony/messenger ###
+
+###> nginx ###
+  nginx:
+    # Nothing published: the CI only talks to php-fpm through `compose run`.
+    ports: []
+###< nginx ###
