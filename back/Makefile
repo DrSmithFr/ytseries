@@ -1,4 +1,4 @@
-.PHONY: build install reload up down logs sh dependencies assets database fixtures migration test jwt series xdebug
+.PHONY: build install reload up down logs sh dependencies assets database fixtures migration test test-browser jwt jwt-test series xdebug
 
 # All the PHP side runs in the php container (back/Dockerfile).
 # npm/node stay on the host.
@@ -46,11 +46,23 @@ fixtures:
 migration:
 	docker compose exec -T php php bin/console doctrine:migration:diff
 
-test:
+test: jwt-test
 	docker compose exec -T php php bin/phpunit --stop-on-failure
+
+# Panther tests (tests/Functional) need a browser in the php image: ticket #3.
+test-browser: jwt-test
+	docker compose exec -T php php bin/phpunit tests/Functional
 
 jwt:
 	docker compose exec -T php php bin/console lexik:jwt:generate-keypair
+
+# Test keys, same passphrase as phpunit.xml.dist (gitignored, never committed).
+jwt-test:
+	docker compose exec -T php env \
+		JWT_SECRET_KEY=%kernel.project_dir%/config/jwt-test/private.pem \
+		JWT_PUBLIC_KEY=%kernel.project_dir%/config/jwt-test/public.pem \
+		JWT_PASSPHRASE=extzh99p6xfc6u9g2ucrzsqg89rffqcu \
+		php bin/console lexik:jwt:generate-keypair --skip-if-exists -n
 
 series:
 	docker compose exec -T php php bin/console app:series:import

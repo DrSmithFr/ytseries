@@ -25,8 +25,13 @@
     </php>
 
     <testsuites>
+        <!-- Default suite: everything that runs without a browser.
+             Panther tests (tests/Functional) need chromium + libglib in the php
+             image (ticket #3). Run them explicitly with:
+                 php bin/phpunit tests/Functional -->
         <testsuite name="Project Test Suite">
             <directory>tests</directory>
+            <exclude>tests/Functional</exclude>
         </testsuite>
     </testsuites>
 

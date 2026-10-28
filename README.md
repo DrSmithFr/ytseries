@@ -95,7 +95,8 @@ Direct access to phpcs
 Direct access to phpmd
 
     ./aliases.sh phpunit ...
-Direct access to phpunit
+Direct access to phpunit (the Panther tests of `back/tests/Functional` are
+excluded from the default suite: they need a browser in the image, see ticket #3)
 
 ### Useful Docker commands
 

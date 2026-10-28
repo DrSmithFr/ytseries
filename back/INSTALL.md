@@ -39,19 +39,36 @@ The code is mounted in the container at `/var/www/back` by
     make database      # drop/create/migrate
     make fixtures      # doctrine:fixtures:load
     make migration     # doctrine:migration:diff
-    make jwt           # lexik:jwt:generate-keypair
+    make jwt           # lexik:jwt:generate-keypair (dev keys)
+    make jwt-test      # test keys, generated on demand (see below)
     make series        # import + indexation + cache-images
-    make test          # phpunit
+    make test          # phpunit (default suite, no browser needed)
+    make test-browser  # Panther tests (tests/Functional), needs a browser: ticket #3
     make sh            # a shell inside the php container
     make logs          # follow the php logs
     make xdebug CMD="php bin/console ..."   # same command, Xdebug enabled
 
 ## JWT keys
 
-    make jwt
+```
+make jwt        # config/jwt/*.pem
+make jwt-test   # config/jwt-test/*.pem (used by phpunit)
+```
 
-`config/jwt/*.pem` and `config/jwt-test/*.pem` are gitignored: generate them
-before running the API tests.
+Both are gitignored. `make test` runs `jwt-test` first (`--skip-if-exists`), so
+the API tests work on a fresh clone.
+
+## Tests
+
+```
+make test                              # or ./aliases.sh phpunit
+./aliases.sh phpunit tests/Functional  # Panther (browser) tests
+```
+
+`tests/Functional` is excluded from the default suite: Panther needs chromium +
+`libglib-2.0` inside the php image, which is ticket #3. Until then those tests
+are run explicitly (they fail with `chromedriver: error while loading shared
+libraries: libglib-2.0.so.0`).
 
 ## Xdebug
 
