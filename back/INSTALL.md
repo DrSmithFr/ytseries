@@ -4,8 +4,8 @@
 
 # Installation
 
-The whole PHP side of the project runs in Docker: **no PHP, no nginx, no Symfony
-Local Server on the host**. Only Docker and Node/npm are needed.
+The whole PHP side of the project runs in Docker: **no PHP, no Symfony Local
+Server on the host**. Only Docker and Node/npm are needed.
 
   - Install [Docker](https://docs.docker.com/get-docker/) and the [Docker Compose
     plugin](https://docs.docker.com/compose/install/)
@@ -21,7 +21,8 @@ and Xdebug.
 
 | Service | Role |
 |---|---|
-| `php` | php-fpm 8.4 + cli, composer, phpunit/phpcs/phpmd (`back/Dockerfile`) |
+| `nginx` | `nginx:1.29-alpine`, HTTP only on `http://localhost:8080`, conf: [`config/nginx/default.conf`](config/nginx/default.conf) |
+| `php` | php-fpm 8.4 + cli, composer, phpunit/phpcs/phpmd (`back/Dockerfile`), reached by nginx over `php:9000` (port 9000 is not published) |
 | `database` | postgres 16 (`symfony`/`symfony`) |
 | `redis` | redis 7 |
 | `elasticsearch` | elasticsearch 8 |
@@ -29,6 +30,17 @@ and Xdebug.
 
 The code is mounted in the container at `/var/www/back` by
 `compose.override.yaml`, so there is nothing to rebuild when a file changes.
+
+## Accessing the app
+
+The API and the Symfony pages are served by the `nginx` container, **HTTP only**:
+
+    http://localhost:8080          # back office + /api/*
+    http://localhost:8080/documentation   # swagger UI
+
+The front (`ng serve`, port 4200) calls `http://127.0.0.1:8080/api`
+(see `front/src/environments/environment.ts`). The CORS headers come from
+nelmio, not from nginx. Change the published port with `API_PORT=9000 make up`.
 
 ## Make targets
 
@@ -45,7 +57,8 @@ The code is mounted in the container at `/var/www/back` by
     make test          # phpunit (default suite, no browser needed)
     make test-browser  # Panther tests (tests/Functional), needs a browser: ticket #3
     make sh            # a shell inside the php container
-    make logs          # follow the php logs
+    make logs          # follow the php + nginx logs
+    make logs-nginx    # follow the nginx logs only
     make xdebug CMD="php bin/console ..."   # same command, Xdebug enabled
 
 ## JWT keys

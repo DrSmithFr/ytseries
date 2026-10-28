@@ -6,23 +6,28 @@
 
 Everything PHP related runs inside Docker: the `php` service (image built from
 [`back/Dockerfile`](back/Dockerfile), `php:8.4-fpm`) provides php-fpm, the php
-cli, composer, phpunit, phpcs, phpmd and Xdebug. **No PHP and no nginx have to be
-installed on the host**, only Docker and npm.
+cli, composer, phpunit, phpcs, phpmd and Xdebug, and the `nginx` service
+(`nginx:1.29-alpine`) answers HTTP on **`http://localhost:8080`**. **No PHP and
+no nginx have to be installed on the host**, only Docker and npm.
 
   - Install [Docker Engine](https://docs.docker.com/engine/install/) and the [Docker Compose plugin](https://docs.docker.com/compose/install/)
   - Add your user to the `docker` group, using `sudo adduser $USER docker`, then logout/login again
   - Install the latest version of [npm](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04)
   - Then run the `./aliases.sh install` script: it builds the images, starts the containers, installs the composer dependencies, migrates and fills the database
   - Use `ng serve --port={PORT}` (in `front/`) to access the app on `http://localhost:{PORT}/`
+  - The API served by Docker is on `http://localhost:8080` (`/api/...`); the front
+    points at `http://127.0.0.1:8080/api` (`front/src/environments/environment.ts`)
   - if the connexion doesn't work, try
 
          ./aliases.sh console doctrine:migration:migrate
          ./aliases.sh console doctrine:fixtures:load -n
 
-The compose stack lives in [`back/compose.yaml`](back/compose.yaml) (`php`,
-`database`, `redis`, `elasticsearch`) and the dev overrides in
+The compose stack lives in [`back/compose.yaml`](back/compose.yaml) (`nginx`,
+`php`, `database`, `redis`, `elasticsearch`) and the dev overrides in
 [`back/compose.override.yaml`](back/compose.override.yaml) (bind mount of the
-code, host user, mailer).
+code, host user, mailer). The nginx configuration is
+[`back/config/nginx/default.conf`](back/config/nginx/default.conf), mounted in
+the container — there is no vHost nor certificate to set up on the host.
 
 ### Generate your JWT keys
 
@@ -102,6 +107,9 @@ excluded from the default suite: they need a browser in the image, see ticket #3
 
     docker compose -f back/compose.yaml ps|logs|up|down
 State of the containers (or `make -C back up|down|logs`)
+
+    docker compose -f back/compose.yaml logs nginx
+Access log of the API (port 8080)
 
     ./aliases.sh console ...            # same, from the repository root
     docker compose -f back/compose.yaml exec php sh

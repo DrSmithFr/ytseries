@@ -1,4 +1,4 @@
-.PHONY: build install reload up down logs sh dependencies assets database fixtures migration test test-browser jwt jwt-test series xdebug
+.PHONY: build install reload up down logs logs-nginx sh dependencies assets database fixtures migration test test-browser jwt jwt-test series xdebug
 
 # All the PHP side runs in the php container (back/Dockerfile).
 # npm/node stay on the host.
@@ -16,7 +16,10 @@ down:
 	docker compose down
 
 logs:
-	docker compose logs -f php
+	docker compose logs -f php nginx
+
+logs-nginx:
+	docker compose logs -f nginx
 
 sh:
 	docker compose exec php sh

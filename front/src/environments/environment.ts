@@ -7,7 +7,7 @@ export const environment = {
   debug: false,
   analytics: 'G-XXXXXXXXXX',
   api: {
-    url: 'https://127.0.0.1:8000/api',
+    url: 'http://127.0.0.1:8080/api',
     version: '1.0.0',
   },
 };
