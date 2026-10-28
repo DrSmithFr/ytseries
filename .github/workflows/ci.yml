@@ -16,6 +16,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # compose.ci.yaml runs the containers as ${UID}:${GID} so that the files
+      # written by composer/phpunit stay usable; on the runner those variables
+      # are not exported, give them the real ids of the checkout owner.
+      - name: Compose user
+        run: |
+          echo "UID=$(id -u)" >> "$GITHUB_ENV"
+          echo "GID=$(id -g)" >> "$GITHUB_ENV"
+
       - name: Cache composer dependencies
         uses: actions/cache@v4
         with:
