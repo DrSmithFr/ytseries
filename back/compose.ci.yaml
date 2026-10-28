@@ -11,17 +11,20 @@ include:
 services:
 ###> php-fpm ###
   php:
-    # The checkout is mounted where the image expects the code.
+    # Run as the user owning the checkout: the files written by composer,
+    # phpunit or the jwt generation stay usable on the host.
+    user: "${UID:-1000}:${GID:-1000}"
     volumes:
       - ./:/var/www/back
     environment:
-      # Panther: chromium runs as root in the container, HOME must be writable.
+      # Panther: chromium runs with the CI user, HOME must be writable.
       PANTHER_NO_SANDBOX: "1"
       HOME: /tmp
 ###< php-fpm ###
 
 ###> symfony/messenger ###
   worker:
+    user: "${UID:-1000}:${GID:-1000}"
     volumes:
       - ./:/var/www/back
     environment:
@@ -31,5 +34,5 @@ services:
 ###> nginx ###
   nginx:
     # Nothing published: the CI only talks to php-fpm through `compose run`.
-    ports: []
+    ports: !reset []
 ###< nginx ###

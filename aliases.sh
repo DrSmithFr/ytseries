@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
-# Every PHP tool now runs inside the php container (see back/Dockerfile):
-# no PHP, no Symfony Local Server on the host anymore.
+# no PHP, no local Symfony server on the host anymore: every PHP tool runs
+# inside the php container (see back/Dockerfile).
 #
 # The compose stack lives in back/ (compose.yaml + compose.override.yaml).
 export UID GID
@@ -39,12 +39,14 @@ function phpcs() {
 }
 
 function phpmd() {
+    # -d: pdepend is not PHP 8.4 clean yet, its deprecations only pollute the
+    # hook output.
     # Without argument: the whole src/. With arguments (relative to back/, the
     # container workdir): only those files, so a git hook does not rescan src/.
     if [ "$#" -eq 0 ]; then
-        php_run php vendor/phpmd/phpmd/src/bin/phpmd src text ruleset.xml --exclude src/Migrations || exit $?
+        php_run php -d 'error_reporting=E_ALL & ~E_DEPRECATED' vendor/bin/phpmd src text phpmd.xml --exclude src/Migrations || exit $?
     else
-        php_run php vendor/phpmd/phpmd/src/bin/phpmd "$@" text ruleset.xml || exit $?
+        php_run php -d 'error_reporting=E_ALL & ~E_DEPRECATED' vendor/bin/phpmd "$@" text phpmd.xml || exit $?
     fi
 }
 

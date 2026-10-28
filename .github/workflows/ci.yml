@@ -37,7 +37,7 @@ jobs:
         run: docker compose -f compose.yaml -f compose.ci.yaml run --rm php vendor/bin/phpcs --ignore=vendor,bin,src/Migrations,pub,config src
 
       - name: PHPMD (mess detector)
-        run: docker compose -f compose.yaml -f compose.ci.yaml run --rm php vendor/phpmd/phpmd/src/bin/phpmd src text ruleset.xml --exclude src/Migrations
+        run: docker compose -f compose.yaml -f compose.ci.yaml run --rm php vendor/bin/phpmd src text phpmd.xml --exclude src/Migrations
 
       # Test keys, same passphrase as phpunit.xml.dist (never committed).
       - name: JWT test keys

@@ -10,6 +10,7 @@ use Elastica\Query;
 use Elastica\Query\BoolQuery;
 use Elastica\Query\MatchQuery;
 use Elastica\Query\MultiMatch;
+use Elastica\Result;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,9 +23,27 @@ class SearchController extends AbstractController
         Request $request,
         SearchService $searchService
     ): JsonResponse {
+        $result = $searchService->getIndex()->search(self::buildQuery($request));
+
+        return new JsonResponse(
+            [
+                'assets'  => self::extractAssets($result),
+                'filters' => [
+                    'locales'    => $result->getAggregation('locales')['buckets'],
+                    'types'      => $result->getAggregation('types')['buckets'],
+                    'categories' => $result->getAggregation('categories')['buckets'],
+                ],
+            ]
+        );
+    }
+
+    /**
+     * Elastica query: full text search + json filters + aggregations.
+     */
+    private static function buildQuery(Request $request): Query
+    {
         $query = new Query();
         $customSearch = new BoolQuery();
-
 
         if ($search = $request->get('query')) {
             // add exact match query
@@ -57,26 +76,7 @@ class SearchController extends AbstractController
             $customSearch->addMust(new Query\MatchAll());
         }
 
-        if ($jsonFilters = $request->get('filters')) {
-            $filters = json_decode($jsonFilters, true);
-            foreach ($filters as $field => $value) {
-                if ($value === null) {
-                    continue;
-                }
-
-                if (is_array($value)) {
-                    foreach ($value as $v) {
-                        $filterMatch = new MatchQuery();
-                        $filterMatch->setFieldQuery($field, $v);
-                        $customSearch->addMust($filterMatch);
-                    }
-                } else {
-                    $filterMatch = new MatchQuery();
-                    $filterMatch->setFieldQuery($field, $value);
-                    $customSearch->addMust($filterMatch);
-                }
-            }
-        }
+        self::addFilters($customSearch, $request);
 
         $query->setQuery($customSearch);
 
@@ -101,9 +101,40 @@ class SearchController extends AbstractController
             (new Terms('categories'))->setField('categories')
         );
 
-        $result = $searchService->getIndex()->search($query);
+        return $query;
+    }
 
+    /**
+     * "filters" request parameter: a json object field => value (or array of values).
+     */
+    private static function addFilters(BoolQuery $customSearch, Request $request): void
+    {
+        $jsonFilters = $request->get('filters');
+
+        if (!$jsonFilters) {
+            return;
+        }
+
+        foreach (json_decode($jsonFilters, true) as $field => $value) {
+            if ($value === null) {
+                continue;
+            }
+
+            foreach (is_array($value) ? $value : [$value] as $v) {
+                $filterMatch = new MatchQuery();
+                $filterMatch->setFieldQuery($field, $v);
+                $customSearch->addMust($filterMatch);
+            }
+        }
+    }
+
+    /**
+     * Source of every hit, with the highlighted name when there is one.
+     */
+    private static function extractAssets(Result $result): array
+    {
         $assets = [];
+
         foreach ($result as $asset) {
             $assetData = $asset->getSource();
 
@@ -116,17 +147,6 @@ class SearchController extends AbstractController
             $assets[] = $assetData;
         }
 
-        $filters = [
-            'locales'    => $result->getAggregation('locales')['buckets'],
-            'types'      => $result->getAggregation('types')['buckets'],
-            'categories' => $result->getAggregation('categories')['buckets'],
-        ];
-
-        return new JsonResponse(
-            [
-                'assets'  => $assets,
-                'filters' => $filters,
-            ]
-        );
+        return $assets;
     }
 }

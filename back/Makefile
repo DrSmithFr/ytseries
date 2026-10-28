@@ -2,9 +2,11 @@
 
 # All the PHP side runs in the php container (back/Dockerfile).
 # npm/node stay on the host.
+NVM_DIR ?= $(HOME)/.nvm
 
 # CI stack: same services, code taken from the checkout, no published port.
-CI = docker compose -f compose.yaml -f compose.ci.yaml
+# Its own project name (-p) so that `make ci` never touches the dev containers.
+CI = docker compose -p back-ci -f compose.yaml -f compose.ci.yaml
 
 build: reload dependencies assets database fixtures series
 
@@ -36,10 +38,10 @@ dependencies:
 
 assets:
 	docker compose exec -T php php bin/console assets:install --symlink
-	. ${NVM_DIR}/nvm.sh && nvm use $(cat .nvmrc) && npm install && npm run build
+	. ${NVM_DIR}/nvm.sh && nvm use $$(cat .nvmrc) && npm install && npm run build
 
 nvm:
-	. ${NVM_DIR}/nvm.sh && nvm install $(cat .nvmrc)
+	. ${NVM_DIR}/nvm.sh && nvm install $$(cat .nvmrc)
 
 database:
 	-docker compose exec -T php php bin/console doctrine:database:drop --force
@@ -85,14 +87,14 @@ consume:
 
 # Encore watch: npm stays on the host (the container has no node).
 watch:
-	. ${NVM_DIR}/nvm.sh && nvm use $(cat .nvmrc) && npm run watch
+	. ${NVM_DIR}/nvm.sh && nvm use $$(cat .nvmrc) && npm run watch
 
 # Full check of the back, in containers, from the checkout: no PHP on the host.
 ci:
 	$(CI) up -d --wait database redis elasticsearch
 	$(CI) run --rm php composer install --no-interaction --prefer-dist
 	$(CI) run --rm php vendor/bin/phpcs --ignore=vendor,bin,src/Migrations,pub,config src
-	$(CI) run --rm php vendor/phpmd/phpmd/src/bin/phpmd src text ruleset.xml --exclude src/Migrations
+	$(CI) run --rm php vendor/bin/phpmd src text phpmd.xml --exclude src/Migrations
 	$(CI) run --rm php env \
 		JWT_SECRET_KEY=%kernel.project_dir%/config/jwt-test/private.pem \
 		JWT_PUBLIC_KEY=%kernel.project_dir%/config/jwt-test/public.pem \

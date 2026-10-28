@@ -54,7 +54,7 @@ class YoutubeService
     }
 
 
-    public function getEpisodesFormPlaylist(string $code, string $page = null): array
+    public function getEpisodesFormPlaylist(string $code, ?string $page = null): array
     {
         $params = [
             'playlistId' => $code,
@@ -113,7 +113,7 @@ class YoutubeService
             throw new RuntimeException('cannot process more than 50 episodes');
         }
 
-        $API_URL = $this->youtube->getApi('videos.list');
+        $apiUrl = $this->youtube->getApi('videos.list');
 
         $codes = array_map(
             static function (Episode $ep) {
@@ -127,7 +127,7 @@ class YoutubeService
             'part' => 'contentDetails',
         ];
 
-        $apiData = $this->youtube->api_get($API_URL, $params);
+        $apiData = $this->youtube->api_get($apiUrl, $params);
         $datas   = $this->youtube->decodeList($apiData);
 
         $result = [];

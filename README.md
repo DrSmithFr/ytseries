@@ -23,9 +23,10 @@ no nginx have to be installed on the host**, only Docker and npm.
          ./aliases.sh console doctrine:fixtures:load -n
 
 The compose stack lives in [`back/compose.yaml`](back/compose.yaml) (`nginx`,
-`php`, `database`, `redis`, `elasticsearch`) and the dev overrides in
+`php`, `worker`, `database`, `redis`, `elasticsearch`) and the dev overrides in
 [`back/compose.override.yaml`](back/compose.override.yaml) (bind mount of the
-code, host user, mailer). The nginx configuration is
+code, host user, mailer). The CI overrides, without any published port, are in
+[`back/compose.ci.yaml`](back/compose.ci.yaml). The nginx configuration is
 [`back/config/nginx/default.conf`](back/config/nginx/default.conf), mounted in
 the container — there is no vHost nor certificate to set up on the host.
 
@@ -70,11 +71,35 @@ They are inject inside `.git/hooks` using symbolic link.
 - JS console.log finder
 - PHP dump finder
 - Merge tag finder
-- PSR-2 checkup
-- PHP Mess Detector Checkup
+- PSR-2 checkup (phpcs)
+- PHP Mess Detector Checkup (phpmd)
 - TsLint checkup
 
-Checks will run only over the committed code base
+Checks will run only over the committed code base, inside the php container.
+
+#### pre-push checkup
+
+The whole phpunit suite, Panther tests included. Skip it with `git push --no-verify`.
+
+They are linked into the git hooks directory by `make -C back hooks` (or
+`./aliases.sh install`).
+
+### Workers
+
+    make -C back worker     # messenger consumer, as a container (messenger:consume async)
+    make -C back consume    # same consumer, one shot, in the foreground
+    make -C back watch      # encore dev --watch (npm on the host)
+    make -C back logs       # php + nginx + worker
+
+### Continuous integration
+
+    make -C back ci         # composer install + phpcs + phpmd + phpunit, in containers
+
+Same steps on every push / pull request with
+[`.github/workflows/ci.yml`](.github/workflows/ci.yml) (plus a `npm ci && npm
+run build` job for the front). The CI stack is `back/compose.yaml` +
+`back/compose.ci.yaml`: same services, code taken from the checkout, no published
+port.
 
 ## Every day usage
 
@@ -100,8 +125,8 @@ Direct access to phpcs
 Direct access to phpmd
 
     ./aliases.sh phpunit ...
-Direct access to phpunit (the Panther tests of `back/tests/Functional` are
-excluded from the default suite: they need a browser in the image, see ticket #3)
+Direct access to phpunit (full suite, the Panther tests of
+`back/tests/Functional` included: chromium lives in the php image)
 
 ### Useful Docker commands
 
